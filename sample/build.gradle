@@ -1,0 +1,68 @@
+plugins {
+    alias libs.plugins.android.application
+    alias libs.plugins.kotlin.android
+}
+
+android {
+    namespace 'me.lincolnstuart.funblocks.sample'
+    compileSdk 33
+
+    defaultConfig {
+        applicationId "me.lincolnstuart.funblocks.sample"
+        minSdk 26
+        targetSdk 33
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        vectorDrawables {
+            useSupportLibrary true
+        }
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+    buildFeatures {
+        compose true
+    }
+    composeOptions {
+        kotlinCompilerExtensionVersion '1.4.2'
+    }
+    packagingOptions {
+        resources {
+            excludes += '/META-INF/{AL2.0,LGPL2.1}'
+        }
+    }
+}
+
+dependencies {
+    implementation(libs.android.x.core.ktx)
+    implementation(libs.android.x.lifecycle.runtime.ktx)
+    implementation(libs.bundles.compose)
+    implementation(libs.compose.icons)
+    implementation(libs.material)
+    implementation(libs.kotlinx.datetime)
+    implementation(project(':foundation'))
+    implementation(project(':components:essentials'))
+    implementation(project(':components:core'))
+    implementation(project(':components:period'))
+    implementation(project(':components:chart'))
+
+    testImplementation libs.junit
+    androidTestImplementation(libs.android.x.junit)
+    androidTestImplementation(libs.android.x.espresso.core)
+    androidTestImplementation(libs.compose.test)
+    debugImplementation(libs.compose.tooling)
+    debugImplementation(libs.compose.test.manifest)
+}
