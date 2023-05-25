@@ -12,7 +12,8 @@ import me.lincolnstuart.funblocks.core.spacer.VerticalSpacer
 import me.lincolnstuart.funblocks.core.surface.Surface
 import me.lincolnstuart.funblocks.essentials.form.button.utils.ButtonMode
 import me.lincolnstuart.funblocks.essentials.form.button.utils.ButtonOptions
-import me.lincolnstuart.funblocks.essentials.helper.Clickable
+import me.lincolnstuart.funblocks.essentials.helper.clickable.Clickable
+import me.lincolnstuart.funblocks.essentials.helper.clickable.utils.ClickableOptions
 import me.lincolnstuart.funblocks.foundation.ui.theme.FunBlocksTheme
 import me.lincolnstuart.funblocks.foundation.ui.token.color.FunBlocksColors
 import me.lincolnstuart.funblocks.foundation.ui.token.content.spacing.FunBlocksSpacing
@@ -29,14 +30,16 @@ public fun Button(
     Clickable(
         description = description,
         onClick = onClick,
-        backgroundColor = mode.backgroundColor,
-        borderColor = FunBlocksColors.Transparent,
-        contentColor = mode.contentColor,
-        shape = type.shape,
+        options = ClickableOptions(
+            backgroundColor = mode.backgroundColor,
+            borderColor = FunBlocksColors.Transparent,
+            contentColor = mode.contentColor,
+            shape = type.shape,
+            iconSize = IconSize.Small
+        ),
         isEnabled = isEnabled,
         startIcon = startIcon,
         endIcon = endIcon,
-        iconSize = IconSize.Small,
         paddingValues = type.paddingValues
     )
 }

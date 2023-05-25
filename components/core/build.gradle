@@ -3,6 +3,8 @@ plugins {
     alias libs.plugins.kotlin.android
 }
 
+apply from: "$rootDir/config/detekt/detekt.gradle"
+
 android {
     namespace 'me.lincolnstuart.funblocks.core'
     compileSdk 33

@@ -12,6 +12,8 @@ import java.math.BigDecimal
  */
 internal object CartesianPlaneHelper {
 
+    private const val FACTOR: Int = 1000
+
     fun getRelevantDateReferences(points: List<LocalDate>, maxValues: Int): List<LocalDate> {
         val daysCount = points.min().until(other = points.max(), unit = DateTimeUnit.DAY)
         val leapCount = daysCount.getIdealCount(currentCount = maxValues)
@@ -32,7 +34,7 @@ internal object CartesianPlaneHelper {
     }
 
     fun getRelevantDecimalReferences(points: List<BigDecimal>, maxValues: Int): List<BigDecimal> {
-        val factor = BigDecimal(1000)
+        val factor = BigDecimal(FACTOR)
         val difference = (points.max().minus(points.min())).multiply(factor).toInt()
         val leapCount = difference.getIdealCount(maxValues)
         val leapSize = difference / leapCount

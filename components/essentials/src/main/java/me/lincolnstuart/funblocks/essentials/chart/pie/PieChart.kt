@@ -3,9 +3,9 @@ package me.lincolnstuart.funblocks.essentials.chart.pie
 import androidx.compose.runtime.Composable
 import me.lincolnstuart.funblocks.chart.pie.BasicPieChart
 import me.lincolnstuart.funblocks.chart.pie.utils.PieChartPiece
-import me.lincolnstuart.funblocks.chart.utils.structure.ChartDecorator
 import me.lincolnstuart.funblocks.essentials.chart.pie.utils.PieChartOptions
 import me.lincolnstuart.funblocks.essentials.chart.utils.legend.utils.ChartLegendOptions
+import me.lincolnstuart.funblocks.essentials.chart.utils.structure.ChartDecorator
 
 /**
  * Pie chart that could be a donut as well.

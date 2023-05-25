@@ -31,7 +31,10 @@ internal class CartesianPlane<V, H>(
             style = Stroke(options.lineWidth.toPx()),
             size = Size(options.space.width, options.space.height)
         )
-        val pathEffect = PathEffect.dashPathEffect(floatArrayOf(10f, 10f), 0f)
+        val pathEffect = PathEffect.dashPathEffect(
+            intervals = floatArrayOf(DEFAULT_LINE_INTERVAL, DEFAULT_LINE_INTERVAL),
+            phase = 0f
+        )
         bindHorizontalLines(pathEffect)
         if (options.isVerticalLinesVisible) {
             bindVerticalLines(pathEffect)
@@ -114,5 +117,9 @@ internal class CartesianPlane<V, H>(
                 style = textStyle
             )
         }
+    }
+
+    private companion object {
+        const val DEFAULT_LINE_INTERVAL: Float = 10f
     }
 }

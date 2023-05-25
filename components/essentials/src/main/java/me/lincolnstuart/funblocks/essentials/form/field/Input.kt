@@ -13,6 +13,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Brush
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.TextLayoutResult
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.input.ImeAction
@@ -30,6 +31,7 @@ import me.lincolnstuart.funblocks.core.text.utils.topic.TopicSize
 import me.lincolnstuart.funblocks.essentials.form.utils.BasicInputSkeleton
 import me.lincolnstuart.funblocks.foundation.ui.theme.FunBlocksTheme
 import me.lincolnstuart.funblocks.foundation.ui.theme.LocalTheme
+import me.lincolnstuart.funblocks.foundation.ui.theme.Theme
 import me.lincolnstuart.funblocks.foundation.ui.token.color.FunBlocksColors
 
 /**
@@ -54,9 +56,9 @@ import me.lincolnstuart.funblocks.foundation.ui.token.color.FunBlocksColors
  * is called. Note that this IME action may be different from what you specified in
  * [KeyboardOptions.imeAction].
  * @param maxLines the maximum height in terms of maximum number of visible lines. It is required
- * that 1 <= [minLines] <= [maxLines]. This parameter is ignored when [singleLine] is true.
+ * that 1 <= [minLines] <= [maxLines].
  * @param minLines the minimum height in terms of minimum number of visible lines. It is required
- * that 1 <= [minLines] <= [maxLines]. This parameter is ignored when [singleLine] is true.
+ * that 1 <= [minLines] <= [maxLines].
  * @param visualTransformation The visual transformation filter for changing the visual
  * representation of the input. By default no visual transformation is applied.
  * @param onTextLayout Callback that is executed when a new text layout is calculated. A
@@ -84,15 +86,7 @@ public fun Input(
 ) {
     val theme = LocalTheme.current
     val textColor = FunBlocksColors.Neutral.value()
-    val style = remember {
-        val mode = TextMode.Regular()
-        TextStyle(
-            fontFamily = theme.fontFamily,
-            fontWeight = mode.fontWeight,
-            fontSize = mode.fontSize,
-            color = textColor
-        )
-    }
+    val style = rememberStyle(theme = theme, textColor = textColor)
     BasicTextField(
         value = value,
         onValueChange = onValueChange,
@@ -140,6 +134,20 @@ public fun Input(
                 }
             )
         }
+    )
+}
+
+@Composable
+private fun rememberStyle(
+    theme: Theme,
+    textColor: Color
+) = remember {
+    val mode = TextMode.Regular()
+    TextStyle(
+        fontFamily = theme.fontFamily,
+        fontWeight = mode.fontWeight,
+        fontSize = mode.fontSize,
+        color = textColor
     )
 }
 

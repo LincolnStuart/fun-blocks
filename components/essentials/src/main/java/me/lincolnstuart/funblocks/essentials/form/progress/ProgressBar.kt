@@ -27,6 +27,8 @@ import me.lincolnstuart.funblocks.foundation.ui.token.content.shape.FunBlocksCor
 import me.lincolnstuart.funblocks.foundation.ui.token.content.spacing.FunBlocksInset
 import me.lincolnstuart.funblocks.foundation.ui.token.content.spacing.FunBlocksSpacing
 
+private const val FULL_PERCENTAGE: Float = 100f
+
 /**
  * Basic progress bar by percent value.
  *
@@ -43,7 +45,7 @@ public fun ProgressBar(
     paddingValues: PaddingValues = PaddingValues()
 ) {
     val percentageProgress = remember(percent) {
-        percent / 100f
+        percent / FULL_PERCENTAGE
     }
     val progress by animateFloatAsState(
         targetValue = percentageProgress,

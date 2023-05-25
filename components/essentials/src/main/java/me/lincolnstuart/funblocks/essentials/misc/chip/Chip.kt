@@ -16,7 +16,8 @@ import compose.icons.tablericons.X
 import me.lincolnstuart.funblocks.core.icon.utils.IconSize
 import me.lincolnstuart.funblocks.core.spacer.VerticalSpacer
 import me.lincolnstuart.funblocks.core.surface.Surface
-import me.lincolnstuart.funblocks.essentials.helper.Clickable
+import me.lincolnstuart.funblocks.essentials.helper.clickable.Clickable
+import me.lincolnstuart.funblocks.essentials.helper.clickable.utils.ClickableOptions
 import me.lincolnstuart.funblocks.foundation.ui.theme.FunBlocksTheme
 import me.lincolnstuart.funblocks.foundation.ui.token.color.FunBlocksColors
 import me.lincolnstuart.funblocks.foundation.ui.token.content.shape.FunBlocksCornerRadius
@@ -52,14 +53,16 @@ public fun Chip(
     Clickable(
         description = description,
         onClick = onClick,
-        backgroundColor = backgroundColor,
-        borderColor = FunBlocksColors.Primary,
-        contentColor = contentColor,
-        shape = FunBlocksCornerRadius.full,
+        options = ClickableOptions(
+            backgroundColor = backgroundColor,
+            borderColor = FunBlocksColors.Primary,
+            contentColor = contentColor,
+            shape = FunBlocksCornerRadius.full,
+            iconSize = IconSize.Tiny
+        ),
         isEnabled = isEnabled,
         startIcon = startIcon,
         endIcon = endIcon,
-        iconSize = IconSize.Tiny,
         paddingValues = FunBlocksInset.small,
         modifier = Modifier.width(intrinsicSize = IntrinsicSize.Max)
     )

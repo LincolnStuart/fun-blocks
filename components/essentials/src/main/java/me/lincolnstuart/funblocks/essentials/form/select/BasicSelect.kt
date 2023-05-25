@@ -20,6 +20,7 @@ import me.lincolnstuart.funblocks.core.icon.utils.IconSize
 import me.lincolnstuart.funblocks.core.text.Text
 import me.lincolnstuart.funblocks.core.text.utils.TextMode
 import me.lincolnstuart.funblocks.core.text.utils.topic.TopicSize
+import me.lincolnstuart.funblocks.essentials.form.select.utils.SelectOptions
 import me.lincolnstuart.funblocks.essentials.form.utils.BasicInputSkeleton
 import me.lincolnstuart.funblocks.essentials.misc.notification.utils.Counter
 import me.lincolnstuart.funblocks.foundation.ui.token.content.border.FunBlocksBorderWidth
@@ -29,28 +30,18 @@ import me.lincolnstuart.funblocks.foundation.ui.token.content.spacing.FunBlocksS
 /**
  * Generic select responsible to draw an basic select component.
  *
- * @param label input label.
- * @param selectedItem [String] that represents what item was selected.
- * @param placeholder a clue to fill the input.
- * @param expandOptionDescription a description to arrow down icon.
- * @param counter number of items selected.
- * @param error associated message.
+ * @param options customized options.
  * @param paddingValues it is recommended to use [FunBlocksSpacing] or [FunBlocksInset].
  * @param onClick callback that executes when click is performed.
  * @param contentOptions options that will be showed when the click is performed.
  */
 @Composable
 internal fun BasicSelect(
-    label: String?,
-    selectedItem: String,
-    placeholder: String?,
-    expandOptionDescription: String?,
-    counter: Int?,
-    error: String?,
+    options: SelectOptions,
     paddingValues: PaddingValues,
     onClick: () -> Unit,
     contentOptions: @Composable () -> Unit
-) {
+) = with(options) {
     BasicInputSkeleton(
         content = {
             Column {
@@ -58,7 +49,6 @@ internal fun BasicSelect(
                     label = label,
                     value = selectedItem,
                     placeholder = placeholder,
-                    icon = TablerIcons.ChevronDown,
                     expandOptionDescription = expandOptionDescription,
                     counter = counter
                 )
@@ -77,7 +67,6 @@ private fun SelectInput(
     label: String?,
     value: String,
     placeholder: String?,
-    icon: ImageVector,
     expandOptionDescription: String?,
     counter: Int?
 ) {
@@ -106,7 +95,7 @@ private fun SelectInput(
             )
         }
         SelectOption(
-            icon = icon,
+            icon = TablerIcons.ChevronDown,
             description = expandOptionDescription
         )
     }

@@ -61,17 +61,11 @@ public fun BasicLineChart(
     formatLocalDate: (LocalDate) -> String = { it.toString() }
 ) {
     val textMeasurer = rememberTextMeasurer()
-    val animationProgress = remember {
-        if (isAnimated) Animatable(0f) else Animatable(1f)
-    }
-    val allPoints = remember(paths) {
-        paths.flatMap { it.points }.sortedBy { it.date }
-    }
+    val animationProgress = rememberAnimationProgress(isAnimated)
+    val allPoints = rememberAllPoints(paths)
     val lineColor = FunBlocksColors.Border.value()
     val textColor = FunBlocksColors.Neutral.value()
-    val mode = remember {
-        TextMode.Regular()
-    }
+    val mode = remember { TextMode.Regular() }
     val theme = LocalTheme.current
     Spacer(
         modifier = Modifier
@@ -99,12 +93,12 @@ public fun BasicLineChart(
                             ),
                             referenceValues = CartesianPlaneReferenceValues(
                                 horizontalValues = CartesianPlaneHelper.getRelevantDateReferences(
-                                    allPoints.map { it.date },
-                                    4
+                                    points = allPoints.map { it.date },
+                                    maxValues = 4
                                 ),
                                 verticalValues = CartesianPlaneHelper.getRelevantDecimalReferences(
-                                    allPoints.map { it.value },
-                                    3
+                                    points = allPoints.map { it.value },
+                                    maxValues = 3
                                 )
                             ),
                             formatHorizontalReferenceValue = formatLocalDate,
@@ -121,8 +115,19 @@ public fun BasicLineChart(
             }
     )
     LaunchedEffect(Unit) {
-        animationProgress.animateTo(1f, tween(3000))
+        animationProgress.animateTo(targetValue = 1f, animationSpec = tween(durationMillis = 3000))
     }
+}
+
+@Composable
+private fun rememberAllPoints(paths: List<LineChartPath>) =
+    remember(paths) {
+        paths.flatMap { it.points }.sortedBy { it.date }
+    }
+
+@Composable
+private fun rememberAnimationProgress(isAnimated: Boolean) = remember {
+    if (isAnimated) Animatable(0f) else Animatable(1f)
 }
 
 private fun DrawScope.drawPaths(
@@ -220,15 +225,15 @@ private fun BasicLineChartPreview() {
                             points = listOf(
                                 LineChartPoint(
                                     value = BigDecimal("1"),
-                                    date = LocalDate(1990, 10, 12)
+                                    date = LocalDate(year = 1990, monthNumber = 10, dayOfMonth = 12)
                                 ),
                                 LineChartPoint(
                                     value = BigDecimal("10"),
-                                    date = LocalDate(1944, 11, 17)
+                                    date = LocalDate(year = 1944, monthNumber = 11, dayOfMonth = 17)
                                 ),
                                 LineChartPoint(
                                     value = BigDecimal("7"),
-                                    date = LocalDate(1944, 11, 17)
+                                    date = LocalDate(year = 1944, monthNumber = 11, dayOfMonth = 17)
                                 )
                             ),
                             color = FunBlocksColors.Data1.value()

@@ -1,4 +1,4 @@
-package me.lincolnstuart.funblocks.essentials.helper
+package me.lincolnstuart.funblocks.essentials.helper.clickable
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
@@ -11,16 +11,14 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.alpha
 import androidx.compose.ui.draw.clip
-import androidx.compose.ui.graphics.Shape
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.text.style.TextOverflow
-import me.lincolnstuart.funblocks.core.icon.utils.IconSize
 import me.lincolnstuart.funblocks.core.text.Text
 import me.lincolnstuart.funblocks.core.text.utils.TextMode
-import me.lincolnstuart.funblocks.foundation.ui.token.color.FunBlocksColors
+import me.lincolnstuart.funblocks.essentials.helper.SimpleItem
+import me.lincolnstuart.funblocks.essentials.helper.clickable.utils.ClickableOptions
 import me.lincolnstuart.funblocks.foundation.ui.token.color.alpha.FunBlocksAlpha
 import me.lincolnstuart.funblocks.foundation.ui.token.content.border.FunBlocksBorderWidth
-import me.lincolnstuart.funblocks.foundation.ui.token.content.shape.FunBlocksCornerRadius
 import me.lincolnstuart.funblocks.foundation.ui.token.content.spacing.FunBlocksInset
 import me.lincolnstuart.funblocks.foundation.ui.token.content.spacing.FunBlocksSpacing
 
@@ -29,14 +27,10 @@ import me.lincolnstuart.funblocks.foundation.ui.token.content.spacing.FunBlocksS
  *
  * @param description text description.
  * @param onClick callback that executes when click is performed.
- * @param backgroundColor [FunBlocksColors].
- * @param borderColor [FunBlocksColors].
- * @param contentColor [FunBlocksColors] of text and icons.
- * @param shape it is recommended to use [FunBlocksCornerRadius].
+ * @param options customized options.
  * @param isEnabled if the clickable area could perform a click.
  * @param startIcon [ImageVector] that will be showed at the start of this component.
  * @param endIcon [ImageVector] that will be showed at the end of this component.
- * @param iconSize [IconSize].
  * @param paddingValues it is recommended to use [FunBlocksSpacing] or [FunBlocksInset].
  * @param modifier optional [Modifier].
  */
@@ -44,17 +38,13 @@ import me.lincolnstuart.funblocks.foundation.ui.token.content.spacing.FunBlocksS
 fun Clickable(
     description: String,
     onClick: (() -> Unit),
-    backgroundColor: FunBlocksColors,
-    borderColor: FunBlocksColors,
-    contentColor: FunBlocksColors,
-    shape: Shape,
+    options: ClickableOptions,
     isEnabled: Boolean,
-    startIcon: ImageVector?,
-    endIcon: ImageVector?,
-    iconSize: IconSize,
     paddingValues: PaddingValues,
-    modifier: Modifier = Modifier
-) {
+    modifier: Modifier = Modifier,
+    startIcon: ImageVector? = null,
+    endIcon: ImageVector? = null
+) = with(options) {
     val alpha = remember(isEnabled) {
         if (isEnabled) FunBlocksAlpha.visible else FunBlocksAlpha.medium
     }

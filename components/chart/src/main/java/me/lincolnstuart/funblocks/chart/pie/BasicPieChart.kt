@@ -21,6 +21,8 @@ import me.lincolnstuart.funblocks.chart.pie.utils.PieChartType
 import me.lincolnstuart.funblocks.foundation.ui.token.content.size.FunBlocksContentSize
 import java.math.BigDecimal
 
+private const val INITIAL_ANGLE: Float = 270f
+
 /**
  * Pie chart that could be a donut as well.
  *
@@ -50,7 +52,7 @@ fun BasicPieChart(
             .size(size)
             .rotate(rotation)
             .drawWithCache {
-                var currentAngle = 270f
+                var currentAngle = INITIAL_ANGLE
                 onDrawBehind {
                     data.forEach { piece ->
                         val pieceArea = piece.getArea(totalSum).toFloat()

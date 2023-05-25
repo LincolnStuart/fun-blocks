@@ -1,6 +1,7 @@
 package me.lincolnstuart.funblocks.chart.bar
 
 import androidx.compose.animation.core.Animatable
+import androidx.compose.animation.core.AnimationVector1D
 import androidx.compose.animation.core.tween
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -12,6 +13,7 @@ import androidx.compose.ui.draw.drawWithCache
 import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.geometry.Size
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.drawscope.DrawScope
 import androidx.compose.ui.graphics.drawscope.clipRect
 import androidx.compose.ui.text.ExperimentalTextApi
 import androidx.compose.ui.text.TextStyle
@@ -53,14 +55,10 @@ fun BasicBarChart(
     formatLocalDate: (LocalDate) -> String = { it.toString() }
 ) {
     val textMeasurer = rememberTextMeasurer()
-    val animationProgress = remember {
-        if (isAnimated) Animatable(1f) else Animatable(0f)
-    }
+    val animationProgress = rememberAnimationProgress(isAnimated)
     val lineColor = FunBlocksColors.Border.value()
     val textColor = FunBlocksColors.Neutral.value()
-    val mode = remember {
-        TextMode.Regular()
-    }
+    val mode = remember { TextMode.Regular() }
     val theme = LocalTheme.current
     Spacer(
         modifier = androidx.compose.ui.Modifier
@@ -103,24 +101,48 @@ fun BasicBarChart(
                             formatVerticalReferenceValue = formatBigDecimal
                         )
                     ).drawCartesianPlane()
-                    val barWidth = size.width / ((values.size * 2) + 1)
-                    val barHeight = cartesianPlaneSpace.height
-                    var startOfSet = barWidth
-                    clipRect(top = barHeight * animationProgress.value) {
-                        values.forEach { bar ->
-                            val y = bar.value.toFloat() / barHeight * barHeight
-                            drawRect(
-                                color = color.copy(alpha = FunBlocksAlpha.high),
-                                topLeft = Offset(x = startOfSet, y = barHeight - y),
-                                size = Size(width = barWidth, height = y)
-                            )
-                            startOfSet += barWidth * 2
-                        }
-                    }
+                    drawBars(
+                        values = values,
+                        cartesianPlaneSpace = cartesianPlaneSpace,
+                        animationProgress = animationProgress,
+                        color = color
+                    )
                 }
             }
     )
-    LaunchedEffect(Unit) {
-        if (isAnimated) animationProgress.animateTo(0f, tween(3000))
+    LaunchedEffect(Unit) { if (isAnimated) animateBars(animationProgress) }
+}
+
+private suspend fun animateBars(animationProgress: Animatable<Float, AnimationVector1D>) {
+    animationProgress.animateTo(
+        targetValue = 0f,
+        animationSpec = tween(durationMillis = 3000)
+    )
+}
+
+private fun DrawScope.drawBars(
+    values: List<BarChartValue>,
+    cartesianPlaneSpace: CartesianPlaneSpace,
+    animationProgress: Animatable<Float, AnimationVector1D>,
+    color: Color
+) {
+    val barWidth = size.width / ((values.size * 2) + 1)
+    val barHeight = cartesianPlaneSpace.height
+    var startOfSet = barWidth
+    clipRect(top = barHeight * animationProgress.value) {
+        values.forEach { bar ->
+            val y = bar.value.toFloat() / barHeight * barHeight
+            drawRect(
+                color = color.copy(alpha = FunBlocksAlpha.high),
+                topLeft = Offset(x = startOfSet, y = barHeight - y),
+                size = Size(width = barWidth, height = y)
+            )
+            startOfSet += barWidth * 2
+        }
     }
+}
+
+@Composable
+private fun rememberAnimationProgress(isAnimated: Boolean) = remember {
+    if (isAnimated) Animatable(initialValue = 1f) else Animatable(initialValue = 0f)
 }

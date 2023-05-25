@@ -10,6 +10,7 @@ import me.lincolnstuart.funblocks.core.text.Text
 import me.lincolnstuart.funblocks.essentials.form.button.utils.ButtonOptions
 import me.lincolnstuart.funblocks.essentials.form.checkbox.CheckboxGroup
 import me.lincolnstuart.funblocks.essentials.form.popup.ActionPopup
+import me.lincolnstuart.funblocks.essentials.form.select.utils.SelectOptions
 import me.lincolnstuart.funblocks.essentials.form.utils.BasicInputSkeleton
 import me.lincolnstuart.funblocks.essentials.helper.SelectableItem
 import me.lincolnstuart.funblocks.essentials.helper.SimpleItem
@@ -41,24 +42,21 @@ public fun <T> SelectMultiple(
     placeholder: String? = null,
     error: String? = null
 ) {
-    var expanded by remember {
-        mutableStateOf(false)
-    }
-    var popUpSelection by remember {
-        mutableStateOf(selectedValues)
-    }
-    val selectedItems = remember(selectedValues) {
-        selectedValues.joinToString(", ") { selectedValue ->
-            mapToPresentation(selectedValue).description
-        }
-    }
+    var expanded by remember { mutableStateOf(false) }
+    var popUpSelection by remember { mutableStateOf(selectedValues) }
+    val selectedItems = rememberSelectedItems(
+        selectedValues = selectedValues,
+        mapToPresentation = mapToPresentation
+    )
     BasicSelect(
-        label = label,
-        selectedItem = selectedItems,
-        placeholder = placeholder,
-        expandOptionDescription = expandOptionDescription,
-        counter = selectedValues.size,
-        error = error,
+        options = SelectOptions(
+            label = label,
+            selectedItem = selectedItems,
+            placeholder = placeholder,
+            expandOptionDescription = expandOptionDescription,
+            counter = selectedValues.size,
+            error = error
+        ),
         paddingValues = paddingValues,
         onClick = { expanded = !expanded }
     ) {
@@ -99,5 +97,15 @@ public fun <T> SelectMultiple(
                 }
             }
         }
+    }
+}
+
+@Composable
+private fun <T> rememberSelectedItems(
+    selectedValues: List<T>,
+    mapToPresentation: (T) -> SelectableItem
+) = remember(selectedValues) {
+    selectedValues.joinToString(", ") { selectedValue ->
+        mapToPresentation(selectedValue).description
     }
 }

@@ -1,4 +1,4 @@
-package me.lincolnstuart.funblocks.chart.utils.structure
+package me.lincolnstuart.funblocks.essentials.chart.utils.structure
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxWidth

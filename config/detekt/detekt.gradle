@@ -1,0 +1,6 @@
+apply plugin: "io.gitlab.arturbosch.detekt"
+
+detekt {
+    toolVersion = "1.23.0"
+    config.setFrom(file("$rootDir/config/detekt/detekt.yml"))
+}

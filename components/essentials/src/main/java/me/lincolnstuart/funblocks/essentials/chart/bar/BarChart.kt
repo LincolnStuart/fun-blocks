@@ -3,9 +3,9 @@ package me.lincolnstuart.funblocks.essentials.chart.bar
 import androidx.compose.runtime.Composable
 import me.lincolnstuart.funblocks.chart.bar.BasicBarChart
 import me.lincolnstuart.funblocks.chart.bar.utils.BarChartValue
-import me.lincolnstuart.funblocks.chart.utils.structure.ChartDecorator
 import me.lincolnstuart.funblocks.essentials.chart.bar.utils.BarChartOptions
 import me.lincolnstuart.funblocks.essentials.chart.utils.legend.utils.ChartLegendOptions
+import me.lincolnstuart.funblocks.essentials.chart.utils.structure.ChartDecorator
 
 @Composable
 public fun BarChart(

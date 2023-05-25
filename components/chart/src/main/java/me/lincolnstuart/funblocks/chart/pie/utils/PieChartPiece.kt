@@ -16,5 +16,9 @@ public data class PieChartPiece(
     val color: Color
 ) {
     fun getArea(totalValue: BigDecimal): BigDecimal =
-        BigDecimal(360).multiply(value).divide(totalValue)
+        BigDecimal(FULL_TURN_IN_DEGREES).multiply(value).divide(totalValue)
+
+    private companion object {
+        const val FULL_TURN_IN_DEGREES: Int = 360
+    }
 }

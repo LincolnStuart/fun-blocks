@@ -10,6 +10,7 @@ import me.lincolnstuart.funblocks.core.text.Text
 import me.lincolnstuart.funblocks.essentials.form.button.utils.ButtonOptions
 import me.lincolnstuart.funblocks.essentials.form.popup.ActionPopup
 import me.lincolnstuart.funblocks.essentials.form.radiobutton.RadioButtonGroup
+import me.lincolnstuart.funblocks.essentials.form.select.utils.SelectOptions
 import me.lincolnstuart.funblocks.essentials.form.utils.BasicInputSkeleton
 import me.lincolnstuart.funblocks.essentials.helper.SelectableItem
 import me.lincolnstuart.funblocks.essentials.helper.SimpleItem
@@ -51,12 +52,14 @@ public fun <T> SelectSingle(
         selectedValue?.let { mapToPresentation(selectedValue).description }.orEmpty()
     }
     BasicSelect(
-        label = label,
-        selectedItem = selectedItem,
-        placeholder = placeholder,
-        expandOptionDescription = expandOptionDescription,
-        counter = null,
-        error = error,
+        options = SelectOptions(
+            label = label,
+            selectedItem = selectedItem,
+            placeholder = placeholder,
+            expandOptionDescription = expandOptionDescription,
+            counter = null,
+            error = error
+        ),
         paddingValues = paddingValues,
         onClick = { expanded = !expanded }
     ) {

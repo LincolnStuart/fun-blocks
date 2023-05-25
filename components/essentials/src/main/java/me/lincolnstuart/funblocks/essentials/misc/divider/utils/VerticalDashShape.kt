@@ -46,7 +46,11 @@ internal class VerticalDashShape(
 
     private fun getOffset(index: Int, actualStep: Float): Offset {
         var offsetValue = index * actualStep
-        if (isMoreSpaced) offsetValue *= 2.5f
+        if (isMoreSpaced) offsetValue *= EXTRA_SPACE
         return Offset(x = 0f, y = offsetValue)
+    }
+
+    private companion object {
+        const val EXTRA_SPACE: Float = 2.5f
     }
 }

@@ -20,6 +20,9 @@ import me.lincolnstuart.funblocks.foundation.ui.theme.FunBlocksTheme
 import me.lincolnstuart.funblocks.foundation.ui.token.content.border.FunBlocksBorderWidth
 import me.lincolnstuart.funblocks.foundation.ui.token.content.spacing.FunBlocksSpacing
 
+private const val MIN_COUNTER: Int = 1
+private const val MAX_COUNTER: Int = 9
+
 /**
  * Component that indicates the number of notifications.
  *
@@ -33,8 +36,8 @@ public fun NotificationCounter(
 ) {
     val formattedNumber = remember(number) {
         when {
-            number <= 0 -> null
-            number < 9 -> number.toString()
+            number < MIN_COUNTER -> null
+            number < MAX_COUNTER -> number.toString()
             else -> "+9"
         }
     }

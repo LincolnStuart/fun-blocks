@@ -9,10 +9,10 @@ import kotlinx.datetime.LocalDate
 import me.lincolnstuart.funblocks.chart.line.BasicLineChart
 import me.lincolnstuart.funblocks.chart.line.utils.LineChartPath
 import me.lincolnstuart.funblocks.chart.line.utils.LineChartPoint
-import me.lincolnstuart.funblocks.chart.utils.structure.ChartDecorator
 import me.lincolnstuart.funblocks.core.surface.Surface
 import me.lincolnstuart.funblocks.essentials.chart.line.utils.LineChartOptions
 import me.lincolnstuart.funblocks.essentials.chart.utils.legend.utils.ChartLegendOptions
+import me.lincolnstuart.funblocks.essentials.chart.utils.structure.ChartDecorator
 import me.lincolnstuart.funblocks.foundation.ui.theme.FunBlocksTheme
 import me.lincolnstuart.funblocks.foundation.ui.token.color.FunBlocksColors
 import me.lincolnstuart.funblocks.foundation.ui.token.content.spacing.FunBlocksSpacing
@@ -61,15 +61,15 @@ private fun LineChartPreview() {
                             points = listOf(
                                 LineChartPoint(
                                     value = BigDecimal("1"),
-                                    date = LocalDate(1990, 10, 12)
+                                    date = LocalDate(year = 1990, monthNumber = 10, dayOfMonth = 12)
                                 ),
                                 LineChartPoint(
                                     value = BigDecimal("10"),
-                                    date = LocalDate(1944, 11, 17)
+                                    date = LocalDate(year = 1944, monthNumber = 11, dayOfMonth = 17)
                                 ),
                                 LineChartPoint(
                                     value = BigDecimal("7"),
-                                    date = LocalDate(1944, 11, 17)
+                                    date = LocalDate(year = 1944, monthNumber = 11, dayOfMonth = 17)
                                 )
                             ),
                             color = FunBlocksColors.Data1.value()
