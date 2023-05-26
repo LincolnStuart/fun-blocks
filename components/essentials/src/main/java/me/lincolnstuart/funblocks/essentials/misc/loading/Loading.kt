@@ -7,12 +7,9 @@ import androidx.compose.animation.core.infiniteRepeatable
 import androidx.compose.animation.core.rememberInfiniteTransition
 import androidx.compose.animation.core.tween
 import androidx.compose.foundation.Image
-import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.width
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
-import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.scale
 import androidx.compose.ui.res.painterResource
@@ -27,18 +24,13 @@ public fun Loading() {
     val logo = painterResource(id = LocalTheme.current.logoId)
     val infiniteTransition = rememberInfiniteTransition()
     val scale by scaleAnimation(infiniteTransition)
-    Box(
-        modifier = Modifier.fillMaxSize(),
-        contentAlignment = Alignment.Center
-    ) {
-        Image(
-            painter = logo,
-            contentDescription = null,
-            modifier = Modifier
-                .scale(scale = scale)
-                .width(FunBlocksContentSize.huge)
-        )
-    }
+    Image(
+        painter = logo,
+        contentDescription = null,
+        modifier = Modifier
+            .scale(scale = scale)
+            .width(FunBlocksContentSize.huge)
+    )
 }
 
 @Composable
