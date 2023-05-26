@@ -1,0 +1,23 @@
+name: Pull request check
+
+on: [pull_request]
+
+jobs:
+  build:
+    name: Code analysis
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout branch
+        uses: actions/checkout@v3
+
+      - name: Setup Java
+        uses: actions/setup-java@v3
+        with:
+          distribution: 'zulu'
+          java-version: '19'
+
+      - name: Lint
+        run: ./gradlew ktlintCheck --continue --stacktrace
+
+      - name: Detekt
+        run: ./gradlew detekt --continue --stacktrace
