@@ -1,6 +1,7 @@
 package me.lincolnstuart.funblocks.foundation.ui.theme
 
 import android.util.Log
+import androidx.annotation.DrawableRes
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.material.MaterialTheme
 import androidx.compose.runtime.Composable
@@ -9,6 +10,7 @@ import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.staticCompositionLocalOf
 import androidx.compose.ui.text.font.FontFamily
+import me.lincolnstuart.funblocks.foundation.R
 import me.lincolnstuart.funblocks.foundation.ui.token.color.FunBlocksThemedColors
 
 /**
@@ -52,5 +54,6 @@ val LocalTheme = staticCompositionLocalOf { Theme() }
  */
 data class Theme(
     val fontFamily: FontFamily = FontFamily.SansSerif,
-    val colors: FunBlocksThemedColors = FunBlocksThemedColors.Lego
+    val colors: FunBlocksThemedColors = FunBlocksThemedColors.Lego,
+    @DrawableRes val logoId: Int = R.drawable.logo
 )
