@@ -43,9 +43,9 @@ import me.lincolnstuart.funblocks.foundation.ui.token.content.spacing.FunBlocksS
  */
 @Composable
 public fun Alert(
-    type: AlertType,
     title: String,
     info: String?,
+    type: AlertType = AlertType.Info,
     closeOptions: AlertCloseOptions = AlertCloseOptions()
 ) {
     Column(
@@ -130,50 +130,46 @@ private fun AlertPreview() {
         Surface {
             Column(modifier = Modifier.padding(FunBlocksSpacing.small)) {
                 Alert(
-                    type = AlertType.Info,
                     title = "Info",
                     info = LoremIpsum(words = 25).values.first(),
                     closeOptions = AlertCloseOptions(onClose = {})
                 )
                 VerticalSpacer(height = FunBlocksSpacing.small)
                 Alert(
-                    type = AlertType.Info,
                     title = "Info",
                     info = LoremIpsum(words = 25).values.first(),
                     closeOptions = AlertCloseOptions(onClose = {})
                 )
                 VerticalSpacer(height = FunBlocksSpacing.small)
                 Alert(
-                    type = AlertType.Info,
                     title = "Info",
                     info = null
                 )
                 VerticalSpacer(height = FunBlocksSpacing.small)
                 Alert(
-                    type = AlertType.Info,
                     title = "Title greater than one line must show ellipsis",
                     info = null,
                     closeOptions = AlertCloseOptions(onClose = {})
                 )
                 VerticalSpacer(height = FunBlocksSpacing.small)
                 Alert(
-                    type = AlertType.Warning,
                     title = "Warning",
                     info = LoremIpsum(words = 25).values.first(),
+                    type = AlertType.Warning,
                     closeOptions = AlertCloseOptions(onClose = {})
                 )
                 VerticalSpacer(height = FunBlocksSpacing.small)
                 Alert(
-                    type = AlertType.Success,
                     title = "Success",
                     info = LoremIpsum(words = 25).values.first(),
+                    type = AlertType.Success,
                     closeOptions = AlertCloseOptions(onClose = {})
                 )
                 VerticalSpacer(height = FunBlocksSpacing.small)
                 Alert(
-                    type = AlertType.Error,
                     title = "Error",
                     info = LoremIpsum(words = 25).values.first(),
+                    type = AlertType.Error,
                     closeOptions = AlertCloseOptions(onClose = {})
                 )
             }
