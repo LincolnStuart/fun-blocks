@@ -65,8 +65,8 @@ class ImageAvatarScreen : Screen {
             ) {
                 ImageAvatar(
                     url = "https://cdn.domestika.org/c_fit,dpr_auto,f_auto,t_base_params," +
-                            "w_820/v1672587644/content-items/012/910/345/LEGO%2520HEAD-" +
-                            "original.jpg?1672587644",
+                        "w_820/v1672587644/content-items/012/910/345/LEGO%2520HEAD-" +
+                        "original.jpg?1672587644",
                     options = AvatarOptions(shape, size)
                 )
             }
