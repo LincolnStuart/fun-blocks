@@ -11,6 +11,7 @@ compose = "1.4.2"
 compose-icons = "1.1.0"
 coil = "2.2.0"
 material = "1.4.2"
+voyager = "1.0.0-rc06"
 junit = "4.13.2"
 android-x-test-junit = "1.1.5"
 android-x-test-espresso = "3.5.1"
@@ -33,6 +34,7 @@ coil = { module = "io.coil-kt:coil-compose", version.ref = "coil" }
 junit = { module = "junit:junit", version.ref = "junit" }
 android-x-junit = { module = "androidx.test.ext:junit", version.ref = "android-x-test-junit" }
 android-x-espresso-core = { module = "androidx.test.espresso:espresso-core", version.ref = "android-x-test-espresso" }
+voyager-navigator = { module = "cafe.adriel.voyager:voyager-navigator", version.ref = "voyager" }
 
 [bundles]
 compose = ["compose-activity", "compose-foundation", "compose", "compose-tooling-preview"]

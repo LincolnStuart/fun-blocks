@@ -17,6 +17,7 @@ import me.lincolnstuart.funblocks.essentials.misc.avatar.utils.AvatarOptions
 import me.lincolnstuart.funblocks.essentials.misc.avatar.utils.AvatarShape
 import me.lincolnstuart.funblocks.essentials.misc.avatar.utils.AvatarSize
 import me.lincolnstuart.funblocks.foundation.ui.theme.FunBlocksTheme
+import me.lincolnstuart.funblocks.foundation.ui.token.color.FunBlocksColors
 import me.lincolnstuart.funblocks.foundation.ui.token.content.spacing.FunBlocksSpacing
 
 /**
@@ -53,8 +54,9 @@ public fun InitialsAvatar(
         ) {
             Text(
                 text = initials,
+                modifier = Modifier.padding(all = FunBlocksSpacing.xxxSmall),
                 mode = TextMode.Custom(fontSize = options.size.fontSize),
-                modifier = Modifier.padding(all = FunBlocksSpacing.xxxSmall)
+                color = FunBlocksColors.NeutralDark
             )
         }
     }

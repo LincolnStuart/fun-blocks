@@ -6,6 +6,7 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.graphics.Brush
 import me.lincolnstuart.funblocks.essentials.misc.avatar.utils.AvatarOptions
 import me.lincolnstuart.funblocks.foundation.ui.token.color.FunBlocksColors
 
@@ -26,7 +27,14 @@ internal fun BasicAvatar(
         modifier = modifier
             .size(size.size)
             .clip(shape.shape)
-            .background(FunBlocksColors.SurfaceDark.value())
+            .background(
+                Brush.linearGradient(
+                    listOf(
+                        FunBlocksColors.PrimaryDark.value(),
+                        FunBlocksColors.PrimaryLight.value()
+                    )
+                )
+            )
     ) {
         content()
     }
