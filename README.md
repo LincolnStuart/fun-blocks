@@ -3,7 +3,7 @@
 
 <div align="center">
 <br />
-<img width="80" src="https://github.com/LincolnStuart/rick-and-morty-characters/assets/8579195/63d880b8-c718-41d7-9b58-d2f3749169ff"/>
+<img width="120" src="https://github.com/LincolnStuart/fun-blocks/assets/8579195/bab90816-b2be-494d-9634-18b388aef7ad"/>
 <h2>Fun Blocks: Let's stack some components and make your app!</h2>
 </div>
 
@@ -22,16 +22,18 @@ Have you ever imagined build apps like playing `LEGO` or `Playmobil`?
 ```kotlin
 FunBlocksTheme {
   Surface {
-    NotificationCounter(number = 5) {
-      InitialsAvatar(fullName = "Lincoln Stuart")
-    }
+      NotificationCounter(number = 5) {
+          Avatar(
+              mode = AvatarMode.Initials(fullName = "Lincoln Stuart")
+          )
+      }
   }
 }
 ```
 
 </td>
 <td>
-<img width="50" src="https://github.com/LincolnStuart/rick-and-morty-characters/assets/8579195/d0f84f09-b217-4849-a3e6-389a401f5fbd" />
+<img width="50" src="https://github.com/LincolnStuart/fun-blocks/assets/8579195/2936f7f6-01a2-4b04-a2da-2949a5dd167d" />
 </td>
 </tr>
 </table>
