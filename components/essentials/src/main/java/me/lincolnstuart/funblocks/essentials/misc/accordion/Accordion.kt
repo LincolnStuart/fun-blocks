@@ -15,7 +15,8 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import compose.icons.TablerIcons
-import compose.icons.tablericons.ChevronDown
+import compose.icons.tablericons.Minus
+import compose.icons.tablericons.Plus
 import me.lincolnstuart.funblocks.core.icon.Icon
 import me.lincolnstuart.funblocks.core.icon.utils.IconOptions
 import me.lincolnstuart.funblocks.core.icon.utils.IconSize
@@ -33,6 +34,9 @@ public fun Accordion(
     var isExpanded by remember {
         mutableStateOf(false)
     }
+    val icon = remember(isExpanded) {
+        if (isExpanded)TablerIcons.Minus else TablerIcons.Plus
+    }
     Column {
         Row(
             modifier = Modifier
@@ -44,7 +48,7 @@ public fun Accordion(
         ) {
             Text(text = title, mode = TextMode.Subtitle(), modifier = Modifier.weight(1f))
             Icon(
-                imageVector = TablerIcons.ChevronDown,
+                imageVector = icon,
                 options = IconOptions(description = null, size = IconSize.Tiny)
             )
         }

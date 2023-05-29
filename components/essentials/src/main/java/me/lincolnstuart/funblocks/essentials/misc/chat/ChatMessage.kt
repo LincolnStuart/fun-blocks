@@ -14,7 +14,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import me.lincolnstuart.funblocks.core.spacer.VerticalSpacer
 import me.lincolnstuart.funblocks.core.surface.Surface
 import me.lincolnstuart.funblocks.core.text.Text
-import me.lincolnstuart.funblocks.essentials.misc.avatar.IconAvatar
+import me.lincolnstuart.funblocks.essentials.misc.avatar.Avatar
 import me.lincolnstuart.funblocks.essentials.misc.avatar.utils.AvatarOptions
 import me.lincolnstuart.funblocks.essentials.misc.avatar.utils.AvatarSize
 import me.lincolnstuart.funblocks.essentials.misc.chat.utils.ChatMessageOptions
@@ -69,7 +69,7 @@ private fun ChatMessagePreview() {
                     message = "My message.",
                     options = ChatMessageOptions(
                         orientation = ChatMessageOrientation.Sent,
-                        avatar = { IconAvatar(options = AvatarOptions(size = AvatarSize.Small)) }
+                        avatar = { Avatar(options = AvatarOptions(size = AvatarSize.Small)) }
                     )
                 )
                 VerticalSpacer(height = FunBlocksSpacing.small)
@@ -77,7 +77,7 @@ private fun ChatMessagePreview() {
                     message = "Others message.",
                     options = ChatMessageOptions(
                         orientation = ChatMessageOrientation.Received,
-                        avatar = { IconAvatar(options = AvatarOptions(size = AvatarSize.Small)) }
+                        avatar = { Avatar(options = AvatarOptions(size = AvatarSize.Small)) }
                     )
                 )
                 VerticalSpacer(height = FunBlocksSpacing.small)

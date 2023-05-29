@@ -11,13 +11,13 @@ import androidx.compose.ui.tooling.preview.Preview
 import me.lincolnstuart.funblocks.core.spacer.HorizontalSpacer
 import me.lincolnstuart.funblocks.core.spacer.VerticalSpacer
 import me.lincolnstuart.funblocks.core.surface.Surface
-import me.lincolnstuart.funblocks.essentials.misc.avatar.InitialsAvatar
+import me.lincolnstuart.funblocks.essentials.misc.avatar.Avatar
+import me.lincolnstuart.funblocks.essentials.misc.avatar.utils.AvatarMode
 import me.lincolnstuart.funblocks.essentials.misc.avatar.utils.AvatarOptions
 import me.lincolnstuart.funblocks.essentials.misc.avatar.utils.AvatarShape
 import me.lincolnstuart.funblocks.essentials.misc.avatar.utils.AvatarSize
 import me.lincolnstuart.funblocks.essentials.misc.notification.utils.Counter
 import me.lincolnstuart.funblocks.foundation.ui.theme.FunBlocksTheme
-import me.lincolnstuart.funblocks.foundation.ui.token.content.border.FunBlocksBorderWidth
 import me.lincolnstuart.funblocks.foundation.ui.token.content.spacing.FunBlocksSpacing
 
 private const val MIN_COUNTER: Int = 1
@@ -46,10 +46,7 @@ public fun NotificationCounter(
         content = content
     ) {
         formattedNumber?.let {
-            Counter(
-                formattedNumber = formattedNumber,
-                borderWidth = FunBlocksBorderWidth.large
-            )
+            Counter(formattedNumber = formattedNumber)
         }
     }
 }
@@ -64,8 +61,10 @@ private fun NotificationCounterPreview() {
             ) {
                 Row {
                     NotificationCounter(number = 5) {
-                        InitialsAvatar(
-                            fullName = "Lincoln Stuart",
+                        Avatar(
+                            mode = AvatarMode.Initials(
+                                fullName = "Lincoln Stuart"
+                            ),
                             options = AvatarOptions(
                                 shape = AvatarShape.Square
                             )
@@ -73,18 +72,20 @@ private fun NotificationCounterPreview() {
                     }
                     HorizontalSpacer(width = FunBlocksSpacing.xxxSmall)
                     NotificationCounter(number = -99) {
-                        InitialsAvatar(fullName = "Lincoln Stuart")
-                    }
-                    HorizontalSpacer(width = FunBlocksSpacing.xxxSmall)
-                    NotificationCounter(number = 200) {
-                        InitialsAvatar(fullName = "Lincoln Stuart")
+                        Avatar(
+                            mode = AvatarMode.Initials(
+                                fullName = "Lincoln Stuart"
+                            )
+                        )
                     }
                 }
                 VerticalSpacer(height = FunBlocksSpacing.small)
                 Row {
                     NotificationCounter(number = 200) {
-                        InitialsAvatar(
-                            fullName = "Lincoln Stuart",
+                        Avatar(
+                            mode = AvatarMode.Initials(
+                                fullName = "Lincoln Stuart"
+                            ),
                             options = AvatarOptions(
                                 size = AvatarSize.Large
                             )
@@ -92,8 +93,10 @@ private fun NotificationCounterPreview() {
                     }
                     HorizontalSpacer(width = FunBlocksSpacing.xxxSmall)
                     NotificationCounter(number = 200) {
-                        InitialsAvatar(
-                            fullName = "Lincoln Stuart",
+                        Avatar(
+                            mode = AvatarMode.Initials(
+                                fullName = "Lincoln Stuart"
+                            ),
                             options = AvatarOptions(
                                 shape = AvatarShape.Square,
                                 size = AvatarSize.Large
