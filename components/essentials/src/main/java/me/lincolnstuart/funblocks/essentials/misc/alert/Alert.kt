@@ -8,6 +8,7 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -25,7 +26,7 @@ import me.lincolnstuart.funblocks.core.surface.Surface
 import me.lincolnstuart.funblocks.core.text.Text
 import me.lincolnstuart.funblocks.core.text.utils.TextMode
 import me.lincolnstuart.funblocks.essentials.misc.alert.utils.AlertCloseOptions
-import me.lincolnstuart.funblocks.essentials.misc.alert.utils.AlertType
+import me.lincolnstuart.funblocks.essentials.misc.alert.utils.AlertMode
 import me.lincolnstuart.funblocks.foundation.ui.theme.FunBlocksTheme
 import me.lincolnstuart.funblocks.foundation.ui.token.color.alpha.FunBlocksAlpha
 import me.lincolnstuart.funblocks.foundation.ui.token.content.border.FunBlocksBorderWidth
@@ -36,16 +37,16 @@ import me.lincolnstuart.funblocks.foundation.ui.token.content.spacing.FunBlocksS
 /**
  * Closable status message alert with title and description.
  *
- * @param type [AlertType].
+ * @param mode [AlertMode].
  * @param title alert title.
- * @param info optional alert details.
+ * @param message optional alert details.
  * @param closeOptions [AlertCloseOptions] that defines if it could close and the icon description.
  */
 @Composable
 public fun Alert(
     title: String,
-    info: String?,
-    type: AlertType = AlertType.Info,
+    message: String?,
+    mode: AlertMode = AlertMode.Info,
     closeOptions: AlertCloseOptions = AlertCloseOptions()
 ) {
     Column(
@@ -54,24 +55,24 @@ public fun Alert(
             .border(
                 border = BorderStroke(
                     width = FunBlocksBorderWidth.tiny,
-                    color = type.color.value()
+                    color = mode.color.value()
                 ),
                 shape = FunBlocksCornerRadius.large
             )
             .clip(FunBlocksCornerRadius.large)
             .background(
-                type.color
+                mode.color
                     .value()
                     .copy(alpha = FunBlocksAlpha.low)
             )
             .padding(FunBlocksInset.medium)
     ) {
         Header(
-            type = type,
+            type = mode,
             title = title,
             closeOptions = closeOptions
         )
-        Body(info)
+        Body(message)
     }
 }
 
@@ -85,7 +86,7 @@ private fun Body(info: String?) {
 
 @Composable
 private fun Header(
-    type: AlertType,
+    type: AlertMode,
     title: String,
     closeOptions: AlertCloseOptions
 ) = with(closeOptions) {
@@ -97,7 +98,7 @@ private fun Header(
             options = IconOptions(
                 description = null,
                 size = IconSize.Small,
-                color = type.darkColor
+                color = type.color
             ),
             modifier = Modifier.padding(end = FunBlocksSpacing.xxSmall)
         )
@@ -113,10 +114,11 @@ private fun Header(
                 imageVector = TablerIcons.X,
                 options = IconOptions(
                     description = closeDescription,
-                    size = IconSize.Small
+                    size = IconSize.Tiny
                 ),
                 modifier = Modifier
                     .padding(start = FunBlocksSpacing.xxSmall)
+                    .clip(CircleShape)
                     .clickable { action() }
             )
         }
@@ -131,45 +133,45 @@ private fun AlertPreview() {
             Column(modifier = Modifier.padding(FunBlocksSpacing.small)) {
                 Alert(
                     title = "Info",
-                    info = LoremIpsum(words = 25).values.first(),
+                    message = LoremIpsum(words = 25).values.first(),
                     closeOptions = AlertCloseOptions(onClose = {})
                 )
                 VerticalSpacer(height = FunBlocksSpacing.small)
                 Alert(
                     title = "Info",
-                    info = LoremIpsum(words = 25).values.first(),
+                    message = LoremIpsum(words = 25).values.first(),
                     closeOptions = AlertCloseOptions(onClose = {})
                 )
                 VerticalSpacer(height = FunBlocksSpacing.small)
                 Alert(
                     title = "Info",
-                    info = null
+                    message = null
                 )
                 VerticalSpacer(height = FunBlocksSpacing.small)
                 Alert(
                     title = "Title greater than one line must show ellipsis",
-                    info = null,
+                    message = null,
                     closeOptions = AlertCloseOptions(onClose = {})
                 )
                 VerticalSpacer(height = FunBlocksSpacing.small)
                 Alert(
                     title = "Warning",
-                    info = LoremIpsum(words = 25).values.first(),
-                    type = AlertType.Warning,
+                    message = LoremIpsum(words = 25).values.first(),
+                    mode = AlertMode.Warning,
                     closeOptions = AlertCloseOptions(onClose = {})
                 )
                 VerticalSpacer(height = FunBlocksSpacing.small)
                 Alert(
                     title = "Success",
-                    info = LoremIpsum(words = 25).values.first(),
-                    type = AlertType.Success,
+                    message = LoremIpsum(words = 25).values.first(),
+                    mode = AlertMode.Success,
                     closeOptions = AlertCloseOptions(onClose = {})
                 )
                 VerticalSpacer(height = FunBlocksSpacing.small)
                 Alert(
                     title = "Error",
-                    info = LoremIpsum(words = 25).values.first(),
-                    type = AlertType.Error,
+                    message = LoremIpsum(words = 25).values.first(),
+                    mode = AlertMode.Error,
                     closeOptions = AlertCloseOptions(onClose = {})
                 )
             }

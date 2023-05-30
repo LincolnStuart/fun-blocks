@@ -12,32 +12,26 @@ import me.lincolnstuart.funblocks.foundation.ui.token.color.FunBlocksColors
  * Enum that provides the styled alert option.
  *
  * @param icon that represents the alert type.
- * @param darkColor used on icon alert.
  * @param color used on borders and background.
  */
-public enum class AlertType(
+public enum class AlertMode(
     val icon: ImageVector,
-    val darkColor: FunBlocksColors,
     val color: FunBlocksColors
 ) {
     Info(
         icon = TablerIcons.InfoCircle,
-        darkColor = FunBlocksColors.InfoDark,
         color = FunBlocksColors.Info
     ),
     Warning(
         icon = TablerIcons.AlertCircle,
-        darkColor = FunBlocksColors.WarningDark,
         color = FunBlocksColors.Warning
     ),
     Success(
         icon = TablerIcons.CircleCheck,
-        darkColor = FunBlocksColors.PositiveDark,
         color = FunBlocksColors.Positive
     ),
     Error(
         icon = TablerIcons.CircleX,
-        darkColor = FunBlocksColors.NegativeDark,
         color = FunBlocksColors.Negative
     )
 }
