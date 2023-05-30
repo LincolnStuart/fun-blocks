@@ -20,14 +20,14 @@ Have you ever imagined build apps like playing `LEGO` or `Playmobil`?
 <td>
 
 ```kotlin
-FunBlocksTheme {
-  Surface {
-      NotificationCounter(number = 5) {
-          Avatar(
-              mode = AvatarMode.Initials(fullName = "Lincoln Stuart")
-          )
-      }
-  }
+FunBlocksTheme { 
+    Surface { 
+        NotificationCounter(number = 5) { 
+            Avatar(
+                mode = AvatarMode.Initials(fullName = "Lincoln Stuart")
+            ) 
+        } 
+    }
 }
 ```
 
