@@ -9,6 +9,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import me.lincolnstuart.funblocks.core.text.Text
 import me.lincolnstuart.funblocks.core.text.utils.TextMode
+import me.lincolnstuart.funblocks.essentials.misc.divider.HorizontalDivider
 import me.lincolnstuart.funblocks.foundation.ui.token.color.FunBlocksColors
 import me.lincolnstuart.funblocks.foundation.ui.token.content.spacing.FunBlocksSpacing
 
@@ -41,4 +42,5 @@ public fun SwitchButtonOption(
         )
         SwitchButton(isOn = isOn, onClick = onClick)
     }
+    HorizontalDivider()
 }

@@ -12,6 +12,7 @@ import cafe.adriel.voyager.navigator.currentOrThrow
 import me.lincolnstuart.funblocks.core.surface.Surface
 import me.lincolnstuart.funblocks.essentials.list.SimpleListItem
 import me.lincolnstuart.funblocks.foundation.ui.theme.FunBlocksTheme
+import me.lincolnstuart.funblocks.sample.screens.misc.AlertScreen
 import me.lincolnstuart.funblocks.sample.screens.misc.AvatarScreen
 import me.lincolnstuart.funblocks.sample.screens.misc.BadgeScreen
 
@@ -27,6 +28,9 @@ class MiscComponentsScreen : Screen {
                 val navigator = LocalNavigator.currentOrThrow
                 val scrollState = rememberScrollState()
                 Column(Modifier.verticalScroll(scrollState)) {
+                    SimpleListItem(title = "Alert") {
+                        navigator.push(AlertScreen())
+                    }
                     SimpleListItem(title = "Avatar") {
                         navigator.push(AvatarScreen())
                     }
