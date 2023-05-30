@@ -15,6 +15,7 @@ import me.lincolnstuart.funblocks.foundation.ui.theme.FunBlocksTheme
 import me.lincolnstuart.funblocks.sample.screens.misc.AlertScreen
 import me.lincolnstuart.funblocks.sample.screens.misc.AvatarScreen
 import me.lincolnstuart.funblocks.sample.screens.misc.BadgeScreen
+import me.lincolnstuart.funblocks.sample.screens.misc.ChipScreen
 
 class MiscComponentsScreen : Screen {
 
@@ -28,17 +29,22 @@ class MiscComponentsScreen : Screen {
                 val navigator = LocalNavigator.currentOrThrow
                 val scrollState = rememberScrollState()
                 Column(Modifier.verticalScroll(scrollState)) {
-                    SimpleListItem(title = "Alert") {
-                        navigator.push(AlertScreen())
-                    }
-                    SimpleListItem(title = "Avatar") {
-                        navigator.push(AvatarScreen())
-                    }
-                    SimpleListItem(title = "Badge") {
-                        navigator.push(BadgeScreen())
-                    }
+                    screens
+                        .sortedBy { it.first }
+                        .forEach { componentScreen ->
+                            SimpleListItem(title = componentScreen.first) {
+                                navigator.push(componentScreen.second)
+                            }
+                        }
                 }
             }
         }
     }
+
+    private val screens = listOf(
+        "Alert" to AlertScreen(),
+        "Avatar" to AvatarScreen(),
+        "Badge" to BadgeScreen(),
+        "Chip" to ChipScreen()
+    )
 }

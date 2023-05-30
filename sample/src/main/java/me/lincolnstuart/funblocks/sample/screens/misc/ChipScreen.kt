@@ -12,22 +12,18 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.vector.ImageVector
 import cafe.adriel.voyager.core.screen.Screen
 import compose.icons.TablerIcons
 import compose.icons.tablericons.CircleDashed
 import me.lincolnstuart.funblocks.core.surface.Surface
-import me.lincolnstuart.funblocks.core.text.Text
-import me.lincolnstuart.funblocks.essentials.form.radiobutton.RadioButtonGroup
 import me.lincolnstuart.funblocks.essentials.form.switchbutton.SwitchButtonOption
-import me.lincolnstuart.funblocks.essentials.misc.accordion.Accordion
-import me.lincolnstuart.funblocks.essentials.misc.badge.Badge
-import me.lincolnstuart.funblocks.essentials.misc.badge.utils.BadgeMode
+import me.lincolnstuart.funblocks.essentials.misc.chip.Chip
+import me.lincolnstuart.funblocks.essentials.misc.chip.utils.ChipOptions
 import me.lincolnstuart.funblocks.essentials.misc.divider.HorizontalDivider
 import me.lincolnstuart.funblocks.foundation.ui.theme.FunBlocksTheme
 import me.lincolnstuart.funblocks.foundation.ui.token.color.FunBlocksColors
 
-class BadgeScreen : Screen {
+class ChipScreen : Screen {
 
     @Composable
     override fun Content() {
@@ -36,20 +32,17 @@ class BadgeScreen : Screen {
                 modifier = Modifier
                     .fillMaxSize()
             ) {
-                BadgePlaygroundOptions()
+                ChipPlaygroundOptions()
             }
         }
     }
 
     @Composable
-    private fun BadgePlaygroundOptions() {
-        var mode: BadgeMode by remember {
-            mutableStateOf(BadgeMode.Info)
-        }
-        var icon: ImageVector? by remember {
-            mutableStateOf(null)
-        }
+    private fun ChipPlaygroundOptions() {
         Column {
+            var options: ChipOptions by remember {
+                mutableStateOf(ChipOptions())
+            }
             Box(
                 modifier = Modifier
                     .fillMaxWidth()
@@ -57,32 +50,40 @@ class BadgeScreen : Screen {
                     .background(color = FunBlocksColors.SurfaceMedium.value()),
                 contentAlignment = Alignment.Center
             ) {
-                Badge(
-                    description = "Badge",
-                    mode = mode,
-                    startIcon = icon
-                )
+                Chip(
+                    description = "Chip",
+                    options = options
+                ) {}
             }
             HorizontalDivider()
-            Accordion(title = "Mode") {
-                RadioButtonGroup(
-                    options = listOf(
-                        BadgeMode.Info,
-                        BadgeMode.Warning,
-                        BadgeMode.Success,
-                        BadgeMode.Error
-                    ),
-                    selectedOption = mode,
-                    onSelectOption = { mode = it }
-                ) {
-                    Text(text = it.name)
+            SwitchButtonOption(
+                description = "Enabled",
+                isOn = options.isEnabled,
+                onClick = {
+                    options = options.copy(isEnabled = options.isEnabled.not())
                 }
-            }
+            )
+            SwitchButtonOption(
+                description = "Selected",
+                isOn = options.isSelected,
+                onClick = {
+                    options = options.copy(isSelected = options.isSelected.not())
+                }
+            )
             SwitchButtonOption(
                 description = "Start Icon",
-                isOn = icon != null,
+                isOn = options.startIcon != null,
                 onClick = {
-                    icon = if (icon == null) TablerIcons.CircleDashed else null
+                    val icon = if (options.startIcon == null) TablerIcons.CircleDashed else null
+                    options = options.copy(startIcon = icon)
+                }
+            )
+            SwitchButtonOption(
+                description = "End Icon",
+                isOn = options.endIcon != null,
+                onClick = {
+                    val icon = if (options.endIcon == null) TablerIcons.CircleDashed else null
+                    options = options.copy(endIcon = icon)
                 }
             )
         }

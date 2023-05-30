@@ -36,13 +36,13 @@ class AlertScreen : Screen {
                 modifier = Modifier
                     .fillMaxSize()
             ) {
-                AlertOptions()
+                AlertPlaygroundOptions()
             }
         }
     }
 
     @Composable
-    private fun AlertOptions() {
+    private fun AlertPlaygroundOptions() {
         var mode: AlertMode by remember {
             mutableStateOf(AlertMode.Info)
         }

@@ -7,7 +7,6 @@ import androidx.compose.foundation.layout.width
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.tooling.preview.Preview
 import compose.icons.TablerIcons
 import compose.icons.tablericons.Calendar
@@ -18,6 +17,7 @@ import me.lincolnstuart.funblocks.core.spacer.VerticalSpacer
 import me.lincolnstuart.funblocks.core.surface.Surface
 import me.lincolnstuart.funblocks.essentials.helper.clickable.Clickable
 import me.lincolnstuart.funblocks.essentials.helper.clickable.utils.ClickableOptions
+import me.lincolnstuart.funblocks.essentials.misc.chip.utils.ChipOptions
 import me.lincolnstuart.funblocks.foundation.ui.theme.FunBlocksTheme
 import me.lincolnstuart.funblocks.foundation.ui.token.color.FunBlocksColors
 import me.lincolnstuart.funblocks.foundation.ui.token.content.shape.FunBlocksCornerRadius
@@ -28,21 +28,15 @@ import me.lincolnstuart.funblocks.foundation.ui.token.content.spacing.FunBlocksS
  * Clickable area based on [Clickable].
  *
  * @param description text description.
+ * @param options [ChipOptions].
  * @param onClick callback that executes when click is performed.
- * @param isEnabled if the clickable area could perform a click.
- * @param isSelected if this chip is previously selected.
- * @param startIcon [ImageVector] that will be showed at the start of this component.
- * @param endIcon [ImageVector] that will be showed at the end of this component.
  */
 @Composable
 public fun Chip(
     description: String,
-    isEnabled: Boolean = true,
-    isSelected: Boolean = false,
-    startIcon: ImageVector? = null,
-    endIcon: ImageVector? = null,
+    options: ChipOptions = ChipOptions(),
     onClick: (() -> Unit)
-) {
+) = with(options) {
     val (backgroundColor, contentColor) = remember(isSelected) {
         if (isSelected) {
             FunBlocksColors.Primary to FunBlocksColors.Reversed
@@ -82,32 +76,34 @@ private fun ChipPreview() {
                 Chip(
                     description = "Disabled chip",
                     onClick = {},
-                    isEnabled = false
+                    options = ChipOptions(isEnabled = false)
                 )
                 VerticalSpacer(height = FunBlocksSpacing.small)
                 Chip(
                     description = "Selected chip",
                     onClick = {},
-                    isSelected = true
+                    options = ChipOptions(isSelected = true)
                 )
                 VerticalSpacer(height = FunBlocksSpacing.small)
                 Chip(
                     description = "Chip with start icon",
                     onClick = {},
-                    startIcon = TablerIcons.Calendar
+                    options = ChipOptions(startIcon = TablerIcons.Calendar)
                 )
                 VerticalSpacer(height = FunBlocksSpacing.small)
                 Chip(
                     description = "Chip with end icon",
                     onClick = {},
-                    endIcon = TablerIcons.X
+                    options = ChipOptions(endIcon = TablerIcons.X)
                 )
                 VerticalSpacer(height = FunBlocksSpacing.small)
                 Chip(
                     description = "Chip with start and end icon",
                     onClick = {},
-                    startIcon = TablerIcons.Calendar,
-                    endIcon = TablerIcons.ChevronDown
+                    options = ChipOptions(
+                        startIcon = TablerIcons.Calendar,
+                        endIcon = TablerIcons.ChevronDown
+                    )
                 )
             }
         }
