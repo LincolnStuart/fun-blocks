@@ -23,7 +23,6 @@ import me.lincolnstuart.funblocks.core.text.utils.topic.TopicSize
 import me.lincolnstuart.funblocks.essentials.form.select.utils.SelectOptions
 import me.lincolnstuart.funblocks.essentials.form.utils.BasicInputSkeleton
 import me.lincolnstuart.funblocks.essentials.misc.notification.utils.Counter
-import me.lincolnstuart.funblocks.foundation.ui.token.content.border.FunBlocksBorderWidth
 import me.lincolnstuart.funblocks.foundation.ui.token.content.spacing.FunBlocksInset
 import me.lincolnstuart.funblocks.foundation.ui.token.content.spacing.FunBlocksSpacing
 
@@ -88,7 +87,6 @@ private fun SelectInput(
         if (counter != null && counter > 0) {
             Counter(
                 formattedNumber = counter.toString(),
-                borderWidth = FunBlocksBorderWidth.none,
                 modifier = Modifier
                     .padding(horizontal = FunBlocksSpacing.xxxSmall)
                     .align(Alignment.CenterVertically)

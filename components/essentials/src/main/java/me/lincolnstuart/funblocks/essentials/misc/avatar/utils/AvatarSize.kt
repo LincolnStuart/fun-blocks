@@ -3,8 +3,6 @@ package me.lincolnstuart.funblocks.essentials.misc.avatar.utils
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.TextUnit
 import me.lincolnstuart.funblocks.core.icon.utils.IconSize
-import me.lincolnstuart.funblocks.essentials.misc.avatar.IconAvatar
-import me.lincolnstuart.funblocks.essentials.misc.avatar.InitialsAvatar
 import me.lincolnstuart.funblocks.foundation.ui.token.content.size.FunBlocksContentSize
 import me.lincolnstuart.funblocks.foundation.ui.token.font.FunBlocksFontSize
 
@@ -12,8 +10,8 @@ import me.lincolnstuart.funblocks.foundation.ui.token.font.FunBlocksFontSize
  * Enum that provides all sizes that the avatar may use.
  *
  * @param size component size.
- * @param iconSize from [IconAvatar].
- * @param fontSize from [InitialsAvatar].
+ * @param iconSize from [AvatarMode.Icon].
+ * @param fontSize from [AvatarMode.Initials].
  */
 public enum class AvatarSize(
     val size: Dp,
@@ -33,6 +31,6 @@ public enum class AvatarSize(
     Large(
         size = FunBlocksContentSize.huge,
         iconSize = IconSize.Large,
-        fontSize = FunBlocksFontSize.xxxLarge
+        fontSize = FunBlocksFontSize.huge
     )
 }

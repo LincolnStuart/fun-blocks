@@ -13,7 +13,8 @@ import androidx.compose.ui.unit.Dp
 import coil.compose.AsyncImage
 import me.lincolnstuart.funblocks.core.text.Text
 import me.lincolnstuart.funblocks.core.text.utils.TextMode
-import me.lincolnstuart.funblocks.essentials.misc.avatar.ImageAvatar
+import me.lincolnstuart.funblocks.essentials.misc.avatar.Avatar
+import me.lincolnstuart.funblocks.essentials.misc.avatar.utils.AvatarMode
 import me.lincolnstuart.funblocks.essentials.misc.avatar.utils.AvatarOptions
 import me.lincolnstuart.funblocks.essentials.misc.avatar.utils.AvatarSize
 import me.lincolnstuart.funblocks.essentials.misc.cardinfo.CardInfo
@@ -36,8 +37,8 @@ public sealed class CardHeaderOptions {
                 modifier = modifier.fillMaxWidth(),
                 horizontalAlignment = Alignment.CenterHorizontally
             ) {
-                ImageAvatar(
-                    url = url,
+                Avatar(
+                    mode = AvatarMode.Image(url = url),
                     options = AvatarOptions(size = AvatarSize.Large)
                 )
                 title?.let {

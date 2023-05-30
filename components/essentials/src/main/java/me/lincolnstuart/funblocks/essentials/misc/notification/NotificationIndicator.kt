@@ -1,7 +1,6 @@
 package me.lincolnstuart.funblocks.essentials.misc.notification
 
 import androidx.compose.foundation.background
-import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
@@ -16,13 +15,13 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import me.lincolnstuart.funblocks.core.spacer.HorizontalSpacer
 import me.lincolnstuart.funblocks.core.spacer.VerticalSpacer
-import me.lincolnstuart.funblocks.essentials.misc.avatar.InitialsAvatar
+import me.lincolnstuart.funblocks.essentials.misc.avatar.Avatar
+import me.lincolnstuart.funblocks.essentials.misc.avatar.utils.AvatarMode
 import me.lincolnstuart.funblocks.essentials.misc.avatar.utils.AvatarOptions
 import me.lincolnstuart.funblocks.essentials.misc.avatar.utils.AvatarShape
 import me.lincolnstuart.funblocks.essentials.misc.avatar.utils.AvatarSize
 import me.lincolnstuart.funblocks.foundation.ui.theme.FunBlocksTheme
 import me.lincolnstuart.funblocks.foundation.ui.token.color.FunBlocksColors
-import me.lincolnstuart.funblocks.foundation.ui.token.content.border.FunBlocksBorderWidth
 import me.lincolnstuart.funblocks.foundation.ui.token.content.spacing.FunBlocksSpacing
 
 /**
@@ -41,14 +40,9 @@ public fun NotificationIndicator(
         Box(
             modifier = Modifier
                 .size(FunBlocksSpacing.small)
-                .border(
-                    width = FunBlocksBorderWidth.large,
-                    color = FunBlocksColors.Surface.value(),
-                    shape = CircleShape
-                )
                 .padding(FunBlocksSpacing.micro)
                 .clip(CircleShape)
-                .background(FunBlocksColors.Primary.value())
+                .background(FunBlocksColors.Notification.value())
         )
     }
 }
@@ -64,8 +58,10 @@ private fun NotificationIndicatorPreview() {
         ) {
             Row {
                 NotificationIndicator {
-                    InitialsAvatar(
-                        fullName = "Lincoln Stuart",
+                    Avatar(
+                        mode = AvatarMode.Initials(
+                            fullName = "Lincoln Stuart"
+                        ),
                         options = AvatarOptions(
                             shape = AvatarShape.Square
                         )
@@ -73,14 +69,20 @@ private fun NotificationIndicatorPreview() {
                 }
                 HorizontalSpacer(width = FunBlocksSpacing.xxxSmall)
                 NotificationIndicator {
-                    InitialsAvatar(fullName = "Lincoln Stuart")
+                    Avatar(
+                        mode = AvatarMode.Initials(
+                            fullName = "Lincoln Stuart"
+                        )
+                    )
                 }
             }
             VerticalSpacer(height = FunBlocksSpacing.small)
             Row {
                 NotificationIndicator {
-                    InitialsAvatar(
-                        fullName = "Lincoln Stuart",
+                    Avatar(
+                        mode = AvatarMode.Initials(
+                            fullName = "Lincoln Stuart"
+                        ),
                         options = AvatarOptions(
                             size = AvatarSize.Large
                         )
@@ -88,8 +90,10 @@ private fun NotificationIndicatorPreview() {
                 }
                 HorizontalSpacer(width = FunBlocksSpacing.xxxSmall)
                 NotificationIndicator {
-                    InitialsAvatar(
-                        fullName = "Lincoln Stuart",
+                    Avatar(
+                        mode = AvatarMode.Initials(
+                            fullName = "Lincoln Stuart"
+                        ),
                         options = AvatarOptions(
                             shape = AvatarShape.Square,
                             size = AvatarSize.Large

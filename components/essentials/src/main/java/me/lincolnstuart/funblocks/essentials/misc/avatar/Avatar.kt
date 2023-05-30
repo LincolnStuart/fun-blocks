@@ -1,18 +1,19 @@
 package me.lincolnstuart.funblocks.essentials.misc.avatar
 
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
+import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.tooling.preview.Preview
-import me.lincolnstuart.funblocks.core.text.Text
-import me.lincolnstuart.funblocks.core.text.utils.TextMode
+import me.lincolnstuart.funblocks.essentials.misc.avatar.utils.AvatarMode
 import me.lincolnstuart.funblocks.essentials.misc.avatar.utils.AvatarOptions
 import me.lincolnstuart.funblocks.essentials.misc.avatar.utils.AvatarShape
 import me.lincolnstuart.funblocks.essentials.misc.avatar.utils.AvatarSize
@@ -21,87 +22,78 @@ import me.lincolnstuart.funblocks.foundation.ui.token.color.FunBlocksColors
 import me.lincolnstuart.funblocks.foundation.ui.token.content.spacing.FunBlocksSpacing
 
 /**
- * Avatar with name initials. Based on [BasicAvatar]. The initials are from first and last name.
- * E.g "Lincoln Middle Name Stuart" -> LS
+ * Avatar base with shape and size applied. It can used in three different ways: [AvatarMode.Icon],
+ * [AvatarMode.Image] and [AvatarMode.Initials].
  *
- * @param fullName an user full name.
- * @param modifier optional [Modifier].
  * @param options [AvatarOptions].
+ * @param modifier optional [Modifier].
+ * @param mode [AvatarMode] that defines the content inside.
  */
 @Composable
-public fun InitialsAvatar(
-    fullName: String,
+public fun Avatar(
     modifier: Modifier = Modifier,
+    mode: AvatarMode = AvatarMode.Icon(),
     options: AvatarOptions = AvatarOptions()
-) {
-    val splittedNames: List<String> = remember(fullName) {
-        fullName.uppercase().split(" ")
-    }
-    val initials: String = remember(fullName) {
-        if (splittedNames.size <= 1) {
-            splittedNames.firstOrNull()?.firstOrNull()?.toString().orEmpty()
-        } else {
-            "${splittedNames.first().first()}${splittedNames.last().first()}"
-        }
-    }
-    BasicAvatar(
-        options = options,
+) = with(options) {
+    Box(
         modifier = modifier
-    ) {
-        Box(
-            modifier = Modifier.fillMaxSize(),
-            contentAlignment = Alignment.Center
-        ) {
-            Text(
-                text = initials,
-                modifier = Modifier.padding(all = FunBlocksSpacing.xxxSmall),
-                mode = TextMode.Custom(fontSize = options.size.fontSize),
-                color = FunBlocksColors.NeutralDark
+            .size(size.size)
+            .clip(shape.shape)
+            .background(
+                Brush.linearGradient(
+                    listOf(
+                        FunBlocksColors.PrimaryDark.value(),
+                        FunBlocksColors.PrimaryLight.value()
+                    )
+                )
             )
-        }
+    ) {
+        mode.Content(options)
     }
 }
 
 @Preview
 @Composable
-private fun InitialsAvatarPreview() {
+private fun IconAvatarPreview() {
     FunBlocksTheme {
         Column {
             Row(
                 verticalAlignment = Alignment.CenterVertically,
                 horizontalArrangement = Arrangement.SpaceBetween
             ) {
-                InitialsAvatar(
-                    fullName = "Lincoln Some Middle Name Stuart",
-                    modifier = Modifier.padding(all = FunBlocksSpacing.xxxSmall),
+                Avatar(
                     options = AvatarOptions(
                         shape = AvatarShape.Circle,
                         size = AvatarSize.Regular
-                    )
+                    ),
+                    modifier = Modifier.padding(all = FunBlocksSpacing.xxxSmall)
                 )
-                InitialsAvatar(
-                    fullName = "Lincoln",
-                    modifier = Modifier.padding(all = FunBlocksSpacing.xxxSmall),
+                Avatar(
                     options = AvatarOptions(
                         shape = AvatarShape.Circle,
                         size = AvatarSize.Large
-                    )
+                    ),
+                    modifier = Modifier.padding(all = FunBlocksSpacing.xxxSmall)
                 )
             }
             Row(
                 verticalAlignment = Alignment.CenterVertically,
                 horizontalArrangement = Arrangement.SpaceBetween
             ) {
-                InitialsAvatar(
-                    fullName = "Lincoln Some Middle Name Stuart",
+                Avatar(
+                    mode = AvatarMode.Initials(
+                        fullName = "Lincoln Some Middle Name Stuart"
+                    ),
                     modifier = Modifier.padding(all = FunBlocksSpacing.xxxSmall),
                     options = AvatarOptions(
                         shape = AvatarShape.Square,
                         size = AvatarSize.Regular
                     )
                 )
-                InitialsAvatar(
-                    fullName = "Lincoln",
+                Avatar(
+                    mode = AvatarMode.Initials(
+                        fullName = "Lincoln"
+                    ),
                     modifier = Modifier.padding(all = FunBlocksSpacing.xxxSmall),
                     options = AvatarOptions(
                         shape = AvatarShape.Square,

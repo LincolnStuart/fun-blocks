@@ -15,4 +15,5 @@ public object FunBlocksFontSize {
     public val xLarge: TextUnit = 20.sp
     public val xxLarge: TextUnit = 22.sp
     public val xxxLarge: TextUnit = 24.sp
+    public val huge: TextUnit = 32.sp
 }
