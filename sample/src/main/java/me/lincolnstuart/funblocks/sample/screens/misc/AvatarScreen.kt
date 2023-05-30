@@ -1,4 +1,4 @@
-package me.lincolnstuart.funblocks.sample.screens.misc.avatar
+package me.lincolnstuart.funblocks.sample.screens.misc
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box

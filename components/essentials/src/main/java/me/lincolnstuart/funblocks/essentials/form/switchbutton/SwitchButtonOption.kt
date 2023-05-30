@@ -1,13 +1,16 @@
 package me.lincolnstuart.funblocks.essentials.form.switchbutton
 
-import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.padding
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import me.lincolnstuart.funblocks.core.text.Text
-import me.lincolnstuart.funblocks.essentials.helper.SimpleItem
+import me.lincolnstuart.funblocks.core.text.utils.TextMode
+import me.lincolnstuart.funblocks.foundation.ui.token.color.FunBlocksColors
+import me.lincolnstuart.funblocks.foundation.ui.token.content.spacing.FunBlocksSpacing
 
 /**
  * Switch option. Based on [SwitchButton].
@@ -25,14 +28,17 @@ public fun SwitchButtonOption(
     modifier: Modifier = Modifier
 ) {
     Row(
-        modifier = modifier.fillMaxWidth(),
+        modifier = modifier
+            .fillMaxWidth()
+            .background(FunBlocksColors.Surface.value())
+            .padding(FunBlocksSpacing.small),
         verticalAlignment = Alignment.CenterVertically
     ) {
-        Column(modifier = Modifier.weight(1f)) {
-            SimpleItem {
-                Text(description)
-            }
-        }
+        Text(
+            text = description,
+            mode = TextMode.Subtitle(),
+            modifier = Modifier.weight(1f)
+        )
         SwitchButton(isOn = isOn, onClick = onClick)
     }
 }

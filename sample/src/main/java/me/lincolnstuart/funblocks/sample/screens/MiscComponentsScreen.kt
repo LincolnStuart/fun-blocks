@@ -12,7 +12,8 @@ import cafe.adriel.voyager.navigator.currentOrThrow
 import me.lincolnstuart.funblocks.core.surface.Surface
 import me.lincolnstuart.funblocks.essentials.list.SimpleListItem
 import me.lincolnstuart.funblocks.foundation.ui.theme.FunBlocksTheme
-import me.lincolnstuart.funblocks.sample.screens.misc.avatar.AvatarScreen
+import me.lincolnstuart.funblocks.sample.screens.misc.AvatarScreen
+import me.lincolnstuart.funblocks.sample.screens.misc.BadgeScreen
 
 class MiscComponentsScreen : Screen {
 
@@ -28,6 +29,9 @@ class MiscComponentsScreen : Screen {
                 Column(Modifier.verticalScroll(scrollState)) {
                     SimpleListItem(title = "Avatar") {
                         navigator.push(AvatarScreen())
+                    }
+                    SimpleListItem(title = "Badge") {
+                        navigator.push(BadgeScreen())
                     }
                 }
             }
