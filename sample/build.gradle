@@ -49,6 +49,7 @@ android {
 }
 
 dependencies {
+    implementation(libs.splash.screen)
     implementation(libs.android.x.core.ktx)
     implementation(libs.android.x.lifecycle.runtime.ktx)
     implementation(libs.bundles.compose)

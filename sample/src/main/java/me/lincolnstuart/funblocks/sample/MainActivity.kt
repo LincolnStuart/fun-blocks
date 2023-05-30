@@ -9,7 +9,6 @@ import me.lincolnstuart.funblocks.sample.screens.HomeScreen
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        actionBar?.hide()
         setContent {
             Navigator(screen = HomeScreen())
         }
