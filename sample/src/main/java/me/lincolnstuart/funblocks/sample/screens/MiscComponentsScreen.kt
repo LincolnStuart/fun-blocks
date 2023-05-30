@@ -15,6 +15,7 @@ import me.lincolnstuart.funblocks.foundation.ui.theme.FunBlocksTheme
 import me.lincolnstuart.funblocks.sample.screens.misc.AlertScreen
 import me.lincolnstuart.funblocks.sample.screens.misc.AvatarScreen
 import me.lincolnstuart.funblocks.sample.screens.misc.BadgeScreen
+import me.lincolnstuart.funblocks.sample.screens.misc.ChatMessageScreen
 import me.lincolnstuart.funblocks.sample.screens.misc.ChipScreen
 
 class MiscComponentsScreen : Screen {
@@ -45,6 +46,7 @@ class MiscComponentsScreen : Screen {
         "Alert" to AlertScreen(),
         "Avatar" to AvatarScreen(),
         "Badge" to BadgeScreen(),
+        "Chat" to ChatMessageScreen(),
         "Chip" to ChipScreen()
     )
 }
