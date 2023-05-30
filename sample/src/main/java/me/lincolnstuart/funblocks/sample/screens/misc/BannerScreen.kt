@@ -1,0 +1,52 @@
+package me.lincolnstuart.funblocks.sample.screens.misc
+
+import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.padding
+import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
+import androidx.compose.ui.Modifier
+import cafe.adriel.voyager.core.screen.Screen
+import me.lincolnstuart.funblocks.core.surface.Surface
+import me.lincolnstuart.funblocks.essentials.misc.banner.Banner
+import me.lincolnstuart.funblocks.foundation.ui.theme.FunBlocksTheme
+import me.lincolnstuart.funblocks.foundation.ui.token.color.FunBlocksColors
+import me.lincolnstuart.funblocks.foundation.ui.token.content.spacing.FunBlocksSpacing
+
+class BannerScreen : Screen {
+
+    @Composable
+    override fun Content() {
+        FunBlocksTheme {
+            Surface(
+                modifier = Modifier
+                    .fillMaxSize()
+            ) {
+                BannerPlaygroundOptions()
+            }
+        }
+    }
+
+    @Composable
+    private fun BannerPlaygroundOptions() {
+        Column {
+            Box(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .weight(1f)
+                    .background(color = FunBlocksColors.SurfaceMedium.value())
+                    .padding(FunBlocksSpacing.small),
+                contentAlignment = Alignment.Center
+            ) {
+                Banner(
+                    url = "https://media.istockphoto.com/id/1318606676/vector/pattern-of-different-" +
+                        "colorful-toy-bricks-in-isometric-view-vector-stock-illustration.jpg" +
+                        "?s=612x612&w=0&k=20&c=nfJxJguqUqykTuQO-2SiU6Eh9uybMiP0n9ovYu-6mcY="
+                ) {}
+            }
+        }
+    }
+}
