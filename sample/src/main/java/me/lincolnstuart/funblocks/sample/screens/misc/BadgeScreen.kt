@@ -3,10 +3,8 @@ package me.lincolnstuart.funblocks.sample.screens.misc
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.padding
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -20,16 +18,14 @@ import compose.icons.TablerIcons
 import compose.icons.tablericons.CircleDashed
 import me.lincolnstuart.funblocks.core.surface.Surface
 import me.lincolnstuart.funblocks.core.text.Text
-import me.lincolnstuart.funblocks.core.text.utils.TextMode
 import me.lincolnstuart.funblocks.essentials.form.radiobutton.RadioButtonGroup
-import me.lincolnstuart.funblocks.essentials.form.switchbutton.SwitchButton
+import me.lincolnstuart.funblocks.essentials.form.switchbutton.SwitchButtonOption
 import me.lincolnstuart.funblocks.essentials.misc.accordion.Accordion
 import me.lincolnstuart.funblocks.essentials.misc.badge.Badge
 import me.lincolnstuart.funblocks.essentials.misc.badge.utils.BadgeMode
 import me.lincolnstuart.funblocks.essentials.misc.divider.HorizontalDivider
 import me.lincolnstuart.funblocks.foundation.ui.theme.FunBlocksTheme
 import me.lincolnstuart.funblocks.foundation.ui.token.color.FunBlocksColors
-import me.lincolnstuart.funblocks.foundation.ui.token.content.spacing.FunBlocksSpacing
 
 class BadgeScreen : Screen {
 
@@ -82,25 +78,13 @@ class BadgeScreen : Screen {
                     Text(text = it.name)
                 }
             }
-            Row(
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .background(FunBlocksColors.Surface.value())
-                    .padding(FunBlocksSpacing.small),
-                verticalAlignment = Alignment.CenterVertically
-            ) {
-                Text(
-                    text = "Start Icon",
-                    mode = TextMode.Subtitle(),
-                    modifier = Modifier.weight(1f)
-                )
-                SwitchButton(
-                    isOn = icon != null,
-                    onClick = {
-                        icon = if (icon == null) TablerIcons.CircleDashed else null
-                    }
-                )
-            }
+            SwitchButtonOption(
+                description = "Start Icon",
+                isOn = icon != null,
+                onClick = {
+                    icon = if (icon == null) TablerIcons.CircleDashed else null
+                }
+            )
         }
     }
 }
