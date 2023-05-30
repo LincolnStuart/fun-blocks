@@ -35,13 +35,13 @@ class AvatarScreen : Screen {
                 modifier = Modifier
                     .fillMaxSize()
             ) {
-                AvatarOptions()
+                AvatarPlaygroundOptions()
             }
         }
     }
 
     @Composable
-    private fun AvatarOptions() {
+    private fun AvatarPlaygroundOptions() {
         val iconMode = AvatarMode.Icon()
         val imageMode = AvatarMode.Image(
             url = "https://cdn.domestika.org/c_fit,dpr_auto,f_auto,t_base_params," +
