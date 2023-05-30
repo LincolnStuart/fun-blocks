@@ -33,7 +33,8 @@ import me.lincolnstuart.funblocks.foundation.ui.token.content.spacing.FunBlocksS
 @Composable
 fun ChatMessage(
     message: String,
-    options: ChatMessageOptions
+    options: ChatMessageOptions = ChatMessageOptions(),
+    avatar: (@Composable () -> Unit)? = null
 ) = with(options) {
     Box(
         modifier = Modifier.fillMaxWidth(),
@@ -48,7 +49,7 @@ fun ChatMessage(
                     .background(orientation.color.value())
                     .padding(FunBlocksInset.medium)
             ) {
-                Text(text = message, color = FunBlocksColors.NeutralDark)
+                Text(text = message, color = FunBlocksColors.PrimaryContrast)
             }
             if (orientation == ChatMessageOrientation.Received) avatar?.invoke()
         }
@@ -68,31 +69,33 @@ private fun ChatMessagePreview() {
                 ChatMessage(
                     message = "My message.",
                     options = ChatMessageOptions(
-                        orientation = ChatMessageOrientation.Sent,
-                        avatar = { Avatar(options = AvatarOptions(size = AvatarSize.Small)) }
-                    )
+                        orientation = ChatMessageOrientation.Sent
+                    ),
+                    avatar = { Avatar(options = AvatarOptions(size = AvatarSize.Small)) }
                 )
                 VerticalSpacer(height = FunBlocksSpacing.small)
                 ChatMessage(
                     message = "Others message.",
                     options = ChatMessageOptions(
-                        orientation = ChatMessageOrientation.Received,
-                        avatar = { Avatar(options = AvatarOptions(size = AvatarSize.Small)) }
-                    )
+                        orientation = ChatMessageOrientation.Received
+                    ),
+                    avatar = { Avatar(options = AvatarOptions(size = AvatarSize.Small)) }
                 )
                 VerticalSpacer(height = FunBlocksSpacing.small)
                 ChatMessage(
                     message = "New message.",
                     options = ChatMessageOptions(
                         orientation = ChatMessageOrientation.Sent
-                    )
+                    ),
+                    avatar = { Avatar(options = AvatarOptions(size = AvatarSize.Small)) }
                 )
                 VerticalSpacer(height = FunBlocksSpacing.small)
                 ChatMessage(
                     message = "Longer message (trying to fill max width and break one line).",
                     options = ChatMessageOptions(
                         orientation = ChatMessageOrientation.Sent
-                    )
+                    ),
+                    avatar = { Avatar(options = AvatarOptions(size = AvatarSize.Small)) }
                 )
             }
         }
