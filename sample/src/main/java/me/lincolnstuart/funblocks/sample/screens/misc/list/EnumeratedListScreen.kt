@@ -25,13 +25,13 @@ class EnumeratedListScreen : Screen {
                 modifier = Modifier
                     .fillMaxSize()
             ) {
-                BulletedListPlaygroundOptions()
+                EnumeratedListPlaygroundOptions()
             }
         }
     }
 
     @Composable
-    private fun BulletedListPlaygroundOptions() {
+    private fun EnumeratedListPlaygroundOptions() {
         Column {
             Box(
                 modifier = Modifier

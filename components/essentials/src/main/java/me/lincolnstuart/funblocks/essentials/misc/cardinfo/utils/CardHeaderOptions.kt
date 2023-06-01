@@ -75,7 +75,7 @@ public sealed class CardHeaderOptions {
                         mode = TextMode.Title(),
                         modifier = Modifier
                             .padding(horizontal = FunBlocksSpacing.small)
-                            .padding(top = FunBlocksSpacing.small, bottom = FunBlocksSpacing.xSmall)
+                            .padding(top = FunBlocksSpacing.small)
                     )
                 }
             }

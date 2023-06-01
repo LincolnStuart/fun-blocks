@@ -17,6 +17,7 @@ import me.lincolnstuart.funblocks.sample.screens.misc.AlertScreen
 import me.lincolnstuart.funblocks.sample.screens.misc.AvatarScreen
 import me.lincolnstuart.funblocks.sample.screens.misc.BadgeScreen
 import me.lincolnstuart.funblocks.sample.screens.misc.BannerScreen
+import me.lincolnstuart.funblocks.sample.screens.misc.CardInfoScreen
 import me.lincolnstuart.funblocks.sample.screens.misc.ChatMessageScreen
 import me.lincolnstuart.funblocks.sample.screens.misc.ChipScreen
 import me.lincolnstuart.funblocks.sample.screens.misc.DividerScreen
@@ -53,6 +54,7 @@ class MiscComponentsScreen : Screen {
         "Avatar" to AvatarScreen(),
         "Badge" to BadgeScreen(),
         "Banner" to BannerScreen(),
+        "CardInfo" to CardInfoScreen(),
         "Chat" to ChatMessageScreen(),
         "Chip" to ChipScreen(),
         "Divider" to DividerScreen(),
