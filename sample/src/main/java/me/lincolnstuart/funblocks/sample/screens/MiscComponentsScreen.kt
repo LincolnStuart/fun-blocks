@@ -54,7 +54,7 @@ class MiscComponentsScreen : Screen {
         "Avatar" to AvatarScreen(),
         "Badge" to BadgeScreen(),
         "Banner" to BannerScreen(),
-        "CardInfo" to CardInfoScreen(),
+        "Card Info" to CardInfoScreen(),
         "Chat" to ChatMessageScreen(),
         "Chip" to ChipScreen(),
         "Divider" to DividerScreen(),
