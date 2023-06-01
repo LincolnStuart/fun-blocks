@@ -25,7 +25,7 @@ class HomeScreen : Screen {
                 val navigator = LocalNavigator.currentOrThrow
                 val scrollState = rememberScrollState()
                 Column(Modifier.verticalScroll(scrollState)) {
-                    SimpleListItem(title = "Miscellaneous", description = "Avatar, Alert, Chip, Badge, etc.") {
+                    SimpleListItem(title = "Miscellaneous", description = "Avatar, Alert, Badge, Chip, etc.") {
                         navigator.push(MiscComponentsScreen())
                     }
                 }
