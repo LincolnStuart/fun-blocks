@@ -45,7 +45,7 @@ import me.lincolnstuart.funblocks.foundation.ui.token.content.spacing.FunBlocksS
 @Composable
 public fun Alert(
     title: String,
-    message: String?,
+    message: String? = null,
     mode: AlertMode = AlertMode.Info,
     closeOptions: AlertCloseOptions = AlertCloseOptions()
 ) {
@@ -144,13 +144,11 @@ private fun AlertPreview() {
                 )
                 VerticalSpacer(height = FunBlocksSpacing.small)
                 Alert(
-                    title = "Info",
-                    message = null
+                    title = "Info"
                 )
                 VerticalSpacer(height = FunBlocksSpacing.small)
                 Alert(
                     title = "Title greater than one line must show ellipsis",
-                    message = null,
                     closeOptions = AlertCloseOptions(onClose = {})
                 )
                 VerticalSpacer(height = FunBlocksSpacing.small)
