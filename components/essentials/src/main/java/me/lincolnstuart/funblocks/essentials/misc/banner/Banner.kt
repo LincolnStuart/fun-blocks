@@ -18,6 +18,7 @@ import me.lincolnstuart.funblocks.foundation.ui.token.content.size.FunBlocksCont
  * @param url image url.
  * @param height it recommended to use [FunBlocksContentSize].
  * @param modifier [Modifier].
+ * @param onClick callback that executes when click is performed.
  */
 @Composable
 public fun Banner(

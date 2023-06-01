@@ -66,7 +66,7 @@ class AvatarScreen : Screen {
                     .background(color = FunBlocksColors.SurfaceMedium.value()),
                 contentAlignment = Alignment.Center
             ) {
-                Avatar(mode = mode, options = AvatarOptions(shape, size))
+                Avatar(mode = mode, options = AvatarOptions(shape, size)) {}
             }
             HorizontalDivider()
             Accordion(title = "Mode") {

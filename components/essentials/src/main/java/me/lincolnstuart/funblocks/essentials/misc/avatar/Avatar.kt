@@ -1,6 +1,7 @@
 package me.lincolnstuart.funblocks.essentials.misc.avatar
 
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -28,12 +29,14 @@ import me.lincolnstuart.funblocks.foundation.ui.token.content.spacing.FunBlocksS
  * @param options [AvatarOptions].
  * @param modifier optional [Modifier].
  * @param mode [AvatarMode] that defines the content inside.
+ * @param onClick callback that executes when click is performed.
  */
 @Composable
 public fun Avatar(
     modifier: Modifier = Modifier,
     mode: AvatarMode = AvatarMode.Icon(),
-    options: AvatarOptions = AvatarOptions()
+    options: AvatarOptions = AvatarOptions(),
+    onClick: () -> Unit
 ) = with(options) {
     Box(
         modifier = modifier
@@ -47,6 +50,7 @@ public fun Avatar(
                     )
                 )
             )
+            .clickable { onClick() }
     ) {
         mode.Content(options)
     }
@@ -67,14 +71,14 @@ private fun IconAvatarPreview() {
                         size = AvatarSize.Regular
                     ),
                     modifier = Modifier.padding(all = FunBlocksSpacing.xxxSmall)
-                )
+                ) {}
                 Avatar(
                     options = AvatarOptions(
                         shape = AvatarShape.Circle,
                         size = AvatarSize.Large
                     ),
                     modifier = Modifier.padding(all = FunBlocksSpacing.xxxSmall)
-                )
+                ) {}
             }
             Row(
                 verticalAlignment = Alignment.CenterVertically,
@@ -89,7 +93,7 @@ private fun IconAvatarPreview() {
                         shape = AvatarShape.Square,
                         size = AvatarSize.Regular
                     )
-                )
+                ) {}
                 Avatar(
                     mode = AvatarMode.Initials(
                         fullName = "Lincoln"
@@ -99,7 +103,7 @@ private fun IconAvatarPreview() {
                         shape = AvatarShape.Square,
                         size = AvatarSize.Large
                     )
-                )
+                ) {}
             }
         }
     }
