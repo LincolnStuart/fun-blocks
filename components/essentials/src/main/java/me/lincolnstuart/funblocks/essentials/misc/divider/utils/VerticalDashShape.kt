@@ -16,11 +16,9 @@ import kotlin.math.roundToInt
  * Vertical dashed shape, used to customize vertical divider.
  *
  * @param lineHeight it is recommended to use [FunBlocksBorderWidth]
- * @param isMoreSpaced if empty space is greater than filled space.
  */
 internal class VerticalDashShape(
-    private val lineHeight: Dp,
-    private val isMoreSpaced: Boolean = false
+    private val lineHeight: Dp
 ) : Shape {
     override fun createOutline(
         size: Size,
@@ -45,12 +43,7 @@ internal class VerticalDashShape(
     )
 
     private fun getOffset(index: Int, actualStep: Float): Offset {
-        var offsetValue = index * actualStep
-        if (isMoreSpaced) offsetValue *= EXTRA_SPACE
+        val offsetValue = index * actualStep
         return Offset(x = 0f, y = offsetValue)
-    }
-
-    private companion object {
-        const val EXTRA_SPACE: Float = 2.5f
     }
 }

@@ -18,8 +18,7 @@ public enum class VerticalDividerMode(val shape: Shape) {
     ),
     Dotted(
         shape = VerticalDashShape(
-            lineHeight = FunBlocksSpacing.xxxSmall,
-            isMoreSpaced = true
+            lineHeight = FunBlocksSpacing.xxSmall
         )
     )
 }

@@ -71,7 +71,7 @@ private fun ChatMessagePreview() {
                     options = ChatMessageOptions(
                         orientation = ChatMessageOrientation.Sent
                     ),
-                    avatar = { Avatar(options = AvatarOptions(size = AvatarSize.Small)) }
+                    avatar = { Avatar(options = AvatarOptions(size = AvatarSize.Small)) {} }
                 )
                 VerticalSpacer(height = FunBlocksSpacing.small)
                 ChatMessage(
@@ -79,7 +79,7 @@ private fun ChatMessagePreview() {
                     options = ChatMessageOptions(
                         orientation = ChatMessageOrientation.Received
                     ),
-                    avatar = { Avatar(options = AvatarOptions(size = AvatarSize.Small)) }
+                    avatar = { Avatar(options = AvatarOptions(size = AvatarSize.Small)) {} }
                 )
                 VerticalSpacer(height = FunBlocksSpacing.small)
                 ChatMessage(
@@ -87,7 +87,7 @@ private fun ChatMessagePreview() {
                     options = ChatMessageOptions(
                         orientation = ChatMessageOrientation.Sent
                     ),
-                    avatar = { Avatar(options = AvatarOptions(size = AvatarSize.Small)) }
+                    avatar = { Avatar(options = AvatarOptions(size = AvatarSize.Small)) {} }
                 )
                 VerticalSpacer(height = FunBlocksSpacing.small)
                 ChatMessage(
@@ -95,7 +95,7 @@ private fun ChatMessagePreview() {
                     options = ChatMessageOptions(
                         orientation = ChatMessageOrientation.Sent
                     ),
-                    avatar = { Avatar(options = AvatarOptions(size = AvatarSize.Small)) }
+                    avatar = { Avatar(options = AvatarOptions(size = AvatarSize.Small)) {} }
                 )
             }
         }
