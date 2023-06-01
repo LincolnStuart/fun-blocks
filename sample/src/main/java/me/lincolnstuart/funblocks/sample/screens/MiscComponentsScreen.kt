@@ -12,6 +12,7 @@ import cafe.adriel.voyager.navigator.currentOrThrow
 import me.lincolnstuart.funblocks.core.surface.Surface
 import me.lincolnstuart.funblocks.essentials.list.SimpleListItem
 import me.lincolnstuart.funblocks.foundation.ui.theme.FunBlocksTheme
+import me.lincolnstuart.funblocks.sample.screens.misc.AccordionScreen
 import me.lincolnstuart.funblocks.sample.screens.misc.AlertScreen
 import me.lincolnstuart.funblocks.sample.screens.misc.AvatarScreen
 import me.lincolnstuart.funblocks.sample.screens.misc.BadgeScreen
@@ -46,6 +47,7 @@ class MiscComponentsScreen : Screen {
     }
 
     private val screens = listOf(
+        "Accordion" to AccordionScreen(),
         "Alert" to AlertScreen(),
         "Avatar" to AvatarScreen(),
         "Badge" to BadgeScreen(),

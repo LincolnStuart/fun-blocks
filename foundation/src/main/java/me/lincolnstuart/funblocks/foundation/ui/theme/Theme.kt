@@ -1,6 +1,5 @@
 package me.lincolnstuart.funblocks.foundation.ui.theme
 
-import android.util.Log
 import androidx.annotation.DrawableRes
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.material.MaterialTheme
@@ -32,8 +31,6 @@ fun FunBlocksTheme(
     LaunchedEffect(isDarkThemeApplied) {
         theme.colors.update(isDarkThemeApplied)
     }
-    Log.i("doidera", "FunBlocksTheme1: ${materialColors.primary}")
-    Log.i("doidera", "FunBlocksTheme2: ${MaterialTheme.colors.primary}")
     CompositionLocalProvider(
         LocalTheme provides theme
     ) {
