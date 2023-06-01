@@ -59,6 +59,6 @@ class MiscComponentsScreen : Screen {
         "Chip" to ChipScreen(),
         "Divider" to DividerScreen(),
         "List" to ListScreen(),
-        "Loading" to LoadingScreen(),
+        "Loading" to LoadingScreen()
     )
 }
