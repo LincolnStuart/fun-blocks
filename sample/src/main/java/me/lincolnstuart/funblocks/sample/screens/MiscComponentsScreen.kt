@@ -58,7 +58,7 @@ class MiscComponentsScreen : Screen {
         "Chat" to ChatMessageScreen(),
         "Chip" to ChipScreen(),
         "Divider" to DividerScreen(),
+        "List" to ListScreen(),
         "Loading" to LoadingScreen(),
-        "List" to ListScreen()
     )
 }
