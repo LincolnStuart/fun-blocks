@@ -19,6 +19,7 @@ import me.lincolnstuart.funblocks.sample.screens.misc.BannerScreen
 import me.lincolnstuart.funblocks.sample.screens.misc.ChatMessageScreen
 import me.lincolnstuart.funblocks.sample.screens.misc.ChipScreen
 import me.lincolnstuart.funblocks.sample.screens.misc.DividerScreen
+import me.lincolnstuart.funblocks.sample.screens.misc.LoadingScreen
 
 class MiscComponentsScreen : Screen {
 
@@ -51,6 +52,7 @@ class MiscComponentsScreen : Screen {
         "Banner" to BannerScreen(),
         "Chat" to ChatMessageScreen(),
         "Chip" to ChipScreen(),
-        "Divider" to DividerScreen()
+        "Divider" to DividerScreen(),
+        "Loading" to LoadingScreen()
     )
 }
