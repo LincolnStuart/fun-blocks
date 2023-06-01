@@ -1,0 +1,48 @@
+package me.lincolnstuart.funblocks.sample.screens.misc
+
+import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.padding
+import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
+import androidx.compose.ui.Modifier
+import cafe.adriel.voyager.core.screen.Screen
+import me.lincolnstuart.funblocks.core.surface.Surface
+import me.lincolnstuart.funblocks.essentials.misc.loading.Loading
+import me.lincolnstuart.funblocks.foundation.ui.theme.FunBlocksTheme
+import me.lincolnstuart.funblocks.foundation.ui.token.color.FunBlocksColors
+import me.lincolnstuart.funblocks.foundation.ui.token.content.spacing.FunBlocksSpacing
+
+class LoadingScreen : Screen {
+
+    @Composable
+    override fun Content() {
+        FunBlocksTheme {
+            Surface(
+                modifier = Modifier
+                    .fillMaxSize()
+            ) {
+                LoadingPlaygroundOptions()
+            }
+        }
+    }
+
+    @Composable
+    private fun LoadingPlaygroundOptions() {
+        Column {
+            Box(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .weight(1f)
+                    .background(color = FunBlocksColors.SurfaceMedium.value())
+                    .padding(FunBlocksSpacing.small),
+                contentAlignment = Alignment.Center
+            ) {
+                Loading()
+            }
+        }
+    }
+}
