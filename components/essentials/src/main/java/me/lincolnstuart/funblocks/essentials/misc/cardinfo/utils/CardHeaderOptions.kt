@@ -40,7 +40,7 @@ public sealed class CardHeaderOptions {
                 Avatar(
                     mode = AvatarMode.Image(url = url),
                     options = AvatarOptions(size = AvatarSize.Large)
-                )
+                ) {}
                 title?.let {
                     Text(
                         text = title,

@@ -65,7 +65,7 @@ private fun NotificationIndicatorPreview() {
                         options = AvatarOptions(
                             shape = AvatarShape.Square
                         )
-                    )
+                    ) {}
                 }
                 HorizontalSpacer(width = FunBlocksSpacing.xxxSmall)
                 NotificationIndicator {
@@ -73,7 +73,7 @@ private fun NotificationIndicatorPreview() {
                         mode = AvatarMode.Initials(
                             fullName = "Lincoln Stuart"
                         )
-                    )
+                    ) {}
                 }
             }
             VerticalSpacer(height = FunBlocksSpacing.small)
@@ -86,7 +86,7 @@ private fun NotificationIndicatorPreview() {
                         options = AvatarOptions(
                             size = AvatarSize.Large
                         )
-                    )
+                    ) {}
                 }
                 HorizontalSpacer(width = FunBlocksSpacing.xxxSmall)
                 NotificationIndicator {
@@ -98,7 +98,7 @@ private fun NotificationIndicatorPreview() {
                             shape = AvatarShape.Square,
                             size = AvatarSize.Large
                         )
-                    )
+                    ) {}
                 }
             }
         }

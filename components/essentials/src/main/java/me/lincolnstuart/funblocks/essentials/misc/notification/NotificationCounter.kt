@@ -68,7 +68,7 @@ private fun NotificationCounterPreview() {
                             options = AvatarOptions(
                                 shape = AvatarShape.Square
                             )
-                        )
+                        ) {}
                     }
                     HorizontalSpacer(width = FunBlocksSpacing.xxxSmall)
                     NotificationCounter(number = -99) {
@@ -76,7 +76,7 @@ private fun NotificationCounterPreview() {
                             mode = AvatarMode.Initials(
                                 fullName = "Lincoln Stuart"
                             )
-                        )
+                        ) {}
                     }
                 }
                 VerticalSpacer(height = FunBlocksSpacing.small)
@@ -89,7 +89,7 @@ private fun NotificationCounterPreview() {
                             options = AvatarOptions(
                                 size = AvatarSize.Large
                             )
-                        )
+                        ) {}
                     }
                     HorizontalSpacer(width = FunBlocksSpacing.xxxSmall)
                     NotificationCounter(number = 200) {
@@ -101,7 +101,7 @@ private fun NotificationCounterPreview() {
                                 shape = AvatarShape.Square,
                                 size = AvatarSize.Large
                             )
-                        )
+                        ) {}
                     }
                 }
             }

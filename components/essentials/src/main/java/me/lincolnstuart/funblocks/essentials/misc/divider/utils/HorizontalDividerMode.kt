@@ -18,8 +18,7 @@ public enum class HorizontalDividerMode(val shape: Shape) {
     ),
     Dotted(
         shape = HorizontalDashShape(
-            lineWidth = FunBlocksSpacing.xxxSmall,
-            isMoreSpaced = true
+            lineWidth = FunBlocksSpacing.xxSmall
         )
     )
 }
