@@ -1,19 +1,11 @@
 package me.lincolnstuart.funblocks.sample.screens.misc
 
-import androidx.compose.foundation.background
-import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
-import androidx.compose.ui.Alignment
-import androidx.compose.ui.Modifier
 import cafe.adriel.voyager.core.screen.Screen
-import me.lincolnstuart.funblocks.core.surface.Surface
 import me.lincolnstuart.funblocks.core.text.Text
 import me.lincolnstuart.funblocks.essentials.form.radiobutton.RadioButtonGroup
 import me.lincolnstuart.funblocks.essentials.misc.accordion.Accordion
@@ -22,26 +14,12 @@ import me.lincolnstuart.funblocks.essentials.misc.avatar.utils.AvatarMode
 import me.lincolnstuart.funblocks.essentials.misc.avatar.utils.AvatarOptions
 import me.lincolnstuart.funblocks.essentials.misc.avatar.utils.AvatarShape
 import me.lincolnstuart.funblocks.essentials.misc.avatar.utils.AvatarSize
-import me.lincolnstuart.funblocks.essentials.misc.divider.HorizontalDivider
-import me.lincolnstuart.funblocks.foundation.ui.theme.FunBlocksTheme
-import me.lincolnstuart.funblocks.foundation.ui.token.color.FunBlocksColors
+import me.lincolnstuart.funblocks.sample.components.Playground
 
 class AvatarScreen : Screen {
 
     @Composable
     override fun Content() {
-        FunBlocksTheme {
-            Surface(
-                modifier = Modifier
-                    .fillMaxSize()
-            ) {
-                AvatarPlaygroundOptions()
-            }
-        }
-    }
-
-    @Composable
-    private fun AvatarPlaygroundOptions() {
         val iconMode = AvatarMode.Icon()
         val imageMode = AvatarMode.Image(
             url = "https://cdn.domestika.org/c_fit,dpr_auto,f_auto,t_base_params," +
@@ -58,17 +36,9 @@ class AvatarScreen : Screen {
         var size by remember {
             mutableStateOf(AvatarSize.Regular)
         }
-        Column {
-            Box(
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .weight(1f)
-                    .background(color = FunBlocksColors.SurfaceMedium.value()),
-                contentAlignment = Alignment.Center
-            ) {
-                Avatar(mode = mode, options = AvatarOptions(shape, size)) {}
-            }
-            HorizontalDivider()
+        Playground(component = {
+            Avatar(mode = mode, options = AvatarOptions(shape, size)) {}
+        }) {
             Accordion(title = "Mode") {
                 RadioButtonGroup(
                     options = listOf(iconMode, imageMode, initialsMode),
