@@ -1,48 +1,24 @@
 package me.lincolnstuart.funblocks.sample.screens.misc
 
-import androidx.compose.foundation.background
-import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.padding
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
-import androidx.compose.ui.Alignment
-import androidx.compose.ui.Modifier
 import cafe.adriel.voyager.core.screen.Screen
-import me.lincolnstuart.funblocks.core.surface.Surface
 import me.lincolnstuart.funblocks.core.text.Text
 import me.lincolnstuart.funblocks.essentials.form.radiobutton.RadioButtonGroup
 import me.lincolnstuart.funblocks.essentials.misc.accordion.Accordion
 import me.lincolnstuart.funblocks.essentials.misc.cardinfo.CardInfo
 import me.lincolnstuart.funblocks.essentials.misc.cardinfo.utils.CardBodyOptions
 import me.lincolnstuart.funblocks.essentials.misc.cardinfo.utils.CardHeaderOptions
-import me.lincolnstuart.funblocks.essentials.misc.divider.HorizontalDivider
-import me.lincolnstuart.funblocks.foundation.ui.theme.FunBlocksTheme
-import me.lincolnstuart.funblocks.foundation.ui.token.color.FunBlocksColors
 import me.lincolnstuart.funblocks.foundation.ui.token.content.size.FunBlocksContentSize
-import me.lincolnstuart.funblocks.foundation.ui.token.content.spacing.FunBlocksSpacing
+import me.lincolnstuart.funblocks.sample.components.Playground
 
 class CardInfoScreen : Screen {
 
     @Composable
     override fun Content() {
-        FunBlocksTheme {
-            Surface(
-                modifier = Modifier
-                    .fillMaxSize()
-            ) {
-                CardInfoPlaygroundOptions()
-            }
-        }
-    }
-
-    @Composable
-    private fun CardInfoPlaygroundOptions() {
         val bodyOptions = getBodyOptions()
         var bodyOption: CardBodyOptions by remember {
             mutableStateOf(bodyOptions.first())
@@ -50,21 +26,12 @@ class CardInfoScreen : Screen {
         var headerOption: CardHeaderOptions? by remember {
             mutableStateOf(null)
         }
-        Column {
-            Box(
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .weight(1f)
-                    .background(color = FunBlocksColors.SurfaceMedium.value())
-                    .padding(FunBlocksSpacing.small),
-                contentAlignment = Alignment.Center
-            ) {
-                CardInfo(
-                    body = bodyOption,
-                    header = headerOption
-                )
-            }
-            HorizontalDivider()
+        Playground(component = {
+            CardInfo(
+                body = bodyOption,
+                header = headerOption
+            )
+        }) {
             Accordion(title = "Header") {
                 RadioButtonGroup(
                     options = getHeaderOptions(),

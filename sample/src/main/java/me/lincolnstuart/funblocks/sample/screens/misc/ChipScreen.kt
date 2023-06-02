@@ -1,61 +1,31 @@
 package me.lincolnstuart.funblocks.sample.screens.misc
 
-import androidx.compose.foundation.background
-import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
-import androidx.compose.ui.Alignment
-import androidx.compose.ui.Modifier
 import cafe.adriel.voyager.core.screen.Screen
 import compose.icons.TablerIcons
 import compose.icons.tablericons.CircleDashed
-import me.lincolnstuart.funblocks.core.surface.Surface
 import me.lincolnstuart.funblocks.essentials.form.switchbutton.SwitchButtonOption
 import me.lincolnstuart.funblocks.essentials.misc.chip.Chip
 import me.lincolnstuart.funblocks.essentials.misc.chip.utils.ChipOptions
-import me.lincolnstuart.funblocks.essentials.misc.divider.HorizontalDivider
-import me.lincolnstuart.funblocks.foundation.ui.theme.FunBlocksTheme
-import me.lincolnstuart.funblocks.foundation.ui.token.color.FunBlocksColors
+import me.lincolnstuart.funblocks.sample.components.Playground
 
 class ChipScreen : Screen {
 
     @Composable
     override fun Content() {
-        FunBlocksTheme {
-            Surface(
-                modifier = Modifier
-                    .fillMaxSize()
-            ) {
-                ChipPlaygroundOptions()
-            }
+        var options: ChipOptions by remember {
+            mutableStateOf(ChipOptions())
         }
-    }
-
-    @Composable
-    private fun ChipPlaygroundOptions() {
-        Column {
-            var options: ChipOptions by remember {
-                mutableStateOf(ChipOptions())
-            }
-            Box(
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .weight(1f)
-                    .background(color = FunBlocksColors.SurfaceMedium.value()),
-                contentAlignment = Alignment.Center
-            ) {
-                Chip(
-                    description = "Chip",
-                    options = options
-                ) {}
-            }
-            HorizontalDivider()
+        Playground(component = {
+            Chip(
+                description = "Chip",
+                options = options
+            ) {}
+        }) {
             SwitchButtonOption(
                 description = "Enabled",
                 isOn = options.isEnabled,
