@@ -1,38 +1,40 @@
 package me.lincolnstuart.funblocks.sample.screens.misc
 
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.rememberScrollState
-import androidx.compose.foundation.verticalScroll
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.Modifier
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import cafe.adriel.voyager.core.screen.Screen
-import cafe.adriel.voyager.navigator.LocalNavigator
-import cafe.adriel.voyager.navigator.currentOrThrow
-import me.lincolnstuart.funblocks.core.surface.Surface
-import me.lincolnstuart.funblocks.essentials.list.SimpleListItem
-import me.lincolnstuart.funblocks.foundation.ui.theme.FunBlocksTheme
-import me.lincolnstuart.funblocks.sample.screens.misc.list.BulletedListScreen
-import me.lincolnstuart.funblocks.sample.screens.misc.list.EnumeratedListScreen
+import me.lincolnstuart.funblocks.core.text.Text
+import me.lincolnstuart.funblocks.essentials.form.radiobutton.RadioButtonGroup
+import me.lincolnstuart.funblocks.essentials.misc.accordion.Accordion
+import me.lincolnstuart.funblocks.essentials.misc.list.utils.ListMode
+import me.lincolnstuart.funblocks.sample.components.Playground
 
 class ListScreen : Screen {
 
     @Composable
     override fun Content() {
-        FunBlocksTheme {
-            Surface(
-                modifier = Modifier
-                    .fillMaxSize()
-            ) {
-                val navigator = LocalNavigator.currentOrThrow
-                val scrollState = rememberScrollState()
-                Column(Modifier.verticalScroll(scrollState)) {
-                    SimpleListItem(title = "Bulleted list") {
-                        navigator.push(BulletedListScreen())
-                    }
-                    SimpleListItem(title = "Enumerated list") {
-                        navigator.push(EnumeratedListScreen())
-                    }
+        var mode: ListMode by remember {
+            mutableStateOf(ListMode.Bulleted)
+        }
+        Playground(component = {
+            me.lincolnstuart.funblocks.essentials.misc.list.List(
+                topics = listOf("Kotlin", "Android", "Jetpack Compose"),
+                mode = mode
+            )
+        }) {
+            Accordion(title = "Mode") {
+                RadioButtonGroup(
+                    options = listOf(
+                        ListMode.Bulleted,
+                        ListMode.Enumerated
+                    ),
+                    selectedOption = mode,
+                    onSelectOption = { mode = it }
+                ) {
+                    Text(text = it.name)
                 }
             }
         }
