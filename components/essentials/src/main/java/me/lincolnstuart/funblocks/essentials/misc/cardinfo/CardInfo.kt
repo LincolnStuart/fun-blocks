@@ -34,17 +34,13 @@ public fun CardInfo(
         Column {
             header?.let {
                 header.Content(
-                    Modifier.padding(
-                        top = FunBlocksSpacing.small,
-                        bottom = FunBlocksSpacing.small
-                    )
+                    Modifier.padding(top = FunBlocksSpacing.small)
                 )
             }
             Row(
                 modifier = Modifier
                     .fillMaxWidth()
-                    .padding(horizontal = FunBlocksSpacing.small)
-                    .padding(bottom = FunBlocksSpacing.small)
+                    .padding(FunBlocksSpacing.small)
             ) {
                 body.Content()
             }
