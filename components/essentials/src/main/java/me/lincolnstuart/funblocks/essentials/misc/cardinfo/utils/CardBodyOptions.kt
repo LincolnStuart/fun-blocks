@@ -4,7 +4,8 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.runtime.Composable
 import me.lincolnstuart.funblocks.core.text.Text
 import me.lincolnstuart.funblocks.essentials.misc.cardinfo.CardInfo
-import me.lincolnstuart.funblocks.essentials.misc.list.EnumeratedList
+import me.lincolnstuart.funblocks.essentials.misc.list.List
+import me.lincolnstuart.funblocks.essentials.misc.list.utils.ListMode
 
 /**
  * Sealed class that presets the [CardInfo] body customization.
@@ -20,12 +21,17 @@ public sealed class CardBodyOptions {
             Text(text = text)
         }
     }
+
     data class Listing(val topics: List<String>) : CardBodyOptions() {
         @Composable
         override fun Content() {
-            EnumeratedList(topics = topics)
+            List(
+                topics = topics,
+                mode = ListMode.Enumerated
+            )
         }
     }
+
     data class Characteristic(val characteristics: Map<String, String>) : CardBodyOptions() {
         @Composable
         override fun Content() {
