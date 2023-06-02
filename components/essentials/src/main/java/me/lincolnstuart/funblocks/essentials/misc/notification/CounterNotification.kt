@@ -11,12 +11,12 @@ import androidx.compose.ui.tooling.preview.Preview
 import me.lincolnstuart.funblocks.core.spacer.HorizontalSpacer
 import me.lincolnstuart.funblocks.core.spacer.VerticalSpacer
 import me.lincolnstuart.funblocks.core.surface.Surface
+import me.lincolnstuart.funblocks.essentials.helper.Counter
 import me.lincolnstuart.funblocks.essentials.misc.avatar.Avatar
 import me.lincolnstuart.funblocks.essentials.misc.avatar.utils.AvatarMode
 import me.lincolnstuart.funblocks.essentials.misc.avatar.utils.AvatarOptions
 import me.lincolnstuart.funblocks.essentials.misc.avatar.utils.AvatarShape
 import me.lincolnstuart.funblocks.essentials.misc.avatar.utils.AvatarSize
-import me.lincolnstuart.funblocks.essentials.misc.notification.utils.Counter
 import me.lincolnstuart.funblocks.foundation.ui.theme.FunBlocksTheme
 import me.lincolnstuart.funblocks.foundation.ui.token.content.spacing.FunBlocksSpacing
 
@@ -30,7 +30,7 @@ private const val MAX_COUNTER: Int = 9
  * @param content the content inside.
  */
 @Composable
-public fun NotificationCounter(
+public fun CounterNotification(
     number: Int,
     content: @Composable () -> Unit
 ) {
@@ -60,7 +60,7 @@ private fun NotificationCounterPreview() {
                 Modifier.padding(FunBlocksSpacing.small)
             ) {
                 Row {
-                    NotificationCounter(number = 5) {
+                    CounterNotification(number = 5) {
                         Avatar(
                             mode = AvatarMode.Initials(
                                 fullName = "Lincoln Stuart"
@@ -71,7 +71,7 @@ private fun NotificationCounterPreview() {
                         ) {}
                     }
                     HorizontalSpacer(width = FunBlocksSpacing.xxxSmall)
-                    NotificationCounter(number = -99) {
+                    CounterNotification(number = -99) {
                         Avatar(
                             mode = AvatarMode.Initials(
                                 fullName = "Lincoln Stuart"
@@ -81,7 +81,7 @@ private fun NotificationCounterPreview() {
                 }
                 VerticalSpacer(height = FunBlocksSpacing.small)
                 Row {
-                    NotificationCounter(number = 200) {
+                    CounterNotification(number = 200) {
                         Avatar(
                             mode = AvatarMode.Initials(
                                 fullName = "Lincoln Stuart"
@@ -92,7 +92,7 @@ private fun NotificationCounterPreview() {
                         ) {}
                     }
                     HorizontalSpacer(width = FunBlocksSpacing.xxxSmall)
-                    NotificationCounter(number = 200) {
+                    CounterNotification(number = 200) {
                         Avatar(
                             mode = AvatarMode.Initials(
                                 fullName = "Lincoln Stuart"

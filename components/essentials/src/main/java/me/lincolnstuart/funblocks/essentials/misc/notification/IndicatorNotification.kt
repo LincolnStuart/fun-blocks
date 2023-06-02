@@ -30,20 +30,23 @@ import me.lincolnstuart.funblocks.foundation.ui.token.content.spacing.FunBlocksS
  * @param content the content inside.
  */
 @Composable
-public fun NotificationIndicator(
+public fun IndicatorNotification(
+    hasNotification: Boolean,
     content: @Composable () -> Unit
 ) {
     BasicNotification(
         displacement = PaddingValues(),
         content = content
     ) {
-        Box(
-            modifier = Modifier
-                .size(FunBlocksSpacing.small)
-                .padding(FunBlocksSpacing.micro)
-                .clip(CircleShape)
-                .background(FunBlocksColors.Notification.value())
-        )
+        if (hasNotification) {
+            Box(
+                modifier = Modifier
+                    .size(FunBlocksSpacing.small)
+                    .padding(FunBlocksSpacing.micro)
+                    .clip(CircleShape)
+                    .background(FunBlocksColors.Notification.value())
+            )
+        }
     }
 }
 
@@ -57,7 +60,7 @@ private fun NotificationIndicatorPreview() {
                 .padding(FunBlocksSpacing.small)
         ) {
             Row {
-                NotificationIndicator {
+                IndicatorNotification(hasNotification = true) {
                     Avatar(
                         mode = AvatarMode.Initials(
                             fullName = "Lincoln Stuart"
@@ -68,7 +71,7 @@ private fun NotificationIndicatorPreview() {
                     ) {}
                 }
                 HorizontalSpacer(width = FunBlocksSpacing.xxxSmall)
-                NotificationIndicator {
+                IndicatorNotification(hasNotification = true) {
                     Avatar(
                         mode = AvatarMode.Initials(
                             fullName = "Lincoln Stuart"
@@ -78,7 +81,7 @@ private fun NotificationIndicatorPreview() {
             }
             VerticalSpacer(height = FunBlocksSpacing.small)
             Row {
-                NotificationIndicator {
+                IndicatorNotification(hasNotification = true) {
                     Avatar(
                         mode = AvatarMode.Initials(
                             fullName = "Lincoln Stuart"
@@ -89,7 +92,7 @@ private fun NotificationIndicatorPreview() {
                     ) {}
                 }
                 HorizontalSpacer(width = FunBlocksSpacing.xxxSmall)
-                NotificationIndicator {
+                IndicatorNotification(hasNotification = true) {
                     Avatar(
                         mode = AvatarMode.Initials(
                             fullName = "Lincoln Stuart"
