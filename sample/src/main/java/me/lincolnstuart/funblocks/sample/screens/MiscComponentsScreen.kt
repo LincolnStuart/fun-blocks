@@ -23,6 +23,7 @@ import me.lincolnstuart.funblocks.sample.screens.misc.ChipScreen
 import me.lincolnstuart.funblocks.sample.screens.misc.DividerScreen
 import me.lincolnstuart.funblocks.sample.screens.misc.ListScreen
 import me.lincolnstuart.funblocks.sample.screens.misc.LoadingScreen
+import me.lincolnstuart.funblocks.sample.screens.misc.NotificationScreen
 import me.lincolnstuart.funblocks.sample.screens.misc.RatingScreen
 
 class MiscComponentsScreen : Screen {
@@ -61,6 +62,7 @@ class MiscComponentsScreen : Screen {
         "Divider" to DividerScreen(),
         "List" to ListScreen(),
         "Loading" to LoadingScreen(),
+        "Notification" to NotificationScreen(),
         "Rating" to RatingScreen()
     )
 }
