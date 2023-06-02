@@ -11,12 +11,12 @@ import androidx.compose.ui.tooling.preview.Preview
 import me.lincolnstuart.funblocks.core.spacer.HorizontalSpacer
 import me.lincolnstuart.funblocks.core.spacer.VerticalSpacer
 import me.lincolnstuart.funblocks.core.surface.Surface
+import me.lincolnstuart.funblocks.essentials.helper.Counter
 import me.lincolnstuart.funblocks.essentials.misc.avatar.Avatar
 import me.lincolnstuart.funblocks.essentials.misc.avatar.utils.AvatarMode
 import me.lincolnstuart.funblocks.essentials.misc.avatar.utils.AvatarOptions
 import me.lincolnstuart.funblocks.essentials.misc.avatar.utils.AvatarShape
 import me.lincolnstuart.funblocks.essentials.misc.avatar.utils.AvatarSize
-import me.lincolnstuart.funblocks.essentials.helper.Counter
 import me.lincolnstuart.funblocks.foundation.ui.theme.FunBlocksTheme
 import me.lincolnstuart.funblocks.foundation.ui.token.content.spacing.FunBlocksSpacing
 
