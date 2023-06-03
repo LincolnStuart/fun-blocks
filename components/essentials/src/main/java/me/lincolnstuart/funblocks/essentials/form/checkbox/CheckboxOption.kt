@@ -16,7 +16,7 @@ import me.lincolnstuart.funblocks.foundation.ui.theme.FunBlocksTheme
 import me.lincolnstuart.funblocks.foundation.ui.token.content.spacing.FunBlocksSpacing
 
 /**
- * Single option of a check box. Based on [CheckBox].
+ * Single option of a check box. Based on [Checkbox].
  *
  * @param option option.
  * @param selectedOptions list of options selected previously.
@@ -38,7 +38,7 @@ public fun <T> CheckboxOption(
         Column(modifier = Modifier.weight(1f)) {
             optionDefinition(option)
         }
-        CheckBox(isSelected = isSelected) {
+        Checkbox(isSelected = isSelected) {
             onSelect(option)
         }
     }

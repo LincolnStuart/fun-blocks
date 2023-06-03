@@ -13,6 +13,8 @@ import me.lincolnstuart.funblocks.core.surface.Surface
 import me.lincolnstuart.funblocks.essentials.list.SimpleListItem
 import me.lincolnstuart.funblocks.foundation.ui.theme.FunBlocksTheme
 import me.lincolnstuart.funblocks.sample.screens.form.ButtonScreen
+import me.lincolnstuart.funblocks.sample.screens.form.CheckboxScreen
+import me.lincolnstuart.funblocks.sample.screens.form.RadioButtonScreen
 import me.lincolnstuart.funblocks.sample.screens.form.SwitchButtonScreen
 import me.lincolnstuart.funblocks.sample.screens.form.input.InputScreen
 
@@ -42,7 +44,9 @@ class FormComponentsScreen : Screen {
 
     private val screens = listOf(
         "Button" to ButtonScreen(),
+        "Checkbox" to CheckboxScreen(),
         "Input" to InputScreen(),
+        "Radio Button" to RadioButtonScreen(),
         "Switch Button" to SwitchButtonScreen()
     )
 }

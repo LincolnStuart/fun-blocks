@@ -35,7 +35,7 @@ import me.lincolnstuart.funblocks.foundation.ui.token.content.spacing.FunBlocksS
  * @param onClick callback that executes when click is performed.
  */
 @Composable
-public fun CheckBox(
+public fun Checkbox(
     isSelected: Boolean,
     onClick: () -> Unit
 ) {
@@ -82,9 +82,9 @@ private fun CheckboxPreview() {
     FunBlocksTheme {
         Surface {
             Column(Modifier.padding(FunBlocksSpacing.medium)) {
-                CheckBox(isSelected = true) {}
+                Checkbox(isSelected = true) {}
                 VerticalSpacer(height = FunBlocksSpacing.medium)
-                CheckBox(isSelected = false) {}
+                Checkbox(isSelected = false) {}
             }
         }
     }
