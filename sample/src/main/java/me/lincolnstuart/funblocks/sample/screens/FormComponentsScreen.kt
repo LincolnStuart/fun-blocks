@@ -14,6 +14,7 @@ import me.lincolnstuart.funblocks.essentials.list.SimpleListItem
 import me.lincolnstuart.funblocks.foundation.ui.theme.FunBlocksTheme
 import me.lincolnstuart.funblocks.sample.screens.form.ButtonScreen
 import me.lincolnstuart.funblocks.sample.screens.form.SwitchButtonScreen
+import me.lincolnstuart.funblocks.sample.screens.form.input.InputScreen
 
 class FormComponentsScreen : Screen {
 
@@ -41,6 +42,7 @@ class FormComponentsScreen : Screen {
 
     private val screens = listOf(
         "Button" to ButtonScreen(),
+        "Input" to InputScreen(),
         "Switch Button" to SwitchButtonScreen()
     )
 }

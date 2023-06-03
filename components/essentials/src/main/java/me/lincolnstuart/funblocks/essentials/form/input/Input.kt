@@ -1,4 +1,4 @@
-package me.lincolnstuart.funblocks.essentials.form.field
+package me.lincolnstuart.funblocks.essentials.form.input
 
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
@@ -109,6 +109,7 @@ public fun Input(
         decorationBox = { innerTextField ->
             BasicInputSkeleton(
                 error = error,
+                disabled = enabled.not() || readOnly,
                 content = {
                     Row {
                         Column(modifier = Modifier.weight(1f)) {
@@ -125,11 +126,13 @@ public fun Input(
                                 innerTextField()
                             }
                         }
-                        ClearOption(
-                            value = value,
-                            description = clearOptionDescription,
-                            onClear = { onValueChange("") }
-                        )
+                        if (enabled && readOnly.not()) {
+                            ClearOption(
+                                value = value,
+                                description = clearOptionDescription,
+                                onClear = { onValueChange("") }
+                            )
+                        }
                     }
                 }
             )

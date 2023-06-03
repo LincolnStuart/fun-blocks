@@ -1,4 +1,4 @@
-package me.lincolnstuart.funblocks.essentials.form.field
+package me.lincolnstuart.funblocks.essentials.form.input
 
 import androidx.compose.foundation.layout.IntrinsicSize
 import androidx.compose.foundation.layout.height
@@ -35,11 +35,8 @@ import me.lincolnstuart.funblocks.foundation.ui.theme.FunBlocksTheme
  * @param keyboardActions when the input service emits an IME action, the corresponding callback
  * is called. Note that this IME action may be different from what you specified in
  * [KeyboardOptions.imeAction].
- * @param maxLines the maximum height in terms of maximum number of visible lines. It is required
- * that 1 <= [minLines] <= [maxLines]. This parameter is ignored when [singleLine] is true.
- * @param minLines the minimum height in terms of minimum number of visible lines. It is required
- * that 1 <= [minLines] <= [maxLines]. This parameter is ignored when [singleLine] is true.
- * @param visualTransformation The visual transformation filter for changing the visual
+ * @param maxLines the maximum height in terms of maximum number of visible lines.
+ * @param minLines the minimum height in terms of minimum number of visible lines.
  * representation of the input. By default no visual transformation is applied.
  * @param onTextLayout Callback that is executed when a new text layout is calculated. A
  * [TextLayoutResult] object that callback provides contains paragraph information, size of the
