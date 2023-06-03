@@ -12,8 +12,9 @@ import cafe.adriel.voyager.navigator.currentOrThrow
 import me.lincolnstuart.funblocks.core.surface.Surface
 import me.lincolnstuart.funblocks.essentials.list.SimpleListItem
 import me.lincolnstuart.funblocks.foundation.ui.theme.FunBlocksTheme
+import me.lincolnstuart.funblocks.sample.screens.form.SwitchButtonScreen
 
-class HomeScreen : Screen {
+class FormComponentsScreen : Screen {
 
     @Composable
     override fun Content() {
@@ -25,14 +26,19 @@ class HomeScreen : Screen {
                 val navigator = LocalNavigator.currentOrThrow
                 val scrollState = rememberScrollState()
                 Column(Modifier.verticalScroll(scrollState)) {
-                    SimpleListItem(title = "Form", description = "Input, Checkbox, RadioButton, Select, etc.") {
-                        navigator.push(FormComponentsScreen())
-                    }
-                    SimpleListItem(title = "Miscellaneous", description = "Alert, Avatar, Badge, Chip, etc.") {
-                        navigator.push(MiscComponentsScreen())
-                    }
+                    screens
+                        .sortedBy { it.first }
+                        .forEach { componentScreen ->
+                            SimpleListItem(title = componentScreen.first) {
+                                navigator.push(componentScreen.second)
+                            }
+                        }
                 }
             }
         }
     }
+
+    private val screens = listOf(
+        "Switch Button" to SwitchButtonScreen()
+    )
 }
