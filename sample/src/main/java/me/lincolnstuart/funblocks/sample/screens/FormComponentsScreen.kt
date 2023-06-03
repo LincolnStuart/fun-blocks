@@ -12,6 +12,7 @@ import cafe.adriel.voyager.navigator.currentOrThrow
 import me.lincolnstuart.funblocks.core.surface.Surface
 import me.lincolnstuart.funblocks.essentials.list.SimpleListItem
 import me.lincolnstuart.funblocks.foundation.ui.theme.FunBlocksTheme
+import me.lincolnstuart.funblocks.sample.screens.form.ButtonScreen
 import me.lincolnstuart.funblocks.sample.screens.form.SwitchButtonScreen
 
 class FormComponentsScreen : Screen {
@@ -39,6 +40,7 @@ class FormComponentsScreen : Screen {
     }
 
     private val screens = listOf(
+        "Button" to ButtonScreen(),
         "Switch Button" to SwitchButtonScreen()
     )
 }

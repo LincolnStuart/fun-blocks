@@ -7,7 +7,7 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import me.lincolnstuart.funblocks.core.text.Text
-import me.lincolnstuart.funblocks.essentials.form.button.utils.ButtonOptions
+import me.lincolnstuart.funblocks.essentials.form.button.group.utils.ButtonOfGroupOptions
 import me.lincolnstuart.funblocks.essentials.form.checkbox.CheckboxGroup
 import me.lincolnstuart.funblocks.essentials.form.popup.ActionPopup
 import me.lincolnstuart.funblocks.essentials.form.select.utils.SelectOptions
@@ -64,13 +64,14 @@ public fun <T> SelectMultiple(
             ActionPopup(
                 title = placeholder.orEmpty().ifEmpty { label.orEmpty() },
                 onDismissRequest = { expanded = !expanded },
-                primaryActionOptions = ButtonOptions(
+                primaryActionOptions = ButtonOfGroupOptions(
                     description = "Ok" // TODO put a param to this label
                 ) {
                     onSelectValues(popUpSelection)
                     expanded = false
                 },
-                secondaryActionOptions = ButtonOptions(description = "Cancel") { // TODO put a param to this label
+                // TODO put a param to this label
+                secondaryActionOptions = ButtonOfGroupOptions(description = "Cancel") {
                     popUpSelection = selectedValues
                     expanded = false
                 }
