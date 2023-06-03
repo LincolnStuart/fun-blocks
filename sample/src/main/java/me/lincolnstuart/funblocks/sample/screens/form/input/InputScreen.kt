@@ -37,7 +37,6 @@ class InputScreen : Screen {
                     readOnly = readOnly,
                     error = error
                 )
-
             }
         ) {
             SwitchButtonOption(

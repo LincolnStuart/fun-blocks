@@ -39,13 +39,13 @@ internal fun BasicInputSkeleton(
     error: String?,
     modifier: Modifier = Modifier,
     disabled: Boolean = false,
-    content: @Composable BoxScope.() -> Unit,
+    content: @Composable BoxScope.() -> Unit
 ) {
     val boxColor = remember(error) {
         if (error == null) FunBlocksColors.Border else FunBlocksColors.Negative
     }
-    val backgroundColor = remember(disabled){
-        if(disabled) FunBlocksColors.SurfaceDark else FunBlocksColors.Transparent
+    val backgroundColor = remember(disabled) {
+        if (disabled) FunBlocksColors.SurfaceDark else FunBlocksColors.Transparent
     }
     Row(modifier = modifier) {
         Column(modifier = Modifier.weight(1f)) {

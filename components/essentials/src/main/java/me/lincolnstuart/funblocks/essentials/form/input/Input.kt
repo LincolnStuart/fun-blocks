@@ -126,7 +126,7 @@ public fun Input(
                                 innerTextField()
                             }
                         }
-                        if(enabled && readOnly.not()) {
+                        if (enabled && readOnly.not()) {
                             ClearOption(
                                 value = value,
                                 description = clearOptionDescription,
