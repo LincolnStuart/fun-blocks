@@ -21,11 +21,15 @@ import me.lincolnstuart.funblocks.foundation.ui.token.content.spacing.FunBlocksS
 /**
  * Single button that performs a click.
  *
+ * @param description text that describes the button action.
  * @param options [ButtonOptions] to customize button properties.
+ * @param onClick callback that executes when click is performed.
  */
 @Composable
 public fun Button(
-    options: ButtonOptions
+    description: String,
+    options: ButtonOptions = ButtonOptions(),
+    onClick: (() -> Unit)
 ) = with(options) {
     Clickable(
         description = description,
@@ -35,7 +39,8 @@ public fun Button(
             borderColor = FunBlocksColors.Transparent,
             contentColor = mode.contentColor,
             shape = type.shape,
-            iconSize = IconSize.Small
+            iconSize = IconSize.Small,
+            height = type.height
         ),
         isEnabled = isEnabled,
         startIcon = startIcon,
@@ -51,51 +56,43 @@ private fun ButtonPreview() {
         Surface {
             Column(modifier = Modifier.padding(all = FunBlocksSpacing.small)) {
                 Button(
-                    options = ButtonOptions(
-                        description = "Click me!",
-                        onClick = {}
-                    )
-                )
+                    description = "Click me!"
+                ) {}
                 VerticalSpacer(height = FunBlocksSpacing.small)
                 Button(
+                    description = "Disabled Button",
                     options = ButtonOptions(
-                        description = "Disabled Button",
-                        onClick = {},
                         isEnabled = false
                     )
-                )
+                ) {}
                 VerticalSpacer(height = FunBlocksSpacing.small)
                 Button(
+                    description = "Button with start icon",
                     options = ButtonOptions(
-                        description = "Button with start icon",
-                        onClick = {},
                         startIcon = TablerIcons.CircleX
                     )
-                )
+                ) {}
                 VerticalSpacer(height = FunBlocksSpacing.small)
                 Button(
+                    description = "Button with end icon",
                     options = ButtonOptions(
-                        description = "Button with end icon",
-                        onClick = {},
                         endIcon = TablerIcons.CircleX
                     )
-                )
+                ) {}
                 VerticalSpacer(height = FunBlocksSpacing.small)
                 Button(
+                    description = "Secondary",
                     options = ButtonOptions(
-                        description = "Secondary",
-                        onClick = {},
                         mode = ButtonMode.Secondary
                     )
-                )
+                ) {}
                 VerticalSpacer(height = FunBlocksSpacing.small)
                 Button(
+                    description = "Danger",
                     options = ButtonOptions(
-                        description = "Danger",
-                        onClick = {},
                         mode = ButtonMode.Danger
                     )
-                )
+                ) {}
             }
         }
     }

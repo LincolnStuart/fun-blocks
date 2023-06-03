@@ -7,6 +7,7 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import me.lincolnstuart.funblocks.core.text.Text
+import me.lincolnstuart.funblocks.essentials.form.button.group.utils.ButtonOfGroupOptions
 import me.lincolnstuart.funblocks.essentials.form.button.utils.ButtonOptions
 import me.lincolnstuart.funblocks.essentials.form.popup.ActionPopup
 import me.lincolnstuart.funblocks.essentials.form.radiobutton.RadioButtonGroup
@@ -67,14 +68,14 @@ public fun <T> SelectSingle(
             ActionPopup(
                 title = placeholder.orEmpty(),
                 onDismissRequest = { expanded = !expanded },
-                primaryActionOptions = ButtonOptions(
+                primaryActionOptions = ButtonOfGroupOptions(
                     description = "Ok",
-                    isEnabled = popUpSelection != null
+                    options = ButtonOptions(isEnabled = popUpSelection != null)
                 ) {
                     onSelectValue(popUpSelection!!)
                     expanded = false
                 },
-                secondaryActionOptions = ButtonOptions(description = "Cancel") {
+                secondaryActionOptions = ButtonOfGroupOptions(description = "Cancel") {
                     popUpSelection = selectedValue
                     expanded = false
                 }

@@ -14,11 +14,11 @@ public enum class ButtonMode(
 ) {
     Primary(
         backgroundColor = FunBlocksColors.Primary,
-        contentColor = FunBlocksColors.Reversed
+        contentColor = FunBlocksColors.PrimaryContrast
     ),
     Secondary(
         backgroundColor = FunBlocksColors.Secondary,
-        contentColor = FunBlocksColors.NeutralDark
+        contentColor = FunBlocksColors.Reversed
     ),
     Ghost(
         backgroundColor = FunBlocksColors.Transparent,

@@ -7,7 +7,7 @@ import me.lincolnstuart.funblocks.core.spacer.VerticalSpacer
 import me.lincolnstuart.funblocks.core.surface.Surface
 import me.lincolnstuart.funblocks.core.text.Text
 import me.lincolnstuart.funblocks.essentials.form.button.group.ButtonGroup
-import me.lincolnstuart.funblocks.essentials.form.button.utils.ButtonOptions
+import me.lincolnstuart.funblocks.essentials.form.button.group.utils.ButtonOfGroupOptions
 import me.lincolnstuart.funblocks.essentials.form.button.utils.ButtonType
 import me.lincolnstuart.funblocks.foundation.ui.theme.FunBlocksTheme
 import me.lincolnstuart.funblocks.foundation.ui.token.content.spacing.FunBlocksSpacing
@@ -17,8 +17,8 @@ import me.lincolnstuart.funblocks.foundation.ui.token.content.spacing.FunBlocksS
  *
  * @param title popup title.
  * @param onDismissRequest callback that executes when a click is performed out of the popup.
- * @param primaryActionOptions primary [ButtonOptions].
- * @param secondaryActionOptions secondary [ButtonOptions].
+ * @param primaryActionOptions primary [ButtonOfGroupOptions].
+ * @param secondaryActionOptions secondary [ButtonOfGroupOptions].
  * @param properties [DialogProperties] for further customization of this popup's behavior.
  * @param subtitle optional text.
  * @param isSensitive if it is a hardcore choice.
@@ -28,8 +28,8 @@ import me.lincolnstuart.funblocks.foundation.ui.token.content.spacing.FunBlocksS
 public fun ActionPopup(
     title: String,
     onDismissRequest: () -> Unit,
-    primaryActionOptions: ButtonOptions,
-    secondaryActionOptions: ButtonOptions,
+    primaryActionOptions: ButtonOfGroupOptions,
+    secondaryActionOptions: ButtonOfGroupOptions,
     properties: DialogProperties = DialogProperties(),
     isSensitive: Boolean = false,
     subtitle: String? = null,
@@ -44,8 +44,12 @@ public fun ActionPopup(
         content()
         VerticalSpacer(height = FunBlocksSpacing.medium)
         ButtonGroup(
-            primaryOptions = primaryActionOptions.copy(type = ButtonType.Small),
-            secondaryOptions = secondaryActionOptions.copy(type = ButtonType.Small),
+            primaryOptions = primaryActionOptions.copy(
+                options = primaryActionOptions.options.copy(type = ButtonType.Small)
+            ),
+            secondaryOptions = secondaryActionOptions.copy(
+                options = secondaryActionOptions.options.copy(type = ButtonType.Small)
+            ),
             isSensitive = isSensitive
         )
     }
@@ -59,11 +63,11 @@ private fun ActionPopupPreview() {
             ActionPopup(
                 title = "Title",
                 onDismissRequest = { },
-                primaryActionOptions = ButtonOptions(
+                primaryActionOptions = ButtonOfGroupOptions(
                     description = "Primary",
                     onClick = { }
                 ),
-                secondaryActionOptions = ButtonOptions(
+                secondaryActionOptions = ButtonOfGroupOptions(
                     description = "Secondary",
                     onClick = { }
                 )

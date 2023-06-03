@@ -25,7 +25,7 @@ class HomeScreen : Screen {
                 val navigator = LocalNavigator.currentOrThrow
                 val scrollState = rememberScrollState()
                 Column(Modifier.verticalScroll(scrollState)) {
-                    SimpleListItem(title = "Form", description = "Input, Checkbox, RadioButton, Select, etc.") {
+                    SimpleListItem(title = "Form", description = "Button, Input, Checkbox, RadioButton, etc.") {
                         navigator.push(FormComponentsScreen())
                     }
                     SimpleListItem(title = "Miscellaneous", description = "Alert, Avatar, Badge, Chip, etc.") {

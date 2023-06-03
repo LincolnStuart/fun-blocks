@@ -13,22 +13,22 @@ import me.lincolnstuart.funblocks.core.spacer.HorizontalSpacer
 import me.lincolnstuart.funblocks.core.spacer.VerticalSpacer
 import me.lincolnstuart.funblocks.core.surface.Surface
 import me.lincolnstuart.funblocks.essentials.form.button.Button
+import me.lincolnstuart.funblocks.essentials.form.button.group.utils.ButtonOfGroupOptions
 import me.lincolnstuart.funblocks.essentials.form.button.utils.ButtonMode
-import me.lincolnstuart.funblocks.essentials.form.button.utils.ButtonOptions
 import me.lincolnstuart.funblocks.foundation.ui.theme.FunBlocksTheme
 import me.lincolnstuart.funblocks.foundation.ui.token.content.spacing.FunBlocksSpacing
 
 /**
  * Group of two button. Based on [ButtonGroup].
  *
- * @param primaryOptions [ButtonOptions] to customize main button properties.
- * @param secondaryOptions [ButtonOptions] to customize secondary button properties.
+ * @param primaryOptions [ButtonOfGroupOptions] to customize main button properties.
+ * @param secondaryOptions [ButtonOfGroupOptions] to customize secondary button properties.
  * @param isSensitive if it is a hardcore choice.
  */
 @Composable
 public fun ButtonGroup(
-    primaryOptions: ButtonOptions,
-    secondaryOptions: ButtonOptions,
+    primaryOptions: ButtonOfGroupOptions,
+    secondaryOptions: ButtonOfGroupOptions,
     isSensitive: Boolean = false
 ) {
     val mode = remember(isSensitive) {
@@ -39,11 +39,19 @@ public fun ButtonGroup(
         modifier = Modifier.fillMaxWidth()
     ) {
         Column(modifier = Modifier.weight(1f)) {
-            Button(options = secondaryOptions.copy(mode = ButtonMode.Secondary))
+            Button(
+                description = secondaryOptions.description,
+                options = secondaryOptions.options.copy(mode = ButtonMode.Secondary),
+                onClick = secondaryOptions.onClick
+            )
         }
         HorizontalSpacer(width = FunBlocksSpacing.xxSmall)
         Column(modifier = Modifier.weight(1f)) {
-            Button(options = primaryOptions.copy(mode = mode))
+            Button(
+                description = primaryOptions.description,
+                options = primaryOptions.options.copy(mode = mode),
+                onClick = primaryOptions.onClick
+            )
         }
     }
 }
@@ -55,22 +63,22 @@ private fun ButtonGroupPreview() {
         Surface {
             Column(Modifier.padding(FunBlocksSpacing.small)) {
                 ButtonGroup(
-                    primaryOptions = ButtonOptions(
+                    primaryOptions = ButtonOfGroupOptions(
                         description = "Primary",
                         onClick = { }
                     ),
-                    secondaryOptions = ButtonOptions(
+                    secondaryOptions = ButtonOfGroupOptions(
                         description = "Secondary",
                         onClick = { }
                     )
                 )
                 VerticalSpacer(height = FunBlocksSpacing.small)
                 ButtonGroup(
-                    primaryOptions = ButtonOptions(
+                    primaryOptions = ButtonOfGroupOptions(
                         description = "Danger",
                         onClick = { }
                     ),
-                    secondaryOptions = ButtonOptions(
+                    secondaryOptions = ButtonOfGroupOptions(
                         description = "Secondary",
                         onClick = { }
                     ),
