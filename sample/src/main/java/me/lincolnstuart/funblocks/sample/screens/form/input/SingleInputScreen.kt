@@ -10,7 +10,7 @@ import me.lincolnstuart.funblocks.essentials.form.input.Input
 import me.lincolnstuart.funblocks.essentials.form.switchbutton.SwitchButtonOption
 import me.lincolnstuart.funblocks.sample.components.Playground
 
-class InputScreen : Screen {
+class SingleInputScreen : Screen {
 
     @Composable
     override fun Content() {

@@ -1,4 +1,4 @@
-package me.lincolnstuart.funblocks.sample.screens
+package me.lincolnstuart.funblocks.sample.screens.form
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
@@ -12,13 +12,10 @@ import cafe.adriel.voyager.navigator.currentOrThrow
 import me.lincolnstuart.funblocks.core.surface.Surface
 import me.lincolnstuart.funblocks.essentials.list.SimpleListItem
 import me.lincolnstuart.funblocks.foundation.ui.theme.FunBlocksTheme
-import me.lincolnstuart.funblocks.sample.screens.form.ButtonScreen
-import me.lincolnstuart.funblocks.sample.screens.form.CheckboxScreen
-import me.lincolnstuart.funblocks.sample.screens.form.InputScreen
-import me.lincolnstuart.funblocks.sample.screens.form.RadioButtonScreen
-import me.lincolnstuart.funblocks.sample.screens.form.SwitchButtonScreen
+import me.lincolnstuart.funblocks.sample.screens.form.input.SingleInputScreen
+import me.lincolnstuart.funblocks.sample.screens.form.input.TextAreaScreen
 
-class FormComponentsScreen : Screen {
+class InputScreen : Screen {
 
     @Composable
     override fun Content() {
@@ -30,23 +27,14 @@ class FormComponentsScreen : Screen {
                 val navigator = LocalNavigator.currentOrThrow
                 val scrollState = rememberScrollState()
                 Column(Modifier.verticalScroll(scrollState)) {
-                    screens
-                        .sortedBy { it.first }
-                        .forEach { componentScreen ->
-                            SimpleListItem(title = componentScreen.first) {
-                                navigator.push(componentScreen.second)
-                            }
-                        }
+                    SimpleListItem(title = "Input") {
+                        navigator.push(SingleInputScreen())
+                    }
+                    SimpleListItem(title = "Text Area") {
+                        navigator.push(TextAreaScreen())
+                    }
                 }
             }
         }
     }
-
-    private val screens = listOf(
-        "Button" to ButtonScreen(),
-        "Checkbox" to CheckboxScreen(),
-        "Input" to InputScreen(),
-        "Radio Button" to RadioButtonScreen(),
-        "Switch Button" to SwitchButtonScreen()
-    )
 }
