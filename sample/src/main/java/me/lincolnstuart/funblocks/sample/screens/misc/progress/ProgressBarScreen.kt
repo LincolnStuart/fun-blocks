@@ -17,20 +17,26 @@ class ProgressBarScreen : Screen {
     @Composable
     override fun Content() {
         var percent by remember {
-            mutableStateOf(33.3f)
+            mutableStateOf(0f)
         }
         LaunchedEffect(Unit) {
-            delay(2000)
-            percent = 75f
-            delay(2000)
-            percent = 98f
-            delay(2000)
-            percent = 100f
+            delay(timeMillis = 2000)
+            percent = TWENTY_FIVE_PERCENT
+            delay(timeMillis = 2000)
+            percent = SEVENTY_FIVE_PERCENT
+            delay(timeMillis = 2000)
+            percent = ONE_HUNDRED_PERCENT
         }
         Playground(
             component = {
                 ProgressBar(percent = percent, paddingValues = FunBlocksInset.medium)
             }
         ) {}
+    }
+
+    private companion object {
+        const val TWENTY_FIVE_PERCENT = 25f
+        const val SEVENTY_FIVE_PERCENT = 75f
+        const val ONE_HUNDRED_PERCENT = 25f
     }
 }
