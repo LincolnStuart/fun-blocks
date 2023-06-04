@@ -16,6 +16,7 @@ import me.lincolnstuart.funblocks.sample.screens.form.ButtonScreen
 import me.lincolnstuart.funblocks.sample.screens.form.CheckboxScreen
 import me.lincolnstuart.funblocks.sample.screens.form.InputScreen
 import me.lincolnstuart.funblocks.sample.screens.form.RadioButtonScreen
+import me.lincolnstuart.funblocks.sample.screens.form.SelectScreen
 import me.lincolnstuart.funblocks.sample.screens.form.SwitchButtonScreen
 
 class FormComponentsScreen : Screen {
@@ -46,7 +47,8 @@ class FormComponentsScreen : Screen {
         "Button" to ButtonScreen(),
         "Checkbox" to CheckboxScreen(),
         "Input" to InputScreen(),
-        "Radio Button" to RadioButtonScreen(),
-        "Switch Button" to SwitchButtonScreen()
+        "RadioButton" to RadioButtonScreen(),
+        "Select" to SelectScreen(),
+        "SwitchButton" to SwitchButtonScreen()
     )
 }

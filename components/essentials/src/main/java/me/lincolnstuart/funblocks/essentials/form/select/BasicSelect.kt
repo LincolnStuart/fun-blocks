@@ -23,6 +23,7 @@ import me.lincolnstuart.funblocks.core.text.utils.topic.TopicSize
 import me.lincolnstuart.funblocks.essentials.form.select.utils.SelectOptions
 import me.lincolnstuart.funblocks.essentials.form.utils.BasicInputSkeleton
 import me.lincolnstuart.funblocks.essentials.helper.Counter
+import me.lincolnstuart.funblocks.foundation.ui.token.color.FunBlocksColors
 import me.lincolnstuart.funblocks.foundation.ui.token.content.spacing.FunBlocksInset
 import me.lincolnstuart.funblocks.foundation.ui.token.content.spacing.FunBlocksSpacing
 
@@ -53,6 +54,7 @@ internal fun BasicSelect(
                 )
             }
         },
+        disabled = enabled.not() || readOnly,
         error = error,
         modifier = Modifier
             .padding(paddingValues)
@@ -89,7 +91,9 @@ private fun SelectInput(
                 formattedNumber = counter.toString(),
                 modifier = Modifier
                     .padding(horizontal = FunBlocksSpacing.xxxSmall)
-                    .align(Alignment.CenterVertically)
+                    .align(Alignment.CenterVertically),
+                backgroundColor = FunBlocksColors.Primary,
+                fontColor = FunBlocksColors.PrimaryContrast
             )
         }
         SelectOption(

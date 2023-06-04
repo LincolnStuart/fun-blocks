@@ -19,14 +19,16 @@ import me.lincolnstuart.funblocks.foundation.ui.token.font.FunBlocksFontWeight
 @Composable
 internal fun Counter(
     formattedNumber: String,
-    modifier: Modifier = Modifier
+    modifier: Modifier = Modifier,
+    backgroundColor: FunBlocksColors = FunBlocksColors.Notification,
+    fontColor: FunBlocksColors = FunBlocksColors.Reversed
 ) {
     Box(
         modifier = modifier
             .size(FunBlocksSpacing.medium)
             .padding(FunBlocksSpacing.micro)
             .clip(CircleShape)
-            .background(FunBlocksColors.Notification.value())
+            .background(backgroundColor.value())
     ) {
         Text(
             text = formattedNumber,
@@ -35,7 +37,7 @@ internal fun Counter(
                 fontSize = FunBlocksFontSize.small,
                 fontWeight = FunBlocksFontWeight.bold
             ),
-            color = FunBlocksColors.Reversed
+            color = fontColor
         )
     }
 }

@@ -28,10 +28,15 @@ import me.lincolnstuart.funblocks.foundation.ui.token.content.spacing.FunBlocksS
  * @param expandOptionDescription a description to arrow down icon.
  * @param label input label.
  * @param placeholder a clue to fill the input.
+ * @param enabled controls the enabled state of the [BasicSelect]. When `false`, the text
+ * field will be neither editable nor focusable, the input of the text field will not be selectable
+ * @param readOnly controls the editable state of the [BasicSelect]. When `true`, the text
+ * field can not be modified, however, a user can focus it and copy text from it. Read-only text
+ * fields are usually used to display pre-filled forms that user can not edit
  * @param error associated message.
  */
 @Composable
-public fun <T> SelectMultiple(
+public fun <T> MultipleSelect(
     selectedValues: List<T>,
     mapToPresentation: (T) -> SelectableItem,
     onSelectValues: (List<T>) -> Unit,
@@ -40,6 +45,8 @@ public fun <T> SelectMultiple(
     expandOptionDescription: String? = null,
     label: String? = null,
     placeholder: String? = null,
+    enabled: Boolean = true,
+    readOnly: Boolean = false,
     error: String? = null
 ) {
     var expanded by remember { mutableStateOf(false) }
@@ -55,12 +62,14 @@ public fun <T> SelectMultiple(
             placeholder = placeholder,
             expandOptionDescription = expandOptionDescription,
             counter = selectedValues.size,
+            readOnly = readOnly,
+            enabled = enabled,
             error = error
         ),
         paddingValues = paddingValues,
         onClick = { expanded = !expanded }
     ) {
-        if (expanded) {
+        if (expanded && readOnly.not() && enabled) {
             ActionPopup(
                 title = placeholder.orEmpty().ifEmpty { label.orEmpty() },
                 onDismissRequest = { expanded = !expanded },
@@ -69,8 +78,7 @@ public fun <T> SelectMultiple(
                 ) {
                     onSelectValues(popUpSelection)
                     expanded = false
-                },
-                // TODO put a param to this label
+                }, // TODO put a param to this label
                 secondaryActionOptions = ButtonOfGroupOptions(description = "Cancel") {
                     popUpSelection = selectedValues
                     expanded = false
@@ -83,11 +91,7 @@ public fun <T> SelectMultiple(
                         popUpSelection =
                             buildList {
                                 addAll(popUpSelection)
-                                if (popUpSelection.contains(it)) {
-                                    remove(it)
-                                } else {
-                                    add(it)
-                                }
+                                if (popUpSelection.contains(it)) remove(it) else add(it)
                             }
                     }
                 ) { option ->
