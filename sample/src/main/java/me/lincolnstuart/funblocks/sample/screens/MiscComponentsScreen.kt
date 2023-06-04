@@ -24,6 +24,7 @@ import me.lincolnstuart.funblocks.sample.screens.misc.DividerScreen
 import me.lincolnstuart.funblocks.sample.screens.misc.ListScreen
 import me.lincolnstuart.funblocks.sample.screens.misc.LoadingScreen
 import me.lincolnstuart.funblocks.sample.screens.misc.NotificationScreen
+import me.lincolnstuart.funblocks.sample.screens.misc.ProgressScreen
 import me.lincolnstuart.funblocks.sample.screens.misc.RatingScreen
 
 class MiscComponentsScreen : Screen {
@@ -63,6 +64,7 @@ class MiscComponentsScreen : Screen {
         "List" to ListScreen(),
         "Loading" to LoadingScreen(),
         "Notification" to NotificationScreen(),
+        "Progress" to ProgressScreen(),
         "Rating" to RatingScreen()
     )
 }

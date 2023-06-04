@@ -1,4 +1,4 @@
-package me.lincolnstuart.funblocks.essentials.form.progress
+package me.lincolnstuart.funblocks.essentials.misc.progress
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
