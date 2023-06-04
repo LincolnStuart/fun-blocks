@@ -27,7 +27,7 @@ class ProgressScreen : Screen {
                 val navigator = LocalNavigator.currentOrThrow
                 val scrollState = rememberScrollState()
                 Column(Modifier.verticalScroll(scrollState)) {
-                    SimpleListItem(title = "Progress bar") {
+                    SimpleListItem(title = "ProgressBar") {
                         navigator.push(ProgressBarScreen())
                     }
                     SimpleListItem(title = "Stepper") {

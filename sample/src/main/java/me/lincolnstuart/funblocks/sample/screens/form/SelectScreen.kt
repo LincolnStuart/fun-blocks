@@ -12,10 +12,10 @@ import cafe.adriel.voyager.navigator.currentOrThrow
 import me.lincolnstuart.funblocks.core.surface.Surface
 import me.lincolnstuart.funblocks.essentials.list.SimpleListItem
 import me.lincolnstuart.funblocks.foundation.ui.theme.FunBlocksTheme
-import me.lincolnstuart.funblocks.sample.screens.form.input.SingleInputScreen
-import me.lincolnstuart.funblocks.sample.screens.form.input.TextAreaScreen
+import me.lincolnstuart.funblocks.sample.screens.form.select.MultipleSelectScreen
+import me.lincolnstuart.funblocks.sample.screens.form.select.SingleSelectScreen
 
-class InputScreen : Screen {
+class SelectScreen : Screen {
 
     @Composable
     override fun Content() {
@@ -27,11 +27,11 @@ class InputScreen : Screen {
                 val navigator = LocalNavigator.currentOrThrow
                 val scrollState = rememberScrollState()
                 Column(Modifier.verticalScroll(scrollState)) {
-                    SimpleListItem(title = "Input") {
-                        navigator.push(SingleInputScreen())
+                    SimpleListItem(title = "SingleSelect") {
+                        navigator.push(SingleSelectScreen())
                     }
-                    SimpleListItem(title = "TextArea") {
-                        navigator.push(TextAreaScreen())
+                    SimpleListItem(title = "MultipleSelect") {
+                        navigator.push(MultipleSelectScreen())
                     }
                 }
             }

@@ -29,10 +29,15 @@ import me.lincolnstuart.funblocks.foundation.ui.token.content.spacing.FunBlocksS
  * @param expandOptionDescription a description to arrow down icon.
  * @param label input label.
  * @param placeholder a clue to fill the input.
+ * @param enabled controls the enabled state of the [BasicSelect]. When `false`, the text
+ * field will be neither editable nor focusable, the input of the text field will not be selectable
+ * @param readOnly controls the editable state of the [BasicSelect]. When `true`, the text
+ * field can not be modified, however, a user can focus it and copy text from it. Read-only text
+ * fields are usually used to display pre-filled forms that user can not edit
  * @param error associated message.
  */
 @Composable
-public fun <T> SelectSingle(
+public fun <T> SingleSelect(
     selectedValue: T?,
     mapToPresentation: (T) -> SelectableItem,
     onSelectValue: (T) -> Unit,
@@ -41,6 +46,8 @@ public fun <T> SelectSingle(
     expandOptionDescription: String? = null,
     label: String? = null,
     placeholder: String? = null,
+    enabled: Boolean = true,
+    readOnly: Boolean = false,
     error: String? = null
 ) {
     var expanded by remember {
@@ -59,12 +66,14 @@ public fun <T> SelectSingle(
             placeholder = placeholder,
             expandOptionDescription = expandOptionDescription,
             counter = null,
+            readOnly = readOnly,
+            enabled = enabled,
             error = error
         ),
         paddingValues = paddingValues,
         onClick = { expanded = !expanded }
     ) {
-        if (expanded) {
+        if (expanded && readOnly.not() && enabled) {
             ActionPopup(
                 title = placeholder.orEmpty(),
                 onDismissRequest = { expanded = !expanded },
