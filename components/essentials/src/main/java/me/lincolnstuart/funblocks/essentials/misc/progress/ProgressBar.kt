@@ -1,4 +1,4 @@
-package me.lincolnstuart.funblocks.essentials.form.progress
+package me.lincolnstuart.funblocks.essentials.misc.progress
 
 import androidx.compose.animation.core.LinearOutSlowInEasing
 import androidx.compose.animation.core.animateFloatAsState
