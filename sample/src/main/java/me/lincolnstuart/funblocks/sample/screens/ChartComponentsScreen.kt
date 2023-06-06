@@ -12,8 +12,11 @@ import cafe.adriel.voyager.navigator.currentOrThrow
 import me.lincolnstuart.funblocks.core.surface.Surface
 import me.lincolnstuart.funblocks.essentials.list.SimpleListItem
 import me.lincolnstuart.funblocks.foundation.ui.theme.FunBlocksTheme
+import me.lincolnstuart.funblocks.sample.screens.chart.BarChartScreen
+import me.lincolnstuart.funblocks.sample.screens.chart.LineChartScreen
+import me.lincolnstuart.funblocks.sample.screens.chart.PieChartScreen
 
-class HomeScreen : Screen {
+class ChartComponentsScreen : Screen {
 
     @Composable
     override fun Content() {
@@ -25,17 +28,21 @@ class HomeScreen : Screen {
                 val navigator = LocalNavigator.currentOrThrow
                 val scrollState = rememberScrollState()
                 Column(Modifier.verticalScroll(scrollState)) {
-                    SimpleListItem(title = "Chart", description = "Bar, Line, Pie/Donut.") {
-                        navigator.push(ChartComponentsScreen())
-                    }
-                    SimpleListItem(title = "Form", description = "Button, Input, Checkbox, RadioButton, etc.") {
-                        navigator.push(FormComponentsScreen())
-                    }
-                    SimpleListItem(title = "Miscellaneous", description = "Alert, Avatar, Badge, Chip, etc.") {
-                        navigator.push(MiscComponentsScreen())
-                    }
+                    screens
+                        .sortedBy { it.first }
+                        .forEach { componentScreen ->
+                            SimpleListItem(title = componentScreen.first) {
+                                navigator.push(componentScreen.second)
+                            }
+                        }
                 }
             }
         }
     }
+
+    private val screens = listOf(
+        "Bar" to BarChartScreen(),
+        "Line" to LineChartScreen(),
+        "Pie/Donut" to PieChartScreen()
+    )
 }
