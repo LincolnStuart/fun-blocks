@@ -66,7 +66,7 @@ fun BasicBarChart(
             .fillMaxWidth()
             .drawWithCache {
                 val cartesianPlaneSpace = CartesianPlaneSpace(
-                    height = size.height - FunBlocksFontSize.xLarge.toPx(),
+                    height = height.toPx() - FunBlocksFontSize.xLarge.toPx(),
                     width = size.width
                 )
                 onDrawBehind {
@@ -128,10 +128,11 @@ private fun DrawScope.drawBars(
 ) {
     val barWidth = size.width / ((values.size * 2) + 1)
     val barHeight = cartesianPlaneSpace.height
+    val max = values.maxBy { it.value }.value
     var startOfSet = barWidth
     clipRect(top = barHeight * animationProgress.value) {
         values.forEach { bar ->
-            val y = bar.value.toFloat() / barHeight * barHeight
+            val y = (bar.value.divide(max)).toFloat() * barHeight
             drawRect(
                 color = color.copy(alpha = FunBlocksAlpha.high),
                 topLeft = Offset(x = startOfSet, y = barHeight - y),
