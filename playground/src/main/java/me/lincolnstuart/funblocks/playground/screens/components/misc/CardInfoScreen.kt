@@ -26,12 +26,14 @@ class CardInfoScreen : Screen {
         var headerOption: CardHeaderOptions? by remember {
             mutableStateOf(null)
         }
-        Sample(component = {
-            CardInfo(
-                body = bodyOption,
-                header = headerOption
-            )
-        }) {
+        Sample(
+            component = {
+                CardInfo(
+                    body = bodyOption,
+                    header = headerOption
+                )
+            }
+        ) {
             Accordion(title = "Header") {
                 RadioButtonGroup(
                     options = getHeaderOptions(),

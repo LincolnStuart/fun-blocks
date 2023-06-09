@@ -20,9 +20,9 @@ class VerticalDividerScreen : Screen {
         var mode: VerticalDividerMode by remember {
             mutableStateOf(VerticalDividerMode.Solid)
         }
-        Sample(component = {
-            VerticalDivider(mode = mode)
-        }) {
+        Sample(
+            component = { VerticalDivider(mode = mode) }
+        ) {
             Accordion(title = "Mode") {
                 RadioButtonGroup(
                     options = listOf(

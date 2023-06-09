@@ -19,12 +19,14 @@ class ListScreen : Screen {
         var mode: ListMode by remember {
             mutableStateOf(ListMode.Bulleted)
         }
-        Sample(component = {
-            me.lincolnstuart.funblocks.essentials.misc.list.List(
-                topics = listOf("Kotlin", "Android", "Jetpack Compose"),
-                mode = mode
-            )
-        }) {
+        Sample(
+            component = {
+                me.lincolnstuart.funblocks.essentials.misc.list.List(
+                    topics = listOf("Kotlin", "Android", "Jetpack Compose"),
+                    mode = mode
+                )
+            }
+        ) {
             Accordion(title = "Mode") {
                 RadioButtonGroup(
                     options = listOf(

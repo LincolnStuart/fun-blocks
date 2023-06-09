@@ -16,16 +16,18 @@ class AccordionScreen : Screen {
 
     @Composable
     override fun Content() {
-        Sample(component = {
-            Accordion(title = "Accordion") {
-                Box(
-                    Modifier
-                        .fillMaxWidth()
-                        .padding(FunBlocksSpacing.small)
-                ) {
-                    Alert(title = "Content inside", mode = AlertMode.Warning)
+        Sample(
+            component = {
+                Accordion(title = "Accordion") {
+                    Box(
+                        Modifier
+                            .fillMaxWidth()
+                            .padding(FunBlocksSpacing.small)
+                    ) {
+                        Alert(title = "Content inside", mode = AlertMode.Warning)
+                    }
                 }
             }
-        }) {}
+        ) {}
     }
 }

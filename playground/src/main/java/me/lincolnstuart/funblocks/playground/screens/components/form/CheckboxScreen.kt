@@ -16,8 +16,8 @@ class CheckboxScreen : Screen {
         var isChecked by remember {
             mutableStateOf(false)
         }
-        Sample(component = {
-            Checkbox(isSelected = isChecked, onClick = { isChecked = !isChecked })
-        }) {}
+        Sample(
+            component = { Checkbox(isSelected = isChecked, onClick = { isChecked = !isChecked }) }
+        ) {}
     }
 }

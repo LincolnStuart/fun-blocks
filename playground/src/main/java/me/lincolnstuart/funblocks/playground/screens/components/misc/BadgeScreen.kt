@@ -27,13 +27,15 @@ class BadgeScreen : Screen {
         var icon: ImageVector? by remember {
             mutableStateOf(null)
         }
-        Sample(component = {
-            Badge(
-                description = "Badge",
-                mode = mode,
-                startIcon = icon
-            )
-        }) {
+        Sample(
+            component = {
+                Badge(
+                    description = "Badge",
+                    mode = mode,
+                    startIcon = icon
+                )
+            }
+        ) {
             Accordion(title = "Mode") {
                 RadioButtonGroup(
                     options = listOf(

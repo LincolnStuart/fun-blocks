@@ -16,8 +16,8 @@ class RadioButtonScreen : Screen {
         var isChecked by remember {
             mutableStateOf(false)
         }
-        Sample(component = {
-            RadioButton(isSelected = isChecked, onClick = { isChecked = !isChecked })
-        }) {}
+        Sample(
+            component = { RadioButton(isSelected = isChecked, onClick = { isChecked = !isChecked }) }
+        ) {}
     }
 }

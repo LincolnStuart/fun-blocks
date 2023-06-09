@@ -36,9 +36,9 @@ class AvatarScreen : Screen {
         var size by remember {
             mutableStateOf(AvatarSize.Regular)
         }
-        Sample(component = {
-            Avatar(mode = mode, options = AvatarOptions(shape, size)) {}
-        }) {
+        Sample(
+            component = { Avatar(mode = mode, options = AvatarOptions(shape, size)) {} }
+        ) {
             Accordion(title = "Mode") {
                 RadioButtonGroup(
                     options = listOf(iconMode, imageMode, initialsMode),

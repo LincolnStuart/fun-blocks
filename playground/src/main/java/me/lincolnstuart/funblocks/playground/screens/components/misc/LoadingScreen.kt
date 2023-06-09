@@ -9,8 +9,8 @@ class LoadingScreen : Screen {
 
     @Composable
     override fun Content() {
-        Sample(component = {
-            Loading()
-        }) {}
+        Sample(
+            component = { Loading() }
+        ) {}
     }
 }

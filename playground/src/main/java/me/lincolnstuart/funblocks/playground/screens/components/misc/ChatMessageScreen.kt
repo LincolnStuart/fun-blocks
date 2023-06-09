@@ -21,12 +21,14 @@ class ChatMessageScreen : Screen {
         var options: ChatMessageOptions by remember {
             mutableStateOf(ChatMessageOptions(orientation = ChatMessageOrientation.Sent))
         }
-        Sample(component = {
-            ChatMessage(
-                message = "Chat message",
-                options = options
-            )
-        }) {
+        Sample(
+            component = {
+                ChatMessage(
+                    message = "Chat message",
+                    options = options
+                )
+            }
+        ) {
             Accordion(title = "Orientation") {
                 RadioButtonGroup(
                     options = listOf(

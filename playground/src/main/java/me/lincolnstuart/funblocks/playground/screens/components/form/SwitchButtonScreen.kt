@@ -16,8 +16,8 @@ class SwitchButtonScreen : Screen {
         var isOn by remember {
             mutableStateOf(false)
         }
-        Sample(component = {
-            SwitchButton(isOn = isOn, onClick = { isOn = it })
-        }) {}
+        Sample(
+            component = { SwitchButton(isOn = isOn, onClick = { isOn = it }) }
+        ) {}
     }
 }

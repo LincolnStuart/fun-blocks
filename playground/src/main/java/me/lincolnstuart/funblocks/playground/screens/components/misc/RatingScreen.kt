@@ -16,10 +16,12 @@ class RatingScreen : Screen {
         var grade by remember {
             mutableStateOf(0)
         }
-        Sample(component = {
-            Rating(grade = grade) { updated ->
-                grade = updated
+        Sample(
+            component = {
+                Rating(grade = grade) { updated ->
+                    grade = updated
+                }
             }
-        }) {}
+        ) {}
     }
 }

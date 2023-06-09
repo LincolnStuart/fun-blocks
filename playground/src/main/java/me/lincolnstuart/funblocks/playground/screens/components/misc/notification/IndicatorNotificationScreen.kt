@@ -18,11 +18,9 @@ class IndicatorNotificationScreen : Screen {
         var hasNotification by remember {
             mutableStateOf(false)
         }
-        Sample(component = {
-            IndicatorNotification(hasNotification = hasNotification) {
-                Avatar {}
-            }
-        }) {
+        Sample(
+            component = { IndicatorNotification(hasNotification = hasNotification) { Avatar {} } }
+        ) {
             SwitchButtonOption(
                 description = "Has notification",
                 isOn = hasNotification,

@@ -28,14 +28,16 @@ class AlertScreen : Screen {
         var closeAction: (() -> Unit)? by remember {
             mutableStateOf(null)
         }
-        Sample(component = {
-            Alert(
-                title = "Alert",
-                mode = mode,
-                message = message,
-                closeOptions = AlertCloseOptions(onClose = closeAction)
-            )
-        }) {
+        Sample(
+            component = {
+                Alert(
+                    title = "Alert",
+                    mode = mode,
+                    message = message,
+                    closeOptions = AlertCloseOptions(onClose = closeAction)
+                )
+            }
+        ) {
             Accordion(title = "Mode") {
                 RadioButtonGroup(
                     options = listOf(

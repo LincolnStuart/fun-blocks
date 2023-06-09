@@ -10,9 +10,7 @@ class StepperScreen : Screen {
     @Composable
     override fun Content() {
         Sample(
-            component = {
-                Stepper(stepsCount = 5, selectedStepPosition = 2)
-            }
+            component = { Stepper(stepsCount = 5, selectedStepPosition = 2) }
         ) {}
     }
 }

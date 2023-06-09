@@ -20,9 +20,9 @@ class HorizontalDividerScreen : Screen {
         var mode: HorizontalDividerMode by remember {
             mutableStateOf(HorizontalDividerMode.Solid)
         }
-        Sample(component = {
-            HorizontalDivider(mode = mode)
-        }) {
+        Sample(
+            component = { HorizontalDivider(mode = mode) }
+        ) {
             Accordion(title = "Mode") {
                 RadioButtonGroup(
                     options = listOf(

@@ -18,11 +18,9 @@ class CounterNotificationScreen : Screen {
         var counter by remember {
             mutableStateOf(0)
         }
-        Sample(component = {
-            CounterNotification(number = counter) {
-                Avatar {}
-            }
-        }) {
+        Sample(
+            component = { CounterNotification(number = counter) { Avatar {} } }
+        ) {
             SwitchButtonOption(
                 description = "Has notification",
                 isOn = counter > 0,

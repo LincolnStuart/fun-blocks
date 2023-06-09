@@ -20,12 +20,14 @@ class ChipScreen : Screen {
         var options: ChipOptions by remember {
             mutableStateOf(ChipOptions())
         }
-        Sample(component = {
-            Chip(
-                description = "Chip",
-                options = options
-            ) {}
-        }) {
+        Sample(
+            component = {
+                Chip(
+                    description = "Chip",
+                    options = options
+                ) {}
+            }
+        ) {
             SwitchButtonOption(
                 description = "Enabled",
                 isOn = options.isEnabled,

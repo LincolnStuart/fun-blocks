@@ -28,15 +28,13 @@ class ProgressBarScreen : Screen {
             percent = ONE_HUNDRED_PERCENT
         }
         Sample(
-            component = {
-                ProgressBar(percent = percent, paddingValues = FunBlocksInset.medium)
-            }
+            component = { ProgressBar(percent = percent, paddingValues = FunBlocksInset.medium) }
         ) {}
     }
 
     private companion object {
         const val TWENTY_FIVE_PERCENT = 25f
         const val SEVENTY_FIVE_PERCENT = 75f
-        const val ONE_HUNDRED_PERCENT = 25f
+        const val ONE_HUNDRED_PERCENT = 100f
     }
 }
