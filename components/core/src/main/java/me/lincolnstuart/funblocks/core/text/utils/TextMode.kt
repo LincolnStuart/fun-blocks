@@ -22,7 +22,7 @@ import me.lincolnstuart.funblocks.foundation.ui.token.font.FunBlocksLetterSpace
 public sealed class TextMode(
     open val fontSize: TextUnit = FunBlocksFontSize.medium,
     open val fontWeight: FontWeight = FunBlocksFontWeight.regular,
-    open val letterSpace: TextUnit = FunBlocksLetterSpace.medium,
+    open val letterSpace: TextUnit = FunBlocksLetterSpace.regular,
     open val textTransformation: (text: String) -> String
 ) {
     public data class Regular(
@@ -65,7 +65,7 @@ public sealed class TextMode(
     public data class Custom(
         override val fontSize: TextUnit = FunBlocksFontSize.medium,
         override val fontWeight: FontWeight = FunBlocksFontWeight.regular,
-        override val letterSpace: TextUnit = FunBlocksLetterSpace.medium,
+        override val letterSpace: TextUnit = FunBlocksLetterSpace.regular,
         override val textTransformation: (text: String) -> String = { text -> text }
     ) : TextMode(
         fontSize = fontSize,
