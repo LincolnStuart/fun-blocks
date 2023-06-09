@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="Theme.FunBlocksPlayground.Starting" parent="Theme.SplashScreen">
+        <item name="windowSplashScreenBackground">@color/primary</item>
+        <item name="windowSplashScreenAnimatedIcon">@drawable/fun_blocks</item>
+        <item name="postSplashScreenTheme">@style/Theme.FunBlocksSample.Main</item>
+        <item name="android:statusBarColor" >@color/primaryContrast</item>
+        <item name="android:navigationBarColor" >@color/primaryContrast</item>
+    </style>
+</resources>

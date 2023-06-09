@@ -21,8 +21,8 @@ Have you ever imagined build apps like playing `LEGO` or `Playmobil`?
 
 ```kotlin
 FunBlocksTheme { 
-    Surface { 
-        NotificationCounter(number = 5) { 
+    Surface {
+        CounterNotification(number = 5) { 
             Avatar(
                 mode = AvatarMode.Initials(fullName = "Lincoln Stuart")
             ) 
