@@ -29,6 +29,7 @@ import me.lincolnstuart.funblocks.foundation.ui.token.content.spacing.FunBlocksS
 import me.lincolnstuart.funblocks.playground.R
 import me.lincolnstuart.funblocks.playground.components.Sample
 import me.lincolnstuart.funblocks.playground.screens.components.HomeComponentsScreen
+import me.lincolnstuart.funblocks.playground.screens.tokens.HomeTokensScreen
 
 class HomeScreen : Screen {
 
@@ -63,7 +64,7 @@ class HomeScreen : Screen {
             }
         ) {
             SimpleListItem(title = "Tokens", description = "Color, Size, Spacing, etc.") {
-                // TODO add tokens navigation
+                navigator.push(HomeTokensScreen())
             }
             SimpleListItem(
                 title = "Components",

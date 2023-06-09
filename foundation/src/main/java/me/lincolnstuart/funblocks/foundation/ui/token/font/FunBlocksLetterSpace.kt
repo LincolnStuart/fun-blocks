@@ -9,6 +9,6 @@ import androidx.compose.ui.unit.sp
  * Based on [androidx.compose.ui.unit.TextUnit].
  */
 public object FunBlocksLetterSpace {
-    public val medium: TextUnit = TextUnit.Unspecified
+    public val regular: TextUnit = TextUnit.Unspecified
     public val large: TextUnit = 2.sp
 }
