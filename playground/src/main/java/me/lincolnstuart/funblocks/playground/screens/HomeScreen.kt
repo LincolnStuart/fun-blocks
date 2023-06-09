@@ -7,6 +7,7 @@ import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement.Absolute.spacedBy
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -23,6 +24,7 @@ import me.lincolnstuart.funblocks.core.text.utils.TextMode
 import me.lincolnstuart.funblocks.essentials.list.SimpleListItem
 import me.lincolnstuart.funblocks.essentials.misc.chip.Chip
 import me.lincolnstuart.funblocks.essentials.misc.chip.utils.ChipOptions
+import me.lincolnstuart.funblocks.foundation.ui.token.content.size.FunBlocksContentSize
 import me.lincolnstuart.funblocks.foundation.ui.token.content.spacing.FunBlocksSpacing
 import me.lincolnstuart.funblocks.playground.R
 import me.lincolnstuart.funblocks.playground.components.Sample
@@ -43,7 +45,8 @@ class HomeScreen : Screen {
                 ) {
                     Image(
                         painter = painterResource(id = R.drawable.fun_blocks),
-                        contentDescription = "Fun Blocks Brand"
+                        contentDescription = "Fun Blocks Brand",
+                        modifier = Modifier.height(FunBlocksContentSize.huge)
                     )
                     Text(text = "Fun Blocks Playground", mode = TextMode.Title())
                     Chip(
