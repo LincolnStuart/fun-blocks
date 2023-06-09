@@ -13,7 +13,7 @@ dependencyResolutionManagement {
     }
 }
 rootProject.name = "fun-blocks"
-include ':sample'
+include ':playground'
 include ':foundation'
 include ':components:essentials'
 include ':components:core'
