@@ -22,51 +22,51 @@ class SpacingScreen : Screen {
                 Column(Modifier.verticalScroll(rememberScrollState())) {
                     TokenItem(
                         tokenDescription = "none",
-                        tokenValue = "${FunBlocksSpacing.none.value.roundToInt()} DP"
+                        tokenValue = "${FunBlocksSpacing.none.value.roundToInt()}dp"
                     )
                     TokenItem(
                         tokenDescription = "micro",
-                        tokenValue = "${FunBlocksSpacing.micro.value} DP"
+                        tokenValue = "${FunBlocksSpacing.micro.value}dp"
                     )
                     TokenItem(
                         tokenDescription = "tiny",
-                        tokenValue = "${FunBlocksSpacing.tiny.value.roundToInt()} DP"
+                        tokenValue = "${FunBlocksSpacing.tiny.value.roundToInt()}dp"
                     )
                     TokenItem(
                         tokenDescription = "xxxSmall",
-                        tokenValue = "${FunBlocksSpacing.xxxSmall.value.roundToInt()} DP"
+                        tokenValue = "${FunBlocksSpacing.xxxSmall.value.roundToInt()}dp"
                     )
                     TokenItem(
                         tokenDescription = "xxSmall",
-                        tokenValue = "${FunBlocksSpacing.xxSmall.value.roundToInt()} DP"
+                        tokenValue = "${FunBlocksSpacing.xxSmall.value.roundToInt()}dp"
                     )
                     TokenItem(
                         tokenDescription = "xSmall",
-                        tokenValue = "${FunBlocksSpacing.xSmall.value.roundToInt()} DP"
+                        tokenValue = "${FunBlocksSpacing.xSmall.value.roundToInt()}dp"
                     )
                     TokenItem(
                         tokenDescription = "small",
-                        tokenValue = "${FunBlocksSpacing.small.value.roundToInt()} DP"
+                        tokenValue = "${FunBlocksSpacing.small.value.roundToInt()}dp"
                     )
                     TokenItem(
                         tokenDescription = "medium",
-                        tokenValue = "${FunBlocksSpacing.medium.value.roundToInt()} DP"
+                        tokenValue = "${FunBlocksSpacing.medium.value.roundToInt()}dp"
                     )
                     TokenItem(
                         tokenDescription = "large",
-                        tokenValue = "${FunBlocksSpacing.large.value.roundToInt()} DP"
+                        tokenValue = "${FunBlocksSpacing.large.value.roundToInt()}dp"
                     )
                     TokenItem(
                         tokenDescription = "xLarge",
-                        tokenValue = "${FunBlocksSpacing.xLarge.value.roundToInt()} DP"
+                        tokenValue = "${FunBlocksSpacing.xLarge.value.roundToInt()}dp"
                     )
                     TokenItem(
                         tokenDescription = "xxLarge",
-                        tokenValue = "${FunBlocksSpacing.xxLarge.value.roundToInt()} DP"
+                        tokenValue = "${FunBlocksSpacing.xxLarge.value.roundToInt()}dp"
                     )
                     TokenItem(
                         tokenDescription = "xxxLarge",
-                        tokenValue = "${FunBlocksSpacing.xxxLarge.value.roundToInt()} DP"
+                        tokenValue = "${FunBlocksSpacing.xxxLarge.value.roundToInt()}dp"
                     )
                 }
             }

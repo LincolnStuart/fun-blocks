@@ -1,12 +1,10 @@
 package me.lincolnstuart.funblocks.playground.components
 
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.text.font.FontStyle
 import me.lincolnstuart.funblocks.core.text.Text
-import me.lincolnstuart.funblocks.core.text.utils.TextMode
-import me.lincolnstuart.funblocks.core.text.utils.regular.RegularWeight
 import me.lincolnstuart.funblocks.essentials.list.CustomListItem
-import me.lincolnstuart.funblocks.foundation.ui.token.color.FunBlocksColors
+import me.lincolnstuart.funblocks.essentials.misc.badge.Badge
+import me.lincolnstuart.funblocks.essentials.misc.badge.utils.BadgeMode
 
 @Composable
 internal fun TokenItem(
@@ -16,11 +14,9 @@ internal fun TokenItem(
     CustomListItem(
         lead = { Text(text = tokenDescription) },
         highlighted = {
-            Text(
-                text = tokenValue,
-                mode = TextMode.Regular(weight = RegularWeight.Bold),
-                style = FontStyle.Italic,
-                color = FunBlocksColors.PrimaryDark
+            Badge(
+                description = tokenValue,
+                mode = BadgeMode.Info
             )
         }
     )

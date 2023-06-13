@@ -22,19 +22,19 @@ class BorderWidthScreen : Screen {
                 Column(Modifier.verticalScroll(rememberScrollState())) {
                     TokenItem(
                         tokenDescription = "none",
-                        tokenValue = "${FunBlocksBorderWidth.none.value.roundToInt()} DP"
+                        tokenValue = "${FunBlocksBorderWidth.none.value.roundToInt()}dp"
                     )
                     TokenItem(
                         tokenDescription = "tiny",
-                        tokenValue = "${FunBlocksBorderWidth.tiny.value.roundToInt()} DP"
+                        tokenValue = "${FunBlocksBorderWidth.tiny.value.roundToInt()}dp"
                     )
                     TokenItem(
                         tokenDescription = "regular",
-                        tokenValue = "${FunBlocksBorderWidth.regular.value.roundToInt()} DP"
+                        tokenValue = "${FunBlocksBorderWidth.regular.value.roundToInt()}dp"
                     )
                     TokenItem(
                         tokenDescription = "large",
-                        tokenValue = "${FunBlocksBorderWidth.large.value.roundToInt()} DP"
+                        tokenValue = "${FunBlocksBorderWidth.large.value.roundToInt()}dp"
                     )
                 }
             }
