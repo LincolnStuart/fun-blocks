@@ -22,12 +22,12 @@ class ContentSizeScreen : Screen {
                 Column(Modifier.verticalScroll(rememberScrollState())) {
                     TokenItem(
                         tokenDescription = "none",
-                        tokenValue = "${FunBlocksContentSize.none.value.roundToInt()} DP"
+                        tokenValue = "${FunBlocksContentSize.none.value.roundToInt()}dp"
                     )
                     SmallTokens()
                     TokenItem(
                         tokenDescription = "medium",
-                        tokenValue = "${FunBlocksContentSize.medium.value.roundToInt()} DP"
+                        tokenValue = "${FunBlocksContentSize.medium.value.roundToInt()}dp"
                     )
                     LargeTokens()
                     HugeTokens()
@@ -40,19 +40,19 @@ class ContentSizeScreen : Screen {
     private fun HugeTokens() {
         TokenItem(
             tokenDescription = "huge",
-            tokenValue = "${FunBlocksContentSize.huge.value.roundToInt()} DP"
+            tokenValue = "${FunBlocksContentSize.huge.value.roundToInt()}dp"
         )
         TokenItem(
             tokenDescription = "xHuge",
-            tokenValue = "${FunBlocksContentSize.xHuge.value.roundToInt()} DP"
+            tokenValue = "${FunBlocksContentSize.xHuge.value.roundToInt()}dp"
         )
         TokenItem(
             tokenDescription = "xxHuge",
-            tokenValue = "${FunBlocksContentSize.xxHuge.value.roundToInt()} DP"
+            tokenValue = "${FunBlocksContentSize.xxHuge.value.roundToInt()}dp"
         )
         TokenItem(
             tokenDescription = "xxxHuge",
-            tokenValue = "${FunBlocksContentSize.xxxHuge.value.roundToInt()} DP"
+            tokenValue = "${FunBlocksContentSize.xxxHuge.value.roundToInt()}dp"
         )
     }
 
@@ -60,19 +60,19 @@ class ContentSizeScreen : Screen {
     private fun LargeTokens() {
         TokenItem(
             tokenDescription = "large",
-            tokenValue = "${FunBlocksContentSize.large.value.roundToInt()} DP"
+            tokenValue = "${FunBlocksContentSize.large.value.roundToInt()}dp"
         )
         TokenItem(
             tokenDescription = "xLarge",
-            tokenValue = "${FunBlocksContentSize.xLarge.value.roundToInt()} DP"
+            tokenValue = "${FunBlocksContentSize.xLarge.value.roundToInt()}dp"
         )
         TokenItem(
             tokenDescription = "xxLarge",
-            tokenValue = "${FunBlocksContentSize.xxLarge.value.roundToInt()} DP"
+            tokenValue = "${FunBlocksContentSize.xxLarge.value.roundToInt()}dp"
         )
         TokenItem(
             tokenDescription = "xxxLarge",
-            tokenValue = "${FunBlocksContentSize.xxxLarge.value.roundToInt()} DP"
+            tokenValue = "${FunBlocksContentSize.xxxLarge.value.roundToInt()}dp"
         )
     }
 
@@ -80,19 +80,19 @@ class ContentSizeScreen : Screen {
     private fun SmallTokens() {
         TokenItem(
             tokenDescription = "xxxSmall",
-            tokenValue = "${FunBlocksContentSize.xxxSmall.value.roundToInt()} DP"
+            tokenValue = "${FunBlocksContentSize.xxxSmall.value.roundToInt()}dp"
         )
         TokenItem(
             tokenDescription = "xxSmall",
-            tokenValue = "${FunBlocksContentSize.xxSmall.value.roundToInt()} DP"
+            tokenValue = "${FunBlocksContentSize.xxSmall.value.roundToInt()}dp"
         )
         TokenItem(
             tokenDescription = "xSmall",
-            tokenValue = "${FunBlocksContentSize.xSmall.value.roundToInt()} DP"
+            tokenValue = "${FunBlocksContentSize.xSmall.value.roundToInt()}dp"
         )
         TokenItem(
             tokenDescription = "small",
-            tokenValue = "${FunBlocksContentSize.small.value.roundToInt()} DP"
+            tokenValue = "${FunBlocksContentSize.small.value.roundToInt()}dp"
         )
     }
 }

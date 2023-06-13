@@ -22,15 +22,15 @@ class ElevationScreen : Screen {
                 Column(Modifier.verticalScroll(rememberScrollState())) {
                     TokenItem(
                         tokenDescription = "low",
-                        tokenValue = "${FunBlocksElevationLevel.low.value.roundToInt()} DP"
+                        tokenValue = "${FunBlocksElevationLevel.low.value.roundToInt()}dp"
                     )
                     TokenItem(
                         tokenDescription = "medium",
-                        tokenValue = "${FunBlocksElevationLevel.medium.value.roundToInt()} DP"
+                        tokenValue = "${FunBlocksElevationLevel.medium.value.roundToInt()}dp"
                     )
                     TokenItem(
                         tokenDescription = "high",
-                        tokenValue = "${FunBlocksElevationLevel.high.value.roundToInt()} DP"
+                        tokenValue = "${FunBlocksElevationLevel.high.value.roundToInt()}dp"
                     )
                 }
             }

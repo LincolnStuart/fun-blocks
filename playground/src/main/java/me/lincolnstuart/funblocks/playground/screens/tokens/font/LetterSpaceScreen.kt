@@ -27,7 +27,7 @@ class LetterSpaceScreen : Screen {
                     )
                     TokenItem(
                         tokenDescription = "large",
-                        tokenValue = "${FunBlocksLetterSpace.large.value.roundToInt()} SP"
+                        tokenValue = "${FunBlocksLetterSpace.large.value.roundToInt()}sp"
                     )
                 }
             }

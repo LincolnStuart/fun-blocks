@@ -23,31 +23,31 @@ class FontSizeScreen : Screen {
                 Column(Modifier.verticalScroll(scrollState)) {
                     TokenItem(
                         tokenDescription = "small",
-                        tokenValue = "${FunBlocksFontSize.small.value.roundToInt()} SP"
+                        tokenValue = "${FunBlocksFontSize.small.value.roundToInt()}sp"
                     )
                     TokenItem(
                         tokenDescription = "medium",
-                        tokenValue = "${FunBlocksFontSize.medium.value.roundToInt()} SP"
+                        tokenValue = "${FunBlocksFontSize.medium.value.roundToInt()}sp"
                     )
                     TokenItem(
                         tokenDescription = "large",
-                        tokenValue = "${FunBlocksFontSize.large.value.roundToInt()} SP"
+                        tokenValue = "${FunBlocksFontSize.large.value.roundToInt()}sp"
                     )
                     TokenItem(
                         tokenDescription = "xLarge",
-                        tokenValue = "${FunBlocksFontSize.xLarge.value.roundToInt()} SP"
+                        tokenValue = "${FunBlocksFontSize.xLarge.value.roundToInt()}sp"
                     )
                     TokenItem(
                         tokenDescription = "xxLarge",
-                        tokenValue = "${FunBlocksFontSize.xxLarge.value.roundToInt()} SP"
+                        tokenValue = "${FunBlocksFontSize.xxLarge.value.roundToInt()}sp"
                     )
                     TokenItem(
                         tokenDescription = "xxxLarge",
-                        tokenValue = "${FunBlocksFontSize.xxxLarge.value.roundToInt()} SP"
+                        tokenValue = "${FunBlocksFontSize.xxxLarge.value.roundToInt()}sp"
                     )
                     TokenItem(
                         tokenDescription = "huge",
-                        tokenValue = "${FunBlocksFontSize.xxxLarge.value.roundToInt()} SP"
+                        tokenValue = "${FunBlocksFontSize.xxxLarge.value.roundToInt()}sp"
                     )
                 }
             }

@@ -20,23 +20,23 @@ class CornerRadiusScreen : Screen {
                 Column(Modifier.verticalScroll(rememberScrollState())) {
                     TokenItem(
                         tokenDescription = "small",
-                        tokenValue = "2 DP"
+                        tokenValue = "2dp"
                     )
                     TokenItem(
                         tokenDescription = "medium",
-                        tokenValue = "4 DP"
+                        tokenValue = "4dp"
                     )
                     TokenItem(
                         tokenDescription = "large",
-                        tokenValue = "6 DP"
+                        tokenValue = "6dp"
                     )
                     TokenItem(
                         tokenDescription = "huge",
-                        tokenValue = "8 DP"
+                        tokenValue = "8dp"
                     )
                     TokenItem(
                         tokenDescription = "enormous",
-                        tokenValue = "12 DP"
+                        tokenValue = "12dp"
                     )
                     TokenItem(
                         tokenDescription = "full",
