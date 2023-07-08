@@ -1,5 +1,5 @@
 ![license](https://img.shields.io/badge/license-mit-red?style=for-the-badge)
-![api](https://img.shields.io/badge/api-26+-yellow?style=for-the-badge)
+![api](https://img.shields.io/badge/api-24+-yellow?style=for-the-badge)
 
 <div align="center">
 <br />
@@ -51,6 +51,5 @@ It works with [Material](https://developer.android.com/jetpack/androidx/releases
 - And more...
 
 ## Next Steps
-- Downgrade API Level.
 - Publish the sample on [Google Play Store](https://play.google.com/).
 - [KMM](https://kotlinlang.org/docs/multiplatform-mobile-getting-started.html) Support.
