@@ -12,6 +12,7 @@ import cafe.adriel.voyager.navigator.currentOrThrow
 import me.lincolnstuart.funblocks.core.surface.Surface
 import me.lincolnstuart.funblocks.essentials.list.SimpleListItem
 import me.lincolnstuart.funblocks.foundation.ui.theme.FunBlocksTheme
+import me.lincolnstuart.funblocks.playground.screens.components.form.input.PinScreen
 import me.lincolnstuart.funblocks.playground.screens.components.form.input.SingleInputScreen
 import me.lincolnstuart.funblocks.playground.screens.components.form.input.TextAreaScreen
 
@@ -29,6 +30,9 @@ class InputScreen : Screen {
                 Column(Modifier.verticalScroll(scrollState)) {
                     SimpleListItem(title = "Input") {
                         navigator.push(SingleInputScreen())
+                    }
+                    SimpleListItem(title = "Pin") {
+                        navigator.push(PinScreen())
                     }
                     SimpleListItem(title = "TextArea") {
                         navigator.push(TextAreaScreen())
