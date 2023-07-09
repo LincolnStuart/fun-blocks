@@ -12,6 +12,7 @@ import cafe.adriel.voyager.navigator.currentOrThrow
 import me.lincolnstuart.funblocks.core.surface.Surface
 import me.lincolnstuart.funblocks.essentials.list.SimpleListItem
 import me.lincolnstuart.funblocks.foundation.ui.theme.FunBlocksTheme
+import me.lincolnstuart.funblocks.playground.screens.components.form.input.IncrementerScreen
 import me.lincolnstuart.funblocks.playground.screens.components.form.input.PinScreen
 import me.lincolnstuart.funblocks.playground.screens.components.form.input.SingleInputScreen
 import me.lincolnstuart.funblocks.playground.screens.components.form.input.TextAreaScreen
@@ -28,6 +29,9 @@ class InputScreen : Screen {
                 val navigator = LocalNavigator.currentOrThrow
                 val scrollState = rememberScrollState()
                 Column(Modifier.verticalScroll(scrollState)) {
+                    SimpleListItem(title = "Incrementer") {
+                        navigator.push(IncrementerScreen())
+                    }
                     SimpleListItem(title = "Input") {
                         navigator.push(SingleInputScreen())
                     }
