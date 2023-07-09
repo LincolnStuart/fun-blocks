@@ -42,7 +42,8 @@ public fun ProgressBar(
     percent: Float,
     color: FunBlocksColors = FunBlocksColors.Positive,
     height: Dp = FunBlocksSpacing.xxxSmall,
-    paddingValues: PaddingValues = PaddingValues()
+    paddingValues: PaddingValues = PaddingValues(),
+    isAnimated: Boolean = true
 ) {
     val percentageProgress = remember(percent) {
         percent / FULL_PERCENTAGE
@@ -50,8 +51,8 @@ public fun ProgressBar(
     val progress by animateFloatAsState(
         targetValue = percentageProgress,
         tween(
-            durationMillis = 500,
-            delayMillis = 100,
+            durationMillis = if (isAnimated)500 else 0,
+            delayMillis = if (isAnimated)100 else 0,
             easing = LinearOutSlowInEasing
         )
     )

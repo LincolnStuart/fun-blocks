@@ -23,6 +23,7 @@ import me.lincolnstuart.funblocks.playground.screens.components.misc.LoadingScre
 import me.lincolnstuart.funblocks.playground.screens.components.misc.NotificationScreen
 import me.lincolnstuart.funblocks.playground.screens.components.misc.ProgressScreen
 import me.lincolnstuart.funblocks.playground.screens.components.misc.RatingScreen
+import me.lincolnstuart.funblocks.playground.screens.components.misc.SliderScreen
 
 class MiscComponentsScreen : Screen {
 
@@ -62,6 +63,7 @@ class MiscComponentsScreen : Screen {
         "Loading" to LoadingScreen(),
         "Notification" to NotificationScreen(),
         "Progress" to ProgressScreen(),
-        "Rating" to RatingScreen()
+        "Rating" to RatingScreen(),
+        "Slider" to SliderScreen()
     )
 }
