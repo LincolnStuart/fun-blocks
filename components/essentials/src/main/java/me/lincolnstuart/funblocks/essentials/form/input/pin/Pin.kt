@@ -1,19 +1,14 @@
 package me.lincolnstuart.funblocks.essentials.form.input.pin
 
-import androidx.compose.foundation.background
-import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Arrangement.Absolute.spacedBy
-import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.text.BasicTextField
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
-import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import me.lincolnstuart.funblocks.core.surface.Surface
@@ -21,11 +16,8 @@ import me.lincolnstuart.funblocks.core.text.Text
 import me.lincolnstuart.funblocks.core.text.utils.TextMode
 import me.lincolnstuart.funblocks.core.text.utils.topic.TopicSize
 import me.lincolnstuart.funblocks.essentials.form.utils.Error
+import me.lincolnstuart.funblocks.essentials.form.utils.SmallInputSkeleton
 import me.lincolnstuart.funblocks.foundation.ui.theme.FunBlocksTheme
-import me.lincolnstuart.funblocks.foundation.ui.token.color.FunBlocksColors
-import me.lincolnstuart.funblocks.foundation.ui.token.content.border.FunBlocksBorderWidth
-import me.lincolnstuart.funblocks.foundation.ui.token.content.shape.FunBlocksCornerRadius
-import me.lincolnstuart.funblocks.foundation.ui.token.content.size.FunBlocksContentSize
 import me.lincolnstuart.funblocks.foundation.ui.token.content.spacing.FunBlocksSpacing
 
 /**
@@ -75,10 +67,10 @@ public fun Pin(
                     ) {
                         sanitizedValue.forEach { char ->
                             val character = if (isCharactersHide) "•" else char.toString()
-                            CharacterBox(text = character, hasError = hasError)
+                            SmallInputSkeleton(text = character, hasError = hasError)
                         }
                         repeat(size - sanitizedValue.length) { index ->
-                            CharacterBox(text = "", hasError = hasError)
+                            SmallInputSkeleton(text = "", hasError = hasError)
                         }
                     }
                 }
@@ -97,35 +89,6 @@ private fun sanitizeValue(
     } else {
         value
     }
-
-@Composable
-private fun CharacterBox(
-    text: String,
-    hasError: Boolean
-) {
-    val boxColor = remember(hasError) {
-        if (hasError) FunBlocksColors.Negative else FunBlocksColors.Border
-    }
-    Box(
-        modifier = Modifier
-            .size(
-                width = FunBlocksContentSize.xLarge,
-                height = FunBlocksContentSize.xxLarge
-            )
-            .background(
-                color = FunBlocksColors.Surface.value(),
-                shape = FunBlocksCornerRadius.medium
-            )
-            .border(
-                width = FunBlocksBorderWidth.tiny,
-                color = boxColor.value(),
-                shape = FunBlocksCornerRadius.medium
-            ),
-        contentAlignment = Alignment.Center
-    ) {
-        Text(text = text)
-    }
-}
 
 @Preview
 @Composable
