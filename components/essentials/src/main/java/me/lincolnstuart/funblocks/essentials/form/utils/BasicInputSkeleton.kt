@@ -68,7 +68,7 @@ internal fun BasicInputSkeleton(
 }
 
 @Composable
-private fun Error(message: String) {
+public fun Error(message: String) {
     Row(
         modifier = Modifier.fillMaxWidth(),
         horizontalArrangement = Arrangement.End,
