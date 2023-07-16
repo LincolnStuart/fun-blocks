@@ -1,7 +1,8 @@
 [versions]
 kotlin = "1.8.10"
-gradle-plugin = "8.0.0"
-kt-lint = "11.3.1"
+jetbraind-compose = "1.5.0-dev1094"
+gradle-plugin = "8.0.2"
+kt-lint = "11.5.0"
 detekt = "1.23.0"
 kotlinx-datetime = "0.4.0"
 android-x-core-ktx = "1.10.0"
@@ -45,4 +46,6 @@ compose = ["compose-activity", "compose-foundation", "compose", "compose-tooling
 android-application = { id = "com.android.application", version.ref = "gradle-plugin" }
 android-library = { id = "com.android.library", version.ref = "gradle-plugin" }
 kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
+kotlin-multiplatform = { id = "org.jetbrains.kotlin.multiplatform", version.ref = "kotlin" }
+jetbrains-compose = { id = "org.jetbrains.compose", version.ref = "jetbraind-compose"}
 detekt = { id = "io.gitlab.arturbosch.detekt", version.ref = "detekt" }
