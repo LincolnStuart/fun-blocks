@@ -29,11 +29,11 @@ android {
             )
         }
     }
-    compileOptions {
+    /*compileOptions {
         sourceCompatibility(JavaVersion.VERSION_17)
         targetCompatibility(JavaVersion.VERSION_17)
     }
-    /*kotlinOptions {
+    kotlinOptions {
         jvmTarget = '11'
     }
     buildFeatures {
