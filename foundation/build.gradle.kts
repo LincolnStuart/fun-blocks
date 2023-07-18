@@ -12,7 +12,6 @@ android {
 
     defaultConfig {
         minSdk = 24
-        // targetSdk = 34
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         vectorDrawables {
@@ -33,12 +32,6 @@ android {
         sourceCompatibility(JavaVersion.VERSION_11)
         targetCompatibility(JavaVersion.VERSION_11)
     }
-    /*kotlinOptions {
-        jvmTarget = '11'
-    }
-    buildFeatures {
-        compose = true
-    }*/
     composeOptions {
         kotlinCompilerExtensionVersion = "1.4.2"
     }
@@ -58,14 +51,17 @@ kotlin {
     sourceSets {
         val commonMain by getting {
             dependencies {
+                implementation(libs.bundles.compose)
+                implementation(libs.material)
+                implementation(libs.bundles.compose)
+                implementation(libs.material)
+                implementation(libs.compose.tooling)
             }
         }
         val androidMain by getting {
             dependencies {
                 implementation(libs.android.x.core.ktx)
                 implementation(libs.android.x.lifecycle.runtime.ktx)
-                implementation(libs.bundles.compose)
-                implementation(libs.material)
             }
         }
         val androidTest by getting {
@@ -74,11 +70,6 @@ kotlin {
                 implementation(libs.android.x.junit)
                 implementation(libs.android.x.espresso.core)
                 implementation(libs.compose.test)
-            }
-        }
-        val androidDebug by getting {
-            dependencies {
-                implementation(libs.compose.tooling)
                 implementation(libs.compose.test.manifest)
             }
         }
