@@ -5,7 +5,7 @@ plugins {
 }
 
 android {
-    namespace = AndroidBuild.nameSpace(moduleName = "chart")
+    namespace = AndroidBuild.nameSpace(moduleName = "period")
     compileSdk = AndroidBuild.compileSdk
     defaultConfig {
         minSdk = AndroidBuild.minSdk
