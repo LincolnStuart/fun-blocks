@@ -4,28 +4,18 @@ plugins {
     alias(libs.plugins.jetbrains.compose)
 }
 
-apply(from = "$rootDir/config/detekt/detekt.gradle")
-
 android {
-    namespace = "me.lincolnstuart.funblocks.foundation"
-    compileSdk = 34
-
+    namespace = AndroidBuild.nameSpace("foundation")
+    compileSdk = AndroidBuild.compileSdk
     defaultConfig {
-        minSdk = 24
-
-        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+        minSdk = AndroidBuild.minSdk
         vectorDrawables {
             useSupportLibrary = true
         }
     }
-
     buildTypes {
         release {
-            isMinifyEnabled = false
-            proguardFiles(
-                getDefaultProguardFile(name = "proguard-android-optimize.txt"),
-                "proguard-rules.pro"
-            )
+            isMinifyEnabled = true
         }
     }
     compileOptions {
@@ -33,11 +23,11 @@ android {
         targetCompatibility(JavaVersion.VERSION_11)
     }
     composeOptions {
-        kotlinCompilerExtensionVersion = "1.4.2"
+        kotlinCompilerExtensionVersion = libs.versions.compose.toString()
     }
     packaging {
         resources {
-            excludes += "/META-INF/{AL2.0,LGPL2.1}"
+            excludes += AndroidBuild.packagesResourcesExcludes
         }
     }
 }
@@ -45,33 +35,21 @@ android {
 kotlin {
     android {
         compilations.all {
-            kotlinOptions.jvmTarget = "11"
+            kotlinOptions.jvmTarget = AndroidBuild.jvmTarget
         }
     }
     sourceSets {
         val commonMain by getting {
             dependencies {
-                implementation(libs.bundles.compose)
-                implementation(libs.material)
-                implementation(libs.bundles.compose)
-                implementation(libs.material)
-                implementation(libs.compose.tooling)
+                implementation(compose.runtime)
+                implementation(compose.foundation)
+                implementation(compose.ui)
+                implementation(compose.material)
+                implementation(compose.uiTooling)
             }
         }
         val androidMain by getting {
-            dependencies {
-                implementation(libs.android.x.core.ktx)
-                implementation(libs.android.x.lifecycle.runtime.ktx)
-            }
-        }
-        val androidTest by getting {
-            dependencies {
-                implementation(libs.junit)
-                implementation(libs.android.x.junit)
-                implementation(libs.android.x.espresso.core)
-                implementation(libs.compose.test)
-                implementation(libs.compose.test.manifest)
-            }
+            dependencies { }
         }
     }
 }

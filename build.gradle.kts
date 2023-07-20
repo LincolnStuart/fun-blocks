@@ -12,5 +12,6 @@ buildscript {
     alias(libs.plugins.detekt) apply true
 }
 subprojects {
+    apply(from = "$rootDir/config/detekt/detekt.gradle")
     apply(plugin = "org.jlleitschuh.gradle.ktlint")
 }
