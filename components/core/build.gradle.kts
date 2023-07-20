@@ -5,7 +5,7 @@ plugins {
 }
 
 android {
-    namespace = AndroidBuild.nameSpace(moduleName = "foundation")
+    namespace = AndroidBuild.nameSpace(moduleName = "core")
     compileSdk = AndroidBuild.compileSdk
     defaultConfig {
         minSdk = AndroidBuild.minSdk
@@ -46,6 +46,9 @@ kotlin {
                 implementation(compose.ui)
                 implementation(compose.material)
                 implementation(compose.uiTooling)
+                implementation(libs.compose.icons)
+                implementation(libs.coil)
+                implementation(project(":foundation"))
             }
         }
         val androidMain by getting {
