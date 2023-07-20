@@ -17,6 +17,7 @@ voyager = "1.0.0-rc06"
 junit = "4.13.2"
 android-x-test-junit = "1.1.5"
 android-x-test-espresso = "3.5.1"
+desugar = "2.0.3"
 
 [libraries]
 kt-lint = { module = "org.jlleitschuh.gradle:ktlint-gradle", version.ref = "kt-lint" }
@@ -38,6 +39,7 @@ coil = { module = "io.coil-kt:coil-compose", version.ref = "coil" }
 junit = { module = "junit:junit", version.ref = "junit" }
 android-x-junit = { module = "androidx.test.ext:junit", version.ref = "android-x-test-junit" }
 android-x-espresso-core = { module = "androidx.test.espresso:espresso-core", version.ref = "android-x-test-espresso" }
+desugar = { module = "com.android.tools:desugar_jdk_libs", version.ref = "desugar" }
 
 [bundles]
 compose = ["compose-activity", "compose-foundation", "compose", "compose-tooling-preview"]
