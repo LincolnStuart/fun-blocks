@@ -1,4 +1,4 @@
-package me.lincolnstuart.funblocks.chart.utils.plane.utils
+package me.lincolnstuart.funblocks.chart.plane.utils
 
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.TextStyle

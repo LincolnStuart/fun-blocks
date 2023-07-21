@@ -1,4 +1,4 @@
-package me.lincolnstuart.funblocks.chart.utils.plane.utils
+package me.lincolnstuart.funblocks.chart.plane.utils
 
 /**
  * Data class that represents relevant marks to draw in the cartesian plane.

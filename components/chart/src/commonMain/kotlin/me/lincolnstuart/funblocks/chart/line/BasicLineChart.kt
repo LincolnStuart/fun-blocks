@@ -26,11 +26,11 @@ import androidx.compose.ui.unit.Dp
 import kotlinx.datetime.LocalDate
 import me.lincolnstuart.funblocks.chart.line.utils.LineChartPath
 import me.lincolnstuart.funblocks.chart.line.utils.LineChartPoint
-import me.lincolnstuart.funblocks.chart.utils.plane.CartesianPlane
-import me.lincolnstuart.funblocks.chart.utils.plane.utils.CartesianPlaneHelper
-import me.lincolnstuart.funblocks.chart.utils.plane.utils.CartesianPlaneOptions
-import me.lincolnstuart.funblocks.chart.utils.plane.utils.CartesianPlaneReferenceValues
-import me.lincolnstuart.funblocks.chart.utils.plane.utils.CartesianPlaneSpace
+import me.lincolnstuart.funblocks.chart.plane.CartesianPlane
+import me.lincolnstuart.funblocks.chart.plane.utils.CartesianPlaneHelper
+import me.lincolnstuart.funblocks.chart.plane.utils.CartesianPlaneOptions
+import me.lincolnstuart.funblocks.chart.plane.utils.CartesianPlaneReferenceValues
+import me.lincolnstuart.funblocks.chart.plane.utils.CartesianPlaneSpace
 import me.lincolnstuart.funblocks.core.surface.Surface
 import me.lincolnstuart.funblocks.core.text.utils.TextMode
 import me.lincolnstuart.funblocks.foundation.ui.theme.FunBlocksTheme

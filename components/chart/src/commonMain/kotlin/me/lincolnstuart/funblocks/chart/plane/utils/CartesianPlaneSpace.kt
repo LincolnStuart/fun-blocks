@@ -1,4 +1,4 @@
-package me.lincolnstuart.funblocks.chart.utils.plane.utils
+package me.lincolnstuart.funblocks.chart.plane.utils
 
 import me.lincolnstuart.funblocks.foundation.ui.token.content.spacing.FunBlocksSpacing
 
