@@ -1,9 +1,10 @@
 ![license](https://img.shields.io/badge/license-mit-red?style=for-the-badge)
 ![api](https://img.shields.io/badge/api-24+-yellow?style=for-the-badge)
+![kmm](https://img.shields.io/badge/kmm-%E2%9D%A4-purple?style=for-the-badge)
 
 <div align="center">
 <br />
-<img width="120" src="https://github.com/LincolnStuart/fun-blocks/assets/8579195/bab90816-b2be-494d-9634-18b388aef7ad"/>
+<img width="120" src="https://github.com/LincolnStuart/fun-blocks/assets/8579195/389e592c-d878-4748-8298-94103566cee9"/>
 <h2>Fun Blocks: Let's stack some components and make your app!</h2>
 </div>
 
@@ -20,20 +21,20 @@ Have you ever imagined build apps like playing `LEGO` or `Playmobil`?
 <td>
 
 ```kotlin
-FunBlocksTheme { 
+FunBlocksTheme {
     Surface {
-        CounterNotification(number = 5) { 
+        CounterNotification(number = 5) {
             Avatar(
                 mode = AvatarMode.Initials(fullName = "Lincoln Stuart")
-            ) 
-        } 
+            )
+        }
     }
 }
 ```
 
 </td>
 <td>
-<img width="50" src="https://github.com/LincolnStuart/fun-blocks/assets/8579195/2936f7f6-01a2-4b04-a2da-2949a5dd167d" />
+<img width="60" src="https://github.com/LincolnStuart/fun-blocks/assets/8579195/82f4e751-17f4-4693-bbde-9474d902efae" />
 </td>
 </tr>
 </table>
@@ -42,14 +43,15 @@ Based on [Jetpack Compose](https://developer.android.com/jetpack/compose).
 
 It's recommended for `POCs`, `studies` and even `production`!
 
-It works with [Material](https://developer.android.com/jetpack/androidx/releases/compose-material).
-
 ## 35+ Components
-- `Calendar`, `Month Picker`, `Time Picker`.
+- `Text`, `Input`, `Pin`.
+- `Chips`, `Badges`, `Alerts`.
+- `Slider`, `Incrementer`, `Stepper`, `Progress Bar`.
 - `Linear Chart`, `Bar Chart`, `Pie/Donut Chart`.
-- `Chips`, `Badges`, `Alerts`
 - And more...
 
+
 ## Next Steps
-- Publish the sample on [Google Play Store](https://play.google.com/).
-- [KMM](https://kotlinlang.org/docs/multiplatform-mobile-getting-started.html) Support.
+- Add iOS Support.
+- Publish lib on Maven.
+- Publish the playground on [Google Play Store](https://play.google.com/).
