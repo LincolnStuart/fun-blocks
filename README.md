@@ -44,13 +44,14 @@ Based on [Jetpack Compose](https://developer.android.com/jetpack/compose).
 It's recommended for `POCs`, `studies` and even `production`!
 
 ## 35+ Components
-- `Text`, `Input`, `Pin`
-- `Chips`, `Badges`, `Alerts`
-- `Slider`, `Incrementer`, `Stepper`, `Progress Bar`
-- `Linear Chart`, `Bar Chart`, `Pie/Donut Chart`
+- `Text`, `Input`, `Pin`.
+- `Chips`, `Badges`, `Alerts`.
+- `Slider`, `Incrementer`, `Stepper`, `Progress Bar`.
+- `Linear Chart`, `Bar Chart`, `Pie/Donut Chart`.
 - And more...
 
 
 ## Next Steps
-- Publish the playground on [Google Play Store](https://play.google.com/).
 - Add iOS Support.
+- Publish lib on Maven.
+- Publish the playground on [Google Play Store](https://play.google.com/).
