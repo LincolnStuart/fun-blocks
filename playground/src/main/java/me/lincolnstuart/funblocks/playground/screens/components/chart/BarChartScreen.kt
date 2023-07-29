@@ -3,9 +3,9 @@ package me.lincolnstuart.funblocks.playground.screens.components.chart
 import androidx.compose.runtime.Composable
 import cafe.adriel.voyager.core.screen.Screen
 import kotlinx.datetime.LocalDate
-import me.lincolnstuart.funblocks.chart.bar.utils.BarChartValue
 import me.lincolnstuart.funblocks.essentials.chart.bar.BarChart
 import me.lincolnstuart.funblocks.essentials.chart.bar.utils.BarChartOptions
+import me.lincolnstuart.funblocks.essentials.chart.bar.utils.BarChartValue
 import me.lincolnstuart.funblocks.foundation.ui.token.content.size.FunBlocksContentSize
 import me.lincolnstuart.funblocks.playground.components.Sample
 import java.math.BigDecimal

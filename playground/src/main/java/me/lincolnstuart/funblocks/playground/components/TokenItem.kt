@@ -1,7 +1,7 @@
 package me.lincolnstuart.funblocks.playground.components
 
 import androidx.compose.runtime.Composable
-import me.lincolnstuart.funblocks.core.text.Text
+import me.lincolnstuart.funblocks.essentials.core.text.Text
 import me.lincolnstuart.funblocks.essentials.list.CustomListItem
 import me.lincolnstuart.funblocks.essentials.misc.badge.Badge
 import me.lincolnstuart.funblocks.essentials.misc.badge.utils.BadgeMode

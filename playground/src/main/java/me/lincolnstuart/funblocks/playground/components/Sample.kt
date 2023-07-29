@@ -9,7 +9,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import me.lincolnstuart.funblocks.core.surface.Surface
+import me.lincolnstuart.funblocks.essentials.core.surface.Surface
 import me.lincolnstuart.funblocks.essentials.misc.divider.HorizontalDivider
 import me.lincolnstuart.funblocks.foundation.ui.theme.FunBlocksTheme
 import me.lincolnstuart.funblocks.foundation.ui.token.color.FunBlocksColors

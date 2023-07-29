@@ -63,10 +63,7 @@ dependencies {
     implementation(libs.kotlinx.datetime)
     implementation(libs.voyager.navigator)
     implementation(project(":foundation"))
-    implementation(project(":components:essentials"))
-    implementation(project(":components:core"))
-    implementation(project(":components:period"))
-    implementation(project(":components:chart"))
+    implementation(project(":components"))
 }
 
 dependencies {
