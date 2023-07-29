@@ -7,7 +7,6 @@ plugins {
 android {
     namespace = AndroidBuild.nameSpace(moduleName = "playground")
     compileSdk = AndroidBuild.compileSdk
-    buildToolsVersion = AndroidBuild.buildToolsVersion
 
     defaultConfig {
         applicationId = AndroidBuild.nameSpace(moduleName = "playground")
