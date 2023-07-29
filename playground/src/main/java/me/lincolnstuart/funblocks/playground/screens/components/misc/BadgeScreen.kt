@@ -9,7 +9,7 @@ import androidx.compose.ui.graphics.vector.ImageVector
 import cafe.adriel.voyager.core.screen.Screen
 import compose.icons.TablerIcons
 import compose.icons.tablericons.CircleDashed
-import me.lincolnstuart.funblocks.core.text.Text
+import me.lincolnstuart.funblocks.essentials.core.text.Text
 import me.lincolnstuart.funblocks.essentials.form.radiobutton.RadioButtonGroup
 import me.lincolnstuart.funblocks.essentials.form.switchbutton.SwitchButtonOption
 import me.lincolnstuart.funblocks.essentials.misc.accordion.Accordion

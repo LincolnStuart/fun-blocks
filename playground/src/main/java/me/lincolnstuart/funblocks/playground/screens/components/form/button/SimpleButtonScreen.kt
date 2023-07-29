@@ -8,7 +8,7 @@ import androidx.compose.runtime.setValue
 import cafe.adriel.voyager.core.screen.Screen
 import compose.icons.TablerIcons
 import compose.icons.tablericons.CircleDashed
-import me.lincolnstuart.funblocks.core.text.Text
+import me.lincolnstuart.funblocks.essentials.core.text.Text
 import me.lincolnstuart.funblocks.essentials.form.button.Button
 import me.lincolnstuart.funblocks.essentials.form.button.utils.ButtonMode
 import me.lincolnstuart.funblocks.essentials.form.button.utils.ButtonOptions

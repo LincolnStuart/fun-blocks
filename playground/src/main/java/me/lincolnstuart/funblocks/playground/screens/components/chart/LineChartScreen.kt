@@ -5,8 +5,8 @@ import androidx.compose.runtime.remember
 import cafe.adriel.voyager.core.screen.Screen
 import kotlinx.datetime.LocalDate
 import kotlinx.datetime.toJavaLocalDate
-import me.lincolnstuart.funblocks.chart.line.utils.LineChartPath
-import me.lincolnstuart.funblocks.chart.line.utils.LineChartPoint
+import me.lincolnstuart.funblocks.essentials.chart.line.utils.LineChartPath
+import me.lincolnstuart.funblocks.essentials.chart.line.utils.LineChartPoint
 import me.lincolnstuart.funblocks.essentials.chart.line.LineChart
 import me.lincolnstuart.funblocks.essentials.chart.line.utils.LineChartOptions
 import me.lincolnstuart.funblocks.foundation.ui.token.color.FunBlocksColors

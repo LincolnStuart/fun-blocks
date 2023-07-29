@@ -2,7 +2,7 @@ package me.lincolnstuart.funblocks.playground.screens.components.chart
 
 import androidx.compose.runtime.Composable
 import cafe.adriel.voyager.core.screen.Screen
-import me.lincolnstuart.funblocks.chart.pie.utils.PieChartPiece
+import me.lincolnstuart.funblocks.essentials.chart.pie.utils.PieChartPiece
 import me.lincolnstuart.funblocks.essentials.chart.pie.PieChart
 import me.lincolnstuart.funblocks.essentials.chart.pie.utils.PieChartOptions
 import me.lincolnstuart.funblocks.foundation.ui.token.color.FunBlocksColors

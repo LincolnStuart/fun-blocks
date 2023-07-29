@@ -6,7 +6,7 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import cafe.adriel.voyager.core.screen.Screen
-import me.lincolnstuart.funblocks.core.text.Text
+import me.lincolnstuart.funblocks.essentials.core.text.Text
 import me.lincolnstuart.funblocks.essentials.form.button.timer.TimerButton
 import me.lincolnstuart.funblocks.essentials.form.button.timer.utils.TimerButtonOptions
 import me.lincolnstuart.funblocks.essentials.form.button.utils.ButtonMode

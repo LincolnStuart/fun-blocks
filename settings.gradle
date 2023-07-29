@@ -16,7 +16,4 @@ dependencyResolutionManagement {
 rootProject.name = "fun-blocks"
 include ':playground'
 include ':foundation'
-include ':components:essentials'
-include ':components:core'
-include ':components:period'
-include ':components:chart'
+include ':components'
