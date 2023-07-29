@@ -1,7 +1,6 @@
 package me.lincolnstuart.funblocks.essentials.chart.line.utils
 
 import androidx.compose.ui.graphics.Color
-import me.lincolnstuart.funblocks.essentials.chart.line.utils.LineChartPoint
 
 /**
  * Data class that represents a grouped cartesian points of a data.

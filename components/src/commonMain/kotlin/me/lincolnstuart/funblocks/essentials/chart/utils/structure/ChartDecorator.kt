@@ -5,11 +5,11 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import me.lincolnstuart.funblocks.essentials.chart.utils.legend.ChartLegend
+import me.lincolnstuart.funblocks.essentials.chart.utils.legend.utils.ChartLegendOptions
 import me.lincolnstuart.funblocks.essentials.core.spacer.VerticalSpacer
 import me.lincolnstuart.funblocks.essentials.core.text.Text
 import me.lincolnstuart.funblocks.essentials.core.text.utils.TextMode
-import me.lincolnstuart.funblocks.essentials.chart.utils.legend.ChartLegend
-import me.lincolnstuart.funblocks.essentials.chart.utils.legend.utils.ChartLegendOptions
 import me.lincolnstuart.funblocks.foundation.ui.token.content.spacing.FunBlocksSpacing
 
 /**

@@ -16,9 +16,9 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
+import me.lincolnstuart.funblocks.essentials.chart.utils.legend.utils.ChartLegendOptions
 import me.lincolnstuart.funblocks.essentials.core.spacer.VerticalSpacer
 import me.lincolnstuart.funblocks.essentials.core.text.Text
-import me.lincolnstuart.funblocks.essentials.chart.utils.legend.utils.ChartLegendOptions
 import me.lincolnstuart.funblocks.foundation.ui.token.content.spacing.FunBlocksSpacing
 
 /**
