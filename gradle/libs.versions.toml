@@ -12,7 +12,6 @@ splash-screen = "1.0.0"
 compose = "1.4.2"
 compose-icons = "1.1.0"
 coil = "2.2.0"
-material = "1.4.2"
 voyager = "1.0.0-rc06"
 junit = "4.13.2"
 android-x-test-junit = "1.1.5"
@@ -26,15 +25,8 @@ android-x-lifecycle-runtime-ktx = { module = "androidx.lifecycle:lifecycle-runti
 splash-screen = { module = "androidx.core:core-splashscreen", version.ref = "splash-screen" }
 kotlinx-datetime = { module = "org.jetbrains.kotlinx:kotlinx-datetime", version.ref = "kotlinx-datetime" }
 compose-activity = { module = "androidx.activity:activity-compose", version.ref = "android-x-activity-compose" }
-compose-foundation = { module = "androidx.compose.foundation:foundation", version.ref = "compose" }
-compose = { module = "androidx.compose.ui:ui", version.ref = "compose" }
-compose-tooling = { module = "androidx.compose.ui:ui-tooling", version.ref = "compose" }
-compose-tooling-preview = { module = "androidx.compose.ui:ui-tooling-preview", version.ref = "compose" }
-compose-test = { module = "androidx.compose.ui:ui-test-junit4", version.ref = "compose" }
-compose-test-manifest = { module = "androidx.compose.ui:ui-test-manifest", version.ref = "compose" }
 compose-icons = { module = "br.com.devsrsouza.compose.icons:tabler-icons", version.ref = "compose-icons" }
 voyager-navigator = { module = "cafe.adriel.voyager:voyager-navigator", version.ref = "voyager" }
-material = { module = "androidx.compose.material:material", version.ref = "material" }
 coil = { module = "io.coil-kt:coil-compose", version.ref = "coil" }
 junit = { module = "junit:junit", version.ref = "junit" }
 android-x-junit = { module = "androidx.test.ext:junit", version.ref = "android-x-test-junit" }
@@ -42,7 +34,7 @@ android-x-espresso-core = { module = "androidx.test.espresso:espresso-core", ver
 desugar = { module = "com.android.tools:desugar_jdk_libs", version.ref = "desugar" }
 
 [bundles]
-compose = ["compose-activity", "compose-foundation", "compose", "compose-tooling-preview"]
+android-x = ["android-x-core-ktx", "android-x-lifecycle-runtime-ktx", "compose-activity"]
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "gradle-plugin" }
