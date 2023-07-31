@@ -200,8 +200,12 @@ private fun RowScope.Day(
     val mode = remember(currentDate, reference) {
         TextMode.Regular(weight = RegularWeight.Light)
     }
-    val color = remember(currentDate, reference) {
-        if (monthComparison == 0) FunBlocksColors.NeutralDark else FunBlocksColors.NeutralLight
+    val color = remember(currentDate, reference, selectionIndicatorStyle) {
+        when {
+            selectionIndicatorStyle != CalendarSelectionIndicatorStyle.None -> FunBlocksColors.PrimaryContrast
+            monthComparison == 0 -> FunBlocksColors.NeutralDark
+            else -> FunBlocksColors.NeutralLight
+        }
     }
     SelectionIndicator(
         onClick = { onSelectDate(selectionType.selectDate(currentDate)) },
