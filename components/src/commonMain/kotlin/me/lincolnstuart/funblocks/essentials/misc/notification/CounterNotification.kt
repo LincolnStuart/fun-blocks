@@ -8,10 +8,10 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import me.lincolnstuart.funblocks.essentials.core.helper.Counter
 import me.lincolnstuart.funblocks.essentials.core.spacer.HorizontalSpacer
 import me.lincolnstuart.funblocks.essentials.core.spacer.VerticalSpacer
 import me.lincolnstuart.funblocks.essentials.core.surface.Surface
-import me.lincolnstuart.funblocks.essentials.helper.Counter
 import me.lincolnstuart.funblocks.essentials.misc.avatar.Avatar
 import me.lincolnstuart.funblocks.essentials.misc.avatar.utils.AvatarMode
 import me.lincolnstuart.funblocks.essentials.misc.avatar.utils.AvatarOptions

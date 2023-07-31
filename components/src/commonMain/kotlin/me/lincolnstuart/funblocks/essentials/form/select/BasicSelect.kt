@@ -14,6 +14,7 @@ import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.text.style.TextOverflow
 import compose.icons.TablerIcons
 import compose.icons.tablericons.ChevronDown
+import me.lincolnstuart.funblocks.essentials.core.helper.Counter
 import me.lincolnstuart.funblocks.essentials.core.icon.Icon
 import me.lincolnstuart.funblocks.essentials.core.icon.utils.IconOptions
 import me.lincolnstuart.funblocks.essentials.core.icon.utils.IconSize
@@ -22,7 +23,6 @@ import me.lincolnstuart.funblocks.essentials.core.text.utils.TextMode
 import me.lincolnstuart.funblocks.essentials.core.text.utils.topic.TopicSize
 import me.lincolnstuart.funblocks.essentials.form.select.utils.SelectOptions
 import me.lincolnstuart.funblocks.essentials.form.utils.BasicInputSkeleton
-import me.lincolnstuart.funblocks.essentials.helper.Counter
 import me.lincolnstuart.funblocks.foundation.ui.token.color.FunBlocksColors
 import me.lincolnstuart.funblocks.foundation.ui.token.content.spacing.FunBlocksInset
 import me.lincolnstuart.funblocks.foundation.ui.token.content.spacing.FunBlocksSpacing

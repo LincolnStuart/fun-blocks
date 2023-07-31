@@ -1,4 +1,4 @@
-package me.lincolnstuart.funblocks.essentials.helper.clickable.utils
+package me.lincolnstuart.funblocks.essentials.core.helper.clickable.utils
 
 import androidx.compose.ui.graphics.Shape
 import androidx.compose.ui.unit.Dp

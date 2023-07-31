@@ -9,7 +9,7 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.Dp
 import coil.compose.AsyncImage
-import me.lincolnstuart.funblocks.essentials.surface.card.Card
+import me.lincolnstuart.funblocks.essentials.core.surface.Card
 import me.lincolnstuart.funblocks.foundation.ui.token.content.size.FunBlocksContentSize
 
 /**

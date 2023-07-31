@@ -1,4 +1,4 @@
-package me.lincolnstuart.funblocks.essentials.helper
+package me.lincolnstuart.funblocks.essentials.core.helper
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box

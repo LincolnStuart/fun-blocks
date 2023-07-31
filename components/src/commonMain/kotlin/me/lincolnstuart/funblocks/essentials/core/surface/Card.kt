@@ -1,4 +1,4 @@
-package me.lincolnstuart.funblocks.essentials.card
+package me.lincolnstuart.funblocks.essentials.core.surface
 
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -8,7 +8,6 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.tooling.preview.Preview
-import me.lincolnstuart.funblocks.essentials.core.surface.Surface
 import me.lincolnstuart.funblocks.essentials.core.text.Text
 import me.lincolnstuart.funblocks.foundation.ui.theme.FunBlocksTheme
 import me.lincolnstuart.funblocks.foundation.ui.token.content.elevation.FunBlocksElevationLevel
