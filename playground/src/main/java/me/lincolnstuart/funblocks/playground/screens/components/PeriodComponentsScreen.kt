@@ -12,8 +12,9 @@ import cafe.adriel.voyager.navigator.currentOrThrow
 import me.lincolnstuart.funblocks.essentials.core.list.SimpleListItem
 import me.lincolnstuart.funblocks.essentials.core.surface.Surface
 import me.lincolnstuart.funblocks.foundation.ui.theme.FunBlocksTheme
+import me.lincolnstuart.funblocks.playground.screens.components.period.CalendarScreen
 
-class HomeComponentsScreen : Screen {
+class PeriodComponentsScreen : Screen {
 
     @Composable
     override fun Content() {
@@ -25,20 +26,19 @@ class HomeComponentsScreen : Screen {
                 val navigator = LocalNavigator.currentOrThrow
                 val scrollState = rememberScrollState()
                 Column(Modifier.verticalScroll(scrollState)) {
-                    SimpleListItem(title = "Chart", description = "Bar, Line, Pie/Donut.") {
-                        navigator.push(ChartComponentsScreen())
-                    }
-                    SimpleListItem(title = "Form", description = "Button, Input, Checkbox, RadioButton, etc.") {
-                        navigator.push(FormComponentsScreen())
-                    }
-                    SimpleListItem(title = "Miscellaneous", description = "Alert, Avatar, Badge, Chip, etc.") {
-                        navigator.push(MiscComponentsScreen())
-                    }
-                    SimpleListItem(title = "Period", description = "Calendar, MonthPicker, TimePicker, etc.") {
-                        navigator.push(PeriodComponentsScreen())
-                    }
+                    screens
+                        .sortedBy { it.first }
+                        .forEach { componentScreen ->
+                            SimpleListItem(title = componentScreen.first) {
+                                navigator.push(componentScreen.second)
+                            }
+                        }
                 }
             }
         }
     }
+
+    private val screens = listOf(
+        "Calendar" to CalendarScreen()
+    )
 }

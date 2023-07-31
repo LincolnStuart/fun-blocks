@@ -12,6 +12,9 @@ import cafe.adriel.voyager.navigator.currentOrThrow
 import me.lincolnstuart.funblocks.essentials.core.list.SimpleListItem
 import me.lincolnstuart.funblocks.essentials.core.surface.Surface
 import me.lincolnstuart.funblocks.foundation.ui.theme.FunBlocksTheme
+import me.lincolnstuart.funblocks.playground.screens.components.misc.AccordionScreen
+import me.lincolnstuart.funblocks.playground.screens.components.misc.AlertScreen
+import me.lincolnstuart.funblocks.playground.screens.components.misc.AvatarScreen
 import me.lincolnstuart.funblocks.playground.screens.components.misc.BadgeScreen
 import me.lincolnstuart.funblocks.playground.screens.components.misc.BannerScreen
 import me.lincolnstuart.funblocks.playground.screens.components.misc.CardInfoScreen
@@ -50,9 +53,9 @@ class MiscComponentsScreen : Screen {
     }
 
     private val screens = listOf(
-        "Accordion" to me.lincolnstuart.funblocks.playground.screens.components.misc.AccordionScreen(),
-        "Alert" to me.lincolnstuart.funblocks.playground.screens.components.misc.AlertScreen(),
-        "Avatar" to me.lincolnstuart.funblocks.playground.screens.components.misc.AvatarScreen(),
+        "Accordion" to AccordionScreen(),
+        "Alert" to AlertScreen(),
+        "Avatar" to AvatarScreen(),
         "Badge" to BadgeScreen(),
         "Banner" to BannerScreen(),
         "Card Info" to CardInfoScreen(),
