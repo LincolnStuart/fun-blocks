@@ -1,4 +1,4 @@
-package me.lincolnstuart.funblocks.essentials.helper.clickable
+package me.lincolnstuart.funblocks.essentials.core.helper.clickable
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
@@ -15,10 +15,10 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.Dp
+import me.lincolnstuart.funblocks.essentials.core.helper.SimpleItem
+import me.lincolnstuart.funblocks.essentials.core.helper.clickable.utils.ClickableOptions
 import me.lincolnstuart.funblocks.essentials.core.text.Text
 import me.lincolnstuart.funblocks.essentials.core.text.utils.TextMode
-import me.lincolnstuart.funblocks.essentials.helper.SimpleItem
-import me.lincolnstuart.funblocks.essentials.helper.clickable.utils.ClickableOptions
 import me.lincolnstuart.funblocks.foundation.ui.token.color.alpha.FunBlocksAlpha
 import me.lincolnstuart.funblocks.foundation.ui.token.content.border.FunBlocksBorderWidth
 import me.lincolnstuart.funblocks.foundation.ui.token.content.spacing.FunBlocksInset

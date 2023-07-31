@@ -6,9 +6,9 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import me.lincolnstuart.funblocks.essentials.core.helper.SelectableItem
 import me.lincolnstuart.funblocks.essentials.core.surface.Surface
 import me.lincolnstuart.funblocks.essentials.core.text.Text
-import me.lincolnstuart.funblocks.essentials.helper.SelectableItem
 import me.lincolnstuart.funblocks.essentials.misc.divider.HorizontalDivider
 import me.lincolnstuart.funblocks.foundation.ui.theme.FunBlocksTheme
 import me.lincolnstuart.funblocks.foundation.ui.token.content.spacing.FunBlocksSpacing

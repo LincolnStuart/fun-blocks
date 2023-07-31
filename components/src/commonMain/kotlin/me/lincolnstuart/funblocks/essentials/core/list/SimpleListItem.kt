@@ -1,4 +1,4 @@
-package me.lincolnstuart.funblocks.essentials.list
+package me.lincolnstuart.funblocks.essentials.core.list
 
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column
@@ -10,8 +10,14 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import compose.icons.TablerIcons
+import compose.icons.tablericons.ChevronRight
+import me.lincolnstuart.funblocks.essentials.core.icon.Icon
+import me.lincolnstuart.funblocks.essentials.core.icon.utils.IconOptions
+import me.lincolnstuart.funblocks.essentials.core.icon.utils.IconSize
 import me.lincolnstuart.funblocks.essentials.core.surface.Surface
 import me.lincolnstuart.funblocks.essentials.core.text.Text
+import me.lincolnstuart.funblocks.essentials.core.text.utils.TextMode
 import me.lincolnstuart.funblocks.essentials.misc.divider.HorizontalDivider
 import me.lincolnstuart.funblocks.foundation.ui.theme.FunBlocksTheme
 import me.lincolnstuart.funblocks.foundation.ui.token.content.size.FunBlocksContentSize
@@ -19,39 +25,40 @@ import me.lincolnstuart.funblocks.foundation.ui.token.content.spacing.FunBlocksI
 import me.lincolnstuart.funblocks.foundation.ui.token.content.spacing.FunBlocksSpacing
 
 @Composable
-public fun CustomListItem(
-    lead: @Composable () -> Unit,
-    highlighted: @Composable () -> Unit,
-    onClick: (() -> Unit)? = null
+public fun SimpleListItem(
+    title: String,
+    description: String? = null,
+    onClick: () -> Unit
 ) {
     Row(
         modifier = Modifier
             .fillMaxWidth()
-            .clickable { onClick?.invoke() }
+            .clickable { onClick() }
             .padding(FunBlocksInset.medium)
             .defaultMinSize(minHeight = FunBlocksContentSize.xLarge),
         verticalAlignment = Alignment.CenterVertically
     ) {
-        lead()
-        Column(
-            modifier = Modifier.weight(1f),
-            horizontalAlignment = Alignment.End
-        ) {
-            highlighted()
+        Column(modifier = Modifier.weight(1f)) {
+            Text(text = title, mode = TextMode.Subtitle())
+            description?.let { Text(text = description) }
         }
+        Icon(
+            imageVector = TablerIcons.ChevronRight,
+            options = IconOptions(description = null, size = IconSize.Tiny)
+        )
     }
     HorizontalDivider()
 }
 
 @Preview
 @Composable
-private fun CustomListItemPreview() {
+private fun SimpleListItemPreview() {
     FunBlocksTheme {
         Surface {
             Column(modifier = Modifier.padding(FunBlocksSpacing.small)) {
-                CustomListItem(
-                    lead = { Text(text = "Lead") },
-                    highlighted = { Text(text = "Highlighted") }
+                SimpleListItem(
+                    title = "Option",
+                    description = "OptionDescription"
                 ) {}
             }
         }
