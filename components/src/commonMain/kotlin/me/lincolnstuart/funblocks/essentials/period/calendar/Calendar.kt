@@ -1,12 +1,16 @@
 package me.lincolnstuart.funblocks.essentials.period.calendar
 
-import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.BorderStroke
+import androidx.compose.foundation.background
+import androidx.compose.foundation.border
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.RowScope
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -14,6 +18,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
 import androidx.compose.ui.tooling.preview.Preview
 import compose.icons.TablerIcons
 import compose.icons.tablericons.ArrowLeft
@@ -34,11 +39,12 @@ import me.lincolnstuart.funblocks.essentials.core.text.Text
 import me.lincolnstuart.funblocks.essentials.core.text.utils.TextMode
 import me.lincolnstuart.funblocks.essentials.core.text.utils.regular.RegularWeight
 import me.lincolnstuart.funblocks.essentials.core.text.utils.title.TitleSize
+import me.lincolnstuart.funblocks.essentials.period.calendar.utils.CalendarSelectionIndicatorStyle
+import me.lincolnstuart.funblocks.essentials.period.calendar.utils.CalendarSelectionType
 import me.lincolnstuart.funblocks.essentials.period.calendar.utils.MonthSnapshot
-import me.lincolnstuart.funblocks.essentials.period.utils.ClickableArea
-import me.lincolnstuart.funblocks.essentials.period.utils.Indicator
 import me.lincolnstuart.funblocks.foundation.ui.theme.FunBlocksTheme
 import me.lincolnstuart.funblocks.foundation.ui.token.color.FunBlocksColors
+import me.lincolnstuart.funblocks.foundation.ui.token.content.border.FunBlocksBorderWidth
 import me.lincolnstuart.funblocks.foundation.ui.token.content.spacing.FunBlocksSpacing
 import java.time.format.TextStyle
 import java.util.Locale
@@ -47,16 +53,16 @@ import java.util.Locale
  * Basic calendar based on [LocalDate] that could select only one date.
  *
  * @param reference month and year to setup the first view.
- * @param selectedDate [LocalDate] previous selected.
+ * @param selectionType [CalendarSelectionType] with previous selected.
  * @param locale client locale.
  * @param onSelectDate callback to return which [LocalDate] was selected.
  */
 @Composable
 public fun Calendar(
     reference: LocalDate,
-    selectedDate: LocalDate?,
+    selectionType: CalendarSelectionType,
     locale: Locale = Locale.getDefault(),
-    onSelectDate: (LocalDate) -> Unit
+    onSelectDate: (type: CalendarSelectionType) -> Unit
 ) {
     var referenceState by remember(reference) {
         mutableStateOf(reference)
@@ -70,7 +76,7 @@ public fun Calendar(
         )
         CalendarBody(
             locale = locale,
-            selectedDate = selectedDate,
+            selectionType = selectionType,
             reference = referenceState,
             onSelectDate = onSelectDate
         )
@@ -81,16 +87,16 @@ public fun Calendar(
  * Calendar body with all dates from reference month chunked by weeks
  *
  * @param locale client locale.
- * @param selectedDate [LocalDate] previous selected.
+ * @param selectionType [CalendarSelectionType] with previous selected.
  * @param reference month and year to setup the first view.
  * @param onSelectDate callback to return which [LocalDate] was selected.
  */
 @Composable
 private fun CalendarBody(
     locale: Locale,
-    selectedDate: LocalDate?,
+    selectionType: CalendarSelectionType,
     reference: LocalDate,
-    onSelectDate: (LocalDate) -> Unit
+    onSelectDate: (type: CalendarSelectionType) -> Unit
 ) {
     val monthSnapshot = remember(reference) {
         MonthSnapshot.assemble(reference.year, reference.month)
@@ -103,13 +109,10 @@ private fun CalendarBody(
         }
     }
     monthSnapshot.keys.forEach { key ->
-        Row(
-            modifier = Modifier.fillMaxWidth(),
-            horizontalArrangement = Arrangement.spacedBy(FunBlocksSpacing.xxSmall)
-        ) {
+        Row(modifier = Modifier.fillMaxWidth()) {
             monthSnapshot[key]?.forEach { currentDate ->
                 Day(
-                    selectedDate = selectedDate,
+                    selectionType = selectionType,
                     currentDate = currentDate,
                     reference = reference,
                     onSelectDate = onSelectDate
@@ -148,7 +151,7 @@ private fun CalendarHeader(
         ) {
             Text(text = yearMonthDescription, mode = TextMode.Topic())
         }
-        ClickableArea(onClick = onPreviousMonthClick) {
+        CalendarClickableArea(onClick = onPreviousMonthClick) {
             Icon(
                 imageVector = TablerIcons.ArrowLeft,
                 options = IconOptions(
@@ -158,7 +161,7 @@ private fun CalendarHeader(
             )
         }
         HorizontalSpacer(width = FunBlocksSpacing.small)
-        ClickableArea(onClick = onNextMonthClick) {
+        CalendarClickableArea(onClick = onNextMonthClick) {
             Icon(
                 imageVector = TablerIcons.ArrowRight,
                 options = IconOptions(
@@ -173,20 +176,20 @@ private fun CalendarHeader(
 /**
  * Cell of day of a week, if it is selected will be indicated.
  *
- * @param selectedDate [LocalDate] previous selected.
+ * @param selectionType [CalendarSelectionType] with previous selected.
  * @param currentDate actual day
  * @param reference month and year to setup the first view.
  * @param onSelectDate callback to return which [LocalDate] was selected.
  */
 @Composable
 private fun RowScope.Day(
-    selectedDate: LocalDate?,
+    selectionType: CalendarSelectionType,
     currentDate: LocalDate,
     reference: LocalDate,
-    onSelectDate: (LocalDate) -> Unit
+    onSelectDate: (type: CalendarSelectionType) -> Unit
 ) {
-    val isVisible = remember(selectedDate, currentDate) {
-        selectedDate == currentDate
+    val selectionIndicatorStyle = remember(selectionType, currentDate) {
+        selectionType.getSelectionIndicatorStyle(currentDate)
     }
     val day = remember(currentDate) {
         currentDate.dayOfMonth.toString()
@@ -197,12 +200,16 @@ private fun RowScope.Day(
     val mode = remember(currentDate, reference) {
         TextMode.Regular(weight = RegularWeight.Light)
     }
-    val color = remember(currentDate, reference) {
-        if (monthComparison == 0) FunBlocksColors.NeutralDark else FunBlocksColors.NeutralLight
+    val color = remember(currentDate, reference, selectionIndicatorStyle) {
+        when {
+            selectionIndicatorStyle != CalendarSelectionIndicatorStyle.None -> FunBlocksColors.PrimaryContrast
+            monthComparison == 0 -> FunBlocksColors.NeutralDark
+            else -> FunBlocksColors.NeutralLight
+        }
     }
-    Indicator(
-        onClick = { onSelectDate(currentDate) },
-        isVisible = isVisible
+    SelectionIndicator(
+        onClick = { onSelectDate(selectionType.selectDate(currentDate)) },
+        selectionIndicatorStyle = selectionIndicatorStyle
     ) {
         CalendarContent {
             Text(
@@ -253,6 +260,58 @@ private fun RowScope.CalendarContent(
     }
 }
 
+/**
+ * Generic clickable area.
+ *
+ * @param onClick callback to execute an action when click is performed.
+ * @param content the content inside.
+ */
+@Composable
+private fun CalendarClickableArea(
+    onClick: () -> Unit,
+    content: @Composable () -> Unit
+) {
+    Box(
+        modifier = Modifier
+            .clip(CircleShape)
+            .clickable { onClick() },
+        contentAlignment = Alignment.Center
+    ) {
+        content()
+    }
+}
+
+/**
+ * Indicator that paint a background behind the content when it is visible
+ *
+ * @param onClick callback to execute an action when click is performed.
+ * @param selectionIndicatorStyle [CalendarSelectionIndicatorStyle] with current styles to apply.
+ * @param content the content inside.
+ */
+@Composable
+private fun RowScope.SelectionIndicator(
+    onClick: () -> Unit,
+    selectionIndicatorStyle: CalendarSelectionIndicatorStyle,
+    content: @Composable () -> Unit
+) = with(selectionIndicatorStyle) {
+    Box(
+        modifier = Modifier
+            .weight(1f)
+            .clip(shape)
+            .background(backgroundColor.value())
+            .border(
+                border = BorderStroke(
+                    width = FunBlocksBorderWidth.regular,
+                    color = borderColor.value()
+                )
+            )
+            .clickable { onClick() },
+        contentAlignment = Alignment.Center
+    ) {
+        content()
+    }
+}
+
 @Preview
 @Composable
 private fun CalendarPreview() {
@@ -260,7 +319,9 @@ private fun CalendarPreview() {
         Surface {
             Calendar(
                 reference = Clock.System.todayIn(timeZone = TimeZone.currentSystemDefault()),
-                selectedDate = Clock.System.todayIn(timeZone = TimeZone.currentSystemDefault())
+                selectionType = CalendarSelectionType.Single(
+                    selectedDate = Clock.System.todayIn(timeZone = TimeZone.currentSystemDefault())
+                )
             ) {}
         }
     }
