@@ -39,7 +39,6 @@ import me.lincolnstuart.funblocks.essentials.period.utils.ClickableArea
 import me.lincolnstuart.funblocks.essentials.period.utils.Indicator
 import me.lincolnstuart.funblocks.foundation.ui.theme.FunBlocksTheme
 import me.lincolnstuart.funblocks.foundation.ui.token.color.FunBlocksColors
-import me.lincolnstuart.funblocks.foundation.ui.token.content.spacing.FunBlocksInset
 import me.lincolnstuart.funblocks.foundation.ui.token.content.spacing.FunBlocksSpacing
 import java.time.format.TextStyle
 import java.util.Locale
@@ -62,7 +61,7 @@ public fun Calendar(
     var referenceState by remember(reference) {
         mutableStateOf(reference)
     }
-    Column(modifier = Modifier.padding(FunBlocksInset.large)) {
+    Column {
         CalendarHeader(
             reference = referenceState,
             locale = locale,
