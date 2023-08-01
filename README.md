@@ -1,6 +1,6 @@
 ![license](https://img.shields.io/badge/license-mit-red?style=for-the-badge)
 ![api](https://img.shields.io/badge/api-24+-yellow?style=for-the-badge)
-![kmm](https://img.shields.io/badge/kmm-%E2%9D%A4-purple?style=for-the-badge)
+![kmp](https://img.shields.io/badge/kmp-%E2%9D%A4-purple?style=for-the-badge)
 
 <div align="center">
 <br />
@@ -34,7 +34,7 @@ FunBlocksTheme {
 
 </td>
 <td>
-<img width="60" src="https://github.com/LincolnStuart/fun-blocks/assets/8579195/82f4e751-17f4-4693-bbde-9474d902efae" />
+<img width="60" src="https://github.com/LincolnStuart/fun-blocks/assets/8579195/d36243ff-e5cf-41ac-a23f-8d218bc90955" />
 </td>
 </tr>
 </table>
