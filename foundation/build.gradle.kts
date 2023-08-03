@@ -30,6 +30,7 @@ android {
             excludes += AndroidBuild.packagesResourcesExcludes
         }
     }
+    sourceSets["main"].kotlin.srcDirs("src/commonMain/resources/")
 }
 
 kotlin {
@@ -38,6 +39,17 @@ kotlin {
             kotlinOptions.jvmTarget = AndroidBuild.jvmTarget
         }
     }
+
+    listOf(
+        iosX64(),
+        iosArm64(),
+        iosSimulatorArm64()
+    ).forEach {
+        it.binaries.framework {
+            baseName = "shared"
+        }
+    }
+
     sourceSets {
         val commonMain by getting {
             dependencies {
@@ -45,7 +57,8 @@ kotlin {
                 implementation(compose.foundation)
                 implementation(compose.ui)
                 implementation(compose.material)
-                implementation(compose.uiTooling)
+                @OptIn(org.jetbrains.compose.ExperimentalComposeLibrary::class)
+                implementation(compose.components.resources)
             }
         }
         val androidMain by getting {
