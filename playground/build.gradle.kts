@@ -4,12 +4,14 @@ plugins {
     alias(libs.plugins.jetbrains.compose)
 }
 
+val moduleName = "playground"
+
 android {
-    namespace = AndroidBuild.nameSpace(moduleName = "playground")
+    namespace = AndroidBuild.nameSpace(moduleName = moduleName)
     compileSdk = AndroidBuild.compileSdk
 
     defaultConfig {
-        applicationId = AndroidBuild.nameSpace(moduleName = "playground")
+        applicationId = AndroidBuild.nameSpace(moduleName = moduleName)
         minSdk = AndroidBuild.minSdk
         targetSdk = AndroidBuild.compileSdk
         versionCode = AndroidBuild.versionCode
@@ -62,8 +64,8 @@ dependencies {
     implementation(libs.compose.icons)
     implementation(libs.kotlinx.datetime)
     implementation(libs.voyager.navigator)
-    implementation(project(":foundation"))
-    implementation(project(":components"))
+    implementation(projects.foundation)
+    implementation(projects.components)
 }
 
 dependencies {

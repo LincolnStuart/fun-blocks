@@ -34,7 +34,7 @@ android {
 }
 
 kotlin {
-    android {
+    androidTarget {
         compilations.all {
             kotlinOptions.jvmTarget = AndroidBuild.jvmTarget
         }
@@ -50,7 +50,7 @@ kotlin {
                 implementation(libs.compose.icons)
                 implementation(libs.coil)
                 implementation(libs.kotlinx.datetime)
-                implementation(project(":foundation"))
+                implementation(projects.foundation)
             }
         }
         val androidMain by getting {

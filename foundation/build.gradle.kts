@@ -4,8 +4,10 @@ plugins {
     alias(libs.plugins.jetbrains.compose)
 }
 
+val moduleName = "foundation"
+
 android {
-    namespace = AndroidBuild.nameSpace(moduleName = "foundation")
+    namespace = AndroidBuild.nameSpace(moduleName = moduleName)
     compileSdk = AndroidBuild.compileSdk
     defaultConfig {
         minSdk = AndroidBuild.minSdk
@@ -30,7 +32,7 @@ android {
             excludes += AndroidBuild.packagesResourcesExcludes
         }
     }
-    sourceSets["main"].kotlin.srcDirs("src/commonMain/resources/")
+    sourceSets["main"].kotlin.srcDirs(AndroidBuild.sourceDirs)
 }
 
 kotlin {
@@ -46,7 +48,7 @@ kotlin {
         iosSimulatorArm64()
     ).forEach {
         it.binaries.framework {
-            baseName = "foundation"
+            baseName = moduleName
             isStatic = true
         }
     }
