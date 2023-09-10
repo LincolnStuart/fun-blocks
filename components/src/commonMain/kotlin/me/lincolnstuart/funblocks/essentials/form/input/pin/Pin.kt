@@ -69,7 +69,7 @@ public fun Pin(
                             val character = if (isCharactersHide) "•" else char.toString()
                             SmallInputSkeleton(text = character, hasError = hasError)
                         }
-                        repeat(size - sanitizedValue.length) { index ->
+                        repeat(size - sanitizedValue.length) {
                             SmallInputSkeleton(text = "", hasError = hasError)
                         }
                     }

@@ -1,6 +1,5 @@
 package me.lincolnstuart.funblocks.foundation.ui.theme
 
-import androidx.annotation.DrawableRes
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.material.MaterialTheme
 import androidx.compose.runtime.Composable
@@ -8,9 +7,14 @@ import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.staticCompositionLocalOf
+import androidx.compose.ui.graphics.vector.ImageVector
+import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.text.font.FontFamily
-import me.lincolnstuart.funblocks.foundation.R
 import me.lincolnstuart.funblocks.foundation.ui.token.color.FunBlocksThemedColors
+import org.jetbrains.compose.resources.ExperimentalResourceApi
+import org.jetbrains.compose.resources.orEmpty
+import org.jetbrains.compose.resources.rememberImageVector
+import org.jetbrains.compose.resources.resource
 
 /**
  * Composable theme with some tokens configurations.
@@ -49,8 +53,13 @@ val LocalTheme = staticCompositionLocalOf { Theme() }
  * @param fontFamily a custom font-family.
  * @param colors a custom [FunBlocksThemedColors] with color tokens preset.
  */
+@OptIn(ExperimentalResourceApi::class)
 data class Theme(
     val fontFamily: FontFamily = FontFamily.SansSerif,
     val colors: FunBlocksThemedColors = FunBlocksThemedColors.Lego,
-    @DrawableRes val logoId: Int = R.drawable.logo
+    val logo: @Composable (() -> ImageVector) = {
+        resource("images/logo.webp")
+            .rememberImageVector(LocalDensity.current)
+            .orEmpty()
+    }
 )

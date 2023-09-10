@@ -12,7 +12,6 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.scale
-import androidx.compose.ui.res.painterResource
 import me.lincolnstuart.funblocks.foundation.ui.theme.LocalTheme
 import me.lincolnstuart.funblocks.foundation.ui.token.content.size.FunBlocksContentSize
 
@@ -21,11 +20,11 @@ import me.lincolnstuart.funblocks.foundation.ui.token.content.size.FunBlocksCont
  */
 @Composable
 public fun Loading() {
-    val logo = painterResource(id = LocalTheme.current.logoId)
+    val logo = LocalTheme.current.logo()
     val infiniteTransition = rememberInfiniteTransition()
     val scale by scaleAnimation(infiniteTransition)
     Image(
-        painter = logo,
+        imageVector = logo,
         contentDescription = null,
         modifier = Modifier
             .scale(scale = scale)
