@@ -34,7 +34,7 @@ android {
 }
 
 kotlin {
-    android {
+    androidTarget {
         compilations.all {
             kotlinOptions.jvmTarget = AndroidBuild.jvmTarget
         }
@@ -47,6 +47,7 @@ kotlin {
     ).forEach {
         it.binaries.framework {
             baseName = "foundation"
+            isStatic = true
         }
     }
 

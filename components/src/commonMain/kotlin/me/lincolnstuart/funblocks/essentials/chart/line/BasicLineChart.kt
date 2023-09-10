@@ -137,7 +137,7 @@ private fun DrawScope.drawPaths(
     cartesianPlaneSpace: CartesianPlaneSpace
 ) {
     clipRect(right = size.width * animationProgress.value) {
-        paths.forEachIndexed { index, path ->
+        paths.forEachIndexed { _, path ->
             drawPath(
                 points = path.points.sortedBy { it.date },
                 allPoints = allPoints,

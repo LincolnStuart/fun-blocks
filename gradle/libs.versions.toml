@@ -1,25 +1,27 @@
 [versions]
-kotlin = "1.8.10"
-jetbraind-compose = "1.5.0-dev1094"
-gradle-plugin = "8.0.2"
-kt-lint = "11.5.0"
+kotlin = "1.9.0"
+jetbrains-compose = "1.5.1"
+gradle-plugin = "8.1.1"
+kt-lint = "11.5.1"
 detekt = "1.23.0"
-kotlinx-datetime = "0.4.0"
-android-x-core-ktx = "1.10.0"
-android-x-lifecycle = "2.6.1"
-android-x-activity-compose = "1.7.0"
-splash-screen = "1.0.0"
-compose = "1.4.2"
+kotlinx-datetime = "0.4.1"
+android-x-core-ktx = "1.12.0"
+android-x-lifecycle = "2.6.2"
+android-x-activity-compose = "1.7.2"
+splash-screen = "1.0.1"
+compose = "1.5.1"
 compose-icons = "1.1.0"
-coil = "2.2.0"
+coil = "2.4.0"
 voyager = "1.0.0-rc06"
 junit = "4.13.2"
 android-x-test-junit = "1.1.5"
 android-x-test-espresso = "3.5.1"
 desugar = "2.0.3"
+atomicfu = "0.17.3"
 
 [libraries]
 kt-lint = { module = "org.jlleitschuh.gradle:ktlint-gradle", version.ref = "kt-lint" }
+atomicfu = { module = "org.jetbrains.kotlinx:atomicfu-gradle-plugin", version.ref = "atomicfu" }
 android-x-core-ktx = { module = "androidx.core:core-ktx", version.ref = "android-x-core-ktx" }
 android-x-lifecycle-runtime-ktx = { module = "androidx.lifecycle:lifecycle-runtime-ktx", version.ref = "android-x-lifecycle" }
 splash-screen = { module = "androidx.core:core-splashscreen", version.ref = "splash-screen" }
@@ -41,5 +43,5 @@ android-application = { id = "com.android.application", version.ref = "gradle-pl
 android-library = { id = "com.android.library", version.ref = "gradle-plugin" }
 kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
 kotlin-multiplatform = { id = "org.jetbrains.kotlin.multiplatform", version.ref = "kotlin" }
-jetbrains-compose = { id = "org.jetbrains.compose", version.ref = "jetbraind-compose"}
+jetbrains-compose = { id = "org.jetbrains.compose", version.ref = "jetbrains-compose"}
 detekt = { id = "io.gitlab.arturbosch.detekt", version.ref = "detekt" }
