@@ -8,12 +8,13 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.Dp
-import coil.compose.AsyncImage
+import io.kamel.image.KamelImage
+import io.kamel.image.asyncPainterResource
 import me.lincolnstuart.funblocks.essentials.core.surface.Card
 import me.lincolnstuart.funblocks.foundation.ui.token.content.size.FunBlocksContentSize
 
 /**
- * Async image banner component. Based on [Card] and [AsyncImage].
+ * Async image banner component. Based on [Card] and [KamelImage].
  *
  * @param url image url.
  * @param height it recommended to use [FunBlocksContentSize].
@@ -28,8 +29,8 @@ public fun Banner(
     onClick: () -> Unit
 ) {
     Card(modifier = modifier.clickable { onClick() }) {
-        AsyncImage(
-            model = url,
+        KamelImage(
+            resource = asyncPainterResource(data = url),
             contentDescription = null,
             contentScale = ContentScale.Crop,
             modifier = Modifier

@@ -9,9 +9,10 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.layout.ContentScale
-import coil.compose.AsyncImage
 import compose.icons.TablerIcons
 import compose.icons.tablericons.User
+import io.kamel.image.KamelImage
+import io.kamel.image.asyncPainterResource
 import me.lincolnstuart.funblocks.essentials.core.icon.Icon
 import me.lincolnstuart.funblocks.essentials.core.icon.utils.IconOptions
 import me.lincolnstuart.funblocks.essentials.core.text.Text
@@ -52,7 +53,7 @@ public sealed class AvatarMode {
     }
 
     /**
-     * Avatar with an customized image from url, based on [AsyncImage] from coil.
+     * Avatar with an customized image from url, based on [KamelImage] from kamel.
      *
      * @param url image address. E.g "https://avatars.githubusercontent.com/u/8579195?v=4".
      */
@@ -62,8 +63,8 @@ public sealed class AvatarMode {
 
         @Composable
         override fun Content(options: AvatarOptions) {
-            AsyncImage(
-                model = url,
+            KamelImage(
+                resource = asyncPainterResource(data = url, key = url),
                 contentDescription = null,
                 contentScale = ContentScale.Crop,
                 modifier = Modifier.fillMaxSize()

@@ -10,7 +10,8 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.unit.Dp
-import coil.compose.AsyncImage
+import io.kamel.image.KamelImage
+import io.kamel.image.asyncPainterResource
 import me.lincolnstuart.funblocks.essentials.core.text.Text
 import me.lincolnstuart.funblocks.essentials.core.text.utils.TextMode
 import me.lincolnstuart.funblocks.essentials.misc.avatar.Avatar
@@ -60,8 +61,8 @@ public sealed class CardHeaderOptions {
         @Composable
         override fun Content(modifier: Modifier) {
             Column {
-                AsyncImage(
-                    model = url,
+                KamelImage(
+                    resource = asyncPainterResource(data = url),
                     contentDescription = null,
                     modifier = Modifier
                         .fillMaxWidth()
