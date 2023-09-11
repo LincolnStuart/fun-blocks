@@ -4,8 +4,10 @@ plugins {
     alias(libs.plugins.jetbrains.compose)
 }
 
+val moduleName = "components"
+
 android {
-    namespace = AndroidBuild.nameSpace(moduleName = "essentials")
+    namespace = AndroidBuild.nameSpace(moduleName = moduleName)
     compileSdk = AndroidBuild.compileSdk
     defaultConfig {
         minSdk = AndroidBuild.minSdk
@@ -46,15 +48,19 @@ kotlin {
                 implementation(compose.foundation)
                 implementation(compose.ui)
                 implementation(compose.material)
+                @OptIn(org.jetbrains.compose.ExperimentalComposeLibrary::class)
+                implementation(compose.components.resources)
                 implementation(compose.uiTooling)
                 implementation(libs.compose.icons)
-                implementation(libs.coil)
+                implementation(libs.kamel)
                 implementation(libs.kotlinx.datetime)
                 implementation(projects.foundation)
             }
         }
         val androidMain by getting {
-            dependencies { }
+            dependencies {
+                implementation(libs.ktor.client.android)
+            }
         }
     }
 }
