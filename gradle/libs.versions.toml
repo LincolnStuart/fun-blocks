@@ -31,7 +31,8 @@ compose-activity = { module = "androidx.activity:activity-compose", version.ref 
 compose-icons = { module = "br.com.devsrsouza.compose.icons:tabler-icons", version.ref = "compose-icons" }
 voyager-navigator = { module = "cafe.adriel.voyager:voyager-navigator", version.ref = "voyager" }
 kamel = { module = "media.kamel:kamel-image", version.ref = "kamel" }
-ktor-client-android = { module = "io.ktor:ktor-client-android", version.ref = "ktor-client" }
+ktor-client-okhttp = { module = "io.ktor:ktor-client-okhttp", version.ref = "ktor-client" }
+ktor-client-darwin = { module = "io.ktor:ktor-client-darwin", version.ref = "ktor-client" }
 junit = { module = "junit:junit", version.ref = "junit" }
 android-x-junit = { module = "androidx.test.ext:junit", version.ref = "android-x-test-junit" }
 android-x-espresso-core = { module = "androidx.test.espresso:espresso-core", version.ref = "android-x-test-espresso" }
