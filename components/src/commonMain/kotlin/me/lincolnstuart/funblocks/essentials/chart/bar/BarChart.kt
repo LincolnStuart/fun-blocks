@@ -24,7 +24,7 @@ public fun BarChart(
             height = height,
             color = barColor,
             isAnimated = isAnimated,
-            formatBigDecimal = formatBigDecimal,
+            formatValue = formatValue,
             formatLocalDate = formatLocalDate
         )
     }

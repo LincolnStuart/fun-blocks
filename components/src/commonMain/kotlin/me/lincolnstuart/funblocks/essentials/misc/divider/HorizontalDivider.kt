@@ -9,7 +9,6 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
 import me.lincolnstuart.funblocks.essentials.core.spacer.VerticalSpacer
 import me.lincolnstuart.funblocks.essentials.core.surface.Surface
 import me.lincolnstuart.funblocks.essentials.misc.divider.utils.HorizontalDividerMode
@@ -39,7 +38,7 @@ public fun HorizontalDivider(
     )
 }
 
-@Preview
+// @Preview
 @Composable
 private fun HorizontalDividerPreview() {
     FunBlocksTheme {

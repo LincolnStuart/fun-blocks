@@ -1,7 +1,6 @@
 package me.lincolnstuart.funblocks.essentials.form.popup
 
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.window.DialogProperties
 import me.lincolnstuart.funblocks.essentials.core.spacer.VerticalSpacer
 import me.lincolnstuart.funblocks.essentials.core.surface.Surface
@@ -55,7 +54,7 @@ public fun ActionPopup(
     }
 }
 
-@Preview
+// @Preview
 @Composable
 private fun ActionPopupPreview() {
     FunBlocksTheme {

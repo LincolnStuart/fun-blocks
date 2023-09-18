@@ -4,7 +4,6 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.padding
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
 import kotlinx.datetime.LocalDate
 import me.lincolnstuart.funblocks.essentials.chart.line.utils.LineChartOptions
 import me.lincolnstuart.funblocks.essentials.chart.line.utils.LineChartPath
@@ -15,7 +14,6 @@ import me.lincolnstuart.funblocks.essentials.core.surface.Surface
 import me.lincolnstuart.funblocks.foundation.ui.theme.FunBlocksTheme
 import me.lincolnstuart.funblocks.foundation.ui.token.color.FunBlocksColors
 import me.lincolnstuart.funblocks.foundation.ui.token.content.spacing.FunBlocksSpacing
-import java.math.BigDecimal
 
 /**
  * Line chart that draws paths in a cartesian plane based on a time line and put title and legend.
@@ -41,13 +39,13 @@ public fun LineChart(
             paths = paths,
             height = height,
             isAnimated = isAnimated,
-            formatBigDecimal = formatBigDecimal,
+            formatValue = formatValue,
             formatLocalDate = formatLocalDate
         )
     }
 }
 
-@Preview
+// @Preview
 @Composable
 private fun LineChartPreview() {
     FunBlocksTheme {
@@ -59,15 +57,15 @@ private fun LineChartPreview() {
                             description = "Line 1",
                             points = listOf(
                                 LineChartPoint(
-                                    value = BigDecimal("1"),
+                                    value = 1.0,
                                     date = LocalDate(year = 1990, monthNumber = 10, dayOfMonth = 12)
                                 ),
                                 LineChartPoint(
-                                    value = BigDecimal("10"),
+                                    value = 10.0,
                                     date = LocalDate(year = 1944, monthNumber = 11, dayOfMonth = 17)
                                 ),
                                 LineChartPoint(
-                                    value = BigDecimal("7"),
+                                    value = 7.0,
                                     date = LocalDate(year = 1944, monthNumber = 11, dayOfMonth = 17)
                                 )
                             ),

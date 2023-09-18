@@ -33,7 +33,6 @@ import me.lincolnstuart.funblocks.foundation.ui.token.color.alpha.FunBlocksAlpha
 import me.lincolnstuart.funblocks.foundation.ui.token.content.border.FunBlocksBorderWidth
 import me.lincolnstuart.funblocks.foundation.ui.token.content.size.FunBlocksContentSize
 import me.lincolnstuart.funblocks.foundation.ui.token.font.FunBlocksFontSize
-import java.math.BigDecimal
 
 /**
  * Bar chart that draws bars in a cartesian plane based on a time line.
@@ -41,7 +40,7 @@ import java.math.BigDecimal
  * @param values list of [BarChartValue] to draw in a cartesian plane.
  * @param height it is recommended to use [FunBlocksContentSize].
  * @param isAnimated if starts with animation.
- * @param formatBigDecimal to string from [BigDecimal].
+ * @param formatValue to string from [Double].
  * @param formatLocalDate to string from [LocalDate].
  */
 @OptIn(ExperimentalTextApi::class)
@@ -51,7 +50,7 @@ internal fun BasicBarChart(
     height: Dp = FunBlocksContentSize.huge,
     color: Color,
     isAnimated: Boolean = false,
-    formatBigDecimal: (BigDecimal) -> String = { it.toString() },
+    formatValue: (Double) -> String = { it.toString() },
     formatLocalDate: (LocalDate) -> String = { it.toString() }
 ) {
     val textMeasurer = rememberTextMeasurer()
@@ -93,12 +92,12 @@ internal fun BasicBarChart(
                                     points = values
                                         .map { it.value }
                                         .toMutableList()
-                                        .also { it.add(0, BigDecimal.ZERO) },
+                                        .also { it.add(index = 0, element = 0.0) },
                                     maxValues = 3
                                 )
                             ),
                             formatHorizontalReferenceValue = formatLocalDate,
-                            formatVerticalReferenceValue = formatBigDecimal
+                            formatVerticalReferenceValue = formatValue
                         )
                     ).drawCartesianPlane()
                     drawBars(
@@ -132,7 +131,7 @@ private fun DrawScope.drawBars(
     var startOfSet = barWidth
     clipRect(top = barHeight * animationProgress.value) {
         values.forEach { bar ->
-            val y = (bar.value.divide(max)).toFloat() * barHeight
+            val y = (bar.value / max).toFloat() * barHeight
             drawRect(
                 color = color.copy(alpha = FunBlocksAlpha.high),
                 topLeft = Offset(x = startOfSet, y = barHeight - y),

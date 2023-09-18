@@ -4,7 +4,6 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.padding
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
 import compose.icons.TablerIcons
 import compose.icons.tablericons.CircleX
 import me.lincolnstuart.funblocks.essentials.core.helper.clickable.Clickable
@@ -49,7 +48,7 @@ public fun Button(
     )
 }
 
-@Preview
+// @Preview
 @Composable
 private fun ButtonPreview() {
     FunBlocksTheme {

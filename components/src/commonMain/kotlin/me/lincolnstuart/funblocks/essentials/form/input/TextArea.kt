@@ -11,7 +11,6 @@ import androidx.compose.ui.text.TextLayoutResult
 import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.input.VisualTransformation
-import androidx.compose.ui.tooling.preview.Preview
 import me.lincolnstuart.funblocks.foundation.ui.theme.FunBlocksTheme
 
 /**
@@ -79,7 +78,7 @@ public fun TextArea(
     )
 }
 
-@Preview
+// @Preview
 @Composable
 private fun InputTextPreview() {
     FunBlocksTheme {

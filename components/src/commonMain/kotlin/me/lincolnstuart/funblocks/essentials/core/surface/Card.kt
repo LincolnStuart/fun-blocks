@@ -7,7 +7,6 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.draw.shadow
-import androidx.compose.ui.tooling.preview.Preview
 import me.lincolnstuart.funblocks.essentials.core.text.Text
 import me.lincolnstuart.funblocks.foundation.ui.theme.FunBlocksTheme
 import me.lincolnstuart.funblocks.foundation.ui.token.content.elevation.FunBlocksElevationLevel
@@ -34,7 +33,7 @@ public fun Card(
     }
 }
 
-@Preview
+// @Preview
 @Composable
 private fun CardPreview() {
     FunBlocksTheme {

@@ -5,7 +5,6 @@ import kotlinx.datetime.DateTimeUnit
 import kotlinx.datetime.LocalDate
 import kotlinx.datetime.plus
 import kotlinx.datetime.until
-import java.math.BigDecimal
 
 /**
  * Object that provides relevant values to draw a cartesian plane.
@@ -33,9 +32,9 @@ internal object CartesianPlaneHelper {
         }
     }
 
-    fun getRelevantDecimalReferences(points: List<BigDecimal>, maxValues: Int): List<BigDecimal> {
-        val factor = BigDecimal(FACTOR)
-        val difference = (points.max().minus(points.min())).multiply(factor).toInt()
+    fun getRelevantDecimalReferences(points: List<Double>, maxValues: Int): List<Double> {
+        val factor = FACTOR.toDouble()
+        val difference = ((points.max().minus(points.min())) * (factor)).toInt()
         val leapCount = difference.getIdealCount(maxValues)
         val leapSize = difference / leapCount
         return if (leapCount <= 1) {
@@ -45,7 +44,7 @@ internal object CartesianPlaneHelper {
                 var base = points.min()
                 add(points.min())
                 repeat(leapCount - 1) {
-                    base = base.plus(BigDecimal(leapSize).divide(factor))
+                    base += leapSize / factor
                     add(base)
                 }
                 add(points.max())

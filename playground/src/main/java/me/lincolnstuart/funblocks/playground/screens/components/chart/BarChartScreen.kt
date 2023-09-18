@@ -8,7 +8,6 @@ import me.lincolnstuart.funblocks.essentials.chart.bar.utils.BarChartOptions
 import me.lincolnstuart.funblocks.essentials.chart.bar.utils.BarChartValue
 import me.lincolnstuart.funblocks.foundation.ui.token.content.size.FunBlocksContentSize
 import me.lincolnstuart.funblocks.playground.components.Sample
-import java.math.BigDecimal
 
 class BarChartScreen : Screen {
 
@@ -20,16 +19,16 @@ class BarChartScreen : Screen {
                     values =
                     listOf(
                         BarChartValue(
-                            value = BigDecimal("300"),
+                            value = 300.0,
                             date = LocalDate(year = 1990, monthNumber = 10, dayOfMonth = 12)
                         ),
                         BarChartValue(
-                            value = BigDecimal("500"),
+                            value = 500.0,
                             date = LocalDate(year = 2020, monthNumber = 12, dayOfMonth = 5)
 
                         ),
                         BarChartValue(
-                            value = BigDecimal("400"),
+                            value = 400.0,
                             date = LocalDate(year = 2023, monthNumber = 5, dayOfMonth = 15)
                         )
                     ),

@@ -21,7 +21,6 @@ import androidx.compose.ui.graphics.drawscope.clipRect
 import androidx.compose.ui.text.ExperimentalTextApi
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.rememberTextMeasurer
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.Dp
 import kotlinx.datetime.LocalDate
 import me.lincolnstuart.funblocks.essentials.chart.line.utils.LineChartPath
@@ -40,7 +39,6 @@ import me.lincolnstuart.funblocks.foundation.ui.token.content.border.FunBlocksBo
 import me.lincolnstuart.funblocks.foundation.ui.token.content.size.FunBlocksContentSize
 import me.lincolnstuart.funblocks.foundation.ui.token.content.spacing.FunBlocksSpacing
 import me.lincolnstuart.funblocks.foundation.ui.token.font.FunBlocksFontSize
-import java.math.BigDecimal
 
 /**
  * Line chart that draws paths in a cartesian plane based on a time line.
@@ -48,7 +46,7 @@ import java.math.BigDecimal
  * @param paths list of [LineChartPath] to draw in a cartesian plane.
  * @param height it is recommended to use [FunBlocksContentSize].
  * @param isAnimated if starts with animation.
- * @param formatBigDecimal to string from [BigDecimal].
+ * @param formatValue to string from [Double].
  * @param formatLocalDate to string from [LocalDate].
  */
 @OptIn(ExperimentalTextApi::class)
@@ -57,7 +55,7 @@ internal fun BasicLineChart(
     paths: List<LineChartPath>,
     height: Dp = FunBlocksContentSize.huge,
     isAnimated: Boolean = false,
-    formatBigDecimal: (BigDecimal) -> String = { it.toString() },
+    formatValue: (Double) -> String = { it.toString() },
     formatLocalDate: (LocalDate) -> String = { it.toString() }
 ) {
     val textMeasurer = rememberTextMeasurer()
@@ -102,7 +100,7 @@ internal fun BasicLineChart(
                                 )
                             ),
                             formatHorizontalReferenceValue = formatLocalDate,
-                            formatVerticalReferenceValue = formatBigDecimal
+                            formatVerticalReferenceValue = formatValue
                         )
                     ).drawCartesianPlane()
                     drawPaths(
@@ -212,7 +210,7 @@ private fun DrawScope.getWidthBetween(points: List<LineChartPoint>): Float {
     return size.width / numberEntries
 }
 
-@Preview
+// @Preview
 @Composable
 private fun BasicLineChartPreview() {
     FunBlocksTheme {
@@ -224,15 +222,15 @@ private fun BasicLineChartPreview() {
                             description = "Line 1",
                             points = listOf(
                                 LineChartPoint(
-                                    value = BigDecimal("1"),
+                                    value = 1.0,
                                     date = LocalDate(year = 1990, monthNumber = 10, dayOfMonth = 12)
                                 ),
                                 LineChartPoint(
-                                    value = BigDecimal("10"),
+                                    value = 10.0,
                                     date = LocalDate(year = 1944, monthNumber = 11, dayOfMonth = 17)
                                 ),
                                 LineChartPoint(
-                                    value = BigDecimal("7"),
+                                    value = 7.0,
                                     date = LocalDate(year = 1944, monthNumber = 11, dayOfMonth = 17)
                                 )
                             ),

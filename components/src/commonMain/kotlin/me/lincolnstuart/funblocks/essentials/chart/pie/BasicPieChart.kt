@@ -19,7 +19,6 @@ import androidx.compose.ui.unit.Dp
 import me.lincolnstuart.funblocks.essentials.chart.pie.utils.PieChartPiece
 import me.lincolnstuart.funblocks.essentials.chart.pie.utils.PieChartType
 import me.lincolnstuart.funblocks.foundation.ui.token.content.size.FunBlocksContentSize
-import java.math.BigDecimal
 
 private const val INITIAL_ANGLE: Float = 270f
 
@@ -40,7 +39,7 @@ internal fun BasicPieChart(
 ) {
     val style = type.style()
     val totalSum = remember(data) {
-        data.fold(BigDecimal.ZERO) { accumulated, current ->
+        data.fold(initial = 0.0) { accumulated, current ->
             accumulated.plus(current.value)
         }
     }

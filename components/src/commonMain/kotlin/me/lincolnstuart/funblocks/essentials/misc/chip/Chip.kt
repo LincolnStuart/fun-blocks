@@ -7,7 +7,6 @@ import androidx.compose.foundation.layout.width
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
 import compose.icons.TablerIcons
 import compose.icons.tablericons.Calendar
 import compose.icons.tablericons.ChevronDown
@@ -62,7 +61,7 @@ public fun Chip(
     )
 }
 
-@Preview
+// @Preview
 @Composable
 private fun ChipPreview() {
     FunBlocksTheme {

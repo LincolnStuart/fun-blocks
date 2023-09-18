@@ -10,7 +10,6 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.vector.ImageVector
-import androidx.compose.ui.tooling.preview.Preview
 import compose.icons.TablerIcons
 import compose.icons.tablericons.AlertCircle
 import compose.icons.tablericons.CircleCheck
@@ -69,7 +68,7 @@ public fun Badge(
     }
 }
 
-@Preview
+// @Preview
 @Composable
 private fun BadgePreview() {
     FunBlocksTheme {

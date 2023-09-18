@@ -12,7 +12,6 @@ import me.lincolnstuart.funblocks.essentials.chart.line.utils.LineChartPoint
 import me.lincolnstuart.funblocks.foundation.ui.token.color.FunBlocksColors
 import me.lincolnstuart.funblocks.foundation.ui.token.content.size.FunBlocksContentSize
 import me.lincolnstuart.funblocks.playground.components.Sample
-import java.math.BigDecimal
 import java.time.format.DateTimeFormatter
 
 class LineChartScreen : Screen {
@@ -28,15 +27,15 @@ class LineChartScreen : Screen {
                             description = "Line 1",
                             points = listOf(
                                 LineChartPoint(
-                                    value = BigDecimal("300"),
+                                    value = 300.0,
                                     LocalDate(year = 1990, monthNumber = 10, dayOfMonth = 12)
                                 ),
                                 LineChartPoint(
-                                    value = BigDecimal("100000"),
+                                    value = 100000.0,
                                     LocalDate(year = 2020, monthNumber = 12, dayOfMonth = 5)
                                 ),
                                 LineChartPoint(
-                                    value = BigDecimal("70000"),
+                                    value = 70000.0,
                                     LocalDate(year = 1944, monthNumber = 11, dayOfMonth = 17)
                                 )
                             ),
@@ -46,15 +45,15 @@ class LineChartScreen : Screen {
                             description = "Line 1",
                             points = listOf(
                                 LineChartPoint(
-                                    value = BigDecimal("30000"),
+                                    value = 30000.0,
                                     LocalDate(year = 1990, monthNumber = 10, dayOfMonth = 12)
                                 ),
                                 LineChartPoint(
-                                    value = BigDecimal("19000"),
+                                    value = 19000.0,
                                     LocalDate(year = 2020, monthNumber = 12, dayOfMonth = 5)
                                 ),
                                 LineChartPoint(
-                                    value = BigDecimal("7500"),
+                                    value = 7500.0,
                                     LocalDate(year = 1944, monthNumber = 11, dayOfMonth = 17)
                                 )
                             ),

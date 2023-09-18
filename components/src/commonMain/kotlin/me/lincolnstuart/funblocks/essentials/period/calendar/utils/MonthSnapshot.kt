@@ -61,7 +61,7 @@ internal object MonthSnapshot {
      * @param date start date.
      */
     private fun adjustWeekStart(date: LocalDate): LocalDate {
-        val factor = date.dayOfWeek.value * -1
+        val factor = date.dayOfWeek.ordinal * -1
         return date + DatePeriod(days = factor)
     }
 

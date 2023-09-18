@@ -8,7 +8,6 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
 import me.lincolnstuart.funblocks.essentials.core.spacer.VerticalSpacer
 import me.lincolnstuart.funblocks.essentials.core.surface.Surface
 import me.lincolnstuart.funblocks.essentials.core.text.Text
@@ -44,7 +43,7 @@ public fun <T> CheckboxOption(
     }
 }
 
-@Preview
+// @Preview
 @Composable
 private fun CheckboxOptionPreview() {
     FunBlocksTheme {

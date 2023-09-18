@@ -9,7 +9,6 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
 import compose.icons.TablerIcons
 import compose.icons.tablericons.ChevronRight
 import me.lincolnstuart.funblocks.essentials.core.icon.Icon
@@ -50,7 +49,7 @@ public fun SimpleListItem(
     HorizontalDivider()
 }
 
-@Preview
+// @Preview
 @Composable
 private fun SimpleListItemPreview() {
     FunBlocksTheme {

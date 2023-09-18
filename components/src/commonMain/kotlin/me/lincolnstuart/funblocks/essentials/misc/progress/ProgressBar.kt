@@ -17,7 +17,6 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.Dp
 import me.lincolnstuart.funblocks.essentials.core.spacer.VerticalSpacer
 import me.lincolnstuart.funblocks.essentials.core.surface.Surface
@@ -74,7 +73,7 @@ public fun ProgressBar(
     }
 }
 
-@Preview
+// @Preview
 @Composable
 private fun ProgressBarPreview() {
     FunBlocksTheme {
