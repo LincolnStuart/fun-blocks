@@ -3,12 +3,20 @@ package me.lincolnstuart.funblocks.playground.screens.components.chart
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
 import cafe.adriel.voyager.core.screen.Screen
+import cafe.adriel.voyager.navigator.LocalNavigator
+import cafe.adriel.voyager.navigator.currentOrThrow
+import compose.icons.TablerIcons
+import compose.icons.tablericons.ArrowLeft
 import kotlinx.datetime.LocalDate
 import kotlinx.datetime.toJavaLocalDate
 import me.lincolnstuart.funblocks.components.chart.line.LineChart
 import me.lincolnstuart.funblocks.components.chart.line.utils.LineChartOptions
 import me.lincolnstuart.funblocks.components.chart.line.utils.LineChartPath
 import me.lincolnstuart.funblocks.components.chart.line.utils.LineChartPoint
+import me.lincolnstuart.funblocks.components.core.appbar.utils.AppBarAction
+import me.lincolnstuart.funblocks.components.core.appbar.utils.AppBarOptions
+import me.lincolnstuart.funblocks.components.core.text.Text
+import me.lincolnstuart.funblocks.components.core.text.utils.TextMode
 import me.lincolnstuart.funblocks.foundation.ui.token.color.FunBlocksColors
 import me.lincolnstuart.funblocks.foundation.ui.token.content.size.FunBlocksContentSize
 import me.lincolnstuart.funblocks.playground.components.Sample
@@ -18,8 +26,15 @@ class LineChartScreen : Screen {
 
     @Composable
     override fun Content() {
+        val navigator = LocalNavigator.currentOrThrow
         val dateFormat = remember { DateTimeFormatter.ofPattern("dd/MM/yyyy") }
         Sample(
+            appBarOptions = AppBarOptions(
+                mainContent = { Text(text = "LineChart", mode = TextMode.Subtitle()) },
+                mainAction = AppBarAction(icon = TablerIcons.ArrowLeft, description = null) {
+                    navigator.pop()
+                }
+            ),
             component = {
                 LineChart(
                     paths = listOf(

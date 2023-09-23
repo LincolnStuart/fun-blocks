@@ -2,9 +2,17 @@ package me.lincolnstuart.funblocks.playground.screens.components.chart
 
 import androidx.compose.runtime.Composable
 import cafe.adriel.voyager.core.screen.Screen
+import cafe.adriel.voyager.navigator.LocalNavigator
+import cafe.adriel.voyager.navigator.currentOrThrow
+import compose.icons.TablerIcons
+import compose.icons.tablericons.ArrowLeft
 import me.lincolnstuart.funblocks.components.chart.pie.PieChart
 import me.lincolnstuart.funblocks.components.chart.pie.utils.PieChartOptions
 import me.lincolnstuart.funblocks.components.chart.pie.utils.PieChartPiece
+import me.lincolnstuart.funblocks.components.core.appbar.utils.AppBarAction
+import me.lincolnstuart.funblocks.components.core.appbar.utils.AppBarOptions
+import me.lincolnstuart.funblocks.components.core.text.Text
+import me.lincolnstuart.funblocks.components.core.text.utils.TextMode
 import me.lincolnstuart.funblocks.foundation.ui.token.color.FunBlocksColors
 import me.lincolnstuart.funblocks.playground.components.Sample
 
@@ -12,7 +20,14 @@ class PieChartScreen : Screen {
 
     @Composable
     override fun Content() {
+        val navigator = LocalNavigator.currentOrThrow
         Sample(
+            appBarOptions = AppBarOptions(
+                mainContent = { Text(text = "PieChart", mode = TextMode.Subtitle()) },
+                mainAction = AppBarAction(icon = TablerIcons.ArrowLeft, description = null) {
+                    navigator.pop()
+                }
+            ),
             component = {
                 PieChart(
                     data = listOf(

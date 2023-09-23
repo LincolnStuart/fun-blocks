@@ -9,6 +9,8 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import me.lincolnstuart.funblocks.components.core.appbar.AppBar
+import me.lincolnstuart.funblocks.components.core.appbar.utils.AppBarOptions
 import me.lincolnstuart.funblocks.components.core.surface.Surface
 import me.lincolnstuart.funblocks.components.misc.divider.HorizontalDivider
 import me.lincolnstuart.funblocks.foundation.ui.theme.FunBlocksTheme
@@ -17,6 +19,7 @@ import me.lincolnstuart.funblocks.foundation.ui.token.content.spacing.FunBlocksS
 
 @Composable
 internal fun Sample(
+    appBarOptions: AppBarOptions? = null,
     component: @Composable () -> Unit,
     options: @Composable () -> Unit
 ) {
@@ -26,6 +29,9 @@ internal fun Sample(
                 .fillMaxSize()
         ) {
             Column {
+                appBarOptions?.let {
+                    AppBar(options = appBarOptions)
+                }
                 Box(
                     modifier = Modifier
                         .fillMaxWidth()

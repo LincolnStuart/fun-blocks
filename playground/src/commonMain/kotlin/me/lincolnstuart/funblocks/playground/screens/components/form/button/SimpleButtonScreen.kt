@@ -6,9 +6,15 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import cafe.adriel.voyager.core.screen.Screen
+import cafe.adriel.voyager.navigator.LocalNavigator
+import cafe.adriel.voyager.navigator.currentOrThrow
 import compose.icons.TablerIcons
+import compose.icons.tablericons.ArrowLeft
 import compose.icons.tablericons.CircleDashed
+import me.lincolnstuart.funblocks.components.core.appbar.utils.AppBarAction
+import me.lincolnstuart.funblocks.components.core.appbar.utils.AppBarOptions
 import me.lincolnstuart.funblocks.components.core.text.Text
+import me.lincolnstuart.funblocks.components.core.text.utils.TextMode
 import me.lincolnstuart.funblocks.components.form.button.Button
 import me.lincolnstuart.funblocks.components.form.button.utils.ButtonMode
 import me.lincolnstuart.funblocks.components.form.button.utils.ButtonOptions
@@ -22,10 +28,17 @@ class SimpleButtonScreen : Screen {
 
     @Composable
     override fun Content() {
+        val navigator = LocalNavigator.currentOrThrow
         var options by remember {
             mutableStateOf(ButtonOptions(isEnabled = false))
         }
         Sample(
+            appBarOptions = AppBarOptions(
+                mainContent = { Text(text = "SimpleButton", mode = TextMode.Subtitle()) },
+                mainAction = AppBarAction(icon = TablerIcons.ArrowLeft, description = null) {
+                    navigator.pop()
+                }
+            ),
             component = { Button(description = "Button", options = options) {} }
         ) {
             Accordion(title = "Mode") {
