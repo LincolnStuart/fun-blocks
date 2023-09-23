@@ -14,8 +14,12 @@ import cafe.adriel.voyager.core.screen.Screen
 import cafe.adriel.voyager.navigator.LocalNavigator
 import cafe.adriel.voyager.navigator.currentOrThrow
 import compose.icons.TablerIcons
+import compose.icons.tablericons.Adjustments
 import compose.icons.tablericons.BrandGithub
-import me.lincolnstuart.funblocks.components.core.list.SimpleListItem
+import compose.icons.tablericons.BuildingBridge2
+import me.lincolnstuart.funblocks.components.core.bottomnavigator.BottomNavigator
+import me.lincolnstuart.funblocks.components.core.bottomnavigator.utils.BottomNavigationItemAction
+import me.lincolnstuart.funblocks.components.core.bottomnavigator.utils.BottomNavigatorOptions
 import me.lincolnstuart.funblocks.components.core.text.Text
 import me.lincolnstuart.funblocks.components.core.text.utils.TextMode
 import me.lincolnstuart.funblocks.components.misc.chip.Chip
@@ -62,15 +66,23 @@ class HomeScreen : Screen {
                 }
             }
         ) {
-            SimpleListItem(title = "Tokens", description = "Color, Size, Spacing, etc.") {
-                navigator.push(HomeTokensScreen())
-            }
-            SimpleListItem(
-                title = "Components",
-                description = "Avatar, Button, Chart, etc."
-            ) {
-                navigator.push(HomeComponentsScreen())
-            }
+            BottomNavigator(
+                options = BottomNavigatorOptions(
+                    items =
+                    listOf(
+                        BottomNavigationItemAction(
+                            icon = TablerIcons.Adjustments,
+                            label = "Tokens",
+                            callback = { navigator.push(HomeTokensScreen()) }
+                        ),
+                        BottomNavigationItemAction(
+                            icon = TablerIcons.BuildingBridge2,
+                            label = "Components",
+                            callback = { navigator.push(HomeComponentsScreen()) }
+                        )
+                    )
+                )
+            )
         }
     }
 }
