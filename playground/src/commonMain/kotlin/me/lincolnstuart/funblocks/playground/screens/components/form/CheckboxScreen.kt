@@ -6,7 +6,7 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import cafe.adriel.voyager.core.screen.Screen
-import me.lincolnstuart.funblocks.essentials.form.checkbox.Checkbox
+import me.lincolnstuart.funblocks.components.form.checkbox.Checkbox
 import me.lincolnstuart.funblocks.playground.components.Sample
 
 class CheckboxScreen : Screen {

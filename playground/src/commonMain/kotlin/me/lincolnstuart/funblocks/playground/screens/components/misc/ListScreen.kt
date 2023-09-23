@@ -6,10 +6,10 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import cafe.adriel.voyager.core.screen.Screen
-import me.lincolnstuart.funblocks.essentials.core.text.Text
-import me.lincolnstuart.funblocks.essentials.form.radiobutton.RadioButtonGroup
-import me.lincolnstuart.funblocks.essentials.misc.accordion.Accordion
-import me.lincolnstuart.funblocks.essentials.misc.list.utils.ListMode
+import me.lincolnstuart.funblocks.components.core.text.Text
+import me.lincolnstuart.funblocks.components.form.radiobutton.RadioButtonGroup
+import me.lincolnstuart.funblocks.components.misc.accordion.Accordion
+import me.lincolnstuart.funblocks.components.misc.list.utils.ListMode
 import me.lincolnstuart.funblocks.playground.components.Sample
 
 class ListScreen : Screen {
@@ -21,7 +21,7 @@ class ListScreen : Screen {
         }
         Sample(
             component = {
-                me.lincolnstuart.funblocks.essentials.misc.list.List(
+                me.lincolnstuart.funblocks.components.misc.list.List(
                     topics = listOf("Kotlin", "Android", "Jetpack Compose"),
                     mode = mode
                 )

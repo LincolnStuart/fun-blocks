@@ -9,11 +9,11 @@ import cafe.adriel.voyager.core.screen.Screen
 import kotlinx.datetime.Clock
 import kotlinx.datetime.TimeZone
 import kotlinx.datetime.toLocalDateTime
-import me.lincolnstuart.funblocks.essentials.core.text.Text
-import me.lincolnstuart.funblocks.essentials.form.radiobutton.RadioButtonGroup
-import me.lincolnstuart.funblocks.essentials.misc.accordion.Accordion
-import me.lincolnstuart.funblocks.essentials.period.calendar.Calendar
-import me.lincolnstuart.funblocks.essentials.period.calendar.utils.CalendarSelectionType
+import me.lincolnstuart.funblocks.components.core.text.Text
+import me.lincolnstuart.funblocks.components.form.radiobutton.RadioButtonGroup
+import me.lincolnstuart.funblocks.components.misc.accordion.Accordion
+import me.lincolnstuart.funblocks.components.period.calendar.Calendar
+import me.lincolnstuart.funblocks.components.period.calendar.utils.CalendarSelectionType
 import me.lincolnstuart.funblocks.playground.components.Sample
 
 class CalendarScreen : Screen {

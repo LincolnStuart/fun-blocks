@@ -8,7 +8,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import cafe.adriel.voyager.core.screen.Screen
 import kotlinx.coroutines.delay
-import me.lincolnstuart.funblocks.essentials.misc.progress.ProgressBar
+import me.lincolnstuart.funblocks.components.misc.progress.ProgressBar
 import me.lincolnstuart.funblocks.foundation.ui.token.content.spacing.FunBlocksInset
 import me.lincolnstuart.funblocks.playground.components.Sample
 

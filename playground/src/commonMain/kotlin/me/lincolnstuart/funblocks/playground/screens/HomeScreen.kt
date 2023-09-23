@@ -15,11 +15,11 @@ import cafe.adriel.voyager.navigator.LocalNavigator
 import cafe.adriel.voyager.navigator.currentOrThrow
 import compose.icons.TablerIcons
 import compose.icons.tablericons.BrandGithub
-import me.lincolnstuart.funblocks.essentials.core.list.SimpleListItem
-import me.lincolnstuart.funblocks.essentials.core.text.Text
-import me.lincolnstuart.funblocks.essentials.core.text.utils.TextMode
-import me.lincolnstuart.funblocks.essentials.misc.chip.Chip
-import me.lincolnstuart.funblocks.essentials.misc.chip.utils.ChipOptions
+import me.lincolnstuart.funblocks.components.core.list.SimpleListItem
+import me.lincolnstuart.funblocks.components.core.text.Text
+import me.lincolnstuart.funblocks.components.core.text.utils.TextMode
+import me.lincolnstuart.funblocks.components.misc.chip.Chip
+import me.lincolnstuart.funblocks.components.misc.chip.utils.ChipOptions
 import me.lincolnstuart.funblocks.foundation.ui.token.content.size.FunBlocksContentSize
 import me.lincolnstuart.funblocks.foundation.ui.token.content.spacing.FunBlocksSpacing
 import me.lincolnstuart.funblocks.playground.components.Sample

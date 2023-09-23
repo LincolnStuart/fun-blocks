@@ -6,13 +6,13 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import cafe.adriel.voyager.core.screen.Screen
-import me.lincolnstuart.funblocks.essentials.core.text.Text
-import me.lincolnstuart.funblocks.essentials.form.radiobutton.RadioButtonGroup
-import me.lincolnstuart.funblocks.essentials.form.switchbutton.SwitchButtonOption
-import me.lincolnstuart.funblocks.essentials.misc.accordion.Accordion
-import me.lincolnstuart.funblocks.essentials.misc.alert.Alert
-import me.lincolnstuart.funblocks.essentials.misc.alert.utils.AlertCloseOptions
-import me.lincolnstuart.funblocks.essentials.misc.alert.utils.AlertMode
+import me.lincolnstuart.funblocks.components.core.text.Text
+import me.lincolnstuart.funblocks.components.form.radiobutton.RadioButtonGroup
+import me.lincolnstuart.funblocks.components.form.switchbutton.SwitchButtonOption
+import me.lincolnstuart.funblocks.components.misc.accordion.Accordion
+import me.lincolnstuart.funblocks.components.misc.alert.Alert
+import me.lincolnstuart.funblocks.components.misc.alert.utils.AlertCloseOptions
+import me.lincolnstuart.funblocks.components.misc.alert.utils.AlertMode
 import me.lincolnstuart.funblocks.playground.components.Sample
 
 class AlertScreen : Screen {

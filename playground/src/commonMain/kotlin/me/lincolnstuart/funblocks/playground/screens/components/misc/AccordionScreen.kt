@@ -6,9 +6,9 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import cafe.adriel.voyager.core.screen.Screen
-import me.lincolnstuart.funblocks.essentials.misc.accordion.Accordion
-import me.lincolnstuart.funblocks.essentials.misc.alert.Alert
-import me.lincolnstuart.funblocks.essentials.misc.alert.utils.AlertMode
+import me.lincolnstuart.funblocks.components.misc.accordion.Accordion
+import me.lincolnstuart.funblocks.components.misc.alert.Alert
+import me.lincolnstuart.funblocks.components.misc.alert.utils.AlertMode
 import me.lincolnstuart.funblocks.foundation.ui.token.content.spacing.FunBlocksSpacing
 import me.lincolnstuart.funblocks.playground.components.Sample
 

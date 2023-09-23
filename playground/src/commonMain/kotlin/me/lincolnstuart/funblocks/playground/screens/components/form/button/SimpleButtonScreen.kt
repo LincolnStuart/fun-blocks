@@ -8,14 +8,14 @@ import androidx.compose.runtime.setValue
 import cafe.adriel.voyager.core.screen.Screen
 import compose.icons.TablerIcons
 import compose.icons.tablericons.CircleDashed
-import me.lincolnstuart.funblocks.essentials.core.text.Text
-import me.lincolnstuart.funblocks.essentials.form.button.Button
-import me.lincolnstuart.funblocks.essentials.form.button.utils.ButtonMode
-import me.lincolnstuart.funblocks.essentials.form.button.utils.ButtonOptions
-import me.lincolnstuart.funblocks.essentials.form.button.utils.ButtonType
-import me.lincolnstuart.funblocks.essentials.form.radiobutton.RadioButtonGroup
-import me.lincolnstuart.funblocks.essentials.form.switchbutton.SwitchButtonOption
-import me.lincolnstuart.funblocks.essentials.misc.accordion.Accordion
+import me.lincolnstuart.funblocks.components.core.text.Text
+import me.lincolnstuart.funblocks.components.form.button.Button
+import me.lincolnstuart.funblocks.components.form.button.utils.ButtonMode
+import me.lincolnstuart.funblocks.components.form.button.utils.ButtonOptions
+import me.lincolnstuart.funblocks.components.form.button.utils.ButtonType
+import me.lincolnstuart.funblocks.components.form.radiobutton.RadioButtonGroup
+import me.lincolnstuart.funblocks.components.form.switchbutton.SwitchButtonOption
+import me.lincolnstuart.funblocks.components.misc.accordion.Accordion
 import me.lincolnstuart.funblocks.playground.components.Sample
 
 class SimpleButtonScreen : Screen {

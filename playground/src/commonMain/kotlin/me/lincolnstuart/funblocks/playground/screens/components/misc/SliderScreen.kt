@@ -6,7 +6,7 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import cafe.adriel.voyager.core.screen.Screen
-import me.lincolnstuart.funblocks.essentials.misc.slider.Slider
+import me.lincolnstuart.funblocks.components.misc.slider.Slider
 import me.lincolnstuart.funblocks.playground.components.Sample
 import kotlin.math.roundToInt
 
