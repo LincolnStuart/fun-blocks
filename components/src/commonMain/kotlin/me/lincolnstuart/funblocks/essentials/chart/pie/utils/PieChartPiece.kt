@@ -1,7 +1,6 @@
 package me.lincolnstuart.funblocks.essentials.chart.pie.utils
 
 import androidx.compose.ui.graphics.Color
-import java.math.BigDecimal
 
 /**
  * Data class that represents a portion of a pie/donut.
@@ -12,11 +11,11 @@ import java.math.BigDecimal
  */
 public data class PieChartPiece(
     val description: String,
-    val value: BigDecimal,
+    val value: Double,
     val color: Color
 ) {
-    fun getArea(totalValue: BigDecimal): BigDecimal =
-        BigDecimal(FULL_TURN_IN_DEGREES).multiply(value).divide(totalValue)
+    fun getArea(totalValue: Double): Double =
+        FULL_TURN_IN_DEGREES.toDouble() * value / totalValue
 
     private companion object {
         const val FULL_TURN_IN_DEGREES: Int = 360

@@ -7,7 +7,6 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
 import me.lincolnstuart.funblocks.essentials.core.helper.Counter
 import me.lincolnstuart.funblocks.essentials.core.spacer.HorizontalSpacer
 import me.lincolnstuart.funblocks.essentials.core.spacer.VerticalSpacer
@@ -51,7 +50,7 @@ public fun CounterNotification(
     }
 }
 
-@Preview
+// @Preview
 @Composable
 private fun NotificationCounterPreview() {
     FunBlocksTheme {

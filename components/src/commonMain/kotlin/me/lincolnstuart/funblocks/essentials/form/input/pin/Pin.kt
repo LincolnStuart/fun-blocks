@@ -10,7 +10,6 @@ import androidx.compose.foundation.text.BasicTextField
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
 import me.lincolnstuart.funblocks.essentials.core.surface.Surface
 import me.lincolnstuart.funblocks.essentials.core.text.Text
 import me.lincolnstuart.funblocks.essentials.core.text.utils.TextMode
@@ -90,7 +89,7 @@ private fun sanitizeValue(
         value
     }
 
-@Preview
+// @Preview
 @Composable
 private fun PinPreview() {
     FunBlocksTheme {

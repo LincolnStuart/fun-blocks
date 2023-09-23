@@ -11,7 +11,6 @@ import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
-import androidx.compose.ui.tooling.preview.Preview
 import compose.icons.TablerIcons
 import compose.icons.tablericons.Minus
 import compose.icons.tablericons.Plus
@@ -111,7 +110,7 @@ private fun IncrementerOptions.getPlusColor(value: Int) = if (value < maxValue) 
     FunBlocksColors.NeutralLight
 }
 
-@Preview
+// @Preview
 @Composable
 private fun IncrementerPreview() {
     FunBlocksTheme {

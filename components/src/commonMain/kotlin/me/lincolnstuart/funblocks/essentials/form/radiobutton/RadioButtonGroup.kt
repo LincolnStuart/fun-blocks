@@ -5,7 +5,6 @@ import androidx.compose.foundation.layout.ColumnScope
 import androidx.compose.foundation.layout.padding
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
 import me.lincolnstuart.funblocks.essentials.core.helper.SelectableItem
 import me.lincolnstuart.funblocks.essentials.core.surface.Surface
 import me.lincolnstuart.funblocks.essentials.core.text.Text
@@ -47,7 +46,7 @@ public fun <T> RadioButtonGroup(
     }
 }
 
-@Preview
+// @Preview
 @Composable
 private fun RadioButtonGroupPreview() {
     FunBlocksTheme {

@@ -10,7 +10,6 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
 import kotlinx.coroutines.delay
 import me.lincolnstuart.funblocks.essentials.core.helper.clickable.Clickable
 import me.lincolnstuart.funblocks.essentials.core.helper.clickable.utils.ClickableOptions
@@ -68,7 +67,7 @@ public fun TimerButton(
     )
 }
 
-@Preview
+// @Preview
 @Composable
 private fun TimerButtonPreview() {
     FunBlocksTheme {

@@ -23,8 +23,12 @@ android {
 
     buildTypes {
         release {
-            isMinifyEnabled = true
-            isShrinkResources = true
+            // TODO solve r8 problem
+            // Caused by: [CIRCULAR REFERENCE: java.lang.NullPointerException: Cannot invoke
+            // "com.android.tools.r8.internal.x4.D()" because the return value of
+            // "com.android.tools.r8.internal.U10.h()" is null]
+            isMinifyEnabled = false
+            isShrinkResources = false
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"

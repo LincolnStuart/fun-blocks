@@ -19,7 +19,6 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
-import androidx.compose.ui.tooling.preview.Preview
 import compose.icons.TablerIcons
 import compose.icons.tablericons.ArrowLeft
 import compose.icons.tablericons.ArrowRight
@@ -46,22 +45,18 @@ import me.lincolnstuart.funblocks.foundation.ui.theme.FunBlocksTheme
 import me.lincolnstuart.funblocks.foundation.ui.token.color.FunBlocksColors
 import me.lincolnstuart.funblocks.foundation.ui.token.content.border.FunBlocksBorderWidth
 import me.lincolnstuart.funblocks.foundation.ui.token.content.spacing.FunBlocksSpacing
-import java.time.format.TextStyle
-import java.util.Locale
 
 /**
  * Basic calendar based on [LocalDate] that could select only one date.
  *
  * @param reference month and year to setup the first view.
  * @param selectionType [CalendarSelectionType] with previous selected.
- * @param locale client locale.
  * @param onSelectDate callback to return which [LocalDate] was selected.
  */
 @Composable
 public fun Calendar(
     reference: LocalDate,
     selectionType: CalendarSelectionType,
-    locale: Locale = Locale.getDefault(),
     onSelectDate: (type: CalendarSelectionType) -> Unit
 ) {
     var referenceState by remember(reference) {
@@ -70,12 +65,10 @@ public fun Calendar(
     Column {
         CalendarHeader(
             reference = referenceState,
-            locale = locale,
             onNextMonthClick = { referenceState += DatePeriod(months = 1) },
             onPreviousMonthClick = { referenceState -= DatePeriod(months = 1) }
         )
         CalendarBody(
-            locale = locale,
             selectionType = selectionType,
             reference = referenceState,
             onSelectDate = onSelectDate
@@ -86,14 +79,12 @@ public fun Calendar(
 /**
  * Calendar body with all dates from reference month chunked by weeks
  *
- * @param locale client locale.
  * @param selectionType [CalendarSelectionType] with previous selected.
  * @param reference month and year to setup the first view.
  * @param onSelectDate callback to return which [LocalDate] was selected.
  */
 @Composable
 private fun CalendarBody(
-    locale: Locale,
     selectionType: CalendarSelectionType,
     reference: LocalDate,
     onSelectDate: (type: CalendarSelectionType) -> Unit
@@ -105,7 +96,7 @@ private fun CalendarBody(
         modifier = Modifier.fillMaxWidth()
     ) {
         MonthSnapshot.sortedDayOfWeekValues().forEach { day ->
-            DayName(description = day.getDisplayName(TextStyle.NARROW, locale))
+            DayName(description = day.name.first().uppercase())
         }
     }
     monthSnapshot.keys.forEach { key ->
@@ -126,19 +117,17 @@ private fun CalendarBody(
  * Calendar header with reference month and year, next and previous buttons and all week days names.
  *
  * @param reference month and year to setup the first view.
- * @param locale client locale.
  * @param onNextMonthClick callback to execute an action when next icon is clicked.
  * @param onPreviousMonthClick callback to execute an action when previous icon is clicked.
  */
 @Composable
 private fun CalendarHeader(
     reference: LocalDate,
-    locale: Locale,
     onNextMonthClick: () -> Unit,
     onPreviousMonthClick: () -> Unit
 ) {
-    val yearMonthDescription = remember(reference, locale) {
-        "${reference.year} - ${reference.month.getDisplayName(TextStyle.FULL, locale)}"
+    val yearMonthDescription = remember(reference) {
+        "${reference.year} - ${reference.month.name}"
     }
     Row(
         modifier = Modifier
@@ -312,7 +301,7 @@ private fun RowScope.SelectionIndicator(
     }
 }
 
-@Preview
+// @Preview
 @Composable
 private fun CalendarPreview() {
     FunBlocksTheme {

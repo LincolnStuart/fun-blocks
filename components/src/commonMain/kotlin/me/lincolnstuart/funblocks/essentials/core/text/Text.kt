@@ -11,7 +11,6 @@ import androidx.compose.ui.text.TextLayoutResult
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.text.style.TextOverflow
-import androidx.compose.ui.tooling.preview.Preview
 import me.lincolnstuart.funblocks.essentials.core.surface.Surface
 import me.lincolnstuart.funblocks.essentials.core.text.utils.TextMode
 import me.lincolnstuart.funblocks.foundation.ui.theme.FunBlocksTheme
@@ -125,7 +124,7 @@ public fun Text(
     )
 }
 
-@Preview
+// @Preview
 @Composable
 private fun TextPreview() {
     FunBlocksTheme {

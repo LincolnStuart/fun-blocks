@@ -41,6 +41,23 @@ kotlin {
             kotlinOptions.jvmTarget = AndroidBuild.jvmTarget
         }
     }
+
+    jvm()
+
+    ios()
+    iosSimulatorArm64()
+
+    listOf(
+        iosX64(),
+        iosArm64(),
+        iosSimulatorArm64()
+    ).forEach {
+        it.binaries.framework {
+            baseName = moduleName
+            isStatic = true
+        }
+    }
+
     sourceSets {
         val commonMain by getting {
             dependencies {
@@ -50,16 +67,21 @@ kotlin {
                 implementation(compose.material)
                 @OptIn(org.jetbrains.compose.ExperimentalComposeLibrary::class)
                 implementation(compose.components.resources)
-                implementation(compose.uiTooling)
+                // implementation(compose.uiTooling)
                 implementation(libs.compose.icons)
                 implementation(libs.kamel)
                 implementation(libs.kotlinx.datetime)
                 implementation(projects.foundation)
             }
         }
-        val androidMain by getting {
+        val jvmMain by getting {
             dependencies {
-                implementation(libs.ktor.client.android)
+                implementation(libs.ktor.client.okhttp)
+            }
+        }
+        val iosMain by getting {
+            dependencies {
+                implementation(libs.ktor.client.darwin)
             }
         }
     }

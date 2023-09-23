@@ -12,7 +12,6 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.tooling.preview.Preview
 import me.lincolnstuart.funblocks.essentials.core.spacer.HorizontalSpacer
 import me.lincolnstuart.funblocks.essentials.core.spacer.VerticalSpacer
 import me.lincolnstuart.funblocks.essentials.misc.avatar.Avatar
@@ -50,7 +49,7 @@ public fun IndicatorNotification(
     }
 }
 
-@Preview
+// @Preview
 @Composable
 private fun NotificationIndicatorPreview() {
     FunBlocksTheme {

@@ -14,8 +14,6 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.text.style.TextOverflow
-import androidx.compose.ui.tooling.preview.Preview
-import androidx.compose.ui.tooling.preview.datasource.LoremIpsum
 import compose.icons.TablerIcons
 import compose.icons.tablericons.X
 import me.lincolnstuart.funblocks.essentials.core.icon.Icon
@@ -125,7 +123,7 @@ private fun Header(
     }
 }
 
-@Preview
+// @Preview
 @Composable
 private fun AlertPreview() {
     FunBlocksTheme {
@@ -133,13 +131,13 @@ private fun AlertPreview() {
             Column(modifier = Modifier.padding(FunBlocksSpacing.small)) {
                 Alert(
                     title = "Info",
-                    message = LoremIpsum(words = 25).values.first(),
+                    message = "test", // LoremIpsum(words = 25).values.first(),
                     closeOptions = AlertCloseOptions(onClose = {})
                 )
                 VerticalSpacer(height = FunBlocksSpacing.small)
                 Alert(
                     title = "Info",
-                    message = LoremIpsum(words = 25).values.first(),
+                    message = "test", // LoremIpsum(words = 25).values.first(),
                     closeOptions = AlertCloseOptions(onClose = {})
                 )
                 VerticalSpacer(height = FunBlocksSpacing.small)
@@ -154,21 +152,21 @@ private fun AlertPreview() {
                 VerticalSpacer(height = FunBlocksSpacing.small)
                 Alert(
                     title = "Warning",
-                    message = LoremIpsum(words = 25).values.first(),
+                    message = "test", // LoremIpsum(words = 25).values.first(),
                     mode = AlertMode.Warning,
                     closeOptions = AlertCloseOptions(onClose = {})
                 )
                 VerticalSpacer(height = FunBlocksSpacing.small)
                 Alert(
                     title = "Success",
-                    message = LoremIpsum(words = 25).values.first(),
+                    message = "test", // LoremIpsum(words = 25).values.first(),
                     mode = AlertMode.Success,
                     closeOptions = AlertCloseOptions(onClose = {})
                 )
                 VerticalSpacer(height = FunBlocksSpacing.small)
                 Alert(
                     title = "Error",
-                    message = LoremIpsum(words = 25).values.first(),
+                    message = "test", // LoremIpsum(words = 25).values.first(),
                     mode = AlertMode.Error,
                     closeOptions = AlertCloseOptions(onClose = {})
                 )

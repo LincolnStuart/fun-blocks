@@ -19,7 +19,6 @@ import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.input.VisualTransformation
-import androidx.compose.ui.tooling.preview.Preview
 import compose.icons.TablerIcons
 import compose.icons.tablericons.X
 import me.lincolnstuart.funblocks.essentials.core.icon.Icon
@@ -177,7 +176,7 @@ private fun RowScope.ClearOption(
     }
 }
 
-@Preview
+// @Preview
 @Composable
 private fun InputTextPreview() {
     FunBlocksTheme {

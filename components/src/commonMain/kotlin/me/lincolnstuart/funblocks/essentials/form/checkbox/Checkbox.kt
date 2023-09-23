@@ -13,7 +13,6 @@ import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
-import androidx.compose.ui.tooling.preview.Preview
 import compose.icons.TablerIcons
 import compose.icons.tablericons.Check
 import me.lincolnstuart.funblocks.essentials.core.icon.Icon
@@ -76,7 +75,7 @@ public fun Checkbox(
     }
 }
 
-@Preview
+// @Preview
 @Composable
 private fun CheckboxPreview() {
     FunBlocksTheme {

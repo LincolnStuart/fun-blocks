@@ -8,7 +8,6 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
-import androidx.compose.ui.tooling.preview.Preview
 import compose.icons.TablerIcons
 import compose.icons.tablericons.Star
 import me.lincolnstuart.funblocks.essentials.core.icon.Icon
@@ -67,7 +66,7 @@ public fun Rating(
     }
 }
 
-@Preview
+// @Preview
 @Composable
 private fun RatingPreview() {
     FunBlocksTheme {
