@@ -44,6 +44,7 @@ class HomeScreen : Screen {
                     horizontalAlignment = Alignment.CenterHorizontally,
                     verticalArrangement = spacedBy(FunBlocksSpacing.xxSmall)
                 ) {
+                    // TODO fix image reference from resources
                     Image(
                         imageVector = resource("images/fun_blocks.webp")
                             .rememberImageVector(LocalDensity.current)
