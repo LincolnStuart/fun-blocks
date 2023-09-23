@@ -2,7 +2,7 @@ package me.lincolnstuart.funblocks.playground.screens.components.misc
 
 import androidx.compose.runtime.Composable
 import cafe.adriel.voyager.core.screen.Screen
-import me.lincolnstuart.funblocks.essentials.misc.banner.Banner
+import me.lincolnstuart.funblocks.components.misc.banner.Banner
 import me.lincolnstuart.funblocks.playground.components.Sample
 
 class BannerScreen : Screen {

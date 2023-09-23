@@ -8,9 +8,9 @@ import androidx.compose.runtime.setValue
 import cafe.adriel.voyager.core.screen.Screen
 import compose.icons.TablerIcons
 import compose.icons.tablericons.CircleDashed
-import me.lincolnstuart.funblocks.essentials.form.switchbutton.SwitchButtonOption
-import me.lincolnstuart.funblocks.essentials.misc.chip.Chip
-import me.lincolnstuart.funblocks.essentials.misc.chip.utils.ChipOptions
+import me.lincolnstuart.funblocks.components.form.switchbutton.SwitchButtonOption
+import me.lincolnstuart.funblocks.components.misc.chip.Chip
+import me.lincolnstuart.funblocks.components.misc.chip.utils.ChipOptions
 import me.lincolnstuart.funblocks.playground.components.Sample
 
 class ChipScreen : Screen {

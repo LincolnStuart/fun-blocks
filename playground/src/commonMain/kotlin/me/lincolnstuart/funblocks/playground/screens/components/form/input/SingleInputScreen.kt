@@ -6,8 +6,8 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import cafe.adriel.voyager.core.screen.Screen
-import me.lincolnstuart.funblocks.essentials.form.input.Input
-import me.lincolnstuart.funblocks.essentials.form.switchbutton.SwitchButtonOption
+import me.lincolnstuart.funblocks.components.form.input.Input
+import me.lincolnstuart.funblocks.components.form.switchbutton.SwitchButtonOption
 import me.lincolnstuart.funblocks.playground.components.Sample
 
 class SingleInputScreen : Screen {

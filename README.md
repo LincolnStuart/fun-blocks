@@ -52,6 +52,5 @@ It's recommended for `POCs`, `studies` and even `production`!
 
 
 ## Next Steps
-- Add iOS Support.
 - Publish lib on Maven.
 - Publish the playground on [Google Play Store](https://play.google.com/).
