@@ -12,10 +12,11 @@ import compose.icons.TablerIcons
 import compose.icons.tablericons.ArrowLeft
 import me.lincolnstuart.funblocks.components.core.appbar.utils.AppBarAction
 import me.lincolnstuart.funblocks.components.core.appbar.utils.AppBarOptions
+import me.lincolnstuart.funblocks.components.core.screenplan.ScreenPlan
 import me.lincolnstuart.funblocks.components.core.text.Text
 import me.lincolnstuart.funblocks.components.core.text.utils.TextMode
 import me.lincolnstuart.funblocks.components.misc.slider.Slider
-import me.lincolnstuart.funblocks.playground.components.Sample
+import me.lincolnstuart.funblocks.playground.components.ComponentCentralizer
 import kotlin.math.roundToInt
 
 class SliderScreen : Screen {
@@ -26,20 +27,22 @@ class SliderScreen : Screen {
         var percent by remember {
             mutableStateOf(value = 70f)
         }
-        Sample(
+        ScreenPlan(
             appBarOptions = AppBarOptions(
                 mainContent = { Text(text = "Rating", mode = TextMode.Subtitle()) },
                 mainAction = AppBarAction(icon = TablerIcons.ArrowLeft, description = null) {
                     navigator.pop()
                 }
             ),
-            component = {
-                Slider(
-                    percent = percent,
-                    description = { "${it.roundToInt()}%" },
-                    onPercentChange = { percent = it }
-                )
+            mainContent = {
+                ComponentCentralizer {
+                    Slider(
+                        percent = percent,
+                        description = { "${it.roundToInt()}%" },
+                        onPercentChange = { percent = it }
+                    )
+                }
             }
-        ) {}
+        )
     }
 }

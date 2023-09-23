@@ -14,19 +14,19 @@ import cafe.adriel.voyager.core.screen.Screen
 import cafe.adriel.voyager.navigator.LocalNavigator
 import cafe.adriel.voyager.navigator.currentOrThrow
 import compose.icons.TablerIcons
-import compose.icons.tablericons.Adjustments
 import compose.icons.tablericons.BrandGithub
 import compose.icons.tablericons.BuildingBridge2
-import me.lincolnstuart.funblocks.components.core.bottomnavigator.BottomNavigator
+import compose.icons.tablericons.ColorSwatch
 import me.lincolnstuart.funblocks.components.core.bottomnavigator.utils.BottomNavigationItemAction
 import me.lincolnstuart.funblocks.components.core.bottomnavigator.utils.BottomNavigatorOptions
+import me.lincolnstuart.funblocks.components.core.screenplan.ScreenPlan
 import me.lincolnstuart.funblocks.components.core.text.Text
 import me.lincolnstuart.funblocks.components.core.text.utils.TextMode
 import me.lincolnstuart.funblocks.components.misc.chip.Chip
 import me.lincolnstuart.funblocks.components.misc.chip.utils.ChipOptions
 import me.lincolnstuart.funblocks.foundation.ui.token.content.size.FunBlocksContentSize
 import me.lincolnstuart.funblocks.foundation.ui.token.content.spacing.FunBlocksSpacing
-import me.lincolnstuart.funblocks.playground.components.Sample
+import me.lincolnstuart.funblocks.playground.components.ComponentCentralizer
 import me.lincolnstuart.funblocks.playground.screens.components.HomeComponentsScreen
 import me.lincolnstuart.funblocks.playground.screens.tokens.HomeTokensScreen
 import org.jetbrains.compose.resources.ExperimentalResourceApi
@@ -41,48 +41,50 @@ class HomeScreen : Screen {
     override fun Content() {
         val navigator = LocalNavigator.currentOrThrow
         val uriHandler = LocalUriHandler.current
-        Sample(
-            component = {
-                Column(
-                    modifier = Modifier.fillMaxWidth(),
-                    horizontalAlignment = Alignment.CenterHorizontally,
-                    verticalArrangement = spacedBy(FunBlocksSpacing.xxSmall)
-                ) {
-                    // TODO fix image reference from resources
-                    Image(
-                        imageVector = resource("images/fun_blocks.webp")
-                            .rememberImageVector(LocalDensity.current)
-                            .orEmpty(),
-                        contentDescription = "Fun Blocks Brand",
-                        modifier = Modifier.height(FunBlocksContentSize.huge)
+        ScreenPlan(
+            bottomNavigationOptions = BottomNavigatorOptions(
+                items =
+                listOf(
+                    BottomNavigationItemAction(
+                        icon = TablerIcons.ColorSwatch,
+                        label = "Tokens",
+                        callback = { navigator.push(HomeTokensScreen()) }
+                    ),
+                    BottomNavigationItemAction(
+                        icon = TablerIcons.BuildingBridge2,
+                        label = "Components",
+                        callback = { navigator.push(HomeComponentsScreen()) }
                     )
-                    Text(text = "Fun Blocks Playground", mode = TextMode.Title())
-                    Chip(
-                        description = "Repo",
-                        options = ChipOptions(isSelected = true, endIcon = TablerIcons.BrandGithub)
+                )
+            ),
+            mainContent = {
+                ComponentCentralizer {
+                    Column(
+                        modifier = Modifier.fillMaxWidth(),
+                        horizontalAlignment = Alignment.CenterHorizontally,
+                        verticalArrangement = spacedBy(FunBlocksSpacing.xxSmall)
                     ) {
-                        uriHandler.openUri("https://github.com/LincolnStuart/fun-blocks")
+                        // TODO fix image reference from resources
+                        Image(
+                            imageVector = resource("images/fun_blocks.webp")
+                                .rememberImageVector(LocalDensity.current)
+                                .orEmpty(),
+                            contentDescription = "Fun Blocks Brand",
+                            modifier = Modifier.height(FunBlocksContentSize.huge)
+                        )
+                        Text(text = "Fun Blocks Playground", mode = TextMode.Title())
+                        Chip(
+                            description = "Repo",
+                            options = ChipOptions(
+                                isSelected = true,
+                                endIcon = TablerIcons.BrandGithub
+                            )
+                        ) {
+                            uriHandler.openUri("https://github.com/LincolnStuart/fun-blocks")
+                        }
                     }
                 }
             }
-        ) {
-            BottomNavigator(
-                options = BottomNavigatorOptions(
-                    items =
-                    listOf(
-                        BottomNavigationItemAction(
-                            icon = TablerIcons.Adjustments,
-                            label = "Tokens",
-                            callback = { navigator.push(HomeTokensScreen()) }
-                        ),
-                        BottomNavigationItemAction(
-                            icon = TablerIcons.BuildingBridge2,
-                            label = "Components",
-                            callback = { navigator.push(HomeComponentsScreen()) }
-                        )
-                    )
-                )
-            )
-        }
+        )
     }
 }

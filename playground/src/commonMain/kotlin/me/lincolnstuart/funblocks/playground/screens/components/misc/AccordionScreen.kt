@@ -12,37 +12,40 @@ import compose.icons.TablerIcons
 import compose.icons.tablericons.ArrowLeft
 import me.lincolnstuart.funblocks.components.core.appbar.utils.AppBarAction
 import me.lincolnstuart.funblocks.components.core.appbar.utils.AppBarOptions
+import me.lincolnstuart.funblocks.components.core.screenplan.ScreenPlan
 import me.lincolnstuart.funblocks.components.core.text.Text
 import me.lincolnstuart.funblocks.components.core.text.utils.TextMode
 import me.lincolnstuart.funblocks.components.misc.accordion.Accordion
 import me.lincolnstuart.funblocks.components.misc.alert.Alert
 import me.lincolnstuart.funblocks.components.misc.alert.utils.AlertMode
 import me.lincolnstuart.funblocks.foundation.ui.token.content.spacing.FunBlocksSpacing
-import me.lincolnstuart.funblocks.playground.components.Sample
+import me.lincolnstuart.funblocks.playground.components.ComponentCentralizer
 
 class AccordionScreen : Screen {
 
     @Composable
     override fun Content() {
         val navigator = LocalNavigator.currentOrThrow
-        Sample(
+        ScreenPlan(
             appBarOptions = AppBarOptions(
                 mainContent = { Text(text = "Accordion", mode = TextMode.Subtitle()) },
                 mainAction = AppBarAction(icon = TablerIcons.ArrowLeft, description = null) {
                     navigator.pop()
                 }
             ),
-            component = {
-                Accordion(title = "Accordion") {
-                    Box(
-                        Modifier
-                            .fillMaxWidth()
-                            .padding(FunBlocksSpacing.small)
-                    ) {
-                        Alert(title = "Content inside", mode = AlertMode.Warning)
+            mainContent = {
+                ComponentCentralizer {
+                    Accordion(title = "Accordion") {
+                        Box(
+                            Modifier
+                                .fillMaxWidth()
+                                .padding(FunBlocksSpacing.small)
+                        ) {
+                            Alert(title = "Content inside", mode = AlertMode.Warning)
+                        }
                     }
                 }
             }
-        ) {}
+        )
     }
 }

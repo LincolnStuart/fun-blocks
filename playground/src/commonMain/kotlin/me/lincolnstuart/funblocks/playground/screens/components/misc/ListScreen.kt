@@ -12,12 +12,13 @@ import compose.icons.TablerIcons
 import compose.icons.tablericons.ArrowLeft
 import me.lincolnstuart.funblocks.components.core.appbar.utils.AppBarAction
 import me.lincolnstuart.funblocks.components.core.appbar.utils.AppBarOptions
+import me.lincolnstuart.funblocks.components.core.screenplan.ScreenPlan
 import me.lincolnstuart.funblocks.components.core.text.Text
 import me.lincolnstuart.funblocks.components.core.text.utils.TextMode
 import me.lincolnstuart.funblocks.components.form.radiobutton.RadioButtonGroup
 import me.lincolnstuart.funblocks.components.misc.accordion.Accordion
 import me.lincolnstuart.funblocks.components.misc.list.utils.ListMode
-import me.lincolnstuart.funblocks.playground.components.Sample
+import me.lincolnstuart.funblocks.playground.components.ComponentCentralizer
 
 class ListScreen : Screen {
 
@@ -27,18 +28,20 @@ class ListScreen : Screen {
         var mode: ListMode by remember {
             mutableStateOf(ListMode.Bulleted)
         }
-        Sample(
+        ScreenPlan(
             appBarOptions = AppBarOptions(
                 mainContent = { Text(text = "List", mode = TextMode.Subtitle()) },
                 mainAction = AppBarAction(icon = TablerIcons.ArrowLeft, description = null) {
                     navigator.pop()
                 }
             ),
-            component = {
-                me.lincolnstuart.funblocks.components.misc.list.List(
-                    topics = listOf("Kotlin", "Android", "Jetpack Compose"),
-                    mode = mode
-                )
+            mainContent = {
+                ComponentCentralizer {
+                    me.lincolnstuart.funblocks.components.misc.list.List(
+                        topics = listOf("Kotlin", "Android", "Jetpack Compose"),
+                        mode = mode
+                    )
+                }
             }
         ) {
             Accordion(title = "Mode") {

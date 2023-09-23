@@ -12,13 +12,14 @@ import compose.icons.TablerIcons
 import compose.icons.tablericons.ArrowLeft
 import me.lincolnstuart.funblocks.components.core.appbar.utils.AppBarAction
 import me.lincolnstuart.funblocks.components.core.appbar.utils.AppBarOptions
+import me.lincolnstuart.funblocks.components.core.screenplan.ScreenPlan
 import me.lincolnstuart.funblocks.components.core.text.Text
 import me.lincolnstuart.funblocks.components.core.text.utils.TextMode
 import me.lincolnstuart.funblocks.components.form.radiobutton.RadioButtonGroup
 import me.lincolnstuart.funblocks.components.misc.accordion.Accordion
 import me.lincolnstuart.funblocks.components.misc.divider.HorizontalDivider
 import me.lincolnstuart.funblocks.components.misc.divider.utils.HorizontalDividerMode
-import me.lincolnstuart.funblocks.playground.components.Sample
+import me.lincolnstuart.funblocks.playground.components.ComponentCentralizer
 
 class HorizontalDividerScreen : Screen {
 
@@ -28,14 +29,18 @@ class HorizontalDividerScreen : Screen {
         var mode: HorizontalDividerMode by remember {
             mutableStateOf(HorizontalDividerMode.Solid)
         }
-        Sample(
+        ScreenPlan(
             appBarOptions = AppBarOptions(
                 mainContent = { Text(text = "HorizontalDivider", mode = TextMode.Subtitle()) },
                 mainAction = AppBarAction(icon = TablerIcons.ArrowLeft, description = null) {
                     navigator.pop()
                 }
             ),
-            component = { HorizontalDivider(mode = mode) }
+            mainContent = {
+                ComponentCentralizer {
+                    HorizontalDivider(mode = mode)
+                }
+            }
         ) {
             Accordion(title = "Mode") {
                 RadioButtonGroup(

@@ -12,11 +12,12 @@ import compose.icons.TablerIcons
 import compose.icons.tablericons.ArrowLeft
 import me.lincolnstuart.funblocks.components.core.appbar.utils.AppBarAction
 import me.lincolnstuart.funblocks.components.core.appbar.utils.AppBarOptions
+import me.lincolnstuart.funblocks.components.core.screenplan.ScreenPlan
 import me.lincolnstuart.funblocks.components.core.text.Text
 import me.lincolnstuart.funblocks.components.core.text.utils.TextMode
 import me.lincolnstuart.funblocks.components.form.input.pin.Pin
 import me.lincolnstuart.funblocks.components.form.switchbutton.SwitchButtonOption
-import me.lincolnstuart.funblocks.playground.components.Sample
+import me.lincolnstuart.funblocks.playground.components.ComponentCentralizer
 
 class PinScreen : Screen {
 
@@ -32,22 +33,24 @@ class PinScreen : Screen {
         var inputValue by remember {
             mutableStateOf("")
         }
-        Sample(
+        ScreenPlan(
             appBarOptions = AppBarOptions(
                 mainContent = { Text(text = "Pin", mode = TextMode.Subtitle()) },
                 mainAction = AppBarAction(icon = TablerIcons.ArrowLeft, description = null) {
                     navigator.pop()
                 }
             ),
-            component = {
-                Pin(
-                    value = inputValue,
-                    onValueChange = { inputValue = it },
-                    label = "Pin",
-                    error = error,
-                    isCharactersHide = isCharactersShowed.not(),
-                    size = 6
-                )
+            mainContent = {
+                ComponentCentralizer {
+                    Pin(
+                        value = inputValue,
+                        onValueChange = { inputValue = it },
+                        label = "Pin",
+                        error = error,
+                        isCharactersHide = isCharactersShowed.not(),
+                        size = 6
+                    )
+                }
             }
         ) {
             SwitchButtonOption(

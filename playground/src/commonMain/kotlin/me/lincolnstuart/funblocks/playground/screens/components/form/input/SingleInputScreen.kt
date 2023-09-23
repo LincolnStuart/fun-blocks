@@ -12,11 +12,12 @@ import compose.icons.TablerIcons
 import compose.icons.tablericons.ArrowLeft
 import me.lincolnstuart.funblocks.components.core.appbar.utils.AppBarAction
 import me.lincolnstuart.funblocks.components.core.appbar.utils.AppBarOptions
+import me.lincolnstuart.funblocks.components.core.screenplan.ScreenPlan
 import me.lincolnstuart.funblocks.components.core.text.Text
 import me.lincolnstuart.funblocks.components.core.text.utils.TextMode
 import me.lincolnstuart.funblocks.components.form.input.Input
 import me.lincolnstuart.funblocks.components.form.switchbutton.SwitchButtonOption
-import me.lincolnstuart.funblocks.playground.components.Sample
+import me.lincolnstuart.funblocks.playground.components.ComponentCentralizer
 
 class SingleInputScreen : Screen {
 
@@ -35,23 +36,25 @@ class SingleInputScreen : Screen {
         var inputValue by remember {
             mutableStateOf("")
         }
-        Sample(
+        ScreenPlan(
             appBarOptions = AppBarOptions(
                 mainContent = { Text(text = "SingleInput", mode = TextMode.Subtitle()) },
                 mainAction = AppBarAction(icon = TablerIcons.ArrowLeft, description = null) {
                     navigator.pop()
                 }
             ),
-            component = {
-                Input(
-                    value = inputValue,
-                    onValueChange = { inputValue = it },
-                    label = "Input",
-                    placeholder = "Enter your input",
-                    enabled = enabled,
-                    readOnly = readOnly,
-                    error = error
-                )
+            mainContent = {
+                ComponentCentralizer {
+                    Input(
+                        value = inputValue,
+                        onValueChange = { inputValue = it },
+                        label = "Input",
+                        placeholder = "Enter your input",
+                        enabled = enabled,
+                        readOnly = readOnly,
+                        error = error
+                    )
+                }
             }
         ) {
             SwitchButtonOption(

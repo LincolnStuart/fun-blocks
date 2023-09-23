@@ -13,6 +13,7 @@ import compose.icons.tablericons.ArrowLeft
 import compose.icons.tablericons.CircleDashed
 import me.lincolnstuart.funblocks.components.core.appbar.utils.AppBarAction
 import me.lincolnstuart.funblocks.components.core.appbar.utils.AppBarOptions
+import me.lincolnstuart.funblocks.components.core.screenplan.ScreenPlan
 import me.lincolnstuart.funblocks.components.core.text.Text
 import me.lincolnstuart.funblocks.components.core.text.utils.TextMode
 import me.lincolnstuart.funblocks.components.form.button.Button
@@ -22,7 +23,7 @@ import me.lincolnstuart.funblocks.components.form.button.utils.ButtonType
 import me.lincolnstuart.funblocks.components.form.radiobutton.RadioButtonGroup
 import me.lincolnstuart.funblocks.components.form.switchbutton.SwitchButtonOption
 import me.lincolnstuart.funblocks.components.misc.accordion.Accordion
-import me.lincolnstuart.funblocks.playground.components.Sample
+import me.lincolnstuart.funblocks.playground.components.ComponentCentralizer
 
 class SimpleButtonScreen : Screen {
 
@@ -32,14 +33,18 @@ class SimpleButtonScreen : Screen {
         var options by remember {
             mutableStateOf(ButtonOptions(isEnabled = false))
         }
-        Sample(
+        ScreenPlan(
             appBarOptions = AppBarOptions(
                 mainContent = { Text(text = "SimpleButton", mode = TextMode.Subtitle()) },
                 mainAction = AppBarAction(icon = TablerIcons.ArrowLeft, description = null) {
                     navigator.pop()
                 }
             ),
-            component = { Button(description = "Button", options = options) {} }
+            mainContent = {
+                ComponentCentralizer {
+                    Button(description = "Button", options = options) {}
+                }
+            }
         ) {
             Accordion(title = "Mode") {
                 RadioButtonGroup(

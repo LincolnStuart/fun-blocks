@@ -12,6 +12,7 @@ import compose.icons.TablerIcons
 import compose.icons.tablericons.ArrowLeft
 import me.lincolnstuart.funblocks.components.core.appbar.utils.AppBarAction
 import me.lincolnstuart.funblocks.components.core.appbar.utils.AppBarOptions
+import me.lincolnstuart.funblocks.components.core.screenplan.ScreenPlan
 import me.lincolnstuart.funblocks.components.core.text.Text
 import me.lincolnstuart.funblocks.components.core.text.utils.TextMode
 import me.lincolnstuart.funblocks.components.form.button.timer.TimerButton
@@ -20,7 +21,7 @@ import me.lincolnstuart.funblocks.components.form.button.utils.ButtonMode
 import me.lincolnstuart.funblocks.components.form.button.utils.ButtonType
 import me.lincolnstuart.funblocks.components.form.radiobutton.RadioButtonGroup
 import me.lincolnstuart.funblocks.components.misc.accordion.Accordion
-import me.lincolnstuart.funblocks.playground.components.Sample
+import me.lincolnstuart.funblocks.playground.components.ComponentCentralizer
 
 class TimerButtonScreen : Screen {
 
@@ -30,14 +31,18 @@ class TimerButtonScreen : Screen {
         var options by remember {
             mutableStateOf(TimerButtonOptions(blockingTimeInSeconds = 5))
         }
-        Sample(
+        ScreenPlan(
             appBarOptions = AppBarOptions(
                 mainContent = { Text(text = "TimerButton", mode = TextMode.Subtitle()) },
                 mainAction = AppBarAction(icon = TablerIcons.ArrowLeft, description = null) {
                     navigator.pop()
                 }
             ),
-            component = { TimerButton(description = "Button", options = options) {} }
+            mainContent = {
+                ComponentCentralizer {
+                    TimerButton(description = "Button", options = options) {}
+                }
+            }
         ) {
             Accordion(title = "Mode") {
                 RadioButtonGroup(

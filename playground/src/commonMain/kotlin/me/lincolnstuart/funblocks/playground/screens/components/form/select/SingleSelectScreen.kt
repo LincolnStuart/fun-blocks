@@ -13,12 +13,13 @@ import compose.icons.tablericons.ArrowLeft
 import me.lincolnstuart.funblocks.components.core.appbar.utils.AppBarAction
 import me.lincolnstuart.funblocks.components.core.appbar.utils.AppBarOptions
 import me.lincolnstuart.funblocks.components.core.helper.SelectableItem
+import me.lincolnstuart.funblocks.components.core.screenplan.ScreenPlan
 import me.lincolnstuart.funblocks.components.core.text.Text
 import me.lincolnstuart.funblocks.components.core.text.utils.TextMode
 import me.lincolnstuart.funblocks.components.form.select.SingleSelect
 import me.lincolnstuart.funblocks.components.form.switchbutton.SwitchButtonOption
 import me.lincolnstuart.funblocks.foundation.ui.token.content.spacing.FunBlocksInset
-import me.lincolnstuart.funblocks.playground.components.Sample
+import me.lincolnstuart.funblocks.playground.components.ComponentCentralizer
 
 class SingleSelectScreen : Screen {
 
@@ -45,30 +46,32 @@ class SingleSelectScreen : Screen {
                 "Dart"
             )
         }
-        Sample(
+        ScreenPlan(
             appBarOptions = AppBarOptions(
                 mainContent = { Text(text = "SingleSelect", mode = TextMode.Subtitle()) },
                 mainAction = AppBarAction(icon = TablerIcons.ArrowLeft, description = null) {
                     navigator.pop()
                 }
             ),
-            component = {
-                SingleSelect(
-                    selectedValue = selectedValue.value,
-                    onSelectValue = {
-                        selectedValue.value = it
-                    },
-                    options = options,
-                    mapToPresentation = {
-                        SelectableItem(description = it)
-                    },
-                    paddingValues = FunBlocksInset.medium,
-                    label = "Select a language",
-                    placeholder = "Enter your favourite language",
-                    enabled = enabled,
-                    readOnly = readOnly,
-                    error = error
-                )
+            mainContent = {
+                ComponentCentralizer {
+                    SingleSelect(
+                        selectedValue = selectedValue.value,
+                        onSelectValue = {
+                            selectedValue.value = it
+                        },
+                        options = options,
+                        mapToPresentation = {
+                            SelectableItem(description = it)
+                        },
+                        paddingValues = FunBlocksInset.medium,
+                        label = "Select a language",
+                        placeholder = "Enter your favourite language",
+                        enabled = enabled,
+                        readOnly = readOnly,
+                        error = error
+                    )
+                }
             }
         ) {
             SwitchButtonOption(

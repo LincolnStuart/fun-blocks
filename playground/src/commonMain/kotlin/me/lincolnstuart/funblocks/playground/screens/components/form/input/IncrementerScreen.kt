@@ -12,12 +12,13 @@ import compose.icons.TablerIcons
 import compose.icons.tablericons.ArrowLeft
 import me.lincolnstuart.funblocks.components.core.appbar.utils.AppBarAction
 import me.lincolnstuart.funblocks.components.core.appbar.utils.AppBarOptions
+import me.lincolnstuart.funblocks.components.core.screenplan.ScreenPlan
 import me.lincolnstuart.funblocks.components.core.text.Text
 import me.lincolnstuart.funblocks.components.core.text.utils.TextMode
 import me.lincolnstuart.funblocks.components.form.input.incrementer.Incrementer
 import me.lincolnstuart.funblocks.components.form.input.incrementer.utils.IncrementerOptions
 import me.lincolnstuart.funblocks.components.form.switchbutton.SwitchButtonOption
-import me.lincolnstuart.funblocks.playground.components.Sample
+import me.lincolnstuart.funblocks.playground.components.ComponentCentralizer
 
 class IncrementerScreen : Screen {
 
@@ -30,24 +31,26 @@ class IncrementerScreen : Screen {
         var inputValue by remember {
             mutableStateOf(value = 5)
         }
-        Sample(
+        ScreenPlan(
             appBarOptions = AppBarOptions(
                 mainContent = { Text(text = "Incrementer", mode = TextMode.Subtitle()) },
                 mainAction = AppBarAction(icon = TablerIcons.ArrowLeft, description = null) {
                     navigator.pop()
                 }
             ),
-            component = {
-                Incrementer(
-                    description = "Incrementer item",
-                    value = inputValue,
-                    onValueChange = { inputValue = it },
-                    options = IncrementerOptions(
-                        isResetAllowed = isResetAllowed,
-                        minValue = 0,
-                        maxValue = 10
+            mainContent = {
+                ComponentCentralizer {
+                    Incrementer(
+                        description = "Incrementer item",
+                        value = inputValue,
+                        onValueChange = { inputValue = it },
+                        options = IncrementerOptions(
+                            isResetAllowed = isResetAllowed,
+                            minValue = 0,
+                            maxValue = 10
+                        )
                     )
-                )
+                }
             }
         ) {
             SwitchButtonOption(
