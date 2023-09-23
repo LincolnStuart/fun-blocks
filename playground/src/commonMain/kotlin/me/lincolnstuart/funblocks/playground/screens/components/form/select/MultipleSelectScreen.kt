@@ -6,7 +6,15 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import cafe.adriel.voyager.core.screen.Screen
+import cafe.adriel.voyager.navigator.LocalNavigator
+import cafe.adriel.voyager.navigator.currentOrThrow
+import compose.icons.TablerIcons
+import compose.icons.tablericons.ArrowLeft
+import me.lincolnstuart.funblocks.components.core.appbar.utils.AppBarAction
+import me.lincolnstuart.funblocks.components.core.appbar.utils.AppBarOptions
 import me.lincolnstuart.funblocks.components.core.helper.SelectableItem
+import me.lincolnstuart.funblocks.components.core.text.Text
+import me.lincolnstuart.funblocks.components.core.text.utils.TextMode
 import me.lincolnstuart.funblocks.components.form.select.MultipleSelect
 import me.lincolnstuart.funblocks.components.form.switchbutton.SwitchButtonOption
 import me.lincolnstuart.funblocks.foundation.ui.token.content.spacing.FunBlocksInset
@@ -16,6 +24,7 @@ class MultipleSelectScreen : Screen {
 
     @Composable
     override fun Content() {
+        val navigator = LocalNavigator.currentOrThrow
         var error: String? by remember {
             mutableStateOf(null)
         }
@@ -37,6 +46,12 @@ class MultipleSelectScreen : Screen {
             )
         }
         Sample(
+            appBarOptions = AppBarOptions(
+                mainContent = { Text(text = "MultipleSelect", mode = TextMode.Subtitle()) },
+                mainAction = AppBarAction(icon = TablerIcons.ArrowLeft, description = null) {
+                    navigator.pop()
+                }
+            ),
             component = {
                 MultipleSelect(
                     selectedValues = selectedValues.value,

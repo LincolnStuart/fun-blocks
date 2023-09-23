@@ -6,8 +6,15 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import cafe.adriel.voyager.core.screen.Screen
+import cafe.adriel.voyager.navigator.LocalNavigator
+import cafe.adriel.voyager.navigator.currentOrThrow
 import compose.icons.TablerIcons
+import compose.icons.tablericons.ArrowLeft
 import compose.icons.tablericons.CircleDashed
+import me.lincolnstuart.funblocks.components.core.appbar.utils.AppBarAction
+import me.lincolnstuart.funblocks.components.core.appbar.utils.AppBarOptions
+import me.lincolnstuart.funblocks.components.core.text.Text
+import me.lincolnstuart.funblocks.components.core.text.utils.TextMode
 import me.lincolnstuart.funblocks.components.form.switchbutton.SwitchButtonOption
 import me.lincolnstuart.funblocks.components.misc.chip.Chip
 import me.lincolnstuart.funblocks.components.misc.chip.utils.ChipOptions
@@ -17,10 +24,17 @@ class ChipScreen : Screen {
 
     @Composable
     override fun Content() {
+        val navigator = LocalNavigator.currentOrThrow
         var options: ChipOptions by remember {
             mutableStateOf(ChipOptions())
         }
         Sample(
+            appBarOptions = AppBarOptions(
+                mainContent = { Text(text = "Chip", mode = TextMode.Subtitle()) },
+                mainAction = AppBarAction(icon = TablerIcons.ArrowLeft, description = null) {
+                    navigator.pop()
+                }
+            ),
             component = {
                 Chip(
                     description = "Chip",

@@ -6,7 +6,14 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import cafe.adriel.voyager.core.screen.Screen
+import cafe.adriel.voyager.navigator.LocalNavigator
+import cafe.adriel.voyager.navigator.currentOrThrow
+import compose.icons.TablerIcons
+import compose.icons.tablericons.ArrowLeft
+import me.lincolnstuart.funblocks.components.core.appbar.utils.AppBarAction
+import me.lincolnstuart.funblocks.components.core.appbar.utils.AppBarOptions
 import me.lincolnstuart.funblocks.components.core.text.Text
+import me.lincolnstuart.funblocks.components.core.text.utils.TextMode
 import me.lincolnstuart.funblocks.components.form.radiobutton.RadioButtonGroup
 import me.lincolnstuart.funblocks.components.misc.accordion.Accordion
 import me.lincolnstuart.funblocks.components.misc.avatar.Avatar
@@ -20,6 +27,7 @@ class AvatarScreen : Screen {
 
     @Composable
     override fun Content() {
+        val navigator = LocalNavigator.currentOrThrow
         val iconMode = AvatarMode.Icon()
         val imageMode = AvatarMode.Image(
             url = "https://cdn.domestika.org/c_fit,dpr_auto,f_auto,t_base_params," +
@@ -37,6 +45,12 @@ class AvatarScreen : Screen {
             mutableStateOf(AvatarSize.Regular)
         }
         Sample(
+            appBarOptions = AppBarOptions(
+                mainContent = { Text(text = "Avatar", mode = TextMode.Subtitle()) },
+                mainAction = AppBarAction(icon = TablerIcons.ArrowLeft, description = null) {
+                    navigator.pop()
+                }
+            ),
             component = { Avatar(mode = mode, options = AvatarOptions(shape, size)) {} }
         ) {
             Accordion(title = "Mode") {

@@ -6,6 +6,14 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import cafe.adriel.voyager.core.screen.Screen
+import cafe.adriel.voyager.navigator.LocalNavigator
+import cafe.adriel.voyager.navigator.currentOrThrow
+import compose.icons.TablerIcons
+import compose.icons.tablericons.ArrowLeft
+import me.lincolnstuart.funblocks.components.core.appbar.utils.AppBarAction
+import me.lincolnstuart.funblocks.components.core.appbar.utils.AppBarOptions
+import me.lincolnstuart.funblocks.components.core.text.Text
+import me.lincolnstuart.funblocks.components.core.text.utils.TextMode
 import me.lincolnstuart.funblocks.components.form.input.pin.Pin
 import me.lincolnstuart.funblocks.components.form.switchbutton.SwitchButtonOption
 import me.lincolnstuart.funblocks.playground.components.Sample
@@ -14,6 +22,7 @@ class PinScreen : Screen {
 
     @Composable
     override fun Content() {
+        val navigator = LocalNavigator.currentOrThrow
         var error: String? by remember {
             mutableStateOf(null)
         }
@@ -24,6 +33,12 @@ class PinScreen : Screen {
             mutableStateOf("")
         }
         Sample(
+            appBarOptions = AppBarOptions(
+                mainContent = { Text(text = "Pin", mode = TextMode.Subtitle()) },
+                mainAction = AppBarAction(icon = TablerIcons.ArrowLeft, description = null) {
+                    navigator.pop()
+                }
+            ),
             component = {
                 Pin(
                     value = inputValue,

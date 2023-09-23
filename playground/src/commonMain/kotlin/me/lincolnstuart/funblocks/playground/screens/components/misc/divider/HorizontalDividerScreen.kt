@@ -6,7 +6,14 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import cafe.adriel.voyager.core.screen.Screen
+import cafe.adriel.voyager.navigator.LocalNavigator
+import cafe.adriel.voyager.navigator.currentOrThrow
+import compose.icons.TablerIcons
+import compose.icons.tablericons.ArrowLeft
+import me.lincolnstuart.funblocks.components.core.appbar.utils.AppBarAction
+import me.lincolnstuart.funblocks.components.core.appbar.utils.AppBarOptions
 import me.lincolnstuart.funblocks.components.core.text.Text
+import me.lincolnstuart.funblocks.components.core.text.utils.TextMode
 import me.lincolnstuart.funblocks.components.form.radiobutton.RadioButtonGroup
 import me.lincolnstuart.funblocks.components.misc.accordion.Accordion
 import me.lincolnstuart.funblocks.components.misc.divider.HorizontalDivider
@@ -17,10 +24,17 @@ class HorizontalDividerScreen : Screen {
 
     @Composable
     override fun Content() {
+        val navigator = LocalNavigator.currentOrThrow
         var mode: HorizontalDividerMode by remember {
             mutableStateOf(HorizontalDividerMode.Solid)
         }
         Sample(
+            appBarOptions = AppBarOptions(
+                mainContent = { Text(text = "HorizontalDivider", mode = TextMode.Subtitle()) },
+                mainAction = AppBarAction(icon = TablerIcons.ArrowLeft, description = null) {
+                    navigator.pop()
+                }
+            ),
             component = { HorizontalDivider(mode = mode) }
         ) {
             Accordion(title = "Mode") {
