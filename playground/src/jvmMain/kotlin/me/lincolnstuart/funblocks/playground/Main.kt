@@ -10,7 +10,7 @@ public fun main() {
         title = "Fun Blocks Playground",
         state = WindowState(
             size = DpSize(width = 360.dp, height = 800.dp)
-        ),
+        )
     ) {
         EntryPoint()
     }

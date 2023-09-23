@@ -72,6 +72,8 @@ kotlin {
                 implementation(compose.foundation)
                 implementation(compose.ui)
                 implementation(compose.material)
+                @OptIn(org.jetbrains.compose.ExperimentalComposeLibrary::class)
+                implementation(compose.components.resources)
                 implementation(libs.compose.icons)
                 implementation(libs.kotlinx.datetime)
                 implementation(libs.voyager.navigator)
