@@ -14,11 +14,12 @@ import compose.icons.tablericons.ArrowLeft
 import kotlinx.coroutines.delay
 import me.lincolnstuart.funblocks.components.core.appbar.utils.AppBarAction
 import me.lincolnstuart.funblocks.components.core.appbar.utils.AppBarOptions
+import me.lincolnstuart.funblocks.components.core.screenplan.ScreenPlan
 import me.lincolnstuart.funblocks.components.core.text.Text
 import me.lincolnstuart.funblocks.components.core.text.utils.TextMode
 import me.lincolnstuart.funblocks.components.misc.progress.ProgressBar
 import me.lincolnstuart.funblocks.foundation.ui.token.content.spacing.FunBlocksInset
-import me.lincolnstuart.funblocks.playground.components.Sample
+import me.lincolnstuart.funblocks.playground.components.ComponentCentralizer
 
 class ProgressBarScreen : Screen {
 
@@ -36,15 +37,19 @@ class ProgressBarScreen : Screen {
             delay(timeMillis = 2000)
             percent = ONE_HUNDRED_PERCENT
         }
-        Sample(
+        ScreenPlan(
             appBarOptions = AppBarOptions(
                 mainContent = { Text(text = "ProgressBar", mode = TextMode.Subtitle()) },
                 mainAction = AppBarAction(icon = TablerIcons.ArrowLeft, description = null) {
                     navigator.pop()
                 }
             ),
-            component = { ProgressBar(percent = percent, paddingValues = FunBlocksInset.medium) }
-        ) {}
+            mainContent = {
+                ComponentCentralizer {
+                    ProgressBar(percent = percent, paddingValues = FunBlocksInset.medium)
+                }
+            }
+        )
     }
 
     private companion object {

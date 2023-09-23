@@ -12,6 +12,7 @@ import compose.icons.TablerIcons
 import compose.icons.tablericons.ArrowLeft
 import me.lincolnstuart.funblocks.components.core.appbar.utils.AppBarAction
 import me.lincolnstuart.funblocks.components.core.appbar.utils.AppBarOptions
+import me.lincolnstuart.funblocks.components.core.screenplan.ScreenPlan
 import me.lincolnstuart.funblocks.components.core.text.Text
 import me.lincolnstuart.funblocks.components.core.text.utils.TextMode
 import me.lincolnstuart.funblocks.components.form.radiobutton.RadioButtonGroup
@@ -20,7 +21,7 @@ import me.lincolnstuart.funblocks.components.misc.accordion.Accordion
 import me.lincolnstuart.funblocks.components.misc.alert.Alert
 import me.lincolnstuart.funblocks.components.misc.alert.utils.AlertCloseOptions
 import me.lincolnstuart.funblocks.components.misc.alert.utils.AlertMode
-import me.lincolnstuart.funblocks.playground.components.Sample
+import me.lincolnstuart.funblocks.playground.components.ComponentCentralizer
 
 class AlertScreen : Screen {
 
@@ -36,20 +37,22 @@ class AlertScreen : Screen {
         var closeAction: (() -> Unit)? by remember {
             mutableStateOf(null)
         }
-        Sample(
+        ScreenPlan(
             appBarOptions = AppBarOptions(
                 mainContent = { Text(text = "Alert", mode = TextMode.Subtitle()) },
                 mainAction = AppBarAction(icon = TablerIcons.ArrowLeft, description = null) {
                     navigator.pop()
                 }
             ),
-            component = {
-                Alert(
-                    title = "Alert",
-                    mode = mode,
-                    message = message,
-                    closeOptions = AlertCloseOptions(onClose = closeAction)
-                )
+            mainContent = {
+                ComponentCentralizer {
+                    Alert(
+                        title = "Alert",
+                        mode = mode,
+                        message = message,
+                        closeOptions = AlertCloseOptions(onClose = closeAction)
+                    )
+                }
             }
         ) {
             Accordion(title = "Mode") {

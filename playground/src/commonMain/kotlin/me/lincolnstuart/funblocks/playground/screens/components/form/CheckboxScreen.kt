@@ -12,10 +12,11 @@ import compose.icons.TablerIcons
 import compose.icons.tablericons.ArrowLeft
 import me.lincolnstuart.funblocks.components.core.appbar.utils.AppBarAction
 import me.lincolnstuart.funblocks.components.core.appbar.utils.AppBarOptions
+import me.lincolnstuart.funblocks.components.core.screenplan.ScreenPlan
 import me.lincolnstuart.funblocks.components.core.text.Text
 import me.lincolnstuart.funblocks.components.core.text.utils.TextMode
 import me.lincolnstuart.funblocks.components.form.checkbox.Checkbox
-import me.lincolnstuart.funblocks.playground.components.Sample
+import me.lincolnstuart.funblocks.playground.components.ComponentCentralizer
 
 class CheckboxScreen : Screen {
 
@@ -25,14 +26,18 @@ class CheckboxScreen : Screen {
         var isChecked by remember {
             mutableStateOf(false)
         }
-        Sample(
+        ScreenPlan(
             appBarOptions = AppBarOptions(
                 mainContent = { Text(text = "Checkbox", mode = TextMode.Subtitle()) },
                 mainAction = AppBarAction(icon = TablerIcons.ArrowLeft, description = null) {
                     navigator.pop()
                 }
             ),
-            component = { Checkbox(isSelected = isChecked, onClick = { isChecked = !isChecked }) }
-        ) {}
+            mainContent = {
+                ComponentCentralizer {
+                    Checkbox(isSelected = isChecked, onClick = { isChecked = !isChecked })
+                }
+            }
+        )
     }
 }

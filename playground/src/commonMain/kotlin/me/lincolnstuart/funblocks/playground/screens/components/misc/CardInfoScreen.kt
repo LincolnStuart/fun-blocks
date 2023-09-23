@@ -12,6 +12,7 @@ import compose.icons.TablerIcons
 import compose.icons.tablericons.ArrowLeft
 import me.lincolnstuart.funblocks.components.core.appbar.utils.AppBarAction
 import me.lincolnstuart.funblocks.components.core.appbar.utils.AppBarOptions
+import me.lincolnstuart.funblocks.components.core.screenplan.ScreenPlan
 import me.lincolnstuart.funblocks.components.core.text.Text
 import me.lincolnstuart.funblocks.components.core.text.utils.TextMode
 import me.lincolnstuart.funblocks.components.form.radiobutton.RadioButtonGroup
@@ -20,7 +21,7 @@ import me.lincolnstuart.funblocks.components.misc.cardinfo.CardInfo
 import me.lincolnstuart.funblocks.components.misc.cardinfo.utils.CardBodyOptions
 import me.lincolnstuart.funblocks.components.misc.cardinfo.utils.CardHeaderOptions
 import me.lincolnstuart.funblocks.foundation.ui.token.content.size.FunBlocksContentSize
-import me.lincolnstuart.funblocks.playground.components.Sample
+import me.lincolnstuart.funblocks.playground.components.ComponentCentralizer
 
 class CardInfoScreen : Screen {
 
@@ -34,18 +35,20 @@ class CardInfoScreen : Screen {
         var headerOption: CardHeaderOptions? by remember {
             mutableStateOf(null)
         }
-        Sample(
+        ScreenPlan(
             appBarOptions = AppBarOptions(
                 mainContent = { Text(text = "CardInfo", mode = TextMode.Subtitle()) },
                 mainAction = AppBarAction(icon = TablerIcons.ArrowLeft, description = null) {
                     navigator.pop()
                 }
             ),
-            component = {
-                CardInfo(
-                    body = bodyOption,
-                    header = headerOption
-                )
+            mainContent = {
+                ComponentCentralizer {
+                    CardInfo(
+                        body = bodyOption,
+                        header = headerOption
+                    )
+                }
             }
         ) {
             Accordion(title = "Header") {

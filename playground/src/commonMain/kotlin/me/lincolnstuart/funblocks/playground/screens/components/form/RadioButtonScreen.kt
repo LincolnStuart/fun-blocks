@@ -12,10 +12,11 @@ import compose.icons.TablerIcons
 import compose.icons.tablericons.ArrowLeft
 import me.lincolnstuart.funblocks.components.core.appbar.utils.AppBarAction
 import me.lincolnstuart.funblocks.components.core.appbar.utils.AppBarOptions
+import me.lincolnstuart.funblocks.components.core.screenplan.ScreenPlan
 import me.lincolnstuart.funblocks.components.core.text.Text
 import me.lincolnstuart.funblocks.components.core.text.utils.TextMode
 import me.lincolnstuart.funblocks.components.form.radiobutton.RadioButton
-import me.lincolnstuart.funblocks.playground.components.Sample
+import me.lincolnstuart.funblocks.playground.components.ComponentCentralizer
 
 class RadioButtonScreen : Screen {
 
@@ -25,14 +26,18 @@ class RadioButtonScreen : Screen {
         var isChecked by remember {
             mutableStateOf(false)
         }
-        Sample(
+        ScreenPlan(
             appBarOptions = AppBarOptions(
                 mainContent = { Text(text = "RadioButton", mode = TextMode.Subtitle()) },
                 mainAction = AppBarAction(icon = TablerIcons.ArrowLeft, description = null) {
                     navigator.pop()
                 }
             ),
-            component = { RadioButton(isSelected = isChecked, onClick = { isChecked = !isChecked }) }
-        ) {}
+            mainContent = {
+                ComponentCentralizer {
+                    RadioButton(isSelected = isChecked, onClick = { isChecked = !isChecked })
+                }
+            }
+        )
     }
 }

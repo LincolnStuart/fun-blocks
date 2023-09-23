@@ -12,6 +12,7 @@ import compose.icons.TablerIcons
 import compose.icons.tablericons.ArrowLeft
 import me.lincolnstuart.funblocks.components.core.appbar.utils.AppBarAction
 import me.lincolnstuart.funblocks.components.core.appbar.utils.AppBarOptions
+import me.lincolnstuart.funblocks.components.core.screenplan.ScreenPlan
 import me.lincolnstuart.funblocks.components.core.text.Text
 import me.lincolnstuart.funblocks.components.core.text.utils.TextMode
 import me.lincolnstuart.funblocks.components.form.radiobutton.RadioButtonGroup
@@ -21,7 +22,7 @@ import me.lincolnstuart.funblocks.components.misc.avatar.utils.AvatarMode
 import me.lincolnstuart.funblocks.components.misc.avatar.utils.AvatarOptions
 import me.lincolnstuart.funblocks.components.misc.avatar.utils.AvatarShape
 import me.lincolnstuart.funblocks.components.misc.avatar.utils.AvatarSize
-import me.lincolnstuart.funblocks.playground.components.Sample
+import me.lincolnstuart.funblocks.playground.components.ComponentCentralizer
 
 class AvatarScreen : Screen {
 
@@ -44,14 +45,21 @@ class AvatarScreen : Screen {
         var size by remember {
             mutableStateOf(AvatarSize.Regular)
         }
-        Sample(
+        ScreenPlan(
             appBarOptions = AppBarOptions(
                 mainContent = { Text(text = "Avatar", mode = TextMode.Subtitle()) },
                 mainAction = AppBarAction(icon = TablerIcons.ArrowLeft, description = null) {
                     navigator.pop()
                 }
             ),
-            component = { Avatar(mode = mode, options = AvatarOptions(shape, size)) {} }
+            mainContent = {
+                ComponentCentralizer {
+                    Avatar(
+                        mode = mode,
+                        options = AvatarOptions(shape, size)
+                    ) {}
+                }
+            }
         ) {
             Accordion(title = "Mode") {
                 RadioButtonGroup(
