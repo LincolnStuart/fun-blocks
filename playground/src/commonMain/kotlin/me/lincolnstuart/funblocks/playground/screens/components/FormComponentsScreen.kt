@@ -22,6 +22,7 @@ import me.lincolnstuart.funblocks.playground.screens.components.form.InputScreen
 import me.lincolnstuart.funblocks.playground.screens.components.form.RadioButtonScreen
 import me.lincolnstuart.funblocks.playground.screens.components.form.SelectScreen
 import me.lincolnstuart.funblocks.playground.screens.components.form.SwitchButtonScreen
+import me.lincolnstuart.funblocks.playground.screens.components.form.TabsScreen
 
 class FormComponentsScreen : Screen {
 
@@ -56,6 +57,7 @@ class FormComponentsScreen : Screen {
         "Input" to InputScreen(),
         "RadioButton" to RadioButtonScreen(),
         "Select" to SelectScreen(),
-        "SwitchButton" to SwitchButtonScreen()
+        "SwitchButton" to SwitchButtonScreen(),
+        "Tabs" to TabsScreen()
     )
 }

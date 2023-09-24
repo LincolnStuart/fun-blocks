@@ -14,7 +14,6 @@ import me.lincolnstuart.funblocks.components.core.icon.Icon
 import me.lincolnstuart.funblocks.components.core.icon.utils.IconOptions
 import me.lincolnstuart.funblocks.components.core.icon.utils.IconSize
 import me.lincolnstuart.funblocks.components.core.spacer.HorizontalSpacer
-import me.lincolnstuart.funblocks.components.misc.divider.HorizontalDivider
 import me.lincolnstuart.funblocks.foundation.ui.token.content.size.FunBlocksContentSize
 import me.lincolnstuart.funblocks.foundation.ui.token.content.spacing.FunBlocksInset
 import me.lincolnstuart.funblocks.foundation.ui.token.content.spacing.FunBlocksSpacing
@@ -46,5 +45,4 @@ public fun AppBar(
             options()
         }
     }
-    HorizontalDivider()
 }
