@@ -3,8 +3,6 @@ plugins {
     alias(libs.plugins.jetbrains.compose)
 }
 
-val moduleName = "foundation"
-
 kotlin {
 
     jvm()

@@ -89,10 +89,10 @@ kotlin {
 
 compose.desktop {
     application {
-        mainClass = "me.lincolnstuart.funblocks.playground.MainKt"
+        mainClass = DesktopBuild.mainClass
         nativeDistributions {
             packageName = moduleName
-            packageVersion = "1.0.0"
+            packageVersion = DesktopBuild.packageVersion
             targetFormats(
                 org.jetbrains.compose.desktop.application.dsl.TargetFormat.Dmg,
                 org.jetbrains.compose.desktop.application.dsl.TargetFormat.Msi,

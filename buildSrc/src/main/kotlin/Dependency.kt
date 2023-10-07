@@ -9,3 +9,8 @@ object AndroidBuild{
     const val sourceDirs = "src/commonMain/resources"
     fun nameSpace(moduleName: String) = "$nameSpaceBase$moduleName"
 }
+
+object DesktopBuild {
+    const val mainClass = "me.lincolnstuart.funblocks.playground.MainKt"
+    const val packageVersion = "1.0.0"
+}
