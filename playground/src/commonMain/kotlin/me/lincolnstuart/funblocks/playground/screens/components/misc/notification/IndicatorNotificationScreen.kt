@@ -18,7 +18,7 @@ import me.lincolnstuart.funblocks.components.core.text.utils.TextMode
 import me.lincolnstuart.funblocks.components.form.switchbutton.SwitchButtonOption
 import me.lincolnstuart.funblocks.components.misc.avatar.Avatar
 import me.lincolnstuart.funblocks.components.misc.notification.IndicatorNotification
-import me.lincolnstuart.funblocks.playground.components.ComponentCentralizer
+import me.lincolnstuart.funblocks.playground.components.ComponentWithOptions
 
 class IndicatorNotificationScreen : Screen {
 
@@ -35,19 +35,19 @@ class IndicatorNotificationScreen : Screen {
                     navigator.pop()
                 }
             ),
-            mainContent = {
-                ComponentCentralizer {
+            content = {
+                ComponentWithOptions(mainContent = {
                     IndicatorNotification(hasNotification = hasNotification) { Avatar {} }
+                }) {
+                    SwitchButtonOption(
+                        description = "Has notification",
+                        isOn = hasNotification,
+                        onClick = {
+                            hasNotification = !hasNotification
+                        }
+                    )
                 }
             }
-        ) {
-            SwitchButtonOption(
-                description = "Has notification",
-                isOn = hasNotification,
-                onClick = {
-                    hasNotification = !hasNotification
-                }
-            )
-        }
+        )
     }
 }

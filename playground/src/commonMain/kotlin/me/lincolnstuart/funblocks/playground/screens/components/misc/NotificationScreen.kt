@@ -32,7 +32,7 @@ class NotificationScreen : Screen {
                     navigator.pop()
                 }
             ),
-            mainContent = {
+            content = {
                 Column(Modifier.verticalScroll(scrollState)) {
                     SimpleListItem(title = "Counter notification") {
                         navigator.push(CounterNotificationScreen())

@@ -34,7 +34,7 @@ class SliderScreen : Screen {
                     navigator.pop()
                 }
             ),
-            mainContent = {
+            content = {
                 ComponentCentralizer {
                     Slider(
                         percent = percent,

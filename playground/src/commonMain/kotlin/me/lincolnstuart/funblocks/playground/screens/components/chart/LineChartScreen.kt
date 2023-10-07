@@ -36,7 +36,7 @@ class LineChartScreen : Screen {
                     navigator.pop()
                 }
             ),
-            mainContent = {
+            content = {
                 ComponentCentralizer {
                     LineChart(
                         paths = listOf(

@@ -30,7 +30,7 @@ class HomeComponentsScreen : Screen {
                     navigator.pop()
                 }
             ),
-            mainContent = {
+            content = {
                 Column(Modifier.verticalScroll(scrollState)) {
                     SimpleListItem(title = "Chart", description = "Bar, Line, Pie/Donut.") {
                         navigator.push(ChartComponentsScreen())

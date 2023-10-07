@@ -19,7 +19,7 @@ import me.lincolnstuart.funblocks.components.core.text.utils.TextMode
 import me.lincolnstuart.funblocks.components.form.switchbutton.SwitchButtonOption
 import me.lincolnstuart.funblocks.components.misc.chip.Chip
 import me.lincolnstuart.funblocks.components.misc.chip.utils.ChipOptions
-import me.lincolnstuart.funblocks.playground.components.ComponentCentralizer
+import me.lincolnstuart.funblocks.playground.components.ComponentWithOptions
 
 class ChipScreen : Screen {
 
@@ -36,45 +36,45 @@ class ChipScreen : Screen {
                     navigator.pop()
                 }
             ),
-            mainContent = {
-                ComponentCentralizer {
+            content = {
+                ComponentWithOptions(mainContent = {
                     Chip(
                         description = "Chip",
                         options = options
                     ) {}
+                }) {
+                    SwitchButtonOption(
+                        description = "Enabled",
+                        isOn = options.isEnabled,
+                        onClick = {
+                            options = options.copy(isEnabled = options.isEnabled.not())
+                        }
+                    )
+                    SwitchButtonOption(
+                        description = "Selected",
+                        isOn = options.isSelected,
+                        onClick = {
+                            options = options.copy(isSelected = options.isSelected.not())
+                        }
+                    )
+                    SwitchButtonOption(
+                        description = "Start Icon",
+                        isOn = options.startIcon != null,
+                        onClick = {
+                            val icon = if (options.startIcon == null) TablerIcons.CircleDashed else null
+                            options = options.copy(startIcon = icon)
+                        }
+                    )
+                    SwitchButtonOption(
+                        description = "End Icon",
+                        isOn = options.endIcon != null,
+                        onClick = {
+                            val icon = if (options.endIcon == null) TablerIcons.CircleDashed else null
+                            options = options.copy(endIcon = icon)
+                        }
+                    )
                 }
             }
-        ) {
-            SwitchButtonOption(
-                description = "Enabled",
-                isOn = options.isEnabled,
-                onClick = {
-                    options = options.copy(isEnabled = options.isEnabled.not())
-                }
-            )
-            SwitchButtonOption(
-                description = "Selected",
-                isOn = options.isSelected,
-                onClick = {
-                    options = options.copy(isSelected = options.isSelected.not())
-                }
-            )
-            SwitchButtonOption(
-                description = "Start Icon",
-                isOn = options.startIcon != null,
-                onClick = {
-                    val icon = if (options.startIcon == null) TablerIcons.CircleDashed else null
-                    options = options.copy(startIcon = icon)
-                }
-            )
-            SwitchButtonOption(
-                description = "End Icon",
-                isOn = options.endIcon != null,
-                onClick = {
-                    val icon = if (options.endIcon == null) TablerIcons.CircleDashed else null
-                    options = options.copy(endIcon = icon)
-                }
-            )
-        }
+        )
     }
 }

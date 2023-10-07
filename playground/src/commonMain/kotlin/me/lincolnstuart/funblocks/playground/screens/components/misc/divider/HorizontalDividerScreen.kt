@@ -19,7 +19,7 @@ import me.lincolnstuart.funblocks.components.form.radiobutton.RadioButtonGroup
 import me.lincolnstuart.funblocks.components.misc.accordion.Accordion
 import me.lincolnstuart.funblocks.components.misc.divider.HorizontalDivider
 import me.lincolnstuart.funblocks.components.misc.divider.utils.HorizontalDividerMode
-import me.lincolnstuart.funblocks.playground.components.ComponentCentralizer
+import me.lincolnstuart.funblocks.playground.components.ComponentWithOptions
 
 class HorizontalDividerScreen : Screen {
 
@@ -36,25 +36,25 @@ class HorizontalDividerScreen : Screen {
                     navigator.pop()
                 }
             ),
-            mainContent = {
-                ComponentCentralizer {
+            content = {
+                ComponentWithOptions(mainContent = {
                     HorizontalDivider(mode = mode)
+                }) {
+                    Accordion(title = "Mode") {
+                        RadioButtonGroup(
+                            options = listOf(
+                                HorizontalDividerMode.Solid,
+                                HorizontalDividerMode.Dashed,
+                                HorizontalDividerMode.Dotted
+                            ),
+                            selectedOption = mode,
+                            onSelectOption = { mode = it }
+                        ) {
+                            Text(text = it.name)
+                        }
+                    }
                 }
             }
-        ) {
-            Accordion(title = "Mode") {
-                RadioButtonGroup(
-                    options = listOf(
-                        HorizontalDividerMode.Solid,
-                        HorizontalDividerMode.Dashed,
-                        HorizontalDividerMode.Dotted
-                    ),
-                    selectedOption = mode,
-                    onSelectOption = { mode = it }
-                ) {
-                    Text(text = it.name)
-                }
-            }
-        }
+        )
     }
 }

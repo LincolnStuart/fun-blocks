@@ -29,7 +29,7 @@ class BannerScreen : Screen {
                     navigator.pop()
                 }
             ),
-            mainContent = {
+            content = {
                 ComponentCentralizer {
                     Banner(painter = painterResource("images/fun_blocks.webp")) {}
                 }

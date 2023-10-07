@@ -20,7 +20,7 @@ import me.lincolnstuart.funblocks.components.misc.accordion.Accordion
 import me.lincolnstuart.funblocks.components.misc.chat.ChatMessage
 import me.lincolnstuart.funblocks.components.misc.chat.utils.ChatMessageOptions
 import me.lincolnstuart.funblocks.components.misc.chat.utils.ChatMessageOrientation
-import me.lincolnstuart.funblocks.playground.components.ComponentCentralizer
+import me.lincolnstuart.funblocks.playground.components.ComponentWithOptions
 
 class ChatMessageScreen : Screen {
 
@@ -37,27 +37,27 @@ class ChatMessageScreen : Screen {
                     navigator.pop()
                 }
             ),
-            mainContent = {
-                ComponentCentralizer {
+            content = {
+                ComponentWithOptions(mainContent = {
                     ChatMessage(
                         message = "Chat message",
                         options = options
                     )
+                }) {
+                    Accordion(title = "Orientation") {
+                        RadioButtonGroup(
+                            options = listOf(
+                                ChatMessageOrientation.Sent,
+                                ChatMessageOrientation.Received
+                            ),
+                            selectedOption = options.orientation,
+                            onSelectOption = { options = options.copy(orientation = it) }
+                        ) {
+                            Text(text = it.name)
+                        }
+                    }
                 }
             }
-        ) {
-            Accordion(title = "Orientation") {
-                RadioButtonGroup(
-                    options = listOf(
-                        ChatMessageOrientation.Sent,
-                        ChatMessageOrientation.Received
-                    ),
-                    selectedOption = options.orientation,
-                    onSelectOption = { options = options.copy(orientation = it) }
-                ) {
-                    Text(text = it.name)
-                }
-            }
-        }
+        )
     }
 }

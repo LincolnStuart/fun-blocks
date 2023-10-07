@@ -44,7 +44,7 @@ class ProgressBarScreen : Screen {
                     navigator.pop()
                 }
             ),
-            mainContent = {
+            content = {
                 ComponentCentralizer {
                     ProgressBar(percent = percent, paddingValues = FunBlocksInset.medium)
                 }

@@ -22,7 +22,7 @@ import me.lincolnstuart.funblocks.components.form.radiobutton.RadioButtonGroup
 import me.lincolnstuart.funblocks.components.misc.accordion.Accordion
 import me.lincolnstuart.funblocks.components.period.calendar.Calendar
 import me.lincolnstuart.funblocks.components.period.calendar.utils.CalendarSelectionType
-import me.lincolnstuart.funblocks.playground.components.ComponentCentralizer
+import me.lincolnstuart.funblocks.playground.components.ComponentWithOptions
 
 class CalendarScreen : Screen {
 
@@ -51,29 +51,30 @@ class CalendarScreen : Screen {
                     navigator.pop()
                 }
             ),
-            mainContent = {
-                ComponentCentralizer {
+            content = {
+                ComponentWithOptions(mainContent = {
                     Calendar(
                         reference = Clock.System.now().toLocalDateTime(TimeZone.UTC).date,
                         selectionType = type
                     ) {
                         type = it
                     }
-                }
-            }
-        ) {
-            Accordion(title = "Type") {
-                RadioButtonGroup(
-                    options = options.map { it.javaClass.simpleName },
-                    selectedOption = type.javaClass.simpleName,
-                    onSelectOption = { className ->
-                        val option = options.firstOrNull { it.javaClass.simpleName == className }
-                        option?.let { type = option }
+                }) {
+                    Accordion(title = "Type") {
+                        RadioButtonGroup(
+                            options = options.map { it.javaClass.simpleName },
+                            selectedOption = type.javaClass.simpleName,
+                            onSelectOption = { className ->
+                                val option =
+                                    options.firstOrNull { it.javaClass.simpleName == className }
+                                option?.let { type = option }
+                            }
+                        ) {
+                            Text(text = it)
+                        }
                     }
-                ) {
-                    Text(text = it)
                 }
             }
-        }
+        )
     }
 }

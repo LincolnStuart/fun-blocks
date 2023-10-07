@@ -26,7 +26,7 @@ class LoadingScreen : Screen {
                     navigator.pop()
                 }
             ),
-            mainContent = {
+            content = {
                 ComponentCentralizer { Loading() }
             }
         )

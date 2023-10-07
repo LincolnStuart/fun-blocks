@@ -54,7 +54,7 @@ class HomeScreen : Screen {
                     )
                 )
             ),
-            mainContent = {
+            content = {
                 ComponentCentralizer {
                     Column(
                         modifier = Modifier.fillMaxWidth(),

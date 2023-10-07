@@ -33,7 +33,7 @@ class ChartComponentsScreen : Screen {
                     navigator.pop()
                 }
             ),
-            mainContent = {
+            content = {
                 Column(Modifier.verticalScroll(scrollState)) {
                     screens
                         .sortedBy { it.first }

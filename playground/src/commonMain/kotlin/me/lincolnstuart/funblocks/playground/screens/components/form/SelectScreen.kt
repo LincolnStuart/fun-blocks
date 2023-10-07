@@ -32,7 +32,7 @@ class SelectScreen : Screen {
                     navigator.pop()
                 }
             ),
-            mainContent = {
+            content = {
                 Column(Modifier.verticalScroll(scrollState)) {
                     SimpleListItem(title = "SingleSelect") {
                         navigator.push(SingleSelectScreen())

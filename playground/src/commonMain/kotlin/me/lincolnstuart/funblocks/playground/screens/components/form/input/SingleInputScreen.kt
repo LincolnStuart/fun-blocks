@@ -17,7 +17,7 @@ import me.lincolnstuart.funblocks.components.core.text.Text
 import me.lincolnstuart.funblocks.components.core.text.utils.TextMode
 import me.lincolnstuart.funblocks.components.form.input.Input
 import me.lincolnstuart.funblocks.components.form.switchbutton.SwitchButtonOption
-import me.lincolnstuart.funblocks.playground.components.ComponentCentralizer
+import me.lincolnstuart.funblocks.playground.components.ComponentWithOptions
 
 class SingleInputScreen : Screen {
 
@@ -43,8 +43,8 @@ class SingleInputScreen : Screen {
                     navigator.pop()
                 }
             ),
-            mainContent = {
-                ComponentCentralizer {
+            content = {
+                ComponentWithOptions(mainContent = {
                     Input(
                         value = inputValue,
                         onValueChange = { inputValue = it },
@@ -54,24 +54,24 @@ class SingleInputScreen : Screen {
                         readOnly = readOnly,
                         error = error
                     )
+                }) {
+                    SwitchButtonOption(
+                        description = "Enabled",
+                        isOn = enabled,
+                        onClick = { enabled = !enabled }
+                    )
+                    SwitchButtonOption(
+                        description = "Read only",
+                        isOn = readOnly,
+                        onClick = { readOnly = !readOnly }
+                    )
+                    SwitchButtonOption(
+                        description = "Error",
+                        isOn = error != null,
+                        onClick = { error = if (error == null) "some error" else null }
+                    )
                 }
             }
-        ) {
-            SwitchButtonOption(
-                description = "Enabled",
-                isOn = enabled,
-                onClick = { enabled = !enabled }
-            )
-            SwitchButtonOption(
-                description = "Read only",
-                isOn = readOnly,
-                onClick = { readOnly = !readOnly }
-            )
-            SwitchButtonOption(
-                description = "Error",
-                isOn = error != null,
-                onClick = { error = if (error == null) "some error" else null }
-            )
-        }
+        )
     }
 }

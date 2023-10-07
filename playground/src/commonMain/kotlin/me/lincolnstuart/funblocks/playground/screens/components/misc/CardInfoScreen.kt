@@ -21,7 +21,7 @@ import me.lincolnstuart.funblocks.components.misc.cardinfo.CardInfo
 import me.lincolnstuart.funblocks.components.misc.cardinfo.utils.CardBodyOptions
 import me.lincolnstuart.funblocks.components.misc.cardinfo.utils.CardHeaderOptions
 import me.lincolnstuart.funblocks.foundation.ui.token.content.size.FunBlocksContentSize
-import me.lincolnstuart.funblocks.playground.components.ComponentCentralizer
+import me.lincolnstuart.funblocks.playground.components.ComponentWithOptions
 import org.jetbrains.compose.resources.ExperimentalResourceApi
 import org.jetbrains.compose.resources.painterResource
 
@@ -44,34 +44,34 @@ class CardInfoScreen : Screen {
                     navigator.pop()
                 }
             ),
-            mainContent = {
-                ComponentCentralizer {
+            content = {
+                ComponentWithOptions(mainContent = {
                     CardInfo(
                         body = bodyOption,
                         header = headerOption
                     )
+                }) {
+                    Accordion(title = "Header") {
+                        RadioButtonGroup(
+                            options = getHeaderOptions(),
+                            selectedOption = headerOption,
+                            onSelectOption = { headerOption = it }
+                        ) {
+                            Text(text = it?.javaClass?.simpleName ?: "None")
+                        }
+                    }
+                    Accordion(title = "Body") {
+                        RadioButtonGroup(
+                            options = bodyOptions,
+                            selectedOption = bodyOption,
+                            onSelectOption = { bodyOption = it }
+                        ) {
+                            Text(text = it.javaClass.simpleName)
+                        }
+                    }
                 }
             }
-        ) {
-            Accordion(title = "Header") {
-                RadioButtonGroup(
-                    options = getHeaderOptions(),
-                    selectedOption = headerOption,
-                    onSelectOption = { headerOption = it }
-                ) {
-                    Text(text = it?.javaClass?.simpleName ?: "None")
-                }
-            }
-            Accordion(title = "Body") {
-                RadioButtonGroup(
-                    options = bodyOptions,
-                    selectedOption = bodyOption,
-                    onSelectOption = { bodyOption = it }
-                ) {
-                    Text(text = it.javaClass.simpleName)
-                }
-            }
-        }
+        )
     }
 
     @Composable

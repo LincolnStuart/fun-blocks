@@ -29,7 +29,7 @@ class TabsScreen : Screen {
                     navigator.pop()
                 }
             ),
-            mainContent = {
+            content = {
                 Tabs(
                     options = listOf(
                         TabOption(

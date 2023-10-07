@@ -18,7 +18,7 @@ import me.lincolnstuart.funblocks.components.core.text.utils.TextMode
 import me.lincolnstuart.funblocks.components.form.switchbutton.SwitchButtonOption
 import me.lincolnstuart.funblocks.components.misc.avatar.Avatar
 import me.lincolnstuart.funblocks.components.misc.notification.CounterNotification
-import me.lincolnstuart.funblocks.playground.components.ComponentCentralizer
+import me.lincolnstuart.funblocks.playground.components.ComponentWithOptions
 
 class CounterNotificationScreen : Screen {
 
@@ -35,19 +35,19 @@ class CounterNotificationScreen : Screen {
                     navigator.pop()
                 }
             ),
-            mainContent = {
-                ComponentCentralizer {
+            content = {
+                ComponentWithOptions(mainContent = {
                     CounterNotification(number = counter) { Avatar {} }
+                }) {
+                    SwitchButtonOption(
+                        description = "Has notification",
+                        isOn = counter > 0,
+                        onClick = {
+                            counter = if (counter == 0) 1 else 0
+                        }
+                    )
                 }
             }
-        ) {
-            SwitchButtonOption(
-                description = "Has notification",
-                isOn = counter > 0,
-                onClick = {
-                    counter = if (counter == 0) 1 else 0
-                }
-            )
-        }
+        )
     }
 }

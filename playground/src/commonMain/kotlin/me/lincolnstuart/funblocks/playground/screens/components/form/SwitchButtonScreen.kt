@@ -33,7 +33,7 @@ class SwitchButtonScreen : Screen {
                     navigator.pop()
                 }
             ),
-            mainContent = {
+            content = {
                 ComponentCentralizer {
                     SwitchButton(isOn = isOn, onClick = { isOn = it })
                 }

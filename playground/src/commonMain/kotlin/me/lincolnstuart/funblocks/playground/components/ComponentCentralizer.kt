@@ -10,12 +10,13 @@ import me.lincolnstuart.funblocks.foundation.ui.token.content.spacing.FunBlocksS
 
 @Composable
 internal fun ComponentCentralizer(
+    modifier: Modifier = Modifier
+        .fillMaxSize()
+        .padding(FunBlocksSpacing.small),
     content: @Composable () -> Unit
 ) {
     Box(
-        modifier = Modifier
-            .fillMaxSize()
-            .padding(FunBlocksSpacing.small),
+        modifier = modifier,
         contentAlignment = Alignment.Center
     ) {
         content()

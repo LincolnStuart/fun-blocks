@@ -33,7 +33,7 @@ class RatingScreen : Screen {
                     navigator.pop()
                 }
             ),
-            mainContent = {
+            content = {
                 ComponentCentralizer {
                     Rating(grade = grade) { updated ->
                         grade = updated

@@ -21,7 +21,7 @@ import me.lincolnstuart.funblocks.components.misc.accordion.Accordion
 import me.lincolnstuart.funblocks.components.misc.alert.Alert
 import me.lincolnstuart.funblocks.components.misc.alert.utils.AlertCloseOptions
 import me.lincolnstuart.funblocks.components.misc.alert.utils.AlertMode
-import me.lincolnstuart.funblocks.playground.components.ComponentCentralizer
+import me.lincolnstuart.funblocks.playground.components.ComponentWithOptions
 
 class AlertScreen : Screen {
 
@@ -44,45 +44,45 @@ class AlertScreen : Screen {
                     navigator.pop()
                 }
             ),
-            mainContent = {
-                ComponentCentralizer {
+            content = {
+                ComponentWithOptions(mainContent = {
                     Alert(
                         title = "Alert",
                         mode = mode,
                         message = message,
                         closeOptions = AlertCloseOptions(onClose = closeAction)
                     )
+                }) {
+                    Accordion(title = "Mode") {
+                        RadioButtonGroup(
+                            options = listOf(
+                                AlertMode.Info,
+                                AlertMode.Warning,
+                                AlertMode.Success,
+                                AlertMode.Error
+                            ),
+                            selectedOption = mode,
+                            onSelectOption = { mode = it }
+                        ) {
+                            Text(text = it.name)
+                        }
+                    }
+                    SwitchButtonOption(
+                        description = "Message",
+                        isOn = message != null,
+                        onClick = {
+                            message = if (message == null) "Message" else null
+                        }
+                    )
+                    SwitchButtonOption(
+                        description = "Close",
+                        isOn = closeAction != null,
+                        onClick = {
+                            closeAction = if (closeAction == null) fun() { Unit } else null
+                        }
+                    )
                 }
             }
-        ) {
-            Accordion(title = "Mode") {
-                RadioButtonGroup(
-                    options = listOf(
-                        AlertMode.Info,
-                        AlertMode.Warning,
-                        AlertMode.Success,
-                        AlertMode.Error
-                    ),
-                    selectedOption = mode,
-                    onSelectOption = { mode = it }
-                ) {
-                    Text(text = it.name)
-                }
-            }
-            SwitchButtonOption(
-                description = "Message",
-                isOn = message != null,
-                onClick = {
-                    message = if (message == null) "Message" else null
-                }
-            )
-            SwitchButtonOption(
-                description = "Close",
-                isOn = closeAction != null,
-                onClick = {
-                    closeAction = if (closeAction == null) fun() { Unit } else null
-                }
-            )
-        }
+        )
     }
 }

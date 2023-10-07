@@ -33,7 +33,7 @@ class CheckboxScreen : Screen {
                     navigator.pop()
                 }
             ),
-            mainContent = {
+            content = {
                 ComponentCentralizer {
                     Checkbox(isSelected = isChecked, onClick = { isChecked = !isChecked })
                 }

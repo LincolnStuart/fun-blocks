@@ -32,7 +32,7 @@ class ProgressScreen : Screen {
                     navigator.pop()
                 }
             ),
-            mainContent = {
+            content = {
                 Column(Modifier.verticalScroll(scrollState)) {
                     SimpleListItem(title = "ProgressBar") {
                         navigator.push(ProgressBarScreen())
