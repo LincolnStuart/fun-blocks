@@ -22,6 +22,8 @@ import me.lincolnstuart.funblocks.components.misc.cardinfo.utils.CardBodyOptions
 import me.lincolnstuart.funblocks.components.misc.cardinfo.utils.CardHeaderOptions
 import me.lincolnstuart.funblocks.foundation.ui.token.content.size.FunBlocksContentSize
 import me.lincolnstuart.funblocks.playground.components.ComponentCentralizer
+import org.jetbrains.compose.resources.ExperimentalResourceApi
+import org.jetbrains.compose.resources.painterResource
 
 class CardInfoScreen : Screen {
 
@@ -73,16 +75,15 @@ class CardInfoScreen : Screen {
     }
 
     @Composable
+    @OptIn(ExperimentalResourceApi::class)
     private fun getHeaderOptions(): List<CardHeaderOptions?> {
         val fullHeader = CardHeaderOptions.Full(
-            url = "https://media.istockphoto.com/id/1318606676/vector/pattern-of-different-" +
-                "colorful-toy-bricks-in-isometric-view-vector-stock-illustration.jpg" +
-                "?s=612x612&w=0&k=20&c=nfJxJguqUqykTuQO-2SiU6Eh9uybMiP0n9ovYu-6mcY=",
+            painter = painterResource("images/fun_blocks.webp"),
             title = "Full",
             height = FunBlocksContentSize.huge
         )
         val profileHeader = CardHeaderOptions.Profile(
-            url = "https://avatars.githubusercontent.com/u/8579195?v=4",
+            painter = painterResource("images/fun_blocks.webp"),
             title = "Profile"
         )
         return listOf(

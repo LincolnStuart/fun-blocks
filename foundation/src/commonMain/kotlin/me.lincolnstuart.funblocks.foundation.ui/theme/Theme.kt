@@ -7,14 +7,11 @@ import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.staticCompositionLocalOf
-import androidx.compose.ui.graphics.vector.ImageVector
-import androidx.compose.ui.platform.LocalDensity
+import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.text.font.FontFamily
 import me.lincolnstuart.funblocks.foundation.ui.token.color.FunBlocksThemedColors
 import org.jetbrains.compose.resources.ExperimentalResourceApi
-import org.jetbrains.compose.resources.orEmpty
-import org.jetbrains.compose.resources.rememberImageVector
-import org.jetbrains.compose.resources.resource
+import org.jetbrains.compose.resources.painterResource
 
 /**
  * Composable theme with some tokens configurations.
@@ -57,9 +54,7 @@ val LocalTheme = staticCompositionLocalOf { Theme() }
 data class Theme(
     val fontFamily: FontFamily = FontFamily.SansSerif,
     val colors: FunBlocksThemedColors = FunBlocksThemedColors.Lego,
-    val logo: @Composable (() -> ImageVector) = {
-        resource("images/logo.webp")
-            .rememberImageVector(LocalDensity.current)
-            .orEmpty()
+    val logo: @Composable (() -> Painter) = {
+        painterResource("images/logo.webp")
     }
 )

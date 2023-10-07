@@ -20,12 +20,11 @@ import me.lincolnstuart.funblocks.foundation.ui.token.content.size.FunBlocksCont
  */
 @Composable
 public fun Loading() {
-    // TODO fix image reference from resources
     val logo = LocalTheme.current.logo()
     val infiniteTransition = rememberInfiniteTransition()
     val scale by scaleAnimation(infiniteTransition)
     Image(
-        imageVector = logo,
+        painter = logo,
         contentDescription = null,
         modifier = Modifier
             .scale(scale = scale)

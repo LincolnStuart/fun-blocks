@@ -1,5 +1,6 @@
 package me.lincolnstuart.funblocks.components.misc.cardinfo.utils
 
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -8,10 +9,9 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.unit.Dp
-import io.kamel.image.KamelImage
-import io.kamel.image.asyncPainterResource
 import me.lincolnstuart.funblocks.components.core.text.Text
 import me.lincolnstuart.funblocks.components.core.text.utils.TextMode
 import me.lincolnstuart.funblocks.components.misc.avatar.Avatar
@@ -31,7 +31,7 @@ public sealed class CardHeaderOptions {
     @Composable
     abstract fun Content(modifier: Modifier)
 
-    public data class Profile(val url: String, val title: String? = null) : CardHeaderOptions() {
+    public data class Profile(val painter: Painter, val title: String? = null) : CardHeaderOptions() {
         @Composable
         override fun Content(modifier: Modifier) {
             Column(
@@ -39,7 +39,7 @@ public sealed class CardHeaderOptions {
                 horizontalAlignment = Alignment.CenterHorizontally
             ) {
                 Avatar(
-                    mode = AvatarMode.Image(url = url),
+                    mode = AvatarMode.Image(painter = painter),
                     options = AvatarOptions(size = AvatarSize.Large)
                 ) {}
                 title?.let {
@@ -54,15 +54,15 @@ public sealed class CardHeaderOptions {
     }
 
     public data class Full(
-        val url: String,
+        val painter: Painter,
         val title: String?,
         val height: Dp = FunBlocksContentSize.xxxHuge
     ) : CardHeaderOptions() {
         @Composable
         override fun Content(modifier: Modifier) {
             Column {
-                KamelImage(
-                    resource = asyncPainterResource(data = url),
+                Image(
+                    painter = painter,
                     contentDescription = null,
                     modifier = Modifier
                         .fillMaxWidth()

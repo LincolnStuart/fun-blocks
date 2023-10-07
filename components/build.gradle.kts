@@ -69,19 +69,8 @@ kotlin {
                 implementation(compose.components.resources)
                 // implementation(compose.uiTooling)
                 implementation(libs.compose.icons)
-                implementation(libs.kamel)
                 implementation(libs.kotlinx.datetime)
                 implementation(projects.foundation)
-            }
-        }
-        val jvmMain by getting {
-            dependencies {
-                implementation(libs.ktor.client.okhttp)
-            }
-        }
-        val iosMain by getting {
-            dependencies {
-                implementation(libs.ktor.client.darwin)
             }
         }
     }
