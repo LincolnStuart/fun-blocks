@@ -12,7 +12,6 @@ import me.lincolnstuart.funblocks.components.core.surface.Surface
 import me.lincolnstuart.funblocks.components.misc.cardinfo.utils.CardBodyOptions
 import me.lincolnstuart.funblocks.components.misc.cardinfo.utils.CardHeaderOptions
 import me.lincolnstuart.funblocks.foundation.ui.theme.FunBlocksTheme
-import me.lincolnstuart.funblocks.foundation.ui.token.content.size.FunBlocksContentSize
 import me.lincolnstuart.funblocks.foundation.ui.token.content.spacing.FunBlocksSpacing
 
 /**
@@ -52,20 +51,6 @@ private fun ImageCardInfoPreview() {
     FunBlocksTheme {
         Surface {
             Column(Modifier.padding(FunBlocksSpacing.small)) {
-                CardInfo(
-                    header = CardHeaderOptions.Profile(url = "https://avatars.githubusercontent.com/u/8579195?v=4"),
-                    body = CardBodyOptions.Legend("test") // (LoremIpsum(words = 50).values.first())
-                )
-                VerticalSpacer(height = FunBlocksSpacing.small)
-                CardInfo(
-                    header = CardHeaderOptions.Full(
-                        url = "https://avatars.githubusercontent.com/u/8579195?v=4",
-                        title = "Test",
-                        height = FunBlocksContentSize.huge
-                    ),
-                    body = CardBodyOptions.Legend("test") // (LoremIpsum(words = 50).values.first())
-                )
-                VerticalSpacer(height = FunBlocksSpacing.small)
                 CardInfo(body = CardBodyOptions.Legend("test")) // (LoremIpsum(words = 50).values.first()))
                 VerticalSpacer(height = FunBlocksSpacing.small)
                 CardInfo(body = CardBodyOptions.Listing(listOf("Lincoln", "Stuart")))

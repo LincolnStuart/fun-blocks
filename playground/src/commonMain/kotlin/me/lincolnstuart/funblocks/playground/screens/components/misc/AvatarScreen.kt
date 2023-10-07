@@ -23,17 +23,18 @@ import me.lincolnstuart.funblocks.components.misc.avatar.utils.AvatarOptions
 import me.lincolnstuart.funblocks.components.misc.avatar.utils.AvatarShape
 import me.lincolnstuart.funblocks.components.misc.avatar.utils.AvatarSize
 import me.lincolnstuart.funblocks.playground.components.ComponentCentralizer
+import org.jetbrains.compose.resources.ExperimentalResourceApi
+import org.jetbrains.compose.resources.painterResource
 
 class AvatarScreen : Screen {
 
     @Composable
+    @OptIn(ExperimentalResourceApi::class)
     override fun Content() {
         val navigator = LocalNavigator.currentOrThrow
         val iconMode = AvatarMode.Icon()
         val imageMode = AvatarMode.Image(
-            url = "https://cdn.domestika.org/c_fit,dpr_auto,f_auto,t_base_params," +
-                "w_820/v1672587644/content-items/012/910/345/LEGO%2520HEAD-" +
-                "original.jpg?1672587644"
+            painter = painterResource("images/fun_blocks.webp")
         )
         val initialsMode = AvatarMode.Initials("Lincoln Stuart")
         var mode: AvatarMode by remember {

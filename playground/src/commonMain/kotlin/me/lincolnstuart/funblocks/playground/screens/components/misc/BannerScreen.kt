@@ -13,10 +13,13 @@ import me.lincolnstuart.funblocks.components.core.text.Text
 import me.lincolnstuart.funblocks.components.core.text.utils.TextMode
 import me.lincolnstuart.funblocks.components.misc.banner.Banner
 import me.lincolnstuart.funblocks.playground.components.ComponentCentralizer
+import org.jetbrains.compose.resources.ExperimentalResourceApi
+import org.jetbrains.compose.resources.painterResource
 
 class BannerScreen : Screen {
 
     @Composable
+    @OptIn(ExperimentalResourceApi::class)
     override fun Content() {
         val navigator = LocalNavigator.currentOrThrow
         ScreenPlan(
@@ -28,11 +31,7 @@ class BannerScreen : Screen {
             ),
             mainContent = {
                 ComponentCentralizer {
-                    Banner(
-                        url = "https://media.istockphoto.com/id/1318606676/vector/pattern-of-different-" +
-                            "colorful-toy-bricks-in-isometric-view-vector-stock-illustration.jpg" +
-                            "?s=612x612&w=0&k=20&c=nfJxJguqUqykTuQO-2SiU6Eh9uybMiP0n9ovYu-6mcY="
-                    ) {}
+                    Banner(painter = painterResource("images/fun_blocks.webp")) {}
                 }
             }
         )

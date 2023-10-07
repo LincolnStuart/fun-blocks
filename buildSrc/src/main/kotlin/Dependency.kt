@@ -6,6 +6,6 @@ object AndroidBuild{
     const val jvmTarget = "11"
     const val versionCode = 1
     const val versionName = "0.0.1"
-    const val sourceDirs = "src/commonMain/resources/"
+    const val sourceDirs = "src/commonMain/resources"
     fun nameSpace(moduleName: String) = "$nameSpaceBase$moduleName"
 }

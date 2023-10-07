@@ -7,12 +7,11 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.layout.ContentScale
 import compose.icons.TablerIcons
 import compose.icons.tablericons.User
-import io.kamel.image.KamelImage
-import io.kamel.image.asyncPainterResource
 import me.lincolnstuart.funblocks.components.core.icon.Icon
 import me.lincolnstuart.funblocks.components.core.icon.utils.IconOptions
 import me.lincolnstuart.funblocks.components.core.text.Text
@@ -53,18 +52,18 @@ public sealed class AvatarMode {
     }
 
     /**
-     * Avatar with an customized image from url, based on [KamelImage] from kamel.
+     * Avatar with an customized image from [Painter], based on [androidx.compose.foundation.Image].
      *
-     * @param url image address. E.g "https://avatars.githubusercontent.com/u/8579195?v=4".
+     * @param painter image resource.
      */
     public data class Image(
-        val url: String
+        val painter: Painter
     ) : AvatarMode() {
 
         @Composable
         override fun Content(options: AvatarOptions) {
-            KamelImage(
-                resource = asyncPainterResource(data = url, key = url),
+            androidx.compose.foundation.Image(
+                painter = painter,
                 contentDescription = null,
                 contentScale = ContentScale.Crop,
                 modifier = Modifier.fillMaxSize()

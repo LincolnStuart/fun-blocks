@@ -23,11 +23,7 @@ android {
 
     buildTypes {
         release {
-            // TODO solve r8 problem
-            // Caused by: [CIRCULAR REFERENCE: java.lang.NullPointerException: Cannot invoke
-            // "com.android.tools.r8.internal.x4.D()" because the return value of
-            // "com.android.tools.r8.internal.U10.h()" is null]
-            isMinifyEnabled = false
+            isMinifyEnabled = true
             isShrinkResources = false
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
@@ -52,6 +48,7 @@ android {
             excludes += AndroidBuild.packagesResourcesExcludes
         }
     }
+    sourceSets["main"].resources.srcDir(AndroidBuild.sourceDirs)
 }
 
 kotlin {

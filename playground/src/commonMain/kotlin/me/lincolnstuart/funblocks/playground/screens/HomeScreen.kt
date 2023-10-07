@@ -8,7 +8,6 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.platform.LocalUriHandler
 import cafe.adriel.voyager.core.screen.Screen
 import cafe.adriel.voyager.navigator.LocalNavigator
@@ -30,9 +29,7 @@ import me.lincolnstuart.funblocks.playground.components.ComponentCentralizer
 import me.lincolnstuart.funblocks.playground.screens.components.HomeComponentsScreen
 import me.lincolnstuart.funblocks.playground.screens.tokens.HomeTokensScreen
 import org.jetbrains.compose.resources.ExperimentalResourceApi
-import org.jetbrains.compose.resources.orEmpty
-import org.jetbrains.compose.resources.rememberImageVector
-import org.jetbrains.compose.resources.resource
+import org.jetbrains.compose.resources.painterResource
 
 @OptIn(ExperimentalResourceApi::class)
 class HomeScreen : Screen {
@@ -66,9 +63,7 @@ class HomeScreen : Screen {
                     ) {
                         // TODO fix image reference from resources
                         Image(
-                            imageVector = resource("images/fun_blocks.webp")
-                                .rememberImageVector(LocalDensity.current)
-                                .orEmpty(),
+                            painter = painterResource("images/fun_blocks.webp"),
                             contentDescription = "Fun Blocks Brand",
                             modifier = Modifier.height(FunBlocksContentSize.huge)
                         )
