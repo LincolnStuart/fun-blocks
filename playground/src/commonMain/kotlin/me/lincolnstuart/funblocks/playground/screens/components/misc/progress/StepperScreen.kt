@@ -26,7 +26,7 @@ class StepperScreen : Screen {
                     navigator.pop()
                 }
             ),
-            mainContent = {
+            content = {
                 ComponentCentralizer {
                     Stepper(stepsCount = 5, selectedStepPosition = 2)
                 }

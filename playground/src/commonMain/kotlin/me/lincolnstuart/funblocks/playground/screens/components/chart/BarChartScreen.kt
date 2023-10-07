@@ -30,7 +30,7 @@ class BarChartScreen : Screen {
                     navigator.pop()
                 }
             ),
-            mainContent = {
+            content = {
                 ComponentCentralizer {
                     BarChart(
                         values =

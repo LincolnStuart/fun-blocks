@@ -18,7 +18,7 @@ import me.lincolnstuart.funblocks.components.core.text.utils.TextMode
 import me.lincolnstuart.funblocks.components.form.radiobutton.RadioButtonGroup
 import me.lincolnstuart.funblocks.components.misc.accordion.Accordion
 import me.lincolnstuart.funblocks.components.misc.list.utils.ListMode
-import me.lincolnstuart.funblocks.playground.components.ComponentCentralizer
+import me.lincolnstuart.funblocks.playground.components.ComponentWithOptions
 
 class ListScreen : Screen {
 
@@ -35,27 +35,27 @@ class ListScreen : Screen {
                     navigator.pop()
                 }
             ),
-            mainContent = {
-                ComponentCentralizer {
+            content = {
+                ComponentWithOptions(mainContent = {
                     me.lincolnstuart.funblocks.components.misc.list.List(
                         topics = listOf("Kotlin", "Android", "Jetpack Compose"),
                         mode = mode
                     )
+                }) {
+                    Accordion(title = "Mode") {
+                        RadioButtonGroup(
+                            options = listOf(
+                                ListMode.Bulleted,
+                                ListMode.Enumerated
+                            ),
+                            selectedOption = mode,
+                            onSelectOption = { mode = it }
+                        ) {
+                            Text(text = it.name)
+                        }
+                    }
                 }
             }
-        ) {
-            Accordion(title = "Mode") {
-                RadioButtonGroup(
-                    options = listOf(
-                        ListMode.Bulleted,
-                        ListMode.Enumerated
-                    ),
-                    selectedOption = mode,
-                    onSelectOption = { mode = it }
-                ) {
-                    Text(text = it.name)
-                }
-            }
-        }
+        )
     }
 }

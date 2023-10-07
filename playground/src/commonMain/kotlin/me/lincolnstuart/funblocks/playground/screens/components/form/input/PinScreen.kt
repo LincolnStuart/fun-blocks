@@ -17,7 +17,7 @@ import me.lincolnstuart.funblocks.components.core.text.Text
 import me.lincolnstuart.funblocks.components.core.text.utils.TextMode
 import me.lincolnstuart.funblocks.components.form.input.pin.Pin
 import me.lincolnstuart.funblocks.components.form.switchbutton.SwitchButtonOption
-import me.lincolnstuart.funblocks.playground.components.ComponentCentralizer
+import me.lincolnstuart.funblocks.playground.components.ComponentWithOptions
 
 class PinScreen : Screen {
 
@@ -40,8 +40,8 @@ class PinScreen : Screen {
                     navigator.pop()
                 }
             ),
-            mainContent = {
-                ComponentCentralizer {
+            content = {
+                ComponentWithOptions(mainContent = {
                     Pin(
                         value = inputValue,
                         onValueChange = { inputValue = it },
@@ -50,19 +50,19 @@ class PinScreen : Screen {
                         isCharactersHide = isCharactersShowed.not(),
                         size = 6
                     )
+                }) {
+                    SwitchButtonOption(
+                        description = "Show Characters",
+                        isOn = isCharactersShowed,
+                        onClick = { isCharactersShowed = !isCharactersShowed }
+                    )
+                    SwitchButtonOption(
+                        description = "Error",
+                        isOn = error != null,
+                        onClick = { error = if (error == null) "some error" else null }
+                    )
                 }
             }
-        ) {
-            SwitchButtonOption(
-                description = "Show Characters",
-                isOn = isCharactersShowed,
-                onClick = { isCharactersShowed = !isCharactersShowed }
-            )
-            SwitchButtonOption(
-                description = "Error",
-                isOn = error != null,
-                onClick = { error = if (error == null) "some error" else null }
-            )
-        }
+        )
     }
 }

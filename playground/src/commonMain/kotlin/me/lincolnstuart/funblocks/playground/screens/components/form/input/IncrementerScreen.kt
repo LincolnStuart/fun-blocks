@@ -18,7 +18,7 @@ import me.lincolnstuart.funblocks.components.core.text.utils.TextMode
 import me.lincolnstuart.funblocks.components.form.input.incrementer.Incrementer
 import me.lincolnstuart.funblocks.components.form.input.incrementer.utils.IncrementerOptions
 import me.lincolnstuart.funblocks.components.form.switchbutton.SwitchButtonOption
-import me.lincolnstuart.funblocks.playground.components.ComponentCentralizer
+import me.lincolnstuart.funblocks.playground.components.ComponentWithOptions
 
 class IncrementerScreen : Screen {
 
@@ -38,8 +38,8 @@ class IncrementerScreen : Screen {
                     navigator.pop()
                 }
             ),
-            mainContent = {
-                ComponentCentralizer {
+            content = {
+                ComponentWithOptions(mainContent = {
                     Incrementer(
                         description = "Incrementer item",
                         value = inputValue,
@@ -50,14 +50,14 @@ class IncrementerScreen : Screen {
                             maxValue = 10
                         )
                     )
+                }) {
+                    SwitchButtonOption(
+                        description = "Reset allowed",
+                        isOn = isResetAllowed,
+                        onClick = { isResetAllowed = !isResetAllowed }
+                    )
                 }
             }
-        ) {
-            SwitchButtonOption(
-                description = "Reset allowed",
-                isOn = isResetAllowed,
-                onClick = { isResetAllowed = !isResetAllowed }
-            )
-        }
+        )
     }
 }

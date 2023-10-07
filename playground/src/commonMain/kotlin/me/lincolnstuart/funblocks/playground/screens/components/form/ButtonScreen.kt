@@ -32,7 +32,7 @@ class ButtonScreen : Screen {
                     navigator.pop()
                 }
             ),
-            mainContent = {
+            content = {
                 Column(Modifier.verticalScroll(scrollState)) {
                     SimpleListItem(title = "Button") {
                         navigator.push(SimpleButtonScreen())

@@ -29,7 +29,7 @@ class PieChartScreen : Screen {
                     navigator.pop()
                 }
             ),
-            mainContent = {
+            content = {
                 ComponentCentralizer {
                     PieChart(
                         data = listOf(

@@ -22,7 +22,7 @@ import me.lincolnstuart.funblocks.components.form.switchbutton.SwitchButtonOptio
 import me.lincolnstuart.funblocks.components.misc.accordion.Accordion
 import me.lincolnstuart.funblocks.components.misc.badge.Badge
 import me.lincolnstuart.funblocks.components.misc.badge.utils.BadgeMode
-import me.lincolnstuart.funblocks.playground.components.ComponentCentralizer
+import me.lincolnstuart.funblocks.playground.components.ComponentWithOptions
 
 class BadgeScreen : Screen {
 
@@ -42,37 +42,37 @@ class BadgeScreen : Screen {
                     navigator.pop()
                 }
             ),
-            mainContent = {
-                ComponentCentralizer {
+            content = {
+                ComponentWithOptions(mainContent = {
                     Badge(
                         description = "Badge",
                         mode = mode,
                         startIcon = icon
                     )
+                }) {
+                    Accordion(title = "Mode") {
+                        RadioButtonGroup(
+                            options = listOf(
+                                BadgeMode.Info,
+                                BadgeMode.Warning,
+                                BadgeMode.Success,
+                                BadgeMode.Error
+                            ),
+                            selectedOption = mode,
+                            onSelectOption = { mode = it }
+                        ) {
+                            Text(text = it.name)
+                        }
+                    }
+                    SwitchButtonOption(
+                        description = "Start Icon",
+                        isOn = icon != null,
+                        onClick = {
+                            icon = if (icon == null) TablerIcons.CircleDashed else null
+                        }
+                    )
                 }
             }
-        ) {
-            Accordion(title = "Mode") {
-                RadioButtonGroup(
-                    options = listOf(
-                        BadgeMode.Info,
-                        BadgeMode.Warning,
-                        BadgeMode.Success,
-                        BadgeMode.Error
-                    ),
-                    selectedOption = mode,
-                    onSelectOption = { mode = it }
-                ) {
-                    Text(text = it.name)
-                }
-            }
-            SwitchButtonOption(
-                description = "Start Icon",
-                isOn = icon != null,
-                onClick = {
-                    icon = if (icon == null) TablerIcons.CircleDashed else null
-                }
-            )
-        }
+        )
     }
 }

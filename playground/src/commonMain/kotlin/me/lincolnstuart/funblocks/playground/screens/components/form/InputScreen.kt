@@ -34,7 +34,7 @@ class InputScreen : Screen {
                     navigator.pop()
                 }
             ),
-            mainContent = {
+            content = {
                 Column(Modifier.verticalScroll(scrollState)) {
                     SimpleListItem(title = "Incrementer") {
                         navigator.push(IncrementerScreen())

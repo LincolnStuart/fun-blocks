@@ -22,7 +22,7 @@ import me.lincolnstuart.funblocks.components.misc.avatar.utils.AvatarMode
 import me.lincolnstuart.funblocks.components.misc.avatar.utils.AvatarOptions
 import me.lincolnstuart.funblocks.components.misc.avatar.utils.AvatarShape
 import me.lincolnstuart.funblocks.components.misc.avatar.utils.AvatarSize
-import me.lincolnstuart.funblocks.playground.components.ComponentCentralizer
+import me.lincolnstuart.funblocks.playground.components.ComponentWithOptions
 import org.jetbrains.compose.resources.ExperimentalResourceApi
 import org.jetbrains.compose.resources.painterResource
 
@@ -53,42 +53,46 @@ class AvatarScreen : Screen {
                     navigator.pop()
                 }
             ),
-            mainContent = {
-                ComponentCentralizer {
+            content = {
+                ComponentWithOptions(mainContent = {
                     Avatar(
                         mode = mode,
                         options = AvatarOptions(shape, size)
                     ) {}
+                }) {
+                    Accordion(title = "Mode") {
+                        RadioButtonGroup(
+                            options = listOf(iconMode, imageMode, initialsMode),
+                            selectedOption = mode,
+                            onSelectOption = { mode = it }
+                        ) {
+                            Text(text = it.javaClass.simpleName)
+                        }
+                    }
+                    Accordion(title = "Shape") {
+                        RadioButtonGroup(
+                            options = listOf(AvatarShape.Circle, AvatarShape.Square),
+                            selectedOption = shape,
+                            onSelectOption = { shape = it }
+                        ) {
+                            Text(text = it.name)
+                        }
+                    }
+                    Accordion(title = "Size") {
+                        RadioButtonGroup(
+                            options = listOf(
+                                AvatarSize.Small,
+                                AvatarSize.Regular,
+                                AvatarSize.Large
+                            ),
+                            selectedOption = size,
+                            onSelectOption = { size = it }
+                        ) {
+                            Text(text = it.name)
+                        }
+                    }
                 }
             }
-        ) {
-            Accordion(title = "Mode") {
-                RadioButtonGroup(
-                    options = listOf(iconMode, imageMode, initialsMode),
-                    selectedOption = mode,
-                    onSelectOption = { mode = it }
-                ) {
-                    Text(text = it.javaClass.simpleName)
-                }
-            }
-            Accordion(title = "Shape") {
-                RadioButtonGroup(
-                    options = listOf(AvatarShape.Circle, AvatarShape.Square),
-                    selectedOption = shape,
-                    onSelectOption = { shape = it }
-                ) {
-                    Text(text = it.name)
-                }
-            }
-            Accordion(title = "Size") {
-                RadioButtonGroup(
-                    options = listOf(AvatarSize.Small, AvatarSize.Regular, AvatarSize.Large),
-                    selectedOption = size,
-                    onSelectOption = { size = it }
-                ) {
-                    Text(text = it.name)
-                }
-            }
-        }
+        )
     }
 }

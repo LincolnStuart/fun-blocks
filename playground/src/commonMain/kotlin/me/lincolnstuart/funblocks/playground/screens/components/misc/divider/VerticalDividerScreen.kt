@@ -19,7 +19,7 @@ import me.lincolnstuart.funblocks.components.form.radiobutton.RadioButtonGroup
 import me.lincolnstuart.funblocks.components.misc.accordion.Accordion
 import me.lincolnstuart.funblocks.components.misc.divider.VerticalDivider
 import me.lincolnstuart.funblocks.components.misc.divider.utils.VerticalDividerMode
-import me.lincolnstuart.funblocks.playground.components.ComponentCentralizer
+import me.lincolnstuart.funblocks.playground.components.ComponentWithOptions
 
 class VerticalDividerScreen : Screen {
 
@@ -36,25 +36,25 @@ class VerticalDividerScreen : Screen {
                     navigator.pop()
                 }
             ),
-            mainContent = {
-                ComponentCentralizer {
+            content = {
+                ComponentWithOptions(mainContent = {
                     VerticalDivider(mode = mode)
+                }) {
+                    Accordion(title = "Mode") {
+                        RadioButtonGroup(
+                            options = listOf(
+                                VerticalDividerMode.Solid,
+                                VerticalDividerMode.Dashed,
+                                VerticalDividerMode.Dotted
+                            ),
+                            selectedOption = mode,
+                            onSelectOption = { mode = it }
+                        ) {
+                            Text(text = it.name)
+                        }
+                    }
                 }
             }
-        ) {
-            Accordion(title = "Mode") {
-                RadioButtonGroup(
-                    options = listOf(
-                        VerticalDividerMode.Solid,
-                        VerticalDividerMode.Dashed,
-                        VerticalDividerMode.Dotted
-                    ),
-                    selectedOption = mode,
-                    onSelectOption = { mode = it }
-                ) {
-                    Text(text = it.name)
-                }
-            }
-        }
+        )
     }
 }

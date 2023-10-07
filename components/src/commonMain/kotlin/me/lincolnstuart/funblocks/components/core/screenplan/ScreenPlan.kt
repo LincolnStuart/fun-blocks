@@ -12,7 +12,6 @@ import me.lincolnstuart.funblocks.components.core.appbar.utils.AppBarOptions
 import me.lincolnstuart.funblocks.components.core.bottomnavigator.BottomNavigator
 import me.lincolnstuart.funblocks.components.core.bottomnavigator.utils.BottomNavigatorOptions
 import me.lincolnstuart.funblocks.components.core.surface.Surface
-import me.lincolnstuart.funblocks.components.misc.divider.HorizontalDivider
 import me.lincolnstuart.funblocks.foundation.ui.theme.FunBlocksTheme
 import me.lincolnstuart.funblocks.foundation.ui.token.color.FunBlocksColors
 
@@ -20,8 +19,7 @@ import me.lincolnstuart.funblocks.foundation.ui.token.color.FunBlocksColors
 public fun ScreenPlan(
     appBarOptions: AppBarOptions? = null,
     bottomNavigationOptions: BottomNavigatorOptions? = null,
-    mainContent: (@Composable () -> Unit)? = null,
-    secondaryContent: (@Composable () -> Unit)? = null
+    content: (@Composable () -> Unit)? = null
 ) {
     FunBlocksTheme {
         Surface(modifier = Modifier.fillMaxSize()) {
@@ -35,10 +33,8 @@ public fun ScreenPlan(
                         .weight(1f)
                         .background(color = FunBlocksColors.SurfaceMedium.value())
                 ) {
-                    mainContent?.invoke()
+                    content?.invoke()
                 }
-                HorizontalDivider()
-                secondaryContent?.invoke()
                 bottomNavigationOptions?.let {
                     BottomNavigator(
                         options = bottomNavigationOptions

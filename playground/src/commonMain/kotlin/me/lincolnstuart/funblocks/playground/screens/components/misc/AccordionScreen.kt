@@ -33,7 +33,7 @@ class AccordionScreen : Screen {
                     navigator.pop()
                 }
             ),
-            mainContent = {
+            content = {
                 ComponentCentralizer {
                     Accordion(title = "Accordion") {
                         Box(

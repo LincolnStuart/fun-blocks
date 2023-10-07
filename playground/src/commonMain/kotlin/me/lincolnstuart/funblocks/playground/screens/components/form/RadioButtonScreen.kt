@@ -33,7 +33,7 @@ class RadioButtonScreen : Screen {
                     navigator.pop()
                 }
             ),
-            mainContent = {
+            content = {
                 ComponentCentralizer {
                     RadioButton(isSelected = isChecked, onClick = { isChecked = !isChecked })
                 }

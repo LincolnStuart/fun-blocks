@@ -32,7 +32,7 @@ class DividerScreen : Screen {
                     navigator.pop()
                 }
             ),
-            mainContent = {
+            content = {
                 Column(Modifier.verticalScroll(scrollState)) {
                     SimpleListItem(title = "Horizontal divider") {
                         navigator.push(HorizontalDividerScreen())
