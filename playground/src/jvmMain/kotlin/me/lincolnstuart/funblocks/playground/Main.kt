@@ -9,7 +9,7 @@ public fun main() {
     singleWindowApplication(
         title = "Fun Blocks Playground",
         state = WindowState(
-            size = DpSize(width = 360.dp, height = 800.dp)
+            size = DpSize(width = 500.dp, height = 500.dp)
         )
     ) {
         EntryPoint()
