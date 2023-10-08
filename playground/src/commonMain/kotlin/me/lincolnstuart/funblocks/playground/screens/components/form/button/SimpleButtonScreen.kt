@@ -14,6 +14,7 @@ import compose.icons.tablericons.CircleDashed
 import me.lincolnstuart.funblocks.components.core.appbar.utils.AppBarAction
 import me.lincolnstuart.funblocks.components.core.appbar.utils.AppBarOptions
 import me.lincolnstuart.funblocks.components.core.screenplan.ScreenPlan
+import me.lincolnstuart.funblocks.components.core.screenplan.utils.snackbar.SnackbarOptions
 import me.lincolnstuart.funblocks.components.core.text.Text
 import me.lincolnstuart.funblocks.components.core.text.utils.TextMode
 import me.lincolnstuart.funblocks.components.form.button.Button
@@ -33,6 +34,9 @@ class SimpleButtonScreen : Screen {
         var options by remember {
             mutableStateOf(ButtonOptions(isEnabled = false))
         }
+        var snackbarOptions by remember {
+            mutableStateOf<SnackbarOptions?>(null)
+        }
         ScreenPlan(
             appBarOptions = AppBarOptions(
                 mainContent = { Text(text = "SimpleButton", mode = TextMode.Subtitle()) },
@@ -40,9 +44,12 @@ class SimpleButtonScreen : Screen {
                     navigator.pop()
                 }
             ),
+            snackbarOptions = snackbarOptions,
             content = {
                 ComponentWithOptions(mainContent = {
-                    Button(description = "Button", options = options) {}
+                    Button(description = "Button", options = options) {
+                        snackbarOptions = SnackbarOptions(message = "button clicked!")
+                    }
                 }) {
                     Accordion(title = "Mode") {
                         RadioButtonGroup(
